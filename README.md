@@ -1,8 +1,18 @@
-# Study Notes
+# Taichi Lang
 
-```
-Don't just read it; fight it.
-                                                                                       ---- Paul R. Halmos
+### Keywords:
+
+- Differentiable Simulation
+
+---
+
+- Always initialize Taichi with `ti.init()` before you do any Taichi operations.
+
+```python
+ti.init(arch=ti.gpu)  # if none of the gpu architecture is detected
+                      # this will automatically falls back on cpu architectures.
 ```
 
-The contents in those notes are written by myself but they are <ins>by no means</ins> my own works. The only reason for me to write those notes is to keep track of my understandings on what I have learned from others. For this reason, the primary goal for the contents in all of my notes here is NOT to deliver knowledge, but to expose weaknesses in my understandings.
+This will specify the backend hardware architecture for Taichi to run on.
+
+- 
