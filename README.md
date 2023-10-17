@@ -56,12 +56,14 @@ print('b[0] = ', b[0][0], b[0][1], b[0][2])
 
 ### Kernel and func
 
+Both `@ti.kernel` and `@ti.func` can have at most <ins>one</ins> `return` statement.
 
-
-Taichi function (decorated with `@ti.func`) cannot be called directly from python scope.
+`@ti.func` cannot be called directly from python scope.
 
 It can be called from `@ti.kernel` and other `@ti.func`.
 
-Since, by the time of writing, it is force-inlined, it can not be recursive.
+`@ti.kernel` cannot be called from `@ti.func` or `@ti.kernel`.
 
-`@ti.func` can at most have <ins>one</ins> `return` statement.
+Since, by the time of writing, `@ti.func` is force-inlined, it can not be recursive.
+
+Recursion is also not allowed in `@ti.kernel`.
