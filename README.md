@@ -68,6 +68,8 @@ Since, by the time of writing, `@ti.func` is force-inlined, it can not be recurs
 
 Recursion is also not allowed in `@ti.kernel`.
 
+- Example:
+
 ```python
 @ti.kernel
 def fun(x: ti.f32) -> ti.i32:
