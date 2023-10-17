@@ -67,3 +67,9 @@ It can be called from `@ti.kernel` and other `@ti.func`.
 Since, by the time of writing, `@ti.func` is force-inlined, it can not be recursive.
 
 Recursion is also not allowed in `@ti.kernel`.
+
+```python
+@ti.kernel
+def fun(x: ti.f32) -> ti.i32:
+    return x
+```
