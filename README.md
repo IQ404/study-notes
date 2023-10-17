@@ -83,3 +83,11 @@ def fun(x: ti.f32) -> ti.i32:
 ---
 
 Taichi supports chaining comparison
+
+### Range `for` loop
+
+```python
+
+```
+
+### Struct `for` loop
