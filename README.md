@@ -3,6 +3,7 @@
 ### Keywords:
 
 - Differentiable Simulation
+- Spatially sparse
 
 ### `ti.init()`
 
@@ -53,5 +54,14 @@ b[0] = [1, 2, 3]
 print('b[0] = ', b[0][0], b[0][1], b[0][2])
 ```
 
+### Kernel and func
 
 
+
+Taichi function (decorated with `@ti.func`) cannot be called directly from python scope.
+
+It can be called from `@ti.kernel` and other `@ti.func`.
+
+Since, by the time of writing, it is force-inlined, it can not be recursive.
+
+`@ti.func` can at most have <ins>one</ins> `return` statement.
