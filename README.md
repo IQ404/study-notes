@@ -56,7 +56,7 @@ print('b[0] = ', b[0][0], b[0][1], b[0][2])
 
 Use `ti.Matrix` only for small matrices, use tensor for large mtrices.
 
-`*` is for component-wise multiplication, `@` is for matrix multiplication.
+`*` is for element-wise multiplication, `@` is for matrix multiplication.
 
 ### Kernel and func
 
