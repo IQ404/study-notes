@@ -96,7 +96,27 @@ def f():
 
 ### Field
 
+Note that we cannot allocate field in taichi scope.
 
+Field in Taichi is like a multi-dimensional array.
+
+Elements in a taichi field can be scalar, vector, matrix or struct.
+
+Those elements can be accessed via `[i,j,..]` syntax.
+
+Fields are global: they can be read/written from python scope and taichi scope.
+
+- Scalar field:
+
+```python
+f1 = ti.field(dtype=ti.f32, shape=())   # 0 dimensional scalar field (i.e. a ti.f32 scalar)
+f2 = ti.field(dtype=ti.f32, shape=4)   # 1 dimensional scalar field of 4 ti.f32 scalars
+f3 = ti.field(dtype=ti.f32, shape=(10,20))   # 2 dimensional scalar field of 10*20 ti.f32 scalars
+
+vf = ti.Vector.field(3, dtype=ti.f32, shape=(2,3))    # 2-d vector field of 2*3 3-d vectors of type ti.f32
+
+mf = ti.Matrix.field(3,2, dtype=ti.f32, shape=(4,5))    # 2-d field of 4*5 matrices of type ti.f32 with 3 rows and 2 columns
+```
 
 ### GUI
 
@@ -129,8 +149,6 @@ while gui.running:
 ```
 
 ### Tensor
-
-Tensor in Taichi is like a multi-dimensional array.
 
 An element in a tensor can be either a scalar (`ti.var`), a vector (`ti.Vector`) or a matrix (`ti.Matrix`).
 
