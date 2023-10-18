@@ -163,3 +163,13 @@ def sum():
         t[None] = t[None] + i    # data race
 ```
 
+### Type Casts
+
+```python
+@ti.kernel
+def f():
+    a = 1
+    b = ti.cast(a, ti.f32)
+    print(b)    # 1.000000
+```
+
