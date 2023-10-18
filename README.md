@@ -1,5 +1,17 @@
 # Taichi Lang
 
+### Installation
+
+Currently I will only show how I installed Taichi in my system.
+
+I'm on Windows 10, with python 3.10 installed, type the following in PowerShell:
+
+```
+python3.10 -m pip install --upgrade taichi
+```
+
+We can now `import` taichi in our python 3.10 program.
+
 ### Keywords:
 
 - Differentiable Simulation
