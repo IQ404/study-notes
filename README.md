@@ -1,6 +1,7 @@
 # Taichi Lang
 
 - Taichi is statically typed.
+- Index in Taichi starts from 0 (same as python and C++ etc.)
 
 ### Installation
 
