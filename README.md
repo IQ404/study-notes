@@ -96,17 +96,25 @@ E.g.
 
 ```python
 @ti.kernel
-def foo():
+def f():
     for i in range(3):    # parallelized
         print(i)
         for j in range(3):    # serialized
             print(i,j)
 
 @ti.kernel
-def foo():
+def g():
     for i,j,k in ti.ndrange((3,8),(1,6),9):    # parallelized, 3 <= i < 8, 1 <= j < 6, 0 <= k < 9
         print(i,j,k)
+
+@ti.kernel
+def h(p: ti.i32):
+    if p > 0:
+        for i in range(3):    # serialized
+            print(i)
 ```
+
+Note that for the last example, if the `if`-statement is known at the compile-time (and hence is optimized away by the compiler), then the following `for`-loop becomes the outermost loop, and thus it will be parallelized.
 
 ### Struct `for` loop
 
