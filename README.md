@@ -38,6 +38,16 @@ This will specify the backend (i.e. the hardware architecture) for Taichi to run
 - 32 bits unsigned integer: `ti.u32`
 - 32 bits floating point number: `ti.f32`
 
+### Type Casts
+
+```python
+@ti.kernel
+def f():
+    a = 1
+    b = ti.cast(a, ti.f32)
+    print(b)    # 1.000000
+```
+
 ### Tensor
 
 Tensor in Taichi is like a multi-dimensional array.
@@ -163,13 +173,5 @@ def sum():
         t[None] = t[None] + i    # data race
 ```
 
-### Type Casts
 
-```python
-@ti.kernel
-def f():
-    a = 1
-    b = ti.cast(a, ti.f32)
-    print(b)    # 1.000000
-```
 
