@@ -48,6 +48,31 @@ def f():
     print(b)    # 1.000000
 ```
 
+### Compound Types
+
+```python
+import taichi as ti
+ti.init(arch=ti.gpu)
+
+vec3f = ti.types.vector(3, ti.f32)
+mat2f = ti.types.matrix(2,2, ti.f32)
+ray = ti.types.struct(ori=vec3f, dir=vec3f, vision=ti.f32)
+
+@ti.kernel
+def f():
+    a = vec3f(0.0)
+    print(a)    # [0.000000, 0.000000, 0.000000]
+
+    b = vec3f(0,1,0)
+    print(b)    # [0.000000, 1.000000, 0.000000]
+
+    M = mat2f([[1,2],[3,4]])    # [[1.000000, 2.000000], [3.000000, 4.000000]]
+    print(M)
+
+    r = ray(a,b,10)
+    print(r.dir)    # [0.000000, 1.000000, 0.000000]
+```
+
 ### Tensor
 
 Tensor in Taichi is like a multi-dimensional array.
