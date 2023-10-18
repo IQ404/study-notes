@@ -73,6 +73,22 @@ def f():
 
     r = ray(a,b,10)
     print(r.dir)    # [0.000000, 1.000000, 0.000000]
+
+# Similarly:
+
+@ti.kernel
+def f():
+    a = ti.Vector([0.0,0,0])
+    print(a)    # [0.000000, 0.000000, 0.000000]
+
+    b = ti.Vector([0,1,0])
+    print(b)    # [0, 1, 0]
+
+    M = ti.Matrix([[1,2],[3.0, 4]])    # [[1.000000, 2.000000], [3.000000, 4.000000]]
+    print(M)
+
+    r = ti.Struct(ori=a,dir=b,vision=10.0)
+    print(r.vision)    # 10.000000
 ```
 
 ### Tensor
