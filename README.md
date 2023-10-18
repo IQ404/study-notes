@@ -98,6 +98,39 @@ def f():
 
 
 
+### GUI
+
+As mentioned, the `shape=(x,y)` given to a taichi field means `x` rows and `y` column.
+
+We can set the field as the image output to the taichi gui of the same dimension. In such cases, the field is map to the screen as if the screen has a conventional cartesian coordinates with origin at bottom left corner (i.e. `x` rows map to the horizontal `x`-axis increasing from left tot right; `y` columns map to the vertical `y`-axis increasing from bottom to top).
+
+The following example code shows this:
+
+```python
+import taichi as ti
+ti.init(arch=ti.cpu)
+
+x, y = 640,180
+# Creates a 640x480 scalar field, each of its elements representing a pixel value (f32)
+gray_scale_image = ti.field(dtype=ti.f32, shape=(x, y))
+
+@ti.kernel
+def fill_image():
+    # Fills the image with random gray
+    for i,j in gray_scale_image:
+        if i < 200 and j < 80:
+            gray_scale_image[i,j] = 0
+        else:
+            gray_scale_image[i,j] = 1
+
+fill_image()
+# Creates a GUI of the size of the gray-scale image
+gui = ti.GUI('gray-scale image of random values', (x, y))
+while gui.running:
+    gui.set_image(gray_scale_image)
+    gui.show()
+```
+
 ### Tensor
 
 Tensor in Taichi is like a multi-dimensional array.
