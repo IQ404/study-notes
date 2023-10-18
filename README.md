@@ -2,6 +2,7 @@
 
 - Taichi is statically typed.
 - Index in Taichi starts from 0 (same as python and C++ etc.)
+- There is no pointer in Taichi.
 
 ### Installation
 
@@ -150,22 +151,9 @@ while gui.running:
 
 ### Tensor
 
-An element in a tensor can be either a scalar (`ti.var`), a vector (`ti.Vector`) or a matrix (`ti.Matrix`).
-
-- Note that tensor and matrix in Taichi are two different constructs.
-
-Always access element in a tensor via the `a[i,j,k]` syntax.
-
-- There is no pointer in Taichi.
-
 Examples of tensor:
 
 ```python
-loss = ti.var(dt=ti.f32, shape=())
-a = ti.var(dt=ti.f32, shape=(42, 63))
-b = ti.Vector(3, dt=ti.f32, shape=4)
-C = ti.Matrix(2, 2, dt=ti.f32, shape=(3, 5))
-
 loss[None] = 3
 print(loss[None])
 
