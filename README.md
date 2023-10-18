@@ -64,7 +64,7 @@ Both `@ti.kernel` and `@ti.func` can have at most <ins>one</ins> `return` statem
 
 `@ti.func` cannot be called directly from python scope.
 
-It can be called from `@ti.kernel` and other `@ti.func`.
+`@ti.func` can be called from `@ti.kernel` and other `@ti.func`.
 
 `@ti.kernel` cannot be called from `@ti.func` or `@ti.kernel`.
 
