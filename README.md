@@ -131,3 +131,21 @@ def paint():
         pixels[i,j] = i + j
 ```
 
+### Atomic Operation
+
+In Taichi, augmented assignment (e.g., `+=`) are made to be atomic operation.
+
+```python
+import taichi as ti
+ti.init(arch=ti.gpu)
+
+s = ti.var(dt=ti.i32, shape=())
+t = ti.var(dt=ti.i32, shape=())
+
+@ti.kernel
+def sum():
+    for i in range(5):    # parallelized
+        s[None] += i    # sum correctly
+        t[None] = t[None] + i    # data race
+```
+
