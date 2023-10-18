@@ -108,7 +108,7 @@ The following example code shows this:
 
 ```python
 import taichi as ti
-ti.init(arch=ti.cpu)
+ti.init(arch=ti.gpu)
 
 x, y = 640,180
 image = ti.field(dtype=ti.f32, shape=(x, y))
