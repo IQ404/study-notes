@@ -14,6 +14,8 @@ python3.10 -m pip install --upgrade taichi
 
 We can now `import` taichi in our python 3.10 program.
 
+Note that the version of Taichi I was using when writing this notes is <ins>1.6.0</ins>.
+
 ### Keywords:
 
 - Differentiable Simulation
