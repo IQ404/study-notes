@@ -95,7 +95,17 @@ E.g.
 ### Range `for` loop
 
 ```python
+@ti.kernel
+def foo():
+    for i in range(3):    # parallelized
+        print(i)
+        for j in range(3):    # serialized
+            print(i,j)
 
+@ti.kernel
+def foo():
+    for i,j,k in ti.ndrange((3,8),(1,6),9):    # parallelized, 3 <= i < 8, 1 <= j < 6, 0 <= k < 9
+        print(i,j,k)
 ```
 
 ### Struct `for` loop
