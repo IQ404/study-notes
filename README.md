@@ -119,6 +119,15 @@ Note that for the last example, if the condition `if`-statement is known at the 
 ### Struct `for` loop
 
 ```python
+import taichi as ti
+ti.init(arch=ti.gpu)
 
+n = 320
+pixels = ti.var(dt=ti.i32, shape=(n*2, n))
+
+@ti.kernel
+def paint():
+    for i,j in pixels:    # parallelized
+        pixels[i,j] = i + j
 ```
 
