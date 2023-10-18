@@ -1,5 +1,7 @@
 # Taichi Lang
 
+- Taichi is statically typed.
+
 ### Installation
 
 Currently I will only show how I installed Taichi in my system.
