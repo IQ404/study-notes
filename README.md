@@ -84,9 +84,11 @@ def f():
 
     b = ti.Vector([0,1,0])
     print(b)    # [0, 1, 0]
+    print(b[1])    # 1
 
     M = ti.Matrix([[1,2],[3.0, 4]])    # [[1.000000, 2.000000], [3.000000, 4.000000]]
     print(M)
+    print(M[1,0])    # 3.000000
 
     r = ti.Struct(ori=a,dir=b,vision=10.0)
     print(r.vision)    # 10.000000
