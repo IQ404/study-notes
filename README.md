@@ -111,23 +111,20 @@ import taichi as ti
 ti.init(arch=ti.cpu)
 
 x, y = 640,180
-# Creates a 640x480 scalar field, each of its elements representing a pixel value (f32)
-gray_scale_image = ti.field(dtype=ti.f32, shape=(x, y))
+image = ti.field(dtype=ti.f32, shape=(x, y))
 
 @ti.kernel
 def fill_image():
-    # Fills the image with random gray
-    for i,j in gray_scale_image:
+    for i,j in image:
         if i < 200 and j < 80:
-            gray_scale_image[i,j] = 0
+            image[i,j] = 0
         else:
-            gray_scale_image[i,j] = 1
+            image[i,j] = 1
 
 fill_image()
-# Creates a GUI of the size of the gray-scale image
-gui = ti.GUI('gray-scale image of random values', (x, y))
+gui = ti.GUI('canvas', (x, y))
 while gui.running:
-    gui.set_image(gray_scale_image)
+    gui.set_image(image)
     gui.show()
 ```
 
