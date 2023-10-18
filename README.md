@@ -102,7 +102,7 @@ def f():
 
 As mentioned, the `shape=(x,y)` given to a taichi field means `x` rows and `y` column.
 
-We can set the field as the image output to the taichi gui of the same dimension. In such cases, the field is map to the screen as if the screen has a conventional cartesian coordinates with origin at bottom left corner (i.e. `x` rows map to the horizontal `x`-axis increasing from left tot right; `y` columns map to the vertical `y`-axis increasing from bottom to top).
+We can set the field as the image output to the taichi gui of the same dimension. In such cases, the field is map to the screen as if the screen has a conventional cartesian coordinates with origin at bottom left corner (i.e. `x` rows map to the horizontal `x`-axis increasing from left to right; `y` columns map to the vertical `y`-axis increasing from bottom to top).
 
 The following example code shows this:
 
