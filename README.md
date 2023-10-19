@@ -95,6 +95,12 @@ def f():
     print(r.vision)    # 10.000000
 ```
 
+Note:
+
+- Use `ti.Matrix` only for small matrices, use tensor for large matrices.
+
+- `*` is for element-wise multiplication, `@` is for matrix multiplication.
+
 ### Field
 
 Note that we cannot allocate field in taichi scope.
@@ -153,12 +159,6 @@ while gui.running:
     gui.set_image(image)
     gui.show()
 ```
-
-### Tensor
-
-Use `ti.Matrix` only for small matrices, use tensor for large mtrices.
-
-`*` is for element-wise multiplication, `@` is for matrix multiplication.
 
 ### Kernel and func
 
