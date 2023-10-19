@@ -99,6 +99,8 @@ Note:
 
 - Use `ti.Matrix` only for small matrices, use tensor for large matrices.
 
+  E.g. Use `ti.Matrix.field(3, 2, dtype=ti.f32, shape=(64, 32))` instead of `ti.Matrix.field(64, 32, dtype=ti.f32, shape=(3, 2))`
+
 - `*` is for element-wise multiplication, `@` is for matrix multiplication.
 
 ### Field
