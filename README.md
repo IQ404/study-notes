@@ -117,6 +117,11 @@ f3 = ti.field(dtype=ti.f32, shape=(10,20))   # 2 dimensional scalar field of 10*
 vf = ti.Vector.field(3, dtype=ti.f32, shape=(2,3))    # 2-d vector field of 2*3 3-d vectors of type ti.f32
 
 mf = ti.Matrix.field(3,2, dtype=ti.f32, shape=(4,5))    # 2-d field of 4*5 matrices of type ti.f32 with 3 rows and 2 columns
+
+f1[None] = 1.0    # accessing the scalar in the 0-d scalar field
+vf[1,2][1] = 2.0    # acessing the 2nd element of the 3-d vector located at row 2, column 3 of the 2-d vector field
+vf[0,1] = [6,8,10]    # direct vector assignment
+mf[1,2][1,0] = 3.0    # acessing the element at row 2, column 1 of the 3*2 matrix located at row 2, column 3 of the 2-d matrix (tensor) field
 ```
 
 ### GUI
@@ -150,19 +155,6 @@ while gui.running:
 ```
 
 ### Tensor
-
-Examples of tensor:
-
-```python
-loss[None] = 3
-print(loss[None])
-
-a[3, 4] = 1
-print('a[3, 4] = ', a[3, 4])
-
-b[0] = [1, 2, 3]
-print('b[0] = ', b[0][0], b[0][1], b[0][2])
-```
 
 Use `ti.Matrix` only for small matrices, use tensor for large mtrices.
 
