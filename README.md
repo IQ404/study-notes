@@ -186,6 +186,56 @@ def fun(x: ti.f32) -> ti.i32:
 
 ---
 
+❓ In the following code:
+
+```python
+import taichi as ti
+ti.init(arch=ti.gpu)
+
+a = 42
+
+@ti.kernel
+def f():
+    a = 1
+    print(a)
+```
+
+Is the `a` in `f()` a separately defined variable which overwrites the identifier of the `a` defined in python scope, or is `a = 1` just overwritting the content of the variable created when pass `a` to the taichi scope by value? Hence, if `a = 1` is commented out, is `a` passed by (const) reference to taichi scope or are we haing an overhead of copying the value?
+
+---
+
+The following shows why we want global taichi 0-d scalar field:
+
+```python
+import taichi as ti
+ti.init(arch=ti.gpu)
+
+a = 42
+
+@ti.kernel
+def f():
+    print(a)
+
+f()    # 42
+a = 43
+f()    # 42
+
+b = ti.field(dtype=ti.i32, shape=())
+
+@ti.kernel
+def g():
+    print(b[None])
+
+b[None] = 42
+g()    # 42
+b[None] = 43
+g()    # 43
+```
+
+❓ Explain how does the taichi JIT compiler deal with this internally.
+
+---
+
 Taichi supports chaining comparison.
 
 E.g.
