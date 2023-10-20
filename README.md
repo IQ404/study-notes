@@ -218,7 +218,7 @@ def h(p: ti.i32):
             print(i)
 ```
 
-Note that for the last example, if the condition `if`-statement is known at the compile-time (and hence is optimized away by the compiler. E.g., `if p == p:`), then the following `for`-loop becomes the outermost loop, and thus it will be parallelized.
+Note that for the last example, if the condition `if`-statement is known at the compile-time (and hence is optimized away by the compiler. E.g., `if p == p:`), then the following `for`-loop becomes the outermost loop (recall that `ti.func` is force-inlined), and thus it will be parallelized.
 
 Note that `break` cannot be used for the parallelized for loop.
 
