@@ -255,14 +255,11 @@ def f():
         print(i)
         for j in range(3):    # serialized
             print(i,j)
-
-@ti.kernel
-def g():
     for i,j,k in ti.ndrange((3,8),(1,6),9):    # parallelized, 3 <= i < 8, 1 <= j < 6, 0 <= k < 9
         print(i,j,k)
 
 @ti.kernel
-def h(p: ti.i32):
+def g(p: ti.i32):
     if p > 0:
         for i in range(3):    # serialized
             print(i)
