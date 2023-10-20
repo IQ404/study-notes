@@ -200,7 +200,7 @@ def f():
     print(a)
 ```
 
-Is the `a` in `f()` a separately defined variable which overwrites the identifier of the `a` defined in python scope, or is `a = 1` just overwritting the content of the variable created when pass `a` to the taichi scope by value? Hence, if `a = 1` is commented out, is `a` passed by (const) reference to taichi scope or are we haing an overhead of copying the value?
+Is the `a` in `f()` a separately defined variable which overwrites the identifier of the `a` defined in python scope, or is `a = 1` just overwritting the content of the variable created when pass `a` to the taichi scope by value? Hence, if `a = 1` is commented out, is `a` passed by (const) reference to taichi scope or are we having an overhead of copying the value?
 
 ---
 
