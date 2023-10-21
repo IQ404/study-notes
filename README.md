@@ -22,6 +22,8 @@ Note that the version of Taichi I was using when writing this notes is <ins>1.6.
 
 - Differentiable Simulation
 - Spatially sparse
+- Memory footprint
+- Load balance
 
 ### `ti.init()`
 
