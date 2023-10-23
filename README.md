@@ -282,7 +282,7 @@ import taichi as ti
 ti.init(arch=ti.gpu)
 
 n = 320
-pixels = ti.var(dt=ti.i32, shape=(n*2, n))
+pixels = ti.field(ti.i32, shape=(n*2, n))
 
 @ti.kernel
 def paint():
