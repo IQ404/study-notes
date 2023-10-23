@@ -298,8 +298,8 @@ In Taichi, augmented assignment (e.g., `+=`) are made to be atomic operation.
 import taichi as ti
 ti.init(arch=ti.gpu)
 
-s = ti.var(dt=ti.i32, shape=())
-t = ti.var(dt=ti.i32, shape=())
+s = ti.field(ti.i32, shape=())
+t = ti.field(ti.i32, shape=())
 
 @ti.kernel
 def sum():
