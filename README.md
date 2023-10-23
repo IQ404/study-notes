@@ -24,6 +24,7 @@ Note that the version of Taichi I was using when writing this notes is <ins>1.6.
 - Spatially sparse
 - Memory footprint
 - Load balance
+- JIT compilation
 
 ### `ti.init()`
 
