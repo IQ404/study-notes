@@ -338,3 +338,5 @@ The total computation to be done for `case 1` and `case 2` are 120 and 140 respe
 Nevertheless, if the outermost `for` loops are executed in parallel, the computation for each thread (from thread 1 to 5) are 0, 12, 24, 36, 48 respectively for `case 1`, and are 28, 28, 28, 28, 28 respectively for `case 2`.
 
 Hence, `case 1` is better for single thread CPU execution, while `case 2` is better for GPU execution.
+
+❓ How about in case where the total iterations is much larger than the total threads available?
