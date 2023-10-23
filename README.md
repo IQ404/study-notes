@@ -339,4 +339,4 @@ Nevertheless, if the outermost `for` loops are executed in parallel, the computa
 
 Hence, `case 1` is better for single thread CPU execution, while `case 2` is better for GPU execution.
 
-❓ How about in case where the total iterations is much larger than the total threads available?
+❓ How about in case where the number of total iterations is much larger than the number of total threads available?
