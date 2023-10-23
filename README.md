@@ -25,6 +25,8 @@ Note that the version of Taichi I was using when writing this notes is <ins>1.6.
 - Memory footprint
 - Load balance
 - JIT compilation
+- Cellular automaton
+- Diffusion-limited aggregation
 
 ### `ti.init()`
 
@@ -341,3 +343,5 @@ Nevertheless, if the outermost `for` loops are executed in parallel, the computa
 Hence, `case 1` is better for single thread CPU execution, while `case 2` is better for GPU execution.
 
 ❓ How about in case where the number of total iterations is much larger than the number of total threads available?
+
+### Metaprogramming
