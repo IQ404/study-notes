@@ -305,5 +305,36 @@ def sum():
         t[None] = t[None] + i    # data race
 ```
 
+---
 
+Case Study:
 
+```python
+# case 1:
+for i in range(5):
+        p = pos[i]
+        for j in range(i):
+            diff = p - pos[j]                     # 1
+            r = diff.norm(1e-5)                   # 0.5
+            f = -G * m * m * (1.0 / r)**3 * diff  # 0.5
+            force[i] += f                         # 5
+            force[j] += -f                        # 5
+
+# case 2:
+for i in range(5):
+        p = pos[i]
+        for j in range(5):
+            if i != j:
+                diff = p - pos[j]                     # 1
+                r = diff.norm(1e-5)                   # 0.5
+                f = -G * m * m * (1.0 / r)**3 * diff  # 0.5
+                force[i] += f                         # 5
+```
+
+Shown in the comments are the amount of computation taken for each line.
+
+The total computation to be done for `case 1` and `case 2` are 120 and 140 respectively.
+
+Nevertheless, if the outermost `for` loops are executed in parallel, the computation for each thread (from thread 1 to 5) are 0, 12, 24, 36, 48 respectively for `case 1`, and are 28, 28, 28, 28, 28 respectively for `case 2`.
+
+Hence, `case 1` is better for single thread CPU execution, while `case 2` is better for GPU execution.
