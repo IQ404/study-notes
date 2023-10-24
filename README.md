@@ -360,7 +360,7 @@ Hence, `case 1` is better for single thread CPU execution, while `case 2` is bet
 
   We can extract those taichi vectors using the `for i in ti.grouped(f):` syntax.
 
-  Note that we can do indexing directly using taichi vector (like `f[v]`).
+  Note that we can do indexing directly using taichi vector (like `f[v]` where `v` is a `ti.Vector`).
 
   Note that if `f` is defined as `shape=()`, the `i` will be `ti.Vector([])`.
 
