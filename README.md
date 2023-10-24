@@ -356,6 +356,16 @@ Hence, `case 1` is better for single thread CPU execution, while `case 2` is bet
 
 - Once the type of a parameter is marked by `ti.template()`, the function will be defined as a Taichi template function.
 
+- `ti.grouped(f)` takes a taichi field `f` and returns a data structure that holds all the taichi vectors representing the indices of `f` that traverse `f`.
+
+  We can extract those taichi vectors using the `for i in ti.grouped(f):` syntax.
+
+  Note that we can do indexing directly using taichi vector (like `f[v]`).
+
+  Note that if `f` is defined as `shape=()`, the `i` will be `ti.Vector([])`.
+
+  Using `ti.Vector([])` to do indexing is equivalent to do `[None]`.
+
 Example:
 
 ```python
@@ -363,17 +373,17 @@ import taichi as ti
 ti.init(arch=ti.gpu)
 
 @ti.kernel
-def copy(src: ti.template(), dst: ti.template(), size: ti.i32):
-    for i in range(size):
+def copy(src: ti.template(), dst: ti.template()):
+    for i in ti.grouped(src):
         dst[i] = src[i]
 
 a = ti.field(ti.f32, 4)
 b = ti.field(ti.f32, 4)
-c = ti.field(ti.f32, 8)
-d = ti.field(ti.f32, 8)
+c = ti.Vector.field(3, ti.f32, shape=(3,5))
+d = ti.Vector.field(3, ti.f32, shape=(3,5))
 
-copy(a,b,4)
-copy(c,d,8)
+copy(a,b)
+copy(c,d)
 ```
 
 ### To improve runtime performance
