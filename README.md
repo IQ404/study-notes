@@ -344,4 +344,37 @@ Hence, `case 1` is better for single thread CPU execution, while `case 2` is bet
 
 ❓ How about in case where the number of total iterations is much larger than the number of total threads available?
 
-### Metaprogramming
+## Metaprogramming
+
+### To write dimensionality-independent code
+
+- `ti.template()` marks the type of the parameter so that we can pass any Taichi-things to the parameter.
+- The parameter of type `ti.template()` will be <ins>passed by reference</ins>.
+
+  - We can not modify data of python scope in taichi scope if it is not in a taichi field, because it will be passed into the taichi scope as a constant.
+  - We can modify data of taichi scope in taichi scope (e.g., data defined in `ti.kernel` passed as `ti.template()` to `ti.func` is passed by ~~const~~ reference).
+
+- Once the type of a parameter is marked by `ti.template()`, the function will be defined as a Taichi template function.
+
+Example:
+
+```python
+import taichi as ti
+ti.init(arch=ti.gpu)
+
+@ti.kernel
+def copy(src: ti.template(), dst: ti.template(), size: ti.i32):
+    for i in range(size):
+        dst[i] = src[i]
+
+a = ti.field(ti.f32, 4)
+b = ti.field(ti.f32, 4)
+c = ti.field(ti.f32, 8)
+d = ti.field(ti.f32, 8)
+
+copy(a,b,4)
+copy(c,d,8)
+```
+
+### To improve runtime performance
+
