@@ -352,6 +352,24 @@ Hence, `case 1` is better for single thread CPU execution, while `case 2` is bet
 
 ❗ The version of Taichi that I am currently using (1.6.0) seems to have bugs with the taichi scope `assert` statement working on GPU.
 
+E.g. The only output of the following code, currently revealing on my machine, is `0`
+
+```python
+import taichi as ti
+ti.init(arch=ti.cuda, debug=False)
+
+@ti.kernel
+def f(a: ti.i32, b: ti.i32) -> ti.i32:
+    assert a != b, f"a and b are same"
+    print('No debugging')
+    c = 42
+    return c
+
+d = f(1,1)
+
+print(d)
+```
+
 ## Metaprogramming
 
 ### To write dimensionality-independent code
