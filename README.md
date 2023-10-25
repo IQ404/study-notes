@@ -412,5 +412,43 @@ copy(a,b)
 copy(c,d)
 ```
 
+- Accessing metadata:
+
+```python
+import taichi as ti
+ti.init(arch=ti.gpu)
+
+@ti.kernel
+def f(src: ti.template(), dst: ti.template()):
+    if src.dtype == dst.dtype:
+        print("Same type")
+    else:
+        print("Different types")
+    
+    if src.shape == dst.shape:
+        print("Same shape")
+    else:
+        print("Different shapes")
+
+a = ti.field(ti.i32, 4)
+b = ti.field(ti.f32, 4)
+c = ti.Vector.field(3, ti.f32, shape=(3,5))
+
+f(a,b)    # Different types
+          # Same shape
+f(b,c)    # Same type
+          # Different shapes
+f(a,c)    # Different types
+          # Different shapes
+
+d = ti.Vector([1,2,3,4])
+e = ti.Matrix([[1,2],[3,4],[5,6]])
+
+print(d.n)    # 4 (rows)
+print(d.m)    # 1 (column)
+print(e.n)    # 3 (rows)
+print(e.m)    # 2 (columns)
+```
+
 ### To improve runtime performance
 
