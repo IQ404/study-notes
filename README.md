@@ -356,7 +356,7 @@ Hence, `case 1` is better for single thread CPU execution, while `case 2` is bet
 
 - Once the type of a parameter is marked by `ti.template()`, the function will be defined as a Taichi template function.
 
-- `ti.grouped(f)` takes a taichi field `f` and returns a data structure that holds all the taichi vectors representing the indices of `f` that traverse `f`.
+- `ti.grouped(f)` takes a taichi field `f` and returns a data structure that holds all the `ti.Vector`s representing the indices of `f` that traverse `f`.
 
   We can extract those taichi vectors using the `for i in ti.grouped(f):` syntax.
 
