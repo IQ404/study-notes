@@ -4,7 +4,7 @@
 - Index in Taichi starts from 0 (same as python and C++ etc.)
 - There is no pointer in Taichi.
 
-### Installation
+## Installation
 
 Currently I will only show how I installed Taichi in my system.
 
@@ -18,7 +18,7 @@ We can now `import` taichi in our python 3.10 program.
 
 Note that the version of Taichi I was using when writing this notes is <ins>1.6.0</ins>.
 
-### Keywords to Study:
+## Keywords to Study:
 
 - Differentiable Simulation
 - Spatially sparse
@@ -28,7 +28,7 @@ Note that the version of Taichi I was using when writing this notes is <ins>1.6.
 - Cellular automaton
 - Diffusion-limited aggregation
 
-### `ti.init()`
+## `ti.init()`
 
 Always initialize Taichi with `ti.init()` before you do any Taichi operations.
 
@@ -41,13 +41,13 @@ ti.init(arch=ti.gpu)  # if none of the gpu architecture is detected
 
 This will specify the backend (i.e. the hardware architecture) for Taichi to run on.
 
-### Common Data Types
+## Common Data Types
 
 - 32 bits integer: `ti.i32`
 - 32 bits unsigned integer: `ti.u32`
 - 32 bits floating point number: `ti.f32`
 
-### Type Casts
+## Type Casts
 
 ```python
 @ti.kernel
@@ -57,7 +57,7 @@ def f():
     print(b)    # 1.000000
 ```
 
-### Compound Types
+## Compound Types
 
 ```python
 import taichi as ti
@@ -108,7 +108,7 @@ Note:
 
 - `*` is for element-wise multiplication, `@` is for matrix multiplication.
 
-### Field
+## Field
 
 Note that we cannot allocate field in taichi scope.
 
@@ -137,7 +137,7 @@ vf[0,1] = [6,8,10]    # direct vector assignment
 mf[1,2][1,0] = 3.0    # acessing the element at row 2, column 1 of the 3*2 matrix located at row 2, column 3 of the 2-d matrix (tensor) field
 ```
 
-### GUI
+## GUI
 
 As mentioned, the `shape=(x,y)` given to a taichi field means `x` rows and `y` column.
 
@@ -167,7 +167,11 @@ while gui.running:
     gui.show()
 ```
 
-### Kernel and func
+## GGUI
+
+
+
+## Kernel and func
 
 Both `@ti.kernel` and `@ti.func` can have at most <ins>one</ins> `return` statement.
 
@@ -251,7 +255,7 @@ E.g.
 
 ---
 
-### Range `for` loop
+## Range `for` loop
 
 ```python
 @ti.kernel
@@ -275,7 +279,7 @@ Note that for the last example, if the condition `if`-statement is known at the 
 
 Note that `break` cannot be used for the parallelized for loop.
 
-### Struct `for` loop
+## Struct `for` loop
 
 ```python
 import taichi as ti
@@ -290,7 +294,7 @@ def paint():
         pixels[i,j] = i + j
 ```
 
-### Atomic Operation
+## Atomic Operation
 
 In Taichi, augmented assignment (e.g., `+=`) are made to be atomic operation.
 
@@ -343,6 +347,10 @@ Nevertheless, if the outermost `for` loops are executed in parallel, the computa
 Hence, `case 1` is better for single thread CPU execution, while `case 2` is better for GPU execution.
 
 ❓ How about in case where the number of total iterations is much larger than the number of total threads available?
+
+## Debug
+
+❗ The version of Taichi that I am currently using (1.6.0) seems to have bugs with the taichi scope `assert` statement working on GPU.
 
 ## Metaprogramming
 
