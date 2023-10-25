@@ -453,3 +453,8 @@ print(e.m)    # 2 (columns)
 
 ### To improve runtime performance
 
+`ti.static()` in Taichi is to some extent similar to `constexpr` in C++.
+
+The `if`-statement `if ti.static(x):`, when it is legal, will eliminate the overhead of branching.
+
+The `for`-loop `for i in ti.static(range(x))`, when it is legal, will unroll the loop and then execute the contents serially.
