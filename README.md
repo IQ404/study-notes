@@ -381,6 +381,7 @@ print(d)
   - We can modify data of taichi scope in taichi scope (e.g., data defined in `ti.kernel` passed as `ti.template()` to `ti.func` is passed by ~~const~~ reference).
 
 - Once the type of a parameter is marked by `ti.template()`, the function will be defined as a Taichi template function.
+- A Taichi template function will be instantiated if and only if a call to the function with a new parameter (even it is same typed as the previous one) is made.
 
 - `ti.grouped(f)` takes a taichi field `f` and returns a data structure that holds all the `ti.Vector`s representing the indices of `f` that traverse `f`.
 
