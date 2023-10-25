@@ -457,7 +457,7 @@ print(e.m)    # 2 (columns)
 
 The `if`-statement `if ti.static(x):`, when it is legal, will eliminate the overhead of branching.
 
-The `for`-loop `for i in ti.static(range(x))`, when it is legal, will unroll the loop and then execute the contents serially.
+The `for`-loop `for i in ti.static(range(x)):`, when it is legal, will unroll the loop and then execute the contents serially.
 
 ## Object Oriented
 
