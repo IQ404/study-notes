@@ -32,6 +32,8 @@ Note that the version of Taichi I was using when writing this notes is <ins>1.6.
 
 - [What does `if __name__ == "__main__":` do?](https://stackoverflow.com/a/419185/17172007)
 
+  Note that both `import X` and `from X import ...` execute codes in file `X.py`.
+
 ## `ti.init()`
 
 Always initialize Taichi with `ti.init()` before you do any Taichi operations.
