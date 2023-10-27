@@ -28,6 +28,10 @@ Note that the version of Taichi I was using when writing this notes is <ins>1.6.
 - Cellular automaton
 - Diffusion-limited aggregation
 
+## Miscellaneous Python-related Questions
+
+- [What does `if __name__ == "__main__":` do?](https://stackoverflow.com/a/419185/17172007)
+
 ## `ti.init()`
 
 Always initialize Taichi with `ti.init()` before you do any Taichi operations.
