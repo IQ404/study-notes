@@ -38,6 +38,8 @@ Note that the version of Taichi I was using when writing this notes is <ins>1.6.
 
 - [We can actually call sub-class method in base-class](https://stackoverflow.com/a/9126240/17172007)
 
+- In python, no include guards is necessary.
+
 ## `ti.init()`
 
 Always initialize Taichi with `ti.init()` before you do any Taichi operations.
