@@ -34,6 +34,8 @@ Note that the version of Taichi I was using when writing this notes is <ins>1.6.
 
   Note that both `import X` and `from X import ...` execute codes in file `X.py`.
 
+- [the `pass` keyword](https://www.w3schools.com/python/ref_keyword_pass.asp)
+
 ## `ti.init()`
 
 Always initialize Taichi with `ti.init()` before you do any Taichi operations.
