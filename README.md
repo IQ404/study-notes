@@ -34,7 +34,9 @@ Note that the version of Taichi I was using when writing this notes is <ins>1.6.
 
   Note that both `import X` and `from X import ...` execute codes in file `X.py`.
 
-- [the `pass` keyword](https://www.w3schools.com/python/ref_keyword_pass.asp)
+- [The `pass` keyword](https://www.w3schools.com/python/ref_keyword_pass.asp)
+
+- [We can actually call sub-class method in base-class](https://stackoverflow.com/a/9126240/17172007)
 
 ## `ti.init()`
 
