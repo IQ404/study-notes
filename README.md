@@ -32,6 +32,7 @@ Note that the version of Taichi I was using when writing this notes is <ins>1.6.
 - JIT compilation
 - Cellular automaton
 - Diffusion-limited aggregation
+- Interpreted language
 
 ## Miscellaneous Python-related Questions
 
