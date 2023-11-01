@@ -9,6 +9,7 @@
 - Taichi is statically typed.
 - Index in Taichi starts from 0 (same as python and C++ etc.)
 - There is no pointer in Taichi.
+- Taichi is designed to be data-oriented.
 
 ## Installation
 
@@ -479,3 +480,8 @@ The `for`-loop `for i in ti.static(range(x)):`, when it is legal, will unroll th
 
 ## Object Oriented
 
+To decorate python class method as `ti.func` or `ti.kernel`, we need to first decorate the python class with `@ti.data_oriented`.
+
+Note that a python class decorated with `@ti.data_oriented` is still in python scope. That is, the methods defined in the class is still in python scope unless decorated with `@ti.func` or `@ti.kernel`.
+
+Hence, we can define taichi fields within any python-scope methods.
