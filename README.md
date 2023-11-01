@@ -199,7 +199,7 @@ In my current understanding:
 - Once we have created a taichi gui object, running the taichi program will create a gui window.
 - The reaction for the Window buttoms (on the top right corner) is dealed within `gui.show()`.
 - What is currently shown stays (probably in some buffer `A`) until the next call of `gui.show()`.
-- There is probably some other buffer `B` where we can draw the next frame. calling `gui.show()` will take data from buffer `B` to buffer `A`, and then clear buffer `B`.
+- There is probably some other buffer `B` where we can draw the next frame. Calling `gui.show()` will take data from buffer `B` to buffer `A`, and then clear buffer `B`.
 
 ## GGUI
 
