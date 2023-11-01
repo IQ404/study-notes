@@ -417,6 +417,8 @@ print(d)
 - Once the type of a parameter is marked by `ti.template()`, the function will be defined as a Taichi template function.
 - A Taichi template function will be instantiated if and only if a call to the function with a new parameter (even it is same typed as the previous one) is made.
 
+  ❓ I believe, in Python, if I write `a = 1` and then `a = 2`, the address referring by `a` changes. Will change in address result in new instantiation of taichi template function?
+
 - `ti.grouped(f)` takes a taichi field `f` and returns a data structure that holds all the `ti.Vector`s representing the indices of `f` that traverse `f`.
 
   We can extract those taichi vectors using the `for i in ti.grouped(f):` syntax.
