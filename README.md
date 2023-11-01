@@ -1,8 +1,10 @@
-# Contents
+# Taichi Lang
+
+## Contents
 
 - 
 
-# Taichi Lang
+## Features to Note
 
 - Taichi is statically typed.
 - Index in Taichi starts from 0 (same as python and C++ etc.)
