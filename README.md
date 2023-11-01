@@ -494,4 +494,5 @@ Hence, we can define taichi fields within any python-scope methods (including th
 
 - Note that, in my current understanding, as taichi's compiler uses JIT compilation, only when we instantiate a class will the taichi compiler starts to compile the machine code for allocating the taichi field data members of the class. If so, this explain why we don't need `ti.init` for a `.py` source file that only contains the definitions of classes.
 
-Note also that, since data members are defined in python scope, taichi JIT compiler will compile data members of python's types as constant in `ti.kernel` and `ti.func`.
+Note also that, since data members are defined in python scope, taichi JIT compiler will pass data members of python's types as constant to `ti.kernel` and `ti.func`.
+
