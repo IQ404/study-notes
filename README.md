@@ -484,3 +484,4 @@ Note that a python class decorated with `@ti.data_oriented` is still in python s
 
 Hence, we can define taichi fields within any python-scope methods (including the `__init__` function).
 
+- Note that, in my current understanding, as taichi's compiler uses JIT compilation, only when we instantiate a class will the taichi compiler starts to compile the machine code for allocating the taichi field data members of the class. If so, this explain why we don't need `ti.init` for a `.py` source file that only contains the definitions of classes.
