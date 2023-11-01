@@ -1,6 +1,4 @@
-# Taichi Lang
-
-## Contents
+# Contents
 
 - 
 
