@@ -1,3 +1,7 @@
+# Contents
+
+- 
+
 # Taichi Lang
 
 - Taichi is statically typed.
