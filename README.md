@@ -480,6 +480,7 @@ The `for`-loop `for i in ti.static(range(x)):`, when it is legal, will unroll th
 
 To decorate python class method as `ti.func` or `ti.kernel`, we need to first decorate the python class with `@ti.data_oriented`.
 
-Note that a python class decorated with `@ti.data_oriented` is still in python scope. That is, the methods defined in the class is still in python scope unless decorated with `@ti.func` or `@ti.kernel`.
+Note that a python class decorated with `@ti.data_oriented` is still in python scope. That is, the methods defined in the class are still in python scope unless decorated with `@ti.func` or `@ti.kernel`.
 
-Hence, we can define taichi fields within any python-scope methods.
+Hence, we can define taichi fields within any python-scope methods (including the `__init__` function).
+
