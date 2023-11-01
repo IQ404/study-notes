@@ -416,23 +416,6 @@ print(d)
 
 - Once the type of a parameter is marked by `ti.template()`, the function will be defined as a Taichi template function.
 - A Taichi template function will be instantiated if and only if a call to the function with a new parameter (even it is same typed as the previous one) is made.
-  
-  ❓ This may not be true! The following code, currently on my machine, outputs `2` and `3`:
-
-```python
-import taichi as ti
-
-ti.init(arch=ti.gpu)
-
-@ti.kernel
-def f(x: ti.template()):
-    print(x)
-
-a = 2
-f(a)
-a += 1
-f(a)
-```
 
 - `ti.grouped(f)` takes a taichi field `f` and returns a data structure that holds all the `ti.Vector`s representing the indices of `f` that traverse `f`.
 
