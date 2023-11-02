@@ -6,10 +6,14 @@
 - [Miscellaneous Python-related Questions](#Miscellaneous-Python-related-Questions)
 - [What is Data-Oriented](#What-is-Data-Oriented)
 - [`ti.init()`](#tiinit)
-- []()
-- []()
-- []()
-
+- [Common Data Types](#Common-Data-Types)
+- [Type Casts](#Type-Casts)
+- [Compound Types](#Compound-Types)
+- [Field](#Field)
+- [GUI](#GUI)
+- [GGUI](#GGUI)
+- [](#)
+- [](#)
 
 ## Features to Note
 
