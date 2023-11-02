@@ -535,7 +535,7 @@ Note also that, since data members are defined in python scope, taichi's JIT com
 
 ## Dense Data Layout
 
-
+Possible References: [Taichi Docs](https://docs.taichi-lang.org/docs/layout)
 
 ## Sparse Data Layout
 
