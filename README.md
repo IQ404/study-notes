@@ -5,7 +5,7 @@
 - [Keywords to Study](#Keywords-to-Study)
 - [Miscellaneous Python-related Questions](#Miscellaneous-Python-related-Questions)
 - [What is Data-Oriented](#What-is-Data-Oriented)
-- [`ti.init()`](#ti.init())
+- [`ti.init()`](#tiinit)
 - []()
 - []()
 - []()
