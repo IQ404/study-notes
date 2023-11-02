@@ -67,6 +67,8 @@ Note that the version of Taichi I was using when writing this notes is <ins>1.6.
 
 - [In python, no include guards is necessary](https://stackoverflow.com/a/2950584/17172007)
 
+- [In Python, everything is an object](https://stackoverflow.com/a/44861529/17172007)
+
 ## What is Data-Oriented
 
 AOS (Array of Structures)
