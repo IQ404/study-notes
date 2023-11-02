@@ -533,3 +533,9 @@ Hence, we can define taichi fields within any python-scope methods (including th
 
 Note also that, since data members are defined in python scope, taichi's JIT compiler will pass data members of python's types as constant to `ti.kernel` and `ti.func`.
 
+## Dense Data Layout
+
+
+
+## Sparse Data Layout
+
