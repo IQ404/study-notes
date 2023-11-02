@@ -2,8 +2,8 @@
 
 - [Features to Note](#Features-to-Note)
 - [Installation](#Installation)
-- []()
-- []()
+- [Keywords to Study](#Keywords-to-Study)
+- [Miscellaneous Python-related Questions](#Miscellaneous-Python-related-Questions)
 - []()
 - []()
 - []()
