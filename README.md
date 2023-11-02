@@ -3,7 +3,7 @@
 - [Features to Note](#Features-to-Note)
 - [Installation](#Installation)
 - [Keywords to Study](#Keywords-to-Study)
-- [Miscellaneous Python-related Questions](#Miscellaneous-Python-related-Questions)
+- [Miscellaneous Python-related Knowledge](#Miscellaneous-Python-related-Knowledge)
 - [What is Data-Oriented](#What-is-Data-Oriented)
 - [`ti.init()`](#tiinit)
 - [Common Data Types](#Common-Data-Types)
@@ -57,7 +57,7 @@ Note that the version of Taichi I was using when writing this notes is <ins>1.6.
 - Bezier curve
 - Marching squares/cubes
 
-## Miscellaneous Python-related Questions
+## Miscellaneous Python-related Knowledge
 
 - [What does `if __name__ == "__main__":` do?](https://stackoverflow.com/a/419185/17172007)
 
