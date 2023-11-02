@@ -55,6 +55,7 @@ Note that the version of Taichi I was using when writing this notes is <ins>1.6.
 - Diffusion-limited aggregation
 - Interpreted language
 - Bezier curve
+- Marching squares/cubes
 
 ## Miscellaneous Python-related Questions
 
