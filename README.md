@@ -1,6 +1,6 @@
 # Contents
 
-- [Features to Note](featurestonote)
+- [Features to Note](Features-to-Note)
 
 ## Features to Note
 
