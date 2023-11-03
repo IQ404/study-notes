@@ -537,5 +537,30 @@ Note also that, since data members are defined in python scope, taichi's JIT com
 
 Possible References: [Taichi Docs](https://docs.taichi-lang.org/docs/layout#organizing-an-efficient-data-layout)
 
+❓ Explain how Taichi executes the following code:
+
+```python
+import taichi as ti
+
+ti.init(arch=ti.gpu)
+
+a = ti.field(ti.i32)
+ti.root.dense(ti.i, 2).dense(ti.i, 2).dense(ti.i, 2).place(a)
+
+@ti.kernel
+def f():
+    for i in a:
+        print(i, end=' ')
+        j = 0
+        while j < 1000:
+            j += 1
+        print(j, end=' ')
+
+f()
+
+# my 1st execution: 6 7 4 5 2 3 0 1 1000 1000 1000 1000 1000 1000 1000 1000
+# my 2nd execution: 4 5 6 7 0 1 2 3 1000 1000 1000 1000 1000 1000 1000 1000
+```
+
 ## Sparse Data Layout
 
