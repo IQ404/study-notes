@@ -582,6 +582,7 @@ ti.root.dense(ti.ij, (2,2)).dense(ti.ij, (3,3)).place(x)    # block-major
 # store data in 4 blocks each has 9 cells
 # order between each block is row-major
 # order between each cell is row-major
+# note that we still use two variables (i,j) to access this field in a struct-for loop
 ```
 
 ❓ Explain how Taichi executes the following code:
