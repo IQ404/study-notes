@@ -543,7 +543,7 @@ Possible References: [Taichi Docs](https://docs.taichi-lang.org/docs/layout#orga
 
 - The rule of thumb for better memory access is to <ins>align the order of memory access with the memory layout (i.e. the order for which the data is storage in main memory)</ins>
 
-  This is because, each time when information is taken from main memory to the cache, a block of information is taken. That is, all the information local to the piece of information that is aimed to be taken specifically by that fetch will probably be sent into the cache. Hence, if the information wanted by the next fetch is local to the information taken by the last fetch, data access will just need to be done within the cache, which is much faster than accessing the main memory. This is why we want <ins>locality</ins>.
+  This is because, each time when information is taken from main memory to the cache, a block of information is taken. That is, all the information local to the piece of information that is aimed to be taken specifically by that fetch will probably be sent into the cache. Hence, if the information wanted by the next fetch is local to the information taken by the last fetch, data access will have a chance to be done within the cache, which is much faster than accessing the main memory. This is why we want <ins>locality</ins>.
 
 In Taichi, fields are stored in memory as SNodeTree (Structural Node Tree).
 
