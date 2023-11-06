@@ -19,6 +19,8 @@
 - [Debug](#Debug)
 - [Metaprogramming](#Metaprogramming)
 - [Object Oriented](#Object-Oriented)
+- [Dense Data Layout](#Dense-Data-Layout)
+- [Sparse Data Layout](#Sparse-Data-Layout)
 - [](#)
 - [](#)
 - [](#)
