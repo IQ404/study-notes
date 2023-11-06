@@ -563,6 +563,8 @@ x = ti.Vector.field(3, ti.i32, shape=8)
 # is equivalent to:
 x = ti.Vector.field(3, ti.i32)
 ti.root.dense(ti.i, 8).place(x)
+# ti.i means the layer added to the SNodeTree
+# is a row (ti.j means the same for column)
 
 x = ti.field(ti.i32, shape=(2,3))
 # is equivalent to:
