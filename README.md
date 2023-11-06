@@ -609,5 +609,7 @@ f()
 # my 2nd execution: 4 5 6 7 0 1 2 3 1000 1000 1000 1000 1000 1000 1000 1000
 ```
 
+- In my current understanding, 
+
 ## Sparse Data Layout
 
