@@ -543,6 +543,37 @@ Possible References: [Taichi Docs](https://docs.taichi-lang.org/docs/layout#orga
 
 - The rule of thumb for better memory access is to <ins>align the order of memory access with the memory layout (i.e. the order for which the data is storage in main memory)</ins>
 
+In Taichi, fields are stored in memory as SNodeTree (Structural Node Tree).
+
+`ti.root` defines the root of a SNodeTree. Following a `.dense()` defines the shape of a layer (if there is any) on the tree. `.place()` defines the data element of the tree.
+
+The last `.dense()` in a `ti.root` statement indicates the adjacent data elements in memory.
+
+The default layout for a taichi field is row-major.
+
+Examples:
+
+```python
+x = ti.Vector.field(3, ti.i32, shape=())
+# is equivalent to:
+x = ti.Vector.field(3, ti.i32)
+ti.root.place(x)    # this reveals that x is 0-d
+
+x = ti.Vector.field(3, ti.i32, shape=8)
+# is equivalent to:
+x = ti.Vector.field(3, ti.i32)
+ti.root.dense(ti.i, 8).place(x)
+
+x = ti.field(ti.i32, shape=(2,3))
+# is equivalent to:
+x = ti.field(ti.i32)
+ti.root.dense(ti.ij, (2,3)).place(x)
+# ti.ij means the layer added to the SNodeTree
+# is a row-major 2-d array
+
+
+```
+
 ❓ Explain how Taichi executes the following code:
 
 ```python
