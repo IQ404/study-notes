@@ -549,7 +549,7 @@ In Taichi, fields are stored in memory as SNodeTree (Structural Node Tree).
 
 The last `.dense()` in a `ti.root` statement indicates the adjacent data elements in memory.
 
-The default layout for a taichi field is row-major.
+The default layout for a taichi field (i.e. define field directly, without using `ti.root`) is row-major.
 
 Examples:
 
