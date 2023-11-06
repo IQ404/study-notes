@@ -539,6 +539,10 @@ Note also that, since data members are defined in python scope, taichi's JIT com
 
 Possible References: [Taichi Docs](https://docs.taichi-lang.org/docs/layout#organizing-an-efficient-data-layout)
 
+- Since, normally, we gain much more computational power running under a parallel framework (e.g. GPU) than a serial framework (e.g. single thread CPU), we often want to focus on getting better memory access rather than reducing computations when dealing with parallel programming.
+
+- The rule of thumb for better memory access is to <ins>align the order of memory access with the memory layout (i.e. the order for which the data is storage in main memory)</ins>
+
 ❓ Explain how Taichi executes the following code:
 
 ```python
