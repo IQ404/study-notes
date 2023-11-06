@@ -603,14 +603,17 @@ def f():
         while j < 1000:
             j += 1
         print(j, end=' ')
-
+        print('a', end=' ')
 f()
 
-# my 1st execution: 6 7 4 5 2 3 0 1 1000 1000 1000 1000 1000 1000 1000 1000
-# my 2nd execution: 4 5 6 7 0 1 2 3 1000 1000 1000 1000 1000 1000 1000 1000
+# my 1st execution: 6 7 4 5 2 3 0 1 1000 1000 1000 1000 1000 1000 1000 1000 a a a a a a a a 
+# my 2nd execution: 4 5 6 7 0 1 2 3 1000 1000 1000 1000 1000 1000 1000 1000 a a a a a a a a 
 ```
 
-- In my current understanding, 
+- In my current understanding:
+  - If the root of a field is connected directly to the leaf layer, then, taichi will use a single thread to traverse that leaf layer if the number of cells in that leaf layer is small, or use multiple threads partitioning the cells.
+  - If the root of a field is connected to a layer which is not leaf layer, then taichi will allocate a number of threads that try to match the number of all the paths that lead to a leaf layer, and if the number of cells in a leaf layer is large, taichi will use more threads (if available) to partition that leaf layer.
+  - For each thread, it seems that the loop is further optimized. By my guess, taichi optimize the first print statement for all the iterations that are governed by each thread into one print statement for each thread.
 
 ## Sparse Data Layout
 
