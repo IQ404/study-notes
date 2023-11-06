@@ -549,7 +549,11 @@ In Taichi, fields are stored in memory as SNodeTree (Structural Node Tree).
 
 The last `.dense()` in a `ti.root` statement indicates the adjacent data elements in memory.
 
+❓ Are adjacent layers in SNodeTree always be adjacent in memory?
+
 The default layout for a taichi field (i.e. define field directly, without using `ti.root`) is row-major.
+
+We can use struct-`for` loop to traverse a taichi field (as usual) constructed from `ti.root`. The taichi compiler will automatically deduce the underlying data layout of a taichi field and apply the same order for data access.
 
 Examples:
 
@@ -573,7 +577,11 @@ ti.root.dense(ti.ij, (2,3)).place(x)
 # ti.ij means the layer added to the SNodeTree
 # is a row-major 2-d array
 
-
+x = ti.field(ti.i32)
+ti.root.dense(ti.ij, (2,2)).dense(ti.ij, (3,3)).place(x)    # block-major
+# store data in 4 blocks each has 9 cells
+# order between each block is row-major
+# order between each cell is row-major
 ```
 
 ❓ Explain how Taichi executes the following code:
