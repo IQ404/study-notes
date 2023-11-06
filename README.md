@@ -545,7 +545,7 @@ Possible References: [Taichi Docs](https://docs.taichi-lang.org/docs/layout#orga
 
 In Taichi, fields are stored in memory as SNodeTree (Structural Node Tree).
 
-`ti.root` defines the root of a SNodeTree. Following a `.dense()` defines the shape of a layer (if there is any) on the tree. `.place()` defines the data element of the tree.
+`ti.root` defines the root of a SNodeTree. Following a `.dense()` defines the shape of a layer (if there is any) on the tree. Following `.place()` defines the type of the data element of the tree.
 
 The last `.dense()` in a `ti.root` statement indicates the adjacent data elements in memory.
 
