@@ -20,6 +20,8 @@
 - [Metaprogramming](#Metaprogramming)
 - [Object Oriented](#Object-Oriented)
 - [Dense Data Layout](#Dense-Data-Layout)
+  - [SOA in Taichi](#SOA-in-Taichi)
+  - [AOS in Taichi](#AOS-in-Taichi)
 - [Sparse Data Layout](#Sparse-Data-Layout)
 - [](#)
 - [](#)
@@ -641,6 +643,14 @@ f()
   - If the root of a field is connected to a layer which is not leaf layer, then taichi will try to allocate enough number of threads to (ideally) run all the paths that lead to a leaf layer in parallel, and if the number of cells in a leaf layer is large, taichi will use more threads (if available) to partition that leaf layer.
   - For each thread, it seems that the loop is further optimized. By my guess, taichi optimize the first print statement for all the iterations that are governed by each thread into one print statement for each thread (same is done to the third print statement later on).
   - It seems that each thread only starts dealing with the third print statement after the thread has done with the second print statement for all iterations the thread governs. This may be a strategy to "shrink" the `for` loop by keeping what are not necessary looping multiple times outside the loop.
+
+### SOA in Taichi
+
+
+
+### AOS in Taichi
+
+
 
 ## Sparse Data Layout
 
