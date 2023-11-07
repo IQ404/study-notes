@@ -78,21 +78,21 @@ Note that the version of Taichi I was using when writing this notes is <ins>1.6.
 ```cpp
 struct AOS
 {
-	int a;
-	int b;
+    int a;
+    int b;
 };
 
 struct SOA
 {
-	int a[100];
-	int b[100];
+    int a[100];
+    int b[100];
 };
 
 int main()
 {
-	// all the arrays on stack
-	AOS aos[100];	// Array of Structures
-	SOA soa;		// Structure of Arrays
+    // all the arrays on stack
+    AOS aos[100];   // Array of Structures
+    SOA soa;        // Structure of Arrays
 }
 ```
 
