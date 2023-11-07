@@ -582,6 +582,8 @@ The last `.dense()` in a `ti.root` statement indicates the adjacent data element
 
 ❓ Are adjacent layers in SNodeTree always be adjacent in memory? (Probably not, in light of the way we write SOA in taichi)
 
+❓ Are all leaf layers for a field be adjacent in memory? (I think this could result in better memory access)
+
 The default layout for a taichi field (i.e. define field directly, without using `ti.root`) is row-major.
 
 We can use struct-`for` loop to traverse a taichi field (as usual) constructed from `ti.root`. The taichi compiler will automatically deduce the underlying data layout of a taichi field and apply the same order for data access.
