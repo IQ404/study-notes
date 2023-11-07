@@ -653,7 +653,16 @@ f()
 
 ❓ Is there only one SNodeTree for each Taichi program?
 
-  ha
+I'm asking this because, as far as I am aware, we are using the same command `ti.root` to construct fields even when we are having multiple fields. More specifically, according to the [Docs](https://docs.taichi-lang.org/docs/layout#aos-versus-soa), we are having a SOA (which means `x` and `y` are adjacent in memory, sitting in the same SNodeTree) as follows:
+
+```python
+x = ti.field(ti.f32)
+y = ti.field(ti.f32)
+ti.root.dense(ti.i, M).place(x)
+ti.root.dense(ti.i, M).place(y)
+```
+
+But can I actually build two separate SNodeTrees, one for `x` and the other for `y`? Or is it not necessary for us to "care" about that?
 
 ## Sparse Data Layout
 
