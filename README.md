@@ -666,7 +666,7 @@ ti.root.dense(ti.i, M).place(x)
 ti.root.dense(ti.i, M).place(y)
 ```
 
-But can I actually build two separate SNodeTrees, one for `x` and the other for `y` (for example, in cases where I don't want to take up a huge area of continuous memory)? Or is it not necessary for us to "care" about it?
+But can I actually build two separate SNodeTrees, one for `x` and the other for `y` (for example, in cases where I don't want to take up a huge area of continuous memory)? (Wait... Is each `ti.root` defining a separate SNodeTree already?)
 
 ## Sparse Data Layout
 
