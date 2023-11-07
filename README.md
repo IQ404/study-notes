@@ -75,11 +75,28 @@ Note that the version of Taichi I was using when writing this notes is <ins>1.6.
 
 ## What is Data-Oriented
 
-AOS (Array of Structures)
+```cpp
+struct AOS
+{
+	int a;
+	int b;
+};
 
-SOA (Structure of Arrays)
+struct SOA
+{
+	int a[100];
+	int b[100];
+};
 
-Latter is more data-oriented.
+int main()
+{
+	// all the arrays on stack
+	AOS aos[100];	// Array of Structures
+	SOA soa;		// Structure of Arrays
+}
+```
+
+SOA is more data-oriented than AOS.
 
 ## `ti.init()`
 
