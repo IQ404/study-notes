@@ -98,6 +98,8 @@ int main()
 
 SOA is more data-oriented than AOS.
 
+Note that both `aos` and `soa` takes up equal amount of space on the memory.
+
 ## `ti.init()`
 
 Always initialize Taichi with `ti.init()` before you do any Taichi operations.
