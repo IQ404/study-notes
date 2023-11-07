@@ -27,6 +27,8 @@
 - [](#)
 - [](#)
 
+To be continued...
+
 ## Features to Note
 
 - Taichi is statically typed.
