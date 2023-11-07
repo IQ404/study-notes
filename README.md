@@ -84,21 +84,26 @@ struct AOS
 
 struct SOA
 {
-    int a[100];
-    int b[100];
+    int a[5];
+    int b[5];
 };
 
 int main()
 {
     // all the arrays on stack
-    AOS aos[100];   // Array of Structures
+    AOS aos[5];   // Array of Structures
     SOA soa;        // Structure of Arrays
 }
 ```
 
 SOA is more data-oriented than AOS.
 
-Note that both `aos` and `soa` takes up equal amount of space on the memory.
+Note that both `aos` and `soa` takes up equal amount of space on the memory. But they have different memory layouts for `a` and `b`:
+
+```
+ababababab    // aos
+aaaaabbbbb    // soa
+```
 
 ## `ti.init()`
 
