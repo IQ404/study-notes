@@ -121,6 +121,8 @@ ti.init(arch=ti.gpu)  # if none of the gpu architecture is detected
 
 This will specify the backend (i.e. the hardware architecture) for Taichi to run on.
 
+❓ What does it mean to a Taichi program if I do `ti.init` multple places?
+
 ## Common Data Types
 
 - 32 bits integer: `ti.i32`
