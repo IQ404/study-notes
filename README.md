@@ -27,7 +27,7 @@
 - [](#)
 - [](#)
 
-To be continued...
+- To be continued...
 
 ## Features to Note
 
