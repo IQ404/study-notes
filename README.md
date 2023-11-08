@@ -651,12 +651,6 @@ f()
 
 ### SOA in Taichi
 
-
-
-### AOS in Taichi
-
-❓ Given the following code:
-
 ```python
 x = ti.field(ti.f32)
 y = ti.field(ti.f32)
@@ -664,7 +658,7 @@ ti.root.dense(ti.i, 5).place(x)
 ti.root.dense(ti.i, 5).place(y)
 ```
 
-Is there only one SNodeTree (if so, are `x` and `y` adjacent in memory, sitting in the same SNodeTree?)? Or are there two SNodeTrees, one for `x` and the other for `y` (that is, each `ti.root` defines a separate SNodeTree)?
+❓ For the above code: Is there only one SNodeTree (if so, are `x` and `y` adjacent in memory, sitting in the same SNodeTree?)? Or are there two SNodeTrees, one for `x` and the other for `y` (that is, each `ti.root` defines a separate SNodeTree)?
 
 If it is the former, can I actually build two separate SNodeTrees, one for `x` and the other for `y` (for example, in cases where I don't want to take up a huge area of continuous memory)?
 
@@ -689,6 +683,15 @@ fb_snode_tree = fb.finalize()  # Finalizes the FieldsBuilder and returns a SNode
 func(y)
 func(x)
 fb_snode_tree.destroy()  # Destruction
+```
+
+### AOS in Taichi
+
+```python
+x = ti.field(ti.i32)
+y = ti.Vector.field(2, ti.f32)
+ti.root.dense(ti.i, 2).place(x, y)
+# In memory: x[None] y[0] y[1] x[None] y[0] y[1]
 ```
 
 ## Sparse Data Layout
