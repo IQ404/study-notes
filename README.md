@@ -660,8 +660,8 @@ f()
 ```python
 x = ti.field(ti.f32)
 y = ti.field(ti.f32)
-ti.root.dense(ti.i, M).place(x)
-ti.root.dense(ti.i, M).place(y)
+ti.root.dense(ti.i, 5).place(x)
+ti.root.dense(ti.i, 5).place(y)
 ```
 
 Is there only one SNodeTree (if so, are `x` and `y` adjacent in memory, sitting in the same SNodeTree?)? Or are there two separate SNodeTrees, one for `x` and the other for `y`?
