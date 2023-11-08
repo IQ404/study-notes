@@ -689,9 +689,9 @@ fb_snode_tree.destroy()  # Destruction
 
 ```python
 x = ti.field(ti.i32)
-y = ti.Vector.field(2, ti.f32)
-ti.root.dense(ti.i, 2).place(x, y)
-# In memory: x[None] y[0] y[1] x[None] y[0] y[1]
+y = ti.Vector.field(3, ti.f32)
+ti.root.dense(ti.i, 5).place(x, y)
+# In memory: xyxyxyxyxy
 ```
 
 ## Sparse Data Layout
