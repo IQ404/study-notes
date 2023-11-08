@@ -580,7 +580,7 @@ In Taichi, fields are stored in memory as SNodeTree (Structural Node Tree).
 
 The last `.dense()` in a `ti.root` statement indicates the adjacent data elements in memory.
 
-❓ Are adjacent layers in SNodeTree always be adjacent in memory? (Probably not, in light of the way we write SOA in taichi)
+❓ Are adjacent layers in SNodeTree always be adjacent in memory?
 
 ❓ Are all leaf layers for a field be adjacent in memory? (I think this could result in better memory access)
 
