@@ -683,7 +683,7 @@ func(x)
 fb_snode_tree.destroy()  # Destruction
 ```
 
-❓ Are `x` and `y` constructed in the above way adjacent in memory? What if I change te placement of `x` to `fb.dense(ti.j, 10).place(x)`? (that is, will different branches created for `ti.i`, `ti.j` etc. ?)
+❓ Are `x` and `y` constructed in the above way adjacent in memory? What if I change te placement of `x` to `fb.dense(ti.j, 10).place(x)`? (that is, will different branches be created for `ti.i`, `ti.j` etc. ?)
 
 ### AOS in Taichi
 
