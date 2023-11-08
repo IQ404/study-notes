@@ -680,15 +680,15 @@ def func(v: ti.template()):
     for I in ti.grouped(v):
         print(I)
 
-fb2 = ti.FieldsBuilder()
+fb = ti.FieldsBuilder()
 y = ti.field(dtype=ti.f32)
-fb2.dense(ti.i, 5).place(y)
+fb.dense(ti.i, 5).place(y)
 x = ti.field(dtype=ti.i32)
-fb2.dense(ti.i, 10).place(x)
-fb2_snode_tree = fb2.finalize()  # Finalizes the FieldsBuilder and returns a SNodeTree
+fb.dense(ti.i, 10).place(x)
+fb_snode_tree = fb.finalize()  # Finalizes the FieldsBuilder and returns a SNodeTree
 func(y)
 func(x)
-fb2_snode_tree.destroy()  # Destruction
+fb_snode_tree.destroy()  # Destruction
 ```
 
 ## Sparse Data Layout
