@@ -687,6 +687,10 @@ fb_snode_tree.destroy()  # Destruction
 
 ❓ Are `x` and `y` constructed in the above way adjacent in memory? What if I change te placement of `x` to `fb.dense(ti.j, 10).place(x)`? (that is, will different branches be created for `ti.i`, `ti.j` etc. ?)
 
+- For all questions in the above context that I asked about memory adjacency of a SNodeTree, please refer to the diagram in [the Docs](https://docs.taichi-lang.org/docs/internal#data-structure-organization).
+
+  For the question about whether each `ti.root` creates a separate SNodeTree, my current understanding (although not 100% sure) is YES. But we can have memory adjacency by making sure that we are allocating data on the same SNodeTree using the return value (as how the example does in [the Docs](https://docs.taichi-lang.org/docs/internal#data-structure-organization)).
+
 ### AOS in Taichi
 
 ```python
