@@ -668,5 +668,28 @@ Is there only one SNodeTree (if so, are `x` and `y` adjacent in memory, sitting 
 
 If it is the former, can I actually build two separate SNodeTrees, one for `x` and the other for `y` (for example, in cases where I don't want to take up a huge area of continuous memory)?
 
+- Since we can do the following, my guess is that there's only one SNodeTree.
+
+```python
+import taichi as ti
+
+ti.init(arch=ti.gpu)
+
+@ti.kernel
+def func(v: ti.template()):
+    for I in ti.grouped(v):
+        print(I)
+
+fb2 = ti.FieldsBuilder()
+y = ti.field(dtype=ti.f32)
+fb2.dense(ti.i, 5).place(y)
+x = ti.field(dtype=ti.i32)
+fb2.dense(ti.i, 10).place(x)
+fb2_snode_tree = fb2.finalize()  # Finalizes the FieldsBuilder and returns a SNodeTree
+func(y)
+func(x)
+fb2_snode_tree.destroy()  # Destruction
+```
+
 ## Sparse Data Layout
 
