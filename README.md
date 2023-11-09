@@ -696,6 +696,8 @@ ti.root.dense(ti.i, 5).place(x, y)
 # In memory: xyxyxyxyxy
 ```
 
+---
+
 - Note that we can use `ti.get_addr(field, indices)` for checking memory adjacency (please call it within `@ti.kernel`).
 
 ## Sparse Data Layout
