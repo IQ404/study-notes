@@ -655,7 +655,7 @@ f()
 
 ### SOA in Taichi
 
-Well, there are some potentially antihuman design I found about taichi field construction:
+In my current understanding. `ti.root` create new SNodeTree (and does destructions) in an automatic way.
 
 ```python
 import taichi as ti
@@ -665,22 +665,13 @@ ti.init(arch=ti.gpu)
 x = ti.field(ti.i32)
 y = ti.field(ti.i32)
 
-ti.root.dense(ti.i, 2).dense(ti.i, 2).place(x)
-ti.root.dense(ti.i, 2).dense(ti.i, 2).place(y)
-
-@ti.kernel
-def print_address():
-    print(ti.get_addr(x, 0))
-    print(ti.get_addr(x, 1))
-    print(ti.get_addr(y, 0))
-    print(ti.get_addr(y, 1))
-
-print_address()
+ti.root.dense(ti.i, 2).place(x)
+ti.root.dense(ti.i, 2).place(y)
 ```
 
-The output of the above shows that `x` and `y` are not adjacent in memory. This might imply that we have created two separate SNodeTrees.
+The above code creates one SNodeTree. The upper `ti.root` first find the root of this tree, the `.dense` following it attachs cells to the tail of whatever that has already been attached to the calling part (which is `ti.root` in this case). In this case, nothing has been attached to `to.root` yet, so the `.dense` following the `ti.root` is the "head" of its attachments. `.place(x)` makes the cells of its calling part (which is `ti.dense(ti.i, 2)`) become data containers for type `x`. Then, the lower `ti.root.dense()` does the same so now it attachs more cells to the tail of the cells created by the first `.dense`, and then makes the cells newly attached into data containers for type `y`. Hence, we get a memory layout as `xxyy`.
 
-We can make `x` and `y` be adjacent in memory by using the following code:
+If we do something as follows:
 
 ```python
 import taichi as ti
@@ -692,45 +683,13 @@ y = ti.field(ti.i32)
 
 a = ti.root.dense(ti.i, 2)
 
-a.dense(ti.i, 2).place(x)
-a.dense(ti.i, 2).place(y)
-
-@ti.kernel
-def print_address():
-    print(ti.get_addr(x, 0))
-    print(ti.get_addr(x, 1))
-    print(ti.get_addr(y, 0))
-    print(ti.get_addr(y, 1))
-
-print_address()
-```
-
-Nevertheless, the following code:
-
-```python
-import taichi as ti
-
-ti.init(arch=ti.gpu)
-
-x = ti.field(ti.i32)
-y = ti.field(ti.i32)
-
-a = ti.root.dense(ti.i, 2).dense(ti.i, 2)
-
 a.place(x)
 a.place(y)
-
-@ti.kernel
-def print_address():
-    print(ti.get_addr(x, 0))
-    print(ti.get_addr(x, 1))
-    print(ti.get_addr(y, 0))
-    print(ti.get_addr(y, 1))
-
-print_address()
 ```
 
-Seems to be equivalent to:
+what it does is find the root of the tree, do `.dense` as described above, then for each cell this `.dense` attached, make a data container for type `x`, then, for each cell this `.dense` attached, make a data container for type `y`. I think, in some way behind the scenes, `.place` is similar to `.dense` such that the data container for type `y` is created to follow the data container for type `x` that is already exists (i.e. they both behave as "attaching to the tails"). Hence, we get a memory layout as `xyxy`.
+
+If we do something as follows:
 
 ```python
 import taichi as ti
@@ -740,19 +699,11 @@ ti.init(arch=ti.gpu)
 x = ti.field(ti.i32)
 y = ti.field(ti.i32)
 
-a = ti.root.dense(ti.i, 2).dense(ti.i, 2)
-
-a.place(x,y)
-
-@ti.kernel
-def print_address():
-    print(ti.get_addr(x, 0))
-    print(ti.get_addr(x, 1))
-    print(ti.get_addr(y, 0))
-    print(ti.get_addr(y, 1))
-
-print_address()
+ti.root.dense(ti.i, 2).dense(ti.i, 2).place(x)
+ti.root.dense(ti.i, 2).dense(ti.i, 2).place(y)
 ```
+
+it finds the root of the tree, do the first `.dense` as described above. I think, in such cases, the memory block regarding this first `.dense` contains the memory block regarding the second `.dense`. The same executions applies for the remaining code. Hence, we get a memory layout as `xxxxyyyy`.
 
 ---
 
