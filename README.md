@@ -664,6 +664,10 @@ ti.root.dense(ti.i, 5).place(y)
 
 ❓ For the above code: Is there only one SNodeTree (if so, are `x` and `y` adjacent in memory, sitting in the same SNodeTree?)? Or are there two SNodeTrees, one for `x` and the other for `y` (that is, each `ti.root` defines a separate SNodeTree)? If it is the former, can I actually build two separate SNodeTrees, one for `x` and the other for `y` (for example, in cases where I don't want to take up a huge area of continuous memory)?
 
+- By using `ti.get_addr` I have checked that, for the code above specifically, `x` and `y` are adjacent in memory, which means there is probably only one SNodeTree.
+
+  To build two separate SNodeTrees, we can use the following method (manually allocate/destruct field) to construct two separate SNodeTrees from two separate FieldsBuilder.
+
 We can manually allocate/destruct field as follows:
 
 ```python
