@@ -705,6 +705,22 @@ ti.root.dense(ti.i, 2).dense(ti.i, 2).place(y)
 
 it finds the root of the tree, do the first `.dense` as described above. I think, in such cases, the memory block regarding this first `.dense` contains the memory block regarding the second `.dense`. The same executions applies for the remaining code. Hence, we get a memory layout as `xxxxyyyy`.
 
+Hence, to get a memory layout as `xxyyxxyy`, we want to do:
+
+```python
+import taichi as ti
+
+ti.init(arch=ti.gpu)
+
+x = ti.field(ti.i32)
+y = ti.field(ti.i32)
+
+a = ti.root.dense(ti.i, 2)  # make a row
+
+a.dense(ti.i, 2).place(x)  # for each cell in THIS row, attach (to the tail) a row of x
+a.dense(ti.i, 2).place(y)  # for each cell in THIS row, attach (to the tail) a row of y
+```
+
 ---
 
 We can manually allocate/destruct field as follows:
