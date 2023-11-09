@@ -715,10 +715,10 @@ ti.init(arch=ti.gpu)
 x = ti.field(ti.i32)
 y = ti.field(ti.i32)
 
-a = ti.root.dense(ti.i, 2)  # make a row
+a = ti.root.dense(ti.i, 2)  # make a row, let's call it A
 
-a.dense(ti.i, 2).place(x)  # for each cell in THIS row, attach (to the tail) a row of x
-a.dense(ti.i, 2).place(y)  # for each cell in THIS row, attach (to the tail) a row of y
+a.dense(ti.i, 2).place(x)  # for each cell in row A, attach (to the tail) a row of x
+a.dense(ti.i, 2).place(y)  # for each cell in row A, attach (to the tail) a row of y
 ```
 
 ---
