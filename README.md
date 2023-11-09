@@ -655,7 +655,7 @@ f()
 
 ### SOA in Taichi
 
-In my current understanding. `ti.root` create new SNodeTree (and does destructions) in an automatic way.
+In my current understanding, `ti.root` create new SNodeTree (and does destructions) in an automatic way.
 
 ```python
 import taichi as ti
