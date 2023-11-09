@@ -655,18 +655,104 @@ f()
 
 ### SOA in Taichi
 
+Well, there are some potentially antihuman design I found about taichi field construction:
+
 ```python
-x = ti.field(ti.f32)
-y = ti.field(ti.f32)
-ti.root.dense(ti.i, 5).place(x)
-ti.root.dense(ti.i, 5).place(y)
+import taichi as ti
+
+ti.init(arch=ti.gpu)
+
+x = ti.field(ti.i32)
+y = ti.field(ti.i32)
+
+ti.root.dense(ti.i, 2).dense(ti.i, 2).place(x)
+ti.root.dense(ti.i, 2).dense(ti.i, 2).place(y)
+
+@ti.kernel
+def print_address():
+    print(ti.get_addr(x, 0))
+    print(ti.get_addr(x, 1))
+    print(ti.get_addr(y, 0))
+    print(ti.get_addr(y, 1))
+
+print_address()
 ```
 
-❓ For the above code: Is there only one SNodeTree (if so, are `x` and `y` adjacent in memory, sitting in the same SNodeTree?)? Or are there two SNodeTrees, one for `x` and the other for `y` (that is, each `ti.root` defines a separate SNodeTree)? If it is the former, can I actually build two separate SNodeTrees, one for `x` and the other for `y` (for example, in cases where I don't want to take up a huge area of continuous memory)?
+The output of the above shows that `x` and `y` are not adjacent in memory. This might imply that we have created two separate SNodeTrees.
 
-- By using `ti.get_addr` I have checked that, for the code above specifically, `x` and `y` are adjacent in memory, which means there is probably only one SNodeTree.
+We can make `x` and `y` be adjacent in memory by using the following code:
 
-  To build two separate SNodeTrees, we can use the following method (manually allocate/destruct field) to construct two separate SNodeTrees from two separate FieldsBuilder.
+```python
+import taichi as ti
+
+ti.init(arch=ti.gpu)
+
+x = ti.field(ti.i32)
+y = ti.field(ti.i32)
+
+a = ti.root.dense(ti.i, 2)
+
+a.dense(ti.i, 2).place(x)
+a.dense(ti.i, 2).place(y)
+
+@ti.kernel
+def print_address():
+    print(ti.get_addr(x, 0))
+    print(ti.get_addr(x, 1))
+    print(ti.get_addr(y, 0))
+    print(ti.get_addr(y, 1))
+
+print_address()
+```
+
+Nevertheless, the following code:
+
+```python
+import taichi as ti
+
+ti.init(arch=ti.gpu)
+
+x = ti.field(ti.i32)
+y = ti.field(ti.i32)
+
+a = ti.root.dense(ti.i, 2).dense(ti.i, 2)
+
+a.place(x)
+a.place(y)
+
+@ti.kernel
+def print_address():
+    print(ti.get_addr(x, 0))
+    print(ti.get_addr(x, 1))
+    print(ti.get_addr(y, 0))
+    print(ti.get_addr(y, 1))
+
+print_address()
+```
+
+Seems to be equivalent to:
+
+```python
+import taichi as ti
+
+ti.init(arch=ti.gpu)
+
+x = ti.field(ti.i32)
+y = ti.field(ti.i32)
+
+a = ti.root.dense(ti.i, 2).dense(ti.i, 2)
+
+a.place(x,y)
+
+@ti.kernel
+def print_address():
+    print(ti.get_addr(x, 0))
+    print(ti.get_addr(x, 1))
+    print(ti.get_addr(y, 0))
+    print(ti.get_addr(y, 1))
+
+print_address()
+```
 
 We can manually allocate/destruct field as follows:
 
