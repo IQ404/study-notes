@@ -721,8 +721,6 @@ a.dense(ti.i, 2).place(x)  # for each cell in row A, attach (to the tail) a row 
 a.dense(ti.i, 2).place(y)  # for each cell in row A, attach (to the tail) a row of y
 ```
 
----
-
 We can manually allocate/destruct field as follows:
 
 ```python
@@ -744,6 +742,24 @@ fb_snode_tree = fb.finalize()  # Finalizes the FieldsBuilder and returns a SNode
 func(y)
 func(x)
 fb_snode_tree.destroy()  # Destruction
+```
+
+In my current understanding, `ti.root` encapsulates the same process as above to automate the creation/destruction of SNodeTree. More specifically, field constructed by `ti.root` also needs to be finalized, and it is done when we first access the field. E.g.
+
+```python
+import taichi as ti
+ti.init(arch=ti.gpu)
+
+x = ti.field(ti.i32)
+a = ti.root.dense(ti.i, 2)
+a.dense(ti.i, 2).place(x)
+
+x[0] = 1 # finalizing x
+         # same if this was called in a @ti.kernel
+
+# Doing the following will cause error, since x has been finalized:
+y = ti.field(ti.i32)
+a.dense(ti.i, 2).place(y)
 ```
 
 ### AOS in Taichi
