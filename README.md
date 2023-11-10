@@ -626,7 +626,6 @@ ti.root.dense(ti.ij, (2,2)).dense(ti.ij, (3,3)).place(x)    # block-major
 
 ```python
 import taichi as ti
-
 ti.init(arch=ti.gpu)
 
 a = ti.field(ti.i32)
@@ -659,7 +658,6 @@ In my current understanding, `ti.root` create new SNodeTree (and does destructio
 
 ```python
 import taichi as ti
-
 ti.init(arch=ti.gpu)
 
 x = ti.field(ti.i32)
@@ -675,7 +673,6 @@ If we do something as follows:
 
 ```python
 import taichi as ti
-
 ti.init(arch=ti.gpu)
 
 x = ti.field(ti.i32)
@@ -693,7 +690,6 @@ If we do something as follows:
 
 ```python
 import taichi as ti
-
 ti.init(arch=ti.gpu)
 
 x = ti.field(ti.i32)
@@ -709,7 +705,6 @@ Hence, to get a memory layout as `xxyyxxyy`, we want to do:
 
 ```python
 import taichi as ti
-
 ti.init(arch=ti.gpu)
 
 x = ti.field(ti.i32)
@@ -725,7 +720,6 @@ We can manually allocate/destruct field as follows:
 
 ```python
 import taichi as ti
-
 ti.init(arch=ti.gpu)
 
 @ti.kernel
