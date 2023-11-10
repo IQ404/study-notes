@@ -23,9 +23,9 @@
   - [SOA in Taichi](#SOA-in-Taichi)
   - [AOS in Taichi](#AOS-in-Taichi)
 - [Sparse Data Layout](#Sparse-Data-Layout)
-- [](#)
-- [](#)
-- [](#)
+- [Sparse Matrix](#)
+- [Debugging](#)
+- [Code Optimization](#)
 - To be continued...
 
 ## Features to Note
