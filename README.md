@@ -767,3 +767,8 @@ ti.root.dense(ti.i, 5).place(x, y)
 
 ## Sparse Data Layout
 
+### `.pointer`
+
+## Debugging
+
+- To force Taichi be single threaded, you can write `ti.init(arch=ti.cpu, cpu_max_num_threads=1)`.
