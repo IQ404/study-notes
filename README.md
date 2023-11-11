@@ -796,7 +796,7 @@ Assigning an element of a field will (only) activate all the parent nodes (which
 
 Assigning an element will allocate the whole contiguous memory in which the element is sit, up to where an activatable node in the SNodeTree is found (because the pointer behind this activatable node solely controls the activity of this whole dense block of contiguous memory). Nevertheless, note that it is totally legal for an active node to have all its activatable sub-nodes to be inactive.
 
-We can also attach `.bitmasked()` node to a SNodeTree.
+We can also attach `.bitmasked()` node to a SNodeTree. Behind the scenes `.bitmasked()` block is the same as `.dense()` block. But the SNodeTree uses 1-bit for each bitmasked cell to flag it as active/inactive, so that each bitmasked cell can be activate/deactivate independently.
 
 ## Debugging
 
