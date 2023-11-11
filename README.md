@@ -769,6 +769,39 @@ ti.root.dense(ti.i, 5).place(x, y)
 
 ### `.pointer`
 
+Apart from `.dense` block, we can also attach pointers block to a SNodeTree by using `.pointer()`. E.g.
+
+```python
+import taichi as ti
+ti.init(arch=ti.gpu)
+
+x = ti.field(ti.i32)
+
+a = ti.root.pointer(ti.i, 2)
+b = a.dense(ti.j, 2)
+b.place(x)
+
+x[0,0] = 1
+
+@ti.kernel
+def f():
+    for i,j in x:
+        print(i, j, ':', x[i,j])
+
+f()  # 0 0 : 1
+     # 0 1 : 1
+```
+
+In the above code, when the field `x` is first created (before the assignment `x[0,0] = 1`), the two pointer in the SNodeTree is defaultly set to be inactive (in my current understanding, it means that they are pointing to `nullptr`, i.e. `000...`, though I am not 100% sure).
+
+Assigning an element of a field will (only) activate all the parent nodes (which can be activated) containing the element.
+
+Assigning an element will allocate the whole contiguous memory where the element is sit up to where a `pointer` in the SNodeTree is found (because this single pointer is used to control the activity of this whole dense block of contiguous memory).
+
+### `.bitmasked`
+
+### Activity and Activation
+
 ## Debugging
 
 - To force Taichi be single threaded, you can write `ti.init(arch=ti.cpu, cpu_max_num_threads=1)`.
