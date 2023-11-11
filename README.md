@@ -767,8 +767,6 @@ ti.root.dense(ti.i, 5).place(x, y)
 
 ## Sparse Data Layout
 
-### `.pointer`
-
 Apart from `.dense` block, we can also attach pointers block to a SNodeTree by using `.pointer()`. E.g.
 
 ```python
@@ -798,7 +796,7 @@ Assigning an element of a field will (only) activate all the parent nodes (which
 
 Assigning an element will allocate the whole contiguous memory in which the element is sit, up to where an activatable node in the SNodeTree is found (because the pointer behind this activatable node solely controls the activity of this whole dense block of contiguous memory). Nevertheless, note that it is totally legal for an active node to have all its activatable sub-nodes to be inactive.
 
-### `.bitmasked`
+We can also attach `.bitmasked()` node to a SNodeTree.
 
 ## Debugging
 
