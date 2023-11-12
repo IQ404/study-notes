@@ -924,7 +924,7 @@ pr()
 loo()
 ```
 
-- You seems to be able to access the data held by a `.bitmasked` node if you explicitly do so, even after you deactivate it. This may be a feature but I tend to think of it as a bug, because if a node is inactive, why bother reading it.
+You seems to be able to access the data held by a `.bitmasked` node if you explicitly do so, even after you deactivate it. This may be a feature but I tend to think of it as a bug, because if a node is inactive, why bother reading it.
 
 ```python
 import taichi as ti
