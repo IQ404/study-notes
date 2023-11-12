@@ -939,10 +939,6 @@ d.place(x)
 x[0] = 5
 
 @ti.kernel
-def test():
-    ti.deactivate(b,[0])
-
-@ti.kernel
 def pr():
     print(ti.is_active(a,[0]))  # 1
     print(ti.is_active(b,[0]))  # 0
