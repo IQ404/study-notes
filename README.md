@@ -23,6 +23,7 @@
   - [SOA in Taichi](#SOA-in-Taichi)
   - [AOS in Taichi](#AOS-in-Taichi)
 - [Sparse Data Layout](#Sparse-Data-Layout)
+  - [Deactivation of Sparse SNodeTree](#Deactivation-of-Sparse-SNodeTree)
 - [Sparse Matrix](#)
 - [Debugging](#)
 - [Code Optimization](#)
@@ -802,7 +803,7 @@ A struct-`for` statement looping through a field will escape all nodes that are 
 
 Given a sub-node, sometime it may be handy to get the index of its base-node in the tree. We can do so by `ti.rescale_index(x, base_snode, index_of_x)` where `x` is a field or the sub-node.
 
-### Deactivation
+### Deactivation of Sparse SNodeTree
 
 At the time of writing, the taichi's implementation of deactivation is quite messy to me (or maybe it is my brain that is messy at this point). Here are a few observations:
 
