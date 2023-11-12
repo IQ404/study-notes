@@ -1043,7 +1043,7 @@ test2()
 loo()  # 5 0
 ```
 
-On the other hand, `.bitmasked` node does not manipulate data (as mentioned earlier):
+On the other hand, `.bitmasked` node does not manipulate data (which means we can have data remaining from last iteration):
 
 ```python
 import taichi as ti
@@ -1060,10 +1060,6 @@ x[1] = 7
 @ti.kernel
 def test():
     ti.deactivate(a,[0])
-
-@ti.kernel
-def test2():
-    ti.activate(d, [1])
 
 @ti.kernel
 def loo():
