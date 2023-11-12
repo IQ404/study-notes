@@ -924,6 +924,8 @@ pr()
 loo()
 ```
 
+I am not 100% sure what is causing the above behaviors. But according to this [answer](https://forum.taichi-lang.cn/t/topic/2725/3?u=iq404), we may want to prefer deactivating `.pointer` node over deactivating `.bitmasked` node when it comes to memory recycle.
+
 You seems to be able to access the data held by a `.bitmasked` node if you explicitly do so, even after you deactivate it. This may be a feature but I tend to think of it as a bug, because if a node is inactive, why bother reading it.
 
 ```python
