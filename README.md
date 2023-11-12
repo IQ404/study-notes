@@ -800,7 +800,7 @@ We can also attach `.bitmasked()` node to a SNodeTree. Behind the scenes `.bitma
 
 A struct-`for` statement looping through a field will escape all nodes that are inactive.
 
-Given a sub-node, sometime it may be handy to get the index of its base-node in the tree. We can do so by `ti.rescale_index(x, ancestor_snode, index_of_x)` where `x` is a field or the sub-node.
+Given a sub-node, sometime it may be handy to get the index of its base-node in the tree. We can do so by `ti.rescale_index(x, base_snode, index_of_x)` where `x` is a field or the sub-node.
 
 ### Deactivation
 
