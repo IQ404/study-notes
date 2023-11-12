@@ -807,7 +807,9 @@ Given a sub-node, sometime it may be handy to get the index of its base-node in 
 
 At the time of writing, the taichi's implementation of deactivation is quite messy to me (or maybe it is my brain that is messy at this point). Here are a few observations:
 
-You can do:
+According to this [answer](https://forum.taichi-lang.cn/t/topic/2725/3?u=iq404), `.bitmasked` node does not do memory recycle. Hence, we may want to prefer deactivating `.pointer` node over deactivating `.bitmasked` node when it comes to memory recycle.
+
+Example 1:
 
 ```python
 import taichi as ti
@@ -846,7 +848,7 @@ pr()
 loo()
 ```
 
-Or do:
+Example 2:
 
 ```python
 import taichi as ti
@@ -860,10 +862,6 @@ d = c.bitmasked(ti.i, 2)
 d.place(x)
 
 x[0] = 5
-
-@ti.kernel
-def test():
-    ti.deactivate(b,[0])
 
 @ti.kernel
 def pr():
@@ -885,7 +883,7 @@ pr()
 loo()
 ```
 
-But caution that:
+Example 3:
 
 ```python
 import taichi as ti
@@ -925,7 +923,7 @@ pr()
 loo()
 ```
 
-and this:
+Example 4:
 
 ```python
 import taichi as ti
@@ -964,38 +962,7 @@ pr()
 loo()
 ```
 
-I am not 100% sure what is causing the above behaviors. But according to this [answer](https://forum.taichi-lang.cn/t/topic/2725/3?u=iq404), we may want to prefer deactivating `.pointer` node over deactivating `.bitmasked` node when it comes to memory recycle.
-
-You seems to be able to access the data held by a `.bitmasked` node if you explicitly do so, even after you deactivate it. This may be a feature but I tend to think of it as a bug, because if a node is inactive, why bother reading it.
-
-```python
-import taichi as ti
-ti.init(arch=ti.gpu)
-
-x = ti.field(dtype=ti.i32)
-a = ti.root.pointer(ti.i,2)
-b = a.bitmasked(ti.i, 2)
-b.place(x)
-
-x[0] = 5
-
-@ti.kernel
-def test():
-    ti.deactivate(b,[0])
-
-@ti.kernel
-def pr():
-    print(x[0], ti.is_active(b,[0])) # 5 0
-
-@ti.kernel
-def loo():
-    for i in x:
-        print(x[i])  # nothing prints
-
-test()
-pr()
-loo()
-```
+Note that, from the above examples, you seems to be able to access the data held by a `.bitmasked` node if you explicitly do so, even after you deactivate it. This may be a feature but I tend to think of it as a bug, because if a node is inactive, why bother reading it.
 
 Deactivate `.pointer` node seems to recycle the memory for all of its downstream structure. But I am not 100% percent sure of this (because the [Docs](https://docs.taichi-lang.org/docs/sparse#3-deactivation) says "`ti.deactivate` does not recursively deactivate all the descendants of a cell."), so, prefer to use `.deactivate_all()` on `.pointer` node when it is feasible.
 
