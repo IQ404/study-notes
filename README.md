@@ -794,9 +794,37 @@ In the above code, when the field `x` is first created (before the assignment `x
 
 Assigning an element of a field will (only) activate all the parent nodes (which are activatable. E.g. pointer/hash/bitmasked nodes) containing the element.
 
-Assigning an element will allocate the whole contiguous memory in which the element is sit, up to where an activatable node in the SNodeTree is found (because the pointer behind this activatable node solely controls the activity of this whole dense block of contiguous memory). Nevertheless, note that it is totally legal for an active node to have all its activatable sub-nodes to be inactive.
+Assigning an element will allocate the whole contiguous memory in which the element is sit, up to where an activatable node in the SNodeTree is found (because the pointer behind this activatable node solely controls the activity of this whole dense block of contiguous memory). Nevertheless, note that it is totally legal for an active node to have all of its activatable sub-nodes being inactive.
 
-We can also attach `.bitmasked()` node to a SNodeTree. Behind the scenes `.bitmasked()` block is the same as `.dense()` block. But the SNodeTree uses 1-bit for each bitmasked cell to flag it as active/inactive, so that each bitmasked cell can be activated/deactivated independently.
+We can also attach `.bitmasked()` node to a SNodeTree. Behind the scenes `.bitmasked()` block is same as `.dense()` block. But the SNodeTree uses 1 extra bit for each bitmasked cell to flag it as active/inactive, so that each bitmasked cell can be activated/deactivated independently.
+
+### Deactivation
+
+At the time of writing, the taichi's implementation of deactivation is quite messy to me (or maybe it is my brain is messy at this point). In my current understandings:
+
+- `.bitmasked` node does not do any memory recycling with respect to its activity (no matter if you are using `ti.deactivate()` or `.deactivate_all()` on it). So, whenever we want to recycle memory by deactivation, we may want to do it on `.pointer` node.
+
+```python
+
+```
+
+- You seems to be able to access the data held by a `.bitmasked` node if you explicitly do so, even after you deactivate it. This may be a feature but I tend to think of it as a bug, because if a node is inactive, why bother reading it.
+
+```python
+
+```
+
+- Deactivate `.pointer` node seems to recycle the memory for all of its downstream structure. But I am not 100% percent sure of this (because the [Docs](https://docs.taichi-lang.org/docs/sparse#3-deactivation) says "`ti.deactivate` does not recursively deactivate all the descendants of a cell."), so, prefer to use `.deactivate_all()` on `.pointer` node when it is feasible.
+
+```python
+
+```
+
+- Even when you do deactivation on `.pointer` node, it seems under some circumstances you can still access it. So, prototype your sparse data structure and test it before you do any serious project.
+
+```python
+
+```
 
 ## Debugging
 
