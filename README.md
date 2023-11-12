@@ -955,10 +955,48 @@ pr()
 loo()
 ```
 
-- Deactivate `.pointer` node seems to recycle the memory for all of its downstream structure. But I am not 100% percent sure of this (because the [Docs](https://docs.taichi-lang.org/docs/sparse#3-deactivation) says "`ti.deactivate` does not recursively deactivate all the descendants of a cell."), so, prefer to use `.deactivate_all()` on `.pointer` node when it is feasible.
+Deactivate `.pointer` node seems to recycle the memory for all of its downstream structure. But I am not 100% percent sure of this (because the [Docs](https://docs.taichi-lang.org/docs/sparse#3-deactivation) says "`ti.deactivate` does not recursively deactivate all the descendants of a cell."), so, prefer to use `.deactivate_all()` on `.pointer` node when it is feasible.
 
 ```python
+import taichi as ti
+ti.init(arch=ti.gpu)
 
+x = ti.field(dtype=ti.i32)
+a = ti.root.pointer(ti.i,2)
+b = a.bitmasked(ti.i, 2)
+c = b.pointer(ti.i, 2)
+d = c.bitmasked(ti.i, 2)
+d.place(x)
+
+x[0] = 5
+
+@ti.kernel
+def test():
+    ti.deactivate(a,[0])
+
+@ti.kernel
+def test2():
+    ti.deactivate(b,[0])
+
+@ti.kernel
+def pr():
+    print(ti.is_active(a,[0]))  # 0
+    print(ti.is_active(b,[0]))  # 0
+    print(ti.is_active(c,[0]))  # 0
+    print(ti.is_active(d,[0]))  # 0
+    print('---')
+    print(x[0])  # 0
+
+
+@ti.kernel
+def loo():
+    for i in x:
+        print(x[i])  # nothing prints
+
+test2()
+test()  # same results if we replace this line with "a.deactivate_all()"
+pr()
+loo()
 ```
 
 - Even when you do deactivation on `.pointer` node, it seems under some circumstances you can still access it. So, prototype your sparse data structure and test it before you do any serious project. One advice that I think may help is to divide what you want to do into separate `ti.kernel`s (do one thing a time).
