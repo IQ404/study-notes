@@ -798,6 +798,10 @@ Assigning an element will allocate the whole contiguous memory in which the elem
 
 We can also attach `.bitmasked()` node to a SNodeTree. Behind the scenes `.bitmasked()` block is same as `.dense()` block. But the SNodeTree uses 1 extra bit for each bitmasked cell to flag it as active/inactive, so that each bitmasked cell can be activated/deactivated independently.
 
+A struct-`for` statement looping through a field will escape all nodes that are inactive.
+
+
+
 ### Deactivation
 
 At the time of writing, the taichi's implementation of deactivation is quite messy to me (or maybe it is my brain that is messy at this point). In my current understandings:
@@ -823,7 +827,35 @@ At the time of writing, the taichi's implementation of deactivation is quite mes
 - Even when you do deactivation on `.pointer` node, it seems under some circumstances you can still access it. So, prototype your sparse data structure and test it before you do any serious project. One advice that I think may help is to divide what you want to do into separate `ti.kernel`s (do one thing a time).
 
 ```python
+import taichi as ti
+ti.init(arch=ti.gpu)
 
+a = ti.field(dtype=ti.i32)
+block = ti.root.pointer(ti.i,2)
+block.place(a)
+
+
+@ti.kernel
+def test():
+    a[0] = 5
+    ti.deactivate(block,[0])
+    print(a[0] , ti.is_active(block,[0])) # 5 0
+
+
+
+
+@ti.kernel
+def pr():
+    print(a[0], ti.is_active(block,[0])) # 0 0
+
+@ti.kernel
+def loo():
+    for i in a:
+        print(i)
+
+test()
+pr()
+loo()
 ```
 
 ## Debugging
