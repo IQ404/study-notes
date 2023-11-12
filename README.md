@@ -836,9 +836,9 @@ block.place(a)
 
 @ti.kernel
 def test():
-    a[0] = 5
+    a[0] = 5 # assignment
     ti.deactivate(block,[0])
-    print(a[0] , ti.is_active(block,[0])) # 5 0
+    print(a[0] , ti.is_active(block,[0])) # 5 0. Become 0 0 if the above assignment is outside this kernel
 
 @ti.kernel
 def pr():
