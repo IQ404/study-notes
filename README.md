@@ -804,12 +804,124 @@ A struct-`for` statement looping through a field will escape all nodes that are 
 
 ### Deactivation
 
-At the time of writing, the taichi's implementation of deactivation is quite messy to me (or maybe it is my brain that is messy at this point). In my current understandings:
+At the time of writing, the taichi's implementation of deactivation is quite messy to me (or maybe it is my brain that is messy at this point). Here are a few observations:
 
-- `.bitmasked` node does not do any memory recycling with respect to its activity (no matter if you are using `ti.deactivate()` or `.deactivate_all()` on it). So, whenever we want to recycle memory by deactivation, we may want to do it on `.pointer` node.
+You can do:
 
 ```python
+import taichi as ti
+ti.init(arch=ti.gpu)
 
+x = ti.field(dtype=ti.i32)
+a = ti.root.pointer(ti.i,2)
+b = a.bitmasked(ti.i, 2)
+c = b.pointer(ti.i, 2)
+d = c.bitmasked(ti.i, 2)
+d.place(x)
+
+x[0] = 5
+
+@ti.kernel
+def test():
+    ti.deactivate(b,[0])
+
+@ti.kernel
+def pr():
+    print(ti.is_active(a,[0]))  # 1
+    print(ti.is_active(b,[0]))  # 0
+    print(ti.is_active(c,[0]))  # 1
+    print(ti.is_active(d,[0]))  # 1
+    print('---')
+    print(x[0])  # 5
+
+
+@ti.kernel
+def loo():
+    for i in x:
+        print(x[i])  # nothing prints
+
+test()
+pr()
+loo()
+```
+
+Or do:
+
+```python
+import taichi as ti
+ti.init(arch=ti.gpu)
+
+x = ti.field(dtype=ti.i32)
+a = ti.root.pointer(ti.i,2)
+b = a.bitmasked(ti.i, 2)
+c = b.pointer(ti.i, 2)
+d = c.bitmasked(ti.i, 2)
+d.place(x)
+
+x[0] = 5
+
+@ti.kernel
+def test():
+    ti.deactivate(b,[0])
+
+@ti.kernel
+def pr():
+    print(ti.is_active(a,[0]))  # 1
+    print(ti.is_active(b,[0]))  # 0
+    print(ti.is_active(c,[0]))  # 0
+    print(ti.is_active(d,[0]))  # 0
+    print('---')
+    print(x[0])  # 0
+
+
+@ti.kernel
+def loo():
+    for i in x:
+        print(x[i])  # nothing prints
+
+b.deactivate_all()
+pr()
+loo()
+```
+
+But caution that:
+
+```python
+import taichi as ti
+ti.init(arch=ti.gpu)
+
+x = ti.field(dtype=ti.i32)
+a = ti.root.pointer(ti.i,2)
+b = a.bitmasked(ti.i, 2)
+c = b.pointer(ti.i, 2)
+d = c.bitmasked(ti.i, 2)
+d.place(x)
+
+x[0] = 5
+
+@ti.kernel
+def test():
+    ti.deactivate(b,[0])
+
+@ti.kernel
+def pr():
+    print(ti.is_active(a,[0]))  # 1
+    print(ti.is_active(b,[0]))  # 0
+    print(ti.is_active(c,[0]))  # 1
+    print(ti.is_active(d,[0]))  # 1
+    print('---')
+    print(x[0])  # 5
+
+
+@ti.kernel
+def loo():
+    for i in x:
+        print(x[i])  # nothing prints
+
+test()
+b.deactivate_all()
+pr()
+loo()
 ```
 
 - You seems to be able to access the data held by a `.bitmasked` node if you explicitly do so, even after you deactivate it. This may be a feature but I tend to think of it as a bug, because if a node is inactive, why bother reading it.
