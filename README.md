@@ -815,7 +815,32 @@ At the time of writing, the taichi's implementation of deactivation is quite mes
 - You seems to be able to access the data held by a `.bitmasked` node if you explicitly do so, even after you deactivate it. This may be a feature but I tend to think of it as a bug, because if a node is inactive, why bother reading it.
 
 ```python
+import taichi as ti
+ti.init(arch=ti.gpu)
 
+x = ti.field(dtype=ti.i32)
+a = ti.root.pointer(ti.i,2)
+b = a.bitmasked(ti.i, 2)
+b.place(x)
+
+x[0] = 5
+
+@ti.kernel
+def test():
+    ti.deactivate(b,[0])
+
+@ti.kernel
+def pr():
+    print(x[0], ti.is_active(b,[0])) # 5 0
+
+@ti.kernel
+def loo():
+    for i in x:
+        print(x[i])  # nothing prints
+
+test()
+pr()
+loo()
 ```
 
 - Deactivate `.pointer` node seems to recycle the memory for all of its downstream structure. But I am not 100% percent sure of this (because the [Docs](https://docs.taichi-lang.org/docs/sparse#3-deactivation) says "`ti.deactivate` does not recursively deactivate all the descendants of a cell."), so, prefer to use `.deactivate_all()` on `.pointer` node when it is feasible.
@@ -838,7 +863,7 @@ block.place(a)
 def test():
     a[0] = 5 # assignment
     ti.deactivate(block,[0])
-    print(a[0] , ti.is_active(block,[0])) # 5 0. Become 0 0 if the above assignment is outside this kernel
+    print(a[0] , ti.is_active(block,[0])) # 5 0. Becomes 0 0 if the above assignment is outside this kernel
 
 @ti.kernel
 def pr():
@@ -847,7 +872,7 @@ def pr():
 @ti.kernel
 def loo():
     for i in a:
-        print(i)
+        print(i)  # nothing prints
 
 test()
 pr()
