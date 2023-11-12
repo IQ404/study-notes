@@ -800,7 +800,7 @@ We can also attach `.bitmasked()` node to a SNodeTree. Behind the scenes `.bitma
 
 ### Deactivation
 
-At the time of writing, the taichi's implementation of deactivation is quite messy to me (or maybe it is my brain is messy at this point). In my current understandings:
+At the time of writing, the taichi's implementation of deactivation is quite messy to me (or maybe it is my brain that is messy at this point). In my current understandings:
 
 - `.bitmasked` node does not do any memory recycling with respect to its activity (no matter if you are using `ti.deactivate()` or `.deactivate_all()` on it). So, whenever we want to recycle memory by deactivation, we may want to do it on `.pointer` node.
 
