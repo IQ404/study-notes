@@ -1043,6 +1043,41 @@ test2()
 loo()  # 5 0
 ```
 
+On the other hand, `.bitmasked` node does not manipulate data (as mentioned earlier):
+
+```python
+import taichi as ti
+ti.init(arch=ti.gpu)
+
+x = ti.field(dtype=ti.i32)
+a = ti.root.bitmasked(ti.i,2)
+b = a.dense(ti.i, 2)
+b.place(x)
+
+x[0] = 5
+x[1] = 7
+
+@ti.kernel
+def test():
+    ti.deactivate(a,[0])
+
+@ti.kernel
+def test2():
+    ti.activate(d, [1])
+
+@ti.kernel
+def loo():
+    for i in x:
+        print(x[i], end=' ')
+
+loo()  # 5 7
+a.deactivate_all()  # same results if we replace this line with "test()"
+x[0] = 5
+print(end='\n')
+loo()  # 5 7
+print(end='\n')
+```
+
 Even when you do deactivation on `.pointer` node, it seems under some circumstances you can still access it. So, prototype your sparse data structure and test it before you do any serious project. One advice that I think may help is to divide what you want to do into separate `ti.kernel`s (do one thing a time).
 
 ```python
