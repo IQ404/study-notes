@@ -1004,7 +1004,7 @@ pr()
 loo()
 ```
 
-The following code I wrote to some extent shows that deactivating `.pointer` node is safe: memory is at least always zero-filled
+The following code I wrote to some extent shows that deactivating `.pointer` node is safe:
 
 ```python
 import taichi as ti
