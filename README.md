@@ -1031,7 +1031,7 @@ def test2():
 @ti.kernel
 def loo():
     for i in x:
-        print(x[i], end=' ')  # nothing prints
+        print(x[i], end=' ')
 
 loo()  # 5 7
 test()  # same results if this line is replaced by "a.deactivate_all()"
