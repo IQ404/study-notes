@@ -834,15 +834,11 @@ a = ti.field(dtype=ti.i32)
 block = ti.root.pointer(ti.i,2)
 block.place(a)
 
-
 @ti.kernel
 def test():
     a[0] = 5
     ti.deactivate(block,[0])
     print(a[0] , ti.is_active(block,[0])) # 5 0
-
-
-
 
 @ti.kernel
 def pr():
