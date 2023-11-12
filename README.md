@@ -925,6 +925,45 @@ pr()
 loo()
 ```
 
+and this:
+
+```python
+import taichi as ti
+ti.init(arch=ti.gpu)
+
+x = ti.field(dtype=ti.i32)
+a = ti.root.pointer(ti.i,2)
+b = a.bitmasked(ti.i, 2)
+c = b.bitmasked(ti.i, 2)
+d = c.bitmasked(ti.i, 2)
+d.place(x)
+
+x[0] = 5
+
+@ti.kernel
+def test():
+    ti.deactivate(b,[0])
+
+@ti.kernel
+def pr():
+    print(ti.is_active(a,[0]))  # 1
+    print(ti.is_active(b,[0]))  # 0
+    print(ti.is_active(c,[0]))  # 0
+    print(ti.is_active(d,[0]))  # 0
+    print('---')
+    print(x[0])  # 5
+
+
+@ti.kernel
+def loo():
+    for i in x:
+        print(x[i])  # nothing prints
+
+b.deactivate_all()
+pr()
+loo()
+```
+
 I am not 100% sure what is causing the above behaviors. But according to this [answer](https://forum.taichi-lang.cn/t/topic/2725/3?u=iq404), we may want to prefer deactivating `.pointer` node over deactivating `.bitmasked` node when it comes to memory recycle.
 
 You seems to be able to access the data held by a `.bitmasked` node if you explicitly do so, even after you deactivate it. This may be a feature but I tend to think of it as a bug, because if a node is inactive, why bother reading it.
