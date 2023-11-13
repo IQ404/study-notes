@@ -1106,7 +1106,7 @@ loo()
 
 ❓ Is the code above reveal a bug?
 
-❓ Explain why, after running for some time, the following code will output `1`. Is this a bug?
+❓ Explain why, after running for some time, the following code will output `1`. Is this a bug? (I have post this question on the [Chinese forum](https://forum.taichi-lang.cn/t/topic/4779))
 
 ```python
 from taichi.examples.patterns import taichi_logo
