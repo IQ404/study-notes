@@ -1104,6 +1104,46 @@ pr()
 loo()
 ```
 
+❓ Explain why, after running for some time, the following code will output `1`.
+
+```python
+from taichi.examples.patterns import taichi_logo
+import taichi as ti
+ti.init(arch=ti.gpu)
+
+n = 512
+x = ti.field(dtype=ti.i32)
+
+block1 = ti.root.pointer(ti.ij, 8)
+block2 = block1.pointer(ti.ij, 4)
+block3 = block2.pointer(ti.ij, 4)
+block3.dense(ti.ij, 4).place(x)
+
+@ti.kernel
+def activate(t: ti.f32):
+    for i, j in ti.ndrange(n, n):
+        p = ti.Vector([i, j]) / n
+        p = ti.math.rotation2d(ti.sin(t)) @ (p - 0.5) + 0.5
+
+        if taichi_logo(p) == 0:
+            x[i, j] = 1
+
+@ti.kernel
+def fun():
+        for i in range(512):
+            for j in range(512):
+                print(x[i,j], end=' ')
+
+def main():
+    for i in range(100000):
+        block1.deactivate_all()
+        fun()
+        activate(i * 0.05)
+
+if __name__ == "__main__":
+    main()
+```
+
 ## Debugging
 
 - To force Taichi be single threaded, you can write `ti.init(arch=ti.cpu, cpu_max_num_threads=1)`.
