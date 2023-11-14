@@ -1106,10 +1106,9 @@ loo()
 
 ❓ Is the code above reveal a bug?
 
-❓ Explain why, after running for some time, the following code will output `1`. Is this a bug? (I have posted this question on the [Chinese forum](https://forum.taichi-lang.cn/t/topic/4779))
+❓ Explain why, after running for some time, the following code will output `42`. Is this a bug? (I have posted a related question on the [Chinese forum](https://forum.taichi-lang.cn/t/topic/4779))
 
 ```python
-from taichi.examples.patterns import taichi_logo
 import taichi as ti
 ti.init(arch=ti.gpu)
 
@@ -1121,26 +1120,32 @@ block2 = block1.pointer(ti.ij, 4)
 block3 = block2.pointer(ti.ij, 4)
 block3.dense(ti.ij, 4).place(x)
 
-@ti.kernel
-def activate(t: ti.f32):
-    for i, j in ti.ndrange(n, n):
-        p = ti.Vector([i, j]) / n
-        p = ti.math.rotation2d(ti.sin(t)) @ (p - 0.5) + 0.5
+@ti.func
+def d():
+    ret = ti.random(float)
+    if ret > 0.5:
+        ret = 1
+    else:
+        ret = 0
+    return ret
 
-        if taichi_logo(p) == 0:
-            x[i, j] = 1
+@ti.kernel
+def activate():
+    for i, j in ti.ndrange(n, n):
+        if d() == 0:
+            x[i, j] = 42
 
 @ti.kernel
 def fun():
-        for i in range(512):
-            for j in range(512):
-                print(x[i,j], end=' ')
+    for i, j in ti.ndrange(n, n):
+        if x[i,j] != 0:
+            print(x[i,j])
 
 def main():
     for i in range(100000):
         block1.deactivate_all()
         fun()
-        activate(i * 0.05)
+        activate()
 
 if __name__ == "__main__":
     main()
