@@ -15,6 +15,7 @@ The contents in those notes are written by myself but they are <ins>by no means<
 
 ### Miscellaneous
 
+- Volume Rendering
 - Radiance  // TODO
 - Covariance Matrix  // TODO
 - Quaternion  // TODO
