@@ -11,7 +11,7 @@
 - [Compound Types](#Compound-Types)
 - [Field](#Field)
 - [GUI](#GUI)
-- [GGUI](#GGUI)
+- [GGUI](#GGUI)  // TODO
 - [Kernel and func](#Kernel-and-func)
 - [Range `for` loop](#Range-for-loop)
 - [Struct `for` loop](#Struct-for-loop)
@@ -24,9 +24,9 @@
   - [AOS in Taichi](#AOS-in-Taichi)
 - [Sparse Data Layout](#Sparse-Data-Layout)
   - [Deactivation of Sparse SNodeTree](#Deactivation-of-Sparse-SNodeTree)
-- [Sparse Matrix](#)
-- [Debugging](#)
-- [Code Optimization](#)
+- [Sparse Matrix](#)  // TODO
+- [Debugging](#)  // TODO
+- [Code Optimization](#)  // TODO
 - To be continued...
 
 ## Features to Note
