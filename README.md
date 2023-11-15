@@ -24,7 +24,7 @@
 - [Sparse Data Layout](#Sparse-Data-Layout)
   - [Deactivation of Sparse SNodeTree](#Deactivation-of-Sparse-SNodeTree)
 - [Sparse Matrix](#)  // TODO
-- [Debugging](#)  // TODO
+- [Debugging](#debugging)  // TODO
 - [Code Optimization](#)  // TODO
 - To be continued...
 
