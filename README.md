@@ -1134,6 +1134,10 @@ if __name__ == "__main__":
 
 ## Debugging
 
+- To force Taichi be single threaded, you can write `ti.init(arch=ti.cpu, cpu_max_num_threads=1)`.
+
+---
+
 ❗ The version of Taichi that I am currently using (1.6.0) seems to have bugs with the taichi scope `assert` statement working on GPU.
 
 E.g. The only output of the following code, currently revealing on my machine, is `0`
@@ -1154,4 +1158,3 @@ d = f(1,1)
 print(d)
 ```
 
-- To force Taichi be single threaded, you can write `ti.init(arch=ti.cpu, cpu_max_num_threads=1)`.
