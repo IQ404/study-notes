@@ -1074,7 +1074,7 @@ loo()  # 5 7
 print(end='\n')
 ```
 
-Even when you do deactivation on `.pointer` node, it seems under some circumstances you can still access it. So, prototype your sparse data structure and test it before you do any serious project. One advice that I think may help is to divide what you want to do into separate `ti.kernel`s (do one thing a time).
+Even when you do deactivation on `.pointer` node, it seems under some circumstances you can still access it: (this seems like a bug)
 
 ```python
 import taichi as ti
