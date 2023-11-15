@@ -1151,6 +1151,10 @@ if __name__ == "__main__":
     main()
 ```
 
+- In my current understanding, taichi's implementation for sparse data structure isn't robust enough.
+  - Prefer dense SNodeTree if it's feasible.
+  - Prefer reading sparse SNodeTree only through struct-`for` loop if it's feasible.
+
 ## Debugging
 
 - To force Taichi be single threaded, you can write `ti.init(arch=ti.cpu, cpu_max_num_threads=1)`.
