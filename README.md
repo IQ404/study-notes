@@ -10,3 +10,7 @@ The contents in those notes are written by myself but they are <ins>by no means<
 ## Contents
 
 - [Taichi Lang](https://github.com/IQ404/study-notes/blob/taichi-lang/README.md)
+
+### Miscellaneous
+
+- Jacobian Matrix  // TODO
