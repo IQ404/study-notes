@@ -1,4 +1,6 @@
-# Contents
+# Taichi Lang
+
+## Contents
 
 - [Features to Note](#Features-to-Note)
 - [Installation](#Installation)
