@@ -15,6 +15,7 @@ The contents in those notes are written by myself but they are <ins>by no means<
 
 ### Miscellaneous
 
+- Radiance  // TODO
 - Covariance Matrix  // TODO
 - Quaternion  // TODO
 - Jacobian Matrix  // TODO
