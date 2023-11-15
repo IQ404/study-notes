@@ -1151,7 +1151,7 @@ if __name__ == "__main__":
     main()
 ```
 
-- In my current understanding, taichi's implementation for sparse data structure isn't robust enough.
+- In my current understanding, taichi's implementation for sparse data structure isn't robust enough at the moment (version 1.6.0).
   - Prefer dense SNodeTree if it's feasible.
   - Prefer reading sparse SNodeTree only through struct-`for` loop if it's feasible.
 
