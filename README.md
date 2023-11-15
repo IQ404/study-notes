@@ -16,7 +16,6 @@
 - [Range `for` loop](#Range-for-loop)
 - [Struct `for` loop](#Struct-for-loop)
 - [Atomic Operation](#Atomic-Operation)
-- [Debug](#Debug)
 - [Metaprogramming](#Metaprogramming)
 - [Object Oriented](#Object-Oriented)
 - [Dense Data Layout](#Dense-Data-Layout)
@@ -439,28 +438,6 @@ Nevertheless, if the outermost `for` loops are executed in parallel, the computa
 Hence, `case 1` is better for single thread CPU execution, while `case 2` is better for GPU execution.
 
 ❓ How about in case where the number of total iterations is much larger than the number of total threads available?
-
-## Debug
-
-❗ The version of Taichi that I am currently using (1.6.0) seems to have bugs with the taichi scope `assert` statement working on GPU.
-
-E.g. The only output of the following code, currently revealing on my machine, is `0`
-
-```python
-import taichi as ti
-ti.init(arch=ti.cuda, debug=False)
-
-@ti.kernel
-def f(a: ti.i32, b: ti.i32) -> ti.i32:
-    assert a != b, f"a and b are same"
-    print('No debugging')
-    c = 42
-    return c
-
-d = f(1,1)
-
-print(d)
-```
 
 ## Metaprogramming
 
@@ -1156,5 +1133,25 @@ if __name__ == "__main__":
   - Prefer reading sparse SNodeTree only through struct-`for` loop if it's feasible.
 
 ## Debugging
+
+❗ The version of Taichi that I am currently using (1.6.0) seems to have bugs with the taichi scope `assert` statement working on GPU.
+
+E.g. The only output of the following code, currently revealing on my machine, is `0`
+
+```python
+import taichi as ti
+ti.init(arch=ti.cuda, debug=False)
+
+@ti.kernel
+def f(a: ti.i32, b: ti.i32) -> ti.i32:
+    assert a != b, f"a and b are same"
+    print('No debugging')
+    c = 42
+    return c
+
+d = f(1,1)
+
+print(d)
+```
 
 - To force Taichi be single threaded, you can write `ti.init(arch=ti.cpu, cpu_max_num_threads=1)`.
