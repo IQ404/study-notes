@@ -10,4 +10,4 @@
 
 - Spectral Power
   - Unit: $W(nm)^{-1}$ i.e. Power per wavelength
-  - Often denote as $\psi$
+  - Often denote as $\phi$
