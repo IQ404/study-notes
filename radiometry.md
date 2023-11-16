@@ -19,6 +19,12 @@
 - Irradiance
 
 - Spectral Irradiance
+  - (Spectral) Power per unit area of incident light.
+  - Unit: $J(s)^{-1}(nm)^{-1}(m)^{-2}$
+
+- Radiant Exitance
+  - The same quantity as (spectral) irradiance, but for exitant light (light leaving the surface. E.g. reflected light).
+  - Often denote as $E$
 
 - Radiance
 
