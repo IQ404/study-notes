@@ -16,7 +16,7 @@ The contents in those notes are written by myself but they are <ins>by no means<
 ### Miscellaneous
 
 - Volume Rendering  // TODO
-- Radiance  // TODO
+- [Radiometry](https://github.com/IQ404/study-notes/blob/unclassified/radiometry.md)  // TODO
 - Covariance Matrix  // TODO
 - Quaternion  // TODO
 - Homogeneous Coordinates  // TODO
