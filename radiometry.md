@@ -1,1 +1,7 @@
 # Radiometry
+
+- Intensive quantity and Extensive quantity
+
+- Spectral Energy
+
+- 
