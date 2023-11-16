@@ -17,7 +17,7 @@
   - Often denote as $\Phi$
 
 - Irradiance
-  - See Spectral Irradiance, because we probably always want to (maybe implicitly) specify the wavelength.
+  - See Spectral Irradiance, because we probably always want to (mostly implicitly) specify the wavelength.
 
 - Spectral Irradiance
   - (Spectral) Power per unit area of incident light.
