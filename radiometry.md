@@ -28,4 +28,7 @@
   - The same quantity as (spectral) irradiance, but for exitant light (light leaving the surface. E.g. reflected light).
   - Often denote as $E$
 
-- (Spectral) Radiance
+- Radiance
+  - See Spectral Radiance, because we probably always want to (maybe implicitly) specify the wavelength.
+
+- Spectral Radiance
