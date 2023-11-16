@@ -3,6 +3,6 @@
 - Intensive quantity and Extensive quantity
 
 - Spectral Energy
-  - $J(nm)^{-1}$ Energy per wavelength
+  - Unit: $J(nm)^{-1}$ i.e. Energy per wavelength
 
 - Power
