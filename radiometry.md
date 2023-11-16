@@ -2,6 +2,6 @@
 
 - Intensive quantity and Extensive quantity
 
-- Spectral Energy ($J/nm$)
+- Spectral Energy ($J(nm)^{-1}$)
 
 - 
