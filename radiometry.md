@@ -18,4 +18,8 @@
 
 - Irradiance
 
+- Spectral Irradiance
+
 - Radiance
+
+- Spectral Radiance
