@@ -15,8 +15,8 @@ The contents in those notes are written by myself but they are <ins>by no means<
 
 ### Graphics API
 
-- [OpenGL]()  // TODO
-- [Vulkan]()  // TODO
+- OpenGL  // TODO
+- Vulkan  // TODO
 
 ### Miscellaneous
 
