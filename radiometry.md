@@ -55,6 +55,14 @@ $$\frac{dH}{ds}$$
 
 Let me interpret this as follows: the amount of spectral irradiance contributed from the photons coming through the solid angle $ds$ is $dH$. And now, let there be many "solid angles" each exactly as large as $ds$, and each carries photons flow that contributes exactly $dH$ amount of spectral irradiance (think of those "solid angles" as "zones"), and those zones are adjacent, parallel to each other such that those microscopic zones form a macroscopic zone with its cross-sectional area equals 1. \frac{dH}{ds} equals the amount of spectral irradiance contributed by this macro zone (we can think of it as a light pillar from a spotlight).
 
-Now, I will tell you more: the direction of this light pillar forms an angle $\theta$ with the normal of the point of our interest (recall that there's one such point defined with spectral irradiance, now we assume this point is on a surface). Then:
+Now, I will tell you more: assume this light pillar is an incident light to the point of our interest (recall that there's one such point defined with spectral irradiance, now we assume this point is on a flat surface) such that it forms an angle $\theta$ with the normal of the flat surface. Then:
 
 $$\frac{dH}{ds\cos{\theta}}$$
+
+is the amount of spectral irradiance this light pillar would contributes to the flat surface if the direction of the light pillar was perpendicular to the flat surface.
+
+Let's give this amount a name right away: it is the radiance at our point of interest.
+
+Radiance does not vary with distance because, when propagates through space, the light pillar does not lose energy until it hits anything.
+
+Now, assume this light pillar is emitting out from our point of interest, and hits some other thing at some other point at an angle $\phi$.
