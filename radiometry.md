@@ -53,3 +53,8 @@ Now, once we agree on "specific direction can be represented by specific differe
 
 $$\frac{dH}{ds}$$
 
+Let me interpret this as follows: the amount of spectral irradiance contributed from the photons coming through the solid angle $ds$ is $dH$. And now, let there be many "solid angles" each exactly as large as $ds$, and each carries photons flow that contributes exactly $dH$ amount of spectral irradiance (think of those "solid angles" as "zones"), and those zones are adjacent, parallel to each other such that those microscopic zones form a macroscopic zone with its cross-sectional area equals 1. \frac{dH}{ds} equals the amount of spectral irradiance contributed by this macro zone (we can think of it as a light pillar from a spotlight).
+
+Now, I will tell you more: the direction of this light pillar forms an angle $\theta$ with the normal of the point of our interest (recall that there's one such point defined with spectral irradiance, now we assume this point is on a surface). Then:
+
+$$\frac{dH}{ds\cos{\theta}}$$
