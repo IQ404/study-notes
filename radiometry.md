@@ -41,7 +41,7 @@
 
 Spectral radiance is a really essential and perhaps the most frequently used concept in graphic program. 
 
-Admittedly, it caused me a lot of headache trying to understand its "physical" meaning when I first learned it. And I can't say I really understand it now. But here is my current understanding: (MAY NEED IMPROVEMENTS!!!)
+Admittedly, it caused me a lot of headache trying to understand its "physical" meaning when I first learned it. And I can't say I really understand it now. But here is my current understanding: (<ins>MAY NEED IMPROVEMENTS!!!</ins>)
 
 Firstly, our definition of spectral irradiance $H$ can be conceptually interpreted as follows: let there be light constrained to some certain wavelength, think of a point of interest in the space as a hole where photons can enter when the hole is open, and the hole will only open for exactly 1 second. Now, count all the photons that enter the hole during this one second, and denote the total energy of those photons as $q$. Now, think of the point representing the hole as a point on a plane of unit area, and let the total number of points in this unit area to be $N$ (this is an abuse of notation and concept since N is not a finite number). The spectral irradiance at the point of our original interest can, to some extent, be thought (or should I say, represent) as $qN$.
 
