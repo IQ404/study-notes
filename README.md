@@ -1,6 +1,6 @@
 # OpenGL
 
-[dos.GL](https://docs.gl/)
+[dos.GL](https://docs.gl/) is a useful website to check the information about any OpenGL function.
 
 - OpenGL, in itself, is a specification (function declarations) acting as an API to control GPU.
 
