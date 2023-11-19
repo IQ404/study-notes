@@ -18,9 +18,9 @@
 
   A library written in C to create and manage OpenGL context and its associated window specific to the local OS in our program.
 
-  ❓ What does "creating an OpenGL context" really mean?
+❓ What does "creating an OpenGL context" really mean?
 
-  In my current understanding, context consists of the metadata of the state machine, if you think of OpenGL as a huge state machine.
+In my current understanding, context consists of the metadata of the state machine, if you think of OpenGL as a huge state machine.
 
 - GLEW/GLAD:
 
