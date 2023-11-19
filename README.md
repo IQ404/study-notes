@@ -20,6 +20,8 @@
 
   ❓ What does "creating an OpenGL context" really mean?
 
+  In my current understanding, context consists of the metadata of the state machine, if you think of OpenGL as a huge state machine.
+
 - GLEW/GLAD:
 
   Libraries to find the extended OpenGL functions implemented in the GPU driver at runtime, to manage the pointers to those functions and to provide interfaces (function declarations) for our program to call those extended OpenGL functions.
