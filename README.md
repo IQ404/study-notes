@@ -15,7 +15,7 @@ The contents in those notes are written by myself but they are <ins>by no means<
 
 ### Graphics API
 
-- OpenGL  // TODO
+- [OpenGL](https://github.com/IQ404/study-notes/blob/opengl/README.md)  // TODO
 - Vulkan  // TODO
 
 ### Miscellaneous
