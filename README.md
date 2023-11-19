@@ -18,3 +18,6 @@
 
   Libraries to find the extended OpenGL functions implemented in the GPU driver at runtime, to manage the pointers to those functions and to provide interfaces (function declarations) for our program to call those extended OpenGL functions.
 
+- Vertex Buffer
+
+  - It is a block of memory in GPU (in VRAM) to be processed by shader.
