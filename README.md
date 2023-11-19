@@ -1,5 +1,7 @@
 # OpenGL
 
+[dos.GL](https://docs.gl/)
+
 - OpenGL, in itself, is a specification (function declarations) acting as an API to control GPU.
 
   The implementation (function definitions) is in the driver of the controlled GPU (written by the GPU's manufacturer, which means the implementations of OpenGL are most often not open sourced).
@@ -30,5 +32,7 @@ We can create a vertex buffer as follows:
 
 ```cpp
 unsigned int buffer_id;
-glGen
+glGenBuffers(1, &id);
 ```
+
+`1` specifies that we want to create 1 buffer. `glGenBuffers` assigns the id of the created buffer into buffer_id (which must be `unsigned int`).
