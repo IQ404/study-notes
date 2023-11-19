@@ -1,6 +1,10 @@
 # OpenGL
 
+## Useful Links
+
 [dos.GL](https://docs.gl/) is a useful website to check the information about any OpenGL function.
+
+## Introduction and Set-ups
 
 - OpenGL, in itself, is a specification (function declarations) acting as an API to control GPU.
 
