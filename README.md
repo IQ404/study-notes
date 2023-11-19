@@ -10,7 +10,11 @@
 
 - GLFW:  // NEED ELABORATION
 
-  a library written in C to let our program use OpenGL. It also provides some minimal interfaces for doing graphic programming (e.g. having a window).
+  A library written in C to create and manage OpenGL context and its associated window specific to the local OS in our program.
 
   ❓ What does "creating an OpenGL context" really mean?
+
+- GLEW/GLAD:
+
+  Libraries to find the extended OpenGL functions implemented in the GPU driver at runtime, to manage the pointers to those functions and to provide interfaces (function declarations) for our program to call those extended OpenGL functions.
 
