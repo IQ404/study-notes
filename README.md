@@ -26,7 +26,7 @@ In my current understanding, context consists of the metadata of the state machi
 
   Libraries to find the extended OpenGL functions implemented in the GPU driver at runtime, to manage the pointers to those functions and to provide interfaces (function declarations) for our program to call those extended OpenGL functions.
 
-- `opengl32.lib`
+- `opengl32.lib`:
 
   In my current understanding, `opengl32.lib` provides fundamental functions to access base/modern OpenGL functions. Both GLEW/GLAD and GLFW rely on `opengl32.lib` for the program to call OpenGL functions.
 
@@ -42,7 +42,7 @@ We can create a vertex buffer as follows:
 
 ```cpp
 unsigned int buffer_id;
-glGenBuffers(1, &id);
+glGenBuffers(1, &buffer_id);
 ```
 
 `1` specifies that we want to create 1 buffer. `glGenBuffers` assigns the id of the created buffer into buffer_id (which must be `unsigned int`).
