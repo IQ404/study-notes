@@ -45,4 +45,4 @@ unsigned int buffer_id;
 glGenBuffers(1, &buffer_id);
 ```
 
-`1` specifies that we want to create 1 buffer. `glGenBuffers` assigns the id of the created buffer into buffer_id (which must be `unsigned int`).
+`1` specifies that we want to create 1 buffer. `glGenBuffers` assigns the id of the created buffer into `buffer_id`, which must be (an array of) `unsigned int`.
