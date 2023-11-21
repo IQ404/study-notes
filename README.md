@@ -4,9 +4,7 @@
 
 [dos.GL](https://docs.gl/) is a useful website to check the information about any OpenGL function.
 
-## Introduction and Set-ups
-
-### What is OpenGL
+## What is OpenGL
 
 - OpenGL, in itself, is a specification (function declarations) acting as an API to control GPU.
 
@@ -16,7 +14,7 @@
 
 - Shader: a program to run on GPU.
 
-### Dependencies
+## Dependencies
 
 - GLFW:  // NEED ELABORATION
 
