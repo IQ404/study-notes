@@ -102,6 +102,8 @@ int main(void)
 }
 ```
 
+Note that the code from `glBegin()` to `glEnd()` above is the old way to draw triangle in OpenGL. It is not encouraged to do so in modern OpenGL program. It is written here only to test if OpenGL is loaded correctly, since it is a fast way to render something.
+
 ## Vertex Buffer
 
 - It is a block of memory in GPU (in VRAM) to be processed by shader.
