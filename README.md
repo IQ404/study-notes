@@ -148,7 +148,7 @@ glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
 
   `0` there is a pointer (it is implicitly `(const void*)0`) indicating the offset (in bytes) of the targeted attribute into the vertex.
 
-  ❓ Elaborate more on things like `(const void*)8`.
+  ❓ Elaborate more on things like `(const void*)8`. Why can `0` be implicitly casted to `void*` while other number cannot? Why do we need `const` there?
 
 ```cpp
 glDrawArrays(GL_TRIANGLES, 0, 3);
