@@ -109,12 +109,17 @@ Note that the code from `glBegin()` to `glEnd()` above is the legacy way to draw
 It is an array of memory on GPU (in VRAM) to be processed by shader.
 
 ```cpp
-int positions[6] = {-0.5,-0.5f,  0.0f,0.5f,  0.5f,-0.5f};
+int vertices[] =
+{
+    -0.5, -0.5f,    // vertex 1
+    0.0f, 0.5f,     // vertex 2
+    0.5f, -0.5f     // vertex 3
+};
 
 unsigned int buffer_id;
 glGenBuffers(1, &buffer_id);
 glBindBuffer(GL_ARRAY_BUFFER, buffer_id);
-glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), positions, GL_STATIC_DRAW);
+glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), vertices, GL_STATIC_DRAW);
 ```
 
 - `glGenBuffers` creates a vertex buffer. `1` specifies that we want to create 1 buffer. `glGenBuffers` assigns the ID of the created buffer into `buffer_id`, which must be (an array of) `unsigned int`.
