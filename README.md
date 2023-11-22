@@ -162,5 +162,5 @@ glDrawArrays(GL_TRIANGLES, 0, 3);
 
   `3` there means how many vertices we are going to render.
 
-## Compiling Shaders
+## Compiling/Linking Shaders
 
