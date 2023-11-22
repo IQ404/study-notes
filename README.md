@@ -106,7 +106,7 @@ Note that the code from `glBegin()` to `glEnd()` above is the legacy way to draw
 
 ## Vertex Buffer
 
-It is an array of memory in GPU (in VRAM) to be processed by shader.
+It is an array of memory on GPU (in VRAM) to be processed by shader.
 
 ```cpp
 int positions[6] = {-0.5,-0.5f,  0.0f,0.5f,  0.5f,-0.5f};
@@ -123,4 +123,4 @@ glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), positions, GL_STATIC_DRAW);
 
   `GL_ARRAY_BUFFER` means the nature of the buffer associated to buffer_id is an array. It is used for all buffer used to store vertex attributes.
 
-- `glBufferData` tells OpenGL what size should the buffer be, what the data should the buffer have, and a hint on how this buffer would be used (see [here](https://docs.gl/gl4/glBufferData) for the details).
+- `glBufferData` lets OpenGL set the size for the buffer, sends the data that should be in the buffer, and gives a hint on how this buffer would be used (see [here](https://docs.gl/gl4/glBufferData) for the details).
