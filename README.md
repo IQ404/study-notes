@@ -109,7 +109,7 @@ Note that the code from `glBegin()` to `glEnd()` above is the legacy way to draw
 It is an array of memory on GPU (in VRAM) to be processed by shader.
 
 ```cpp
-int vertices[] =
+float vertices[] =
 {
     -0.5, -0.5f,    // vertex 1
     0.0f, 0.5f,     // vertex 2
@@ -120,6 +120,8 @@ unsigned int buffer_id;
 glGenBuffers(1, &buffer_id);
 glBindBuffer(GL_ARRAY_BUFFER, buffer_id);
 glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), vertices, GL_STATIC_DRAW);
+glEnableVertexAttribArray(0);
+glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
 ```
 
 - `glGenBuffers` creates a vertex buffer. `1` specifies that we want to create 1 buffer. `glGenBuffers` assigns the ID of the created buffer into `buffer_id`, which must be (an array of) `unsigned int`.
@@ -128,7 +130,25 @@ glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), vertices, GL_STATIC_DRAW);
 
   `GL_ARRAY_BUFFER` means the nature of the buffer associated to buffer_id is an array. It is used for all buffer used to store vertex attributes.
 
-- `glBufferData` lets OpenGL set the size for the buffer, sends the data that should be in the buffer, and gives a hint on how this buffer would be used (see [here](https://docs.gl/gl4/glBufferData) for the details).
+- `glBufferData` lets OpenGL set the size for the binded buffer, sends the data that should be in the binded buffer, and gives a hint on how this buffer would be used (see [here](https://docs.gl/gl4/glBufferData) for the details).
+
+- `glEnableVertexAttribArray` enables the attribute, only then will it be used in OpenGL draw calls. The `0` provided indicates the index of the attribute (with respect to the vertex) we are enabling.
+
+- `glVertexAttribPointer` tells OpenGL the layout of the binded buffer specifically for one attribute of the vertex (and thus, `glVertexAttribPointer` should be called once per attribute).
+
+  `0` there indicates the index of the attribute (with respect to the vertex) we are stating for. Here we only have 1 attribute (position) and its index is 0.
+
+  `2` there indicates that this targeted attribute is consisted of two components: we have two floats to represent a position for a vertex.
+
+  `GL_FLOAT` there indicates the type of the components just mentioned is float.
+
+  `GL_FALSE` there indicates that we don't need OpenGL to further normalize the values we provided for the components (<ins>FURTHER ELABORATION NEEDED</ins>: how does this normalization actually work?).
+
+  `sizeof(float) * 2` there indicates the stride: how many bytes are there between each vertex.
+
+  `0` there is a pointer (it is implicitly `(const void*)0`) indicating the offset (in bytes) of the targeted attribute into the vertex.
+
+  ❓ Elaborate more on things like `(const void*)8`.
 
 ```cpp
 glDrawArrays(GL_TRIANGLES, 0, 3);
