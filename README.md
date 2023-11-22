@@ -166,7 +166,7 @@ glDrawArrays(GL_TRIANGLES, 0, 3);
 
 Callings of shader programs happen after issuing GPU an OpenGL draw call.
 
-In its simplest form, vertex shader will be called once for each vertex somewhere after issuing GPU an OpenGL draw call, and fragment shader will be called once for each pixel somewhere after the vertex shader stage.
+In its simplest form, vertex shader will be called once for each vertex somewhere after issuing GPU an OpenGL draw call, and fragment shader will be called once for each pixel that needs to be shaded somewhere after the vertex shader stage.
 
 Vertex shader is to tell OpenGL where those vertex in screen space will be. It can take in the data in the binded vertex buffer, and it can also pass data down into the next shader stage of the shader program pipeline.
 
