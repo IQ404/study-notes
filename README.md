@@ -102,17 +102,25 @@ int main(void)
 }
 ```
 
-Note that the code from `glBegin()` to `glEnd()` above is the old way to draw triangle in OpenGL. It is not encouraged to do so in modern OpenGL program. It is written here only to test if OpenGL is loaded correctly, since it is a fast way to render something.
+Note that the code from `glBegin()` to `glEnd()` above is the legacy way to draw triangle in OpenGL. It is not encouraged to do so in modern OpenGL program. It is written here only to test if OpenGL is loaded correctly, since it is a fast way to render something.
 
 ## Vertex Buffer
 
-- It is a block of memory in GPU (in VRAM) to be processed by shader.
-
-We can create a vertex buffer as follows:
+It is an array of memory in GPU (in VRAM) to be processed by shader.
 
 ```cpp
+int positions[6] = {-0.5,-0.5f,  0.0f,0.5f,  0.5f,-0.5f};
+
 unsigned int buffer_id;
 glGenBuffers(1, &buffer_id);
+glBindBuffer(GL_ARRAY_BUFFER, buffer_id);
+glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), positions, GL_STATIC_DRAW);
 ```
 
-`1` specifies that we want to create 1 buffer. `glGenBuffers` assigns the id of the created buffer into `buffer_id`, which must be (an array of) `unsigned int`.
+- `glGenBuffers` creates a vertex buffer. `1` specifies that we want to create 1 buffer. `glGenBuffers` assigns the ID of the created buffer into `buffer_id`, which must be (an array of) `unsigned int`.
+
+- `glBindBuffer` lets the OpenGL state machine select the provided buffer so that the following manipulations are done on the buffer associated to `buffer_id`.
+
+  `GL_ARRAY_BUFFER` means the nature of the buffer associated to buffer_id is an array. It is used for all buffer used to store vertex attributes.
+
+- `glBufferData` tells OpenGL what size should the buffer be, what the data should the buffer have, and a hint on how this buffer would be used (see [here](https://docs.gl/gl4/glBufferData) for the details).
