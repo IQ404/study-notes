@@ -164,7 +164,7 @@ glDrawArrays(GL_TRIANGLES, 0, 3);
 
 ## Compiling/Linking Shaders
 
-Callings of shader programs happen after issuing GPU an OpenGL draw call.
+Callings of shader programs happen after issuing GPU an OpenGL draw call: shaders within an OpenGL rendering pipeline specify some of the necessary deatils on how to draw what the corresponding draw call is ultimately aimed to draw.
 
 In its simplest form, vertex shader will be called once for each vertex somewhere after issuing GPU an OpenGL draw call, and fragment shader will be called once for each pixel that needs to be shaded somewhere after the vertex shader stage.
 
