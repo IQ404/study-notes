@@ -124,3 +124,16 @@ glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), positions, GL_STATIC_DRAW);
   `GL_ARRAY_BUFFER` means the nature of the buffer associated to buffer_id is an array. It is used for all buffer used to store vertex attributes.
 
 - `glBufferData` lets OpenGL set the size for the buffer, sends the data that should be in the buffer, and gives a hint on how this buffer would be used (see [here](https://docs.gl/gl4/glBufferData) for the details).
+
+```cpp
+glDrawArrays(GL_TRIANGLES, 0, 3);
+```
+
+- `glDrawArrays` is a draw call to a vertex buffer.
+
+  `GL_TRIANGLES` means we are drawing triangles.
+
+  `0` there means we are starting to render trangles from the first vertex in the buffer.
+
+  `3` there means how many vertices we are going to render.
+
