@@ -213,7 +213,7 @@ static unsigned int CompileShader(unsigned int type, const std::string& source_c
 
 - `.c_str` returns a pointer to the head of a null-terminated character array.
 
-- `glShaderSource` sets (actually, replaces, i.e., overwrites) the shading source code in the shader object with ID `shader_id`.
+- `glShaderSource` sets (actually, replaces, i.e., overwrites) the shading source code stored in the shader object with ID `shader_id`.
 
   `1` there means there is only one source code we want to set. ❓ How does a shader with multiple parts of source code works?
 
