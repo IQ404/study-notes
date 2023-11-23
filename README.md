@@ -165,7 +165,7 @@ The ultimate purpose of a fragment shader is to determine and output the color f
 Normally fragment shader will be called much more times than that will be called for a vertex shader. Hence, computations in fragment shader is much more expensive than in vertex shader.
 
 ```cpp
-static unsigned int CompileShader(unsigned int type, const std::string& source_code)    // 
+static unsigned int CompileShader(unsigned int type, const std::string& source_code)
 {
     unsigned int shader_id = glCreateShader(type);
     const char* src = source_code.c_str();  // .c_str returns a pointer to the head of a null-terminated character array.
@@ -226,7 +226,7 @@ static unsigned int CompileShader(unsigned int type, const std::string& source_c
 - 
 
 ```cpp
-static unsigned int CreateShaderProgram(const std::string& vertexShader, const std::string& fragmentShader)     // internal linkage
+static unsigned int CreateShaderProgram(const std::string& vertexShader, const std::string& fragmentShader)
 // returns the ID of the shader program in OpenGL
 {
     unsigned int shader_program_id = glCreateProgram();     // similar to glGenBuffers
