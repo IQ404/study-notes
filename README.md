@@ -9,7 +9,7 @@ The contents in those notes are written by myself but they are <ins>by no means<
 
 ## Contents
 
-### Programming
+### Programming Language
 
 - [C++](https://github.com/IQ404/study-notes/blob/cpp/README.md)
 - [Taichi Lang](https://github.com/IQ404/study-notes/blob/taichi-lang/README.md)
