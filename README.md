@@ -254,6 +254,35 @@ static unsigned int CreateShaderProgram(const std::string& vertexShader, const s
 
 ## Writing Your First Shader
 
+```cpp
+std::string vertexShader =
+    "#version 450 core\n"
+    "\n"
+    "layout (location = 0) in vec4 position;\n"
+    "\n"
+    "void main()\n"
+    "{\n"
+    "   gl_Position = position;\n"
+    "}\n"
+    ;
+
+std::string fragmentShader =
+    "#version 450 core\n"
+    "\n"
+    "layout (location = 0) out vec4 color;\n"
+    "\n"
+    "void main()\n"
+    "{\n"
+    "   color = vec4(1.0f, 0.0f, 0.0f, 1.0f);\n"
+    "}\n"
+    ;
+
+unsigned int shader_program_id = CreateShaderProgram(vertexShader, fragmentShader);
+glUseProgram(shader_program_id);
+// ...
+glDeleteProgram(shader_program_id);
+```
+
 ## Draw Calls
 
 ```cpp
