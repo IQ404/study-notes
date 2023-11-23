@@ -217,7 +217,7 @@ static unsigned int CompileShader(unsigned int type, const std::string& source_c
 
   `1` there means there is only one source code we want to set. ❓ How does a shader with multiple parts of source code works?
 
-  Since it can have multiple source code, it then receives a pointer to an array of pointers each pointing to a character array (in our case there is `&src`).
+  Since it can have multiple source code, it then receives a pointer to an array of pointers each pointing to a character array (in our case this is `&src`).
 
   It then receives a pointer to an array of `int` each specifying the length of its corresponding character array (here if the `int` is negative, it means that the crresponding source code character array is null-terminated). In our case we pass `nullptr` (equivalent to `NULL`), which means all the source code character arrays are null-terminated (in our case there is only one source code).
 
