@@ -4,7 +4,7 @@
 
 ## Useful Links
 
-[dos.GL](https://docs.gl/) is a useful (but sometimes confusing) website to check the information about OpenGL functions.
+[dos.GL](https://docs.gl/) is a mostly useful (but sometimes confusing) website to check the information about OpenGL functions.
 
 ## What is OpenGL
 
