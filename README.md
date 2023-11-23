@@ -164,6 +164,94 @@ The ultimate purpose of a fragment shader is to determine and output the color f
 
 Normally fragment shader will be called much more times than that will be called for a vertex shader. Hence, computations in fragment shader is much more expensive than in vertex shader.
 
+```cpp
+static unsigned int CompileShader(unsigned int type, const std::string& source_code)    // 
+{
+    unsigned int shader_id = glCreateShader(type);
+    const char* src = source_code.c_str();  // .c_str returns a pointer to the head of a null-terminated character array.
+    glShaderSource(shader_id, 1, &src, nullptr);
+    glCompileShader(shader_id);
+    
+    /*** Error handling: ***/
+    int compile_status;
+    glGetShaderiv(shader_id, GL_COMPILE_STATUS, &compile_status);
+    if (compile_status == GL_FALSE)
+    {
+        int log_length;
+        glGetShaderiv(shader_id, GL_INFO_LOG_LENGTH, &log_length);
+        char* log = (char*)alloca(log_length * sizeof(char));
+        glGetShaderInfoLog(shader_id, log_length, &log_length, log);
+        std::cout << "Failed to compile ";
+        switch (type)
+        {
+        case GL_VERTEX_SHADER:
+            std::cout << "vertex shader" << std::endl;
+            break;
+        case GL_FRAGMENT_SHADER:
+            std::cout << "fragment shader" << std::endl;
+            break;
+        default:
+            break;
+        }
+        std::cout << log << std::endl;
+        glDeleteShader(shader_id);
+        return 0;   // A value of 0 for shader will be silently ignored by further OpenGL calls.
+    }
+    /*** End of error handling ***/
+
+    return shader_id;
+}
+```
+
+- `CompileShader` is declared as `static` just to have internal linkage.
+
+- `glCreateShader` creates a shader object on GPU.
+
+  The type of the shader created will be the type provided (see [here](https://docs.gl/gl4/glCreateShader) for the options).
+
+  It returns the ID representing the shader object that is created.
+
+- `.c_str` returns a pointer to the head of a null-terminated character array.
+
+- `glShaderSource` sets (actually, replaces, i.e., overwrites) the shading source code in the shader object with ID `shader_id`.
+
+  `1` there means there is only one source code we want to set. ❓ How does a shader with multiple parts of source code works?
+
+  Since it can have multiple source code, it then receives a pointer to an array of pointers each pointing to a character array (in our case there is `&src`).
+
+  It then receives a pointer to an array of `int` each specifying the length of its corresponding character array (here if the `int` is negative, it means that the crresponding source code character array is null-terminated). In our case we pass `nullptr` (equivalent to `NULL`), which means all the source code character arrays are null-terminated (in our case there is only one source code).
+
+- `glCompileShader` compiles the shader with provided ID and returns `void`.
+
+- 
+
+```cpp
+static unsigned int CreateShaderProgram(const std::string& vertexShader, const std::string& fragmentShader)     // internal linkage
+// returns the ID of the shader program in OpenGL
+{
+    unsigned int shader_program_id = glCreateProgram();     // similar to glGenBuffers
+
+    unsigned int vertex_shader_id = CompileShader(GL_VERTEX_SHADER, vertexShader);
+    unsigned int fragment_shader_id = CompileShader(GL_FRAGMENT_SHADER, fragmentShader);
+
+    glAttachShader(shader_program_id, vertex_shader_id);
+    glAttachShader(shader_program_id, fragment_shader_id);
+
+    glLinkProgram(shader_program_id);
+    glValidateProgram(shader_program_id);
+
+    glDeleteShader(vertex_shader_id);
+    glDeleteShader(fragment_shader_id);
+
+    //glDetachShader(shader_program_id, vertex_shader_id);
+    //glDetachShader(shader_program_id, fragment_shader_id);
+
+    return shader_program_id;
+}
+```
+
+- `CreateShaderProgram` is declared as `static` just to have internal linkage.
+
 ## Writing Your First Shader
 
 ## Draw Calls
