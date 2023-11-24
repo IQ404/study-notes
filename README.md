@@ -359,3 +359,85 @@ glDrawArrays(GL_TRIANGLES, 0, 3);
 
 ## Unifying Shaders Source Code into One File
 
+```cpp
+// Standard:
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+// Externel:
+#include <GL/glew.h>        // include this before include gl.h
+#include <GLFW/glfw3.h>
+
+struct ShaderProgramSourceCode
+{
+    std::string VertexShaderSourceCode;
+    std::string FragmentShaderSourceCode;
+};
+
+static ShaderProgramSourceCode ParseUnifiedShader(const std::string& filepath)
+{
+    std::ifstream input_stream{ filepath };
+    enum class ShaderType
+    {
+        NONE = -1,
+        VERTEX = 0,
+        FRAGMENT = 1
+    };
+    std::string current_line;
+    std::stringstream shader_source_code_buffer[2];
+    ShaderType current_shader_type = ShaderType::NONE;
+    while (std::getline(input_stream, current_line))
+    {
+        if (current_line.find("#shader") != std::string::npos) // std::string::npos is often implemented as -1
+        {
+            if (current_line.find("vertex") != std::string::npos)
+            {
+                current_shader_type = ShaderType::VERTEX;
+            }
+            else if (current_line.find("fragment") != std::string::npos)
+            {
+                current_shader_type = ShaderType::FRAGMENT;
+            }
+            else
+            {
+                std::cout << "Syntax Error: unspecified shader type in unified shader file." << std::endl;
+            }
+        }
+        else
+        {
+            shader_source_code_buffer[(int)current_shader_type] << current_line << '\n';
+        }
+    }
+    return { shader_source_code_buffer[0].str(),shader_source_code_buffer[1].str() };
+}
+
+// ...
+
+ShaderProgramSourceCode shader_program_source_code = ParseUnifiedShader("res/shaders/Basic.shader");
+unsigned int shader_program_id = CreateShaderProgram(shader_program_source_code.VertexShaderSourceCode, shader_program_source_code.FragmentShaderSourceCode);
+```
+
+where `Basic.shader` contains:
+
+```cpp
+#shader vertex
+#version 460 core
+
+layout (location = 0) in vec4 position;
+
+void main()
+{
+   gl_Position = position;
+}
+
+#shader fragment
+#version 460 core
+
+layout (location = 0) out vec4 color;
+
+void main()
+{
+   color = vec4(0.2f, 0.3f, 0.8f, 1.0f);
+}
+```
