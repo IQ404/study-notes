@@ -257,7 +257,7 @@ static unsigned int CompileShader(unsigned int type, const std::string& source_c
 static unsigned int CreateShaderProgram(const std::string& vertexShader, const std::string& fragmentShader)
 // returns the ID of the shader program in OpenGL
 {
-    unsigned int shader_program_id = glCreateProgram();     // similar to glGenBuffers
+    unsigned int shader_program_id = glCreateProgram();
 
     unsigned int vertex_shader_id = CompileShader(GL_VERTEX_SHADER, vertexShader);
     unsigned int fragment_shader_id = CompileShader(GL_FRAGMENT_SHADER, fragmentShader);
@@ -279,6 +279,18 @@ static unsigned int CreateShaderProgram(const std::string& vertexShader, const s
 ```
 
 - `CreateShaderProgram` is declared as `static` just to have internal linkage.
+
+- `glCreateProgram` creates a program object on GPU and returns its ID.
+
+- With provided IDs, `glAttachShader` attaches the shader object to the program object.
+
+  Note that, since shader objects are created with their type specified, attaching order does not need to match the order in the rendering pipeline.
+
+- `glLinkProgram` generates executables (that will run on the corresponding programmable processor) for the compiled shaders attaching to the program object of providing ID.
+
+- `glValidateProgram` leaves message about "Given how everything is currently set up in OpenGL (the current state), can the shader program with provided ID be executed without any errors?" in the program's information log. Note that this is just for debug purpose, and it's not compulsory after a call of `glLinkProgram`.
+
+- `glDetachShader` undoes the effect of `glAttachShader`: with the provided IDs, it detaches the shader object from the program object.
 
 ## Writing Your First Shader
 
