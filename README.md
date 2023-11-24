@@ -223,7 +223,31 @@ static unsigned int CompileShader(unsigned int type, const std::string& source_c
 
 - `glCompileShader` compiles the shader with provided ID and returns `void`.
 
-- 
+- `glGetShaderiv` is used to query various kinds of information about a shader object:
+
+  - It first takes in the shader's ID.
+ 
+  - It then takes a macro (which in this case is an `int`) indicating the kind of information to be queried (see [here](https://docs.gl/gl4/glGetShader) for the details of the options).
+ 
+    Note that the length returned by `GL_INFO_LOG_LENGTH` including an extra `char` of the null terminator.
+ 
+  - It then takes a pointer to an `int`, storing the queried information in the `int`.
+
+  - `iv` stands for integer vector, in my current understanding, this indicates that the function outputs integer array (vector) and thus we pass the pointer to `int` to it.
+
+- `char* log = (char*)alloca(log_length * sizeof(char));` is a way to dynamically allocate memory on stack.
+
+- `glGetShaderInfoLog` first takes in the shader's ID.
+
+  It then takes in the length of the character array for storing the returned information log.
+
+  It then takes a pointer to an `int`, putting the length of the returned information log (without the extra `char` of the null terminator) into the `int`.
+
+  It then takes a pointer to a `char` array, putting the information log into it.
+
+- `glDeleteShader` flags the shader object with the provided ID for deletion. The shader object will then only be deleted when it is not attached to any shader program object.
+
+  `glDeleteShader` employs inclusio for `glCreateShader`.
 
 ```cpp
 static unsigned int CreateShaderProgram(const std::string& vertexShader, const std::string& fragmentShader)
@@ -282,6 +306,10 @@ glUseProgram(shader_program_id);
 // ...
 glDeleteProgram(shader_program_id);
 ```
+
+- `#version 450` specifies to use GLSL 4.5, which is corresponding to OpenGL 4.5
+
+  `core` means that any deprecated functions from earlier versions are not allowed to use.
 
 ## Draw Calls
 
