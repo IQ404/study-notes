@@ -6,6 +6,10 @@
 
 [dos.GL](https://docs.gl/) is a mostly useful (but sometimes confusing) website to check the information about OpenGL functions.
 
+## Currently Unclassified Notes
+
+- In OpenGL, `0` often represents the ID for non-existent object. So, we often use `0` for detaching.
+
 ## What is OpenGL
 
 - OpenGL, in itself, is a specification (function declarations) acting as an API to control GPU.
