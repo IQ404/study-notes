@@ -349,7 +349,7 @@ glDeleteProgram(shader_program_id);
 glDrawArrays(GL_TRIANGLES, 0, 3);
 ```
 
-- `glDrawArrays` is a draw call to the currently binded vertex buffer when index buffer is not used.
+- `glDrawArrays` is a draw call to the currently binded vertex buffer (❓ when index buffer is not used).
 
   `GL_TRIANGLES` means we are drawing triangles.
 
