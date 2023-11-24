@@ -315,6 +315,10 @@ glDeleteProgram(shader_program_id);
 
   `core` means that any deprecated functions from earlier versions are not allowed to use.
 
+- `glUseProgram` makes the program object with the provided ID in use for current rendering state.
+
+- `glDeleteProgram` flags the program object with the provided ID for deletion. The program object will then only be deleted when it is not in use as part of current rendering state.
+
 ## Draw Calls
 
 ```cpp
