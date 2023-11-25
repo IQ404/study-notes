@@ -379,7 +379,7 @@ glDrawArrays(GL_TRIANGLES, 0, 3);
 
   `0` there means we are starting to render trangles from the first vertex in the binded buffer.
 
-  `3` there means how many vertices we are going to render.
+  `3` there means, from (and include) the starting vertex onwards, how many vertices we are going to render.
 
 ## Unifying Shaders Source Code into One File
 
