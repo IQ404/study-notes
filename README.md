@@ -511,4 +511,16 @@ glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 // ...
 ```
 
-<ins>Note in particular that</ins>, in OpenGL, when we bind a vertex buffer with glBindBuffer(GL_ARRAY_BUFFER, vbo) and then bind an index buffer with glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo), both buffers remain bound to the current rendering state. This is because the first parameter in the glBindBuffer function specifies the target to which the buffer is bound, and GL_ARRAY_BUFFER and GL_ELEMENT_ARRAY_BUFFER are different targets.
+- <ins>Note in particular that</ins>, in OpenGL, when we bind a vertex buffer with `glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_id)` and then bind an index buffer with `glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index_buffer_id)`, both buffers remain bound to the current rendering state. This is because the first parameter in the `glBindBuffer` function specifies the target to which the buffer is bound, and `GL_ARRAY_BUFFER` and `GL_ELEMENT_ARRAY_BUFFER` are different targets.
+
+- Note that the unsigned integers in the index buffer corresponds to the indices in the array of vertices (i.e. the order in vertex buffer needs to match the order in index buffer).
+
+- `glDrawElements` is recommended to use when index buffer is binded.
+
+  `6` corresponds to the number of indices we are drawing, not the number of vertices in vertex buffer we are drawing!
+
+  `GL_UNSIGNED_INT` indicates the type of data in the index buffer.
+
+  Now, if index buffer is binded (as we did), the last parameter expecting a pointer sets the offset (<ins>in bytes</ins>) into the index buffer. Here we pass in `nullptr` (which is equivalent to `(void*)0`) means that we are drawing `6` indices from the beginning of the index buffer. If we passed in, say, `glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, (void*)(3*sizeof(unsigned int)))`, it will just draw the upper triangle.
+
+  If index buffer is not binded, this last pointer parameter is treated as a pointer to the index data itself (which means the index data is sit on the memory of the CPU side). This is not recommended, because then it will send the index data from the CPU to the GPU each time glDrawElements is called.
