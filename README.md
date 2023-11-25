@@ -12,6 +12,8 @@
 
 - ❓ Deeply explore the asynchrony between CPU and GPU in OpenGL.
 
+- ❓ Deeply explore double-buffering.
+
 ## What is OpenGL
 
 - OpenGL, in itself, is a specification (function declarations) acting as an API to control GPU.
