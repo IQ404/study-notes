@@ -475,6 +475,8 @@ Instead, we can specify an index for each vertex in the vertex buffer, and draw 
 In OpenGL this can be done as follows:
 
 ```cpp
+// ...
+
 float vertices[] =
 {
     -0.5f,-0.5f,    // vertex 1
