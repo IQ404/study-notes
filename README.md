@@ -16,7 +16,7 @@
 
   Asynchronous CPU-GPU interactions is key for achieving high performance in graphics applicationsfor, as it allows both the CPU and GPU to work in parallel.
 
-  When a CPU thread calls an OpenGL function to perform a GPU operation, it issues OpenGL commands from the CPU, these commands are queued for execution on the GPU (OpenGL commands are placed in a command buffer and the GPU executes them in order). The CPU does not necessarily wait for the GPU to finish the operation before it continues executing, it can continue executing subsequent instructions, and can queue many commands rapidly without waiting for the GPU to catch up.
+  When a CPU thread calls an OpenGL function to perform a GPU operation, it issues OpenGL commands from the CPU, these commands are queued for execution on the GPU (OpenGL commands are placed in a command buffer on GPU, and the GPU executes them in order). The CPU does not necessarily wait for the GPU to finish the operation before it continues executing, it can continue executing subsequent instructions, and can queue many commands rapidly without waiting for the GPU to catch up.
 
   There are certain points (called synchronization point) where synchronization between the CPU and GPU is required. Generally, when encountering a synchronization point, CPU does not need to wait for all queued commands in GPU to finish before it continues executing. For examples:
 
