@@ -367,13 +367,13 @@ glDeleteProgram(shader_program_id);
 
 - `glDeleteProgram` flags the program object with the provided ID for deletion. The program object will then only be deleted when it is not in use as part of current rendering state.
 
-## Draw Calls
+## Draw Call without Index Buffer
 
 ```cpp
 glDrawArrays(GL_TRIANGLES, 0, 3);
 ```
 
-- `glDrawArrays` is a draw call to the currently binded vertex buffer (❓ when index buffer is not used).
+- `glDrawArrays` is a draw call to the currently binded vertex buffer (this function is often used when index buffer is not in use).
 
   `GL_TRIANGLES` means we are drawing triangles.
 
