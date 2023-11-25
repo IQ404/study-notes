@@ -468,3 +468,14 @@ void main()
 
 ## Index Buffer
 
+Previously, we used `glDrawArrays` to draw primitives by drawing the vertices in the vertex buffer one-by-one along the vertex array directly.
+
+Instead, we can specify an index for each vertex in the vertex buffer, and draw vertices according to an indices array. In doing so we can eliminate the VRAM consumption from duplicated vertices.
+
+In OpenGL this can be done as follows:
+
+```cpp
+
+```
+
+<ins>Note in particular that</ins>, in OpenGL, when we bind a vertex buffer with glBindBuffer(GL_ARRAY_BUFFER, vbo) and then bind an index buffer with glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo), both buffers remain bound to the current rendering state. This is because the first parameter in the glBindBuffer function specifies the target to which the buffer is bound, and GL_ARRAY_BUFFER and GL_ELEMENT_ARRAY_BUFFER are different targets.
