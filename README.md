@@ -10,6 +10,8 @@
 
 - In OpenGL, `0` often represents the ID for non-existent object. So, we often use `0` for detaching.
 
+- ❓ Deeply explore the asynchrony between CPU and GPU in OpenGL.
+
 ## What is OpenGL
 
 - OpenGL, in itself, is a specification (function declarations) acting as an API to control GPU.
