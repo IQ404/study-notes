@@ -12,6 +12,28 @@
 
 - ❓ Deeply explore the asynchrony between CPU and GPU in OpenGL.
 
+  Short notes on this topic:
+
+  Asynchronous CPU-GPU interactions is key for achieving high performance in graphics applicationsfor, as it allows both the CPU and GPU to work in parallel.
+
+  When a CPU thread calls an OpenGL function to perform a GPU operation, it does not necessarily wait for the GPU to finish the operation before it continues executing.
+
+  When you issue OpenGL commands from the CPU, these commands are queued for execution on the GPU. The CPU can continue executing subsequent instructions without waiting for the GPU to complete these commands.
+
+  OpenGL commands are placed in a command buffer and the GPU executes them in order. The CPU can queue many commands rapidly without waiting for the GPU to catch up.
+
+  There are certain points (called synchronization point) where synchronization between the CPU and GPU is required. Generally, when encountering a synchronization point, CPU does not need to wait for all queued commands in GPU to finish before it continues executing. For examples:
+
+  - When swapping buffers (often at the end of rendering a frame, e.g., `glfwSwapBuffers()` in GLFW), the CPU waits for the GPU to finish rendering the current frame before the buffers are swapped. This wait is usually for the completion of the frame rendering commands only, not all commands in the queue.
+ 
+  - When reading data back from the GPU (e.g., `glReadPixels`), the CPU will wait for the GPU to finish all operations that affect the data being read back. For example, if you're reading from a framebuffer, the CPU will (only) wait for all rendering commands that update that framebuffer to complete.
+ 
+  - OpenGL provides more fine-grained synchronization mechanisms like `glFenceSync`. A fence sync object can be inserted into the command stream, and the CPU can later wait for just the commands issued before the fence to complete. This allows for more targeted synchronization instead of waiting for all commands to finish.
+ 
+  - When `glFinish()` is called, the CPU will wait until all previously issued OpenGL commands have been fully executed and completed by the GPU.
+ 
+    As a supplement, `glFlush()` ensures that all previously issued OpenGL commands are pushed to the GPU for execution, but it does not wait for their completion. The CPU can continue executing subsequent instructions without waiting for the GPU to finish these commands.
+
 - ❓ Deeply explore double-buffering.
 
 ## What is OpenGL
