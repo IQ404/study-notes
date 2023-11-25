@@ -12,7 +12,7 @@
 
 - ❓ Deeply explore the asynchrony between CPU and GPU in OpenGL.
 
-  Short notes on this topic:
+  A short note on this topic:
 
   Asynchronous CPU-GPU interactions is key for achieving high performance in graphics applicationsfor, as it allows both the CPU and GPU to work in parallel.
 
