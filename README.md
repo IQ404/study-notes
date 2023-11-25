@@ -475,7 +475,38 @@ Instead, we can specify an index for each vertex in the vertex buffer, and draw 
 In OpenGL this can be done as follows:
 
 ```cpp
+float vertices[] =
+{
+    -0.5f,-0.5f,    // vertex 1
+     0.5f,-0.5f,    // vertex 2
+     0.5f, 0.5f,    // vertex 3
+    -0.5f, 0.5f     // vertex 4
+};
 
+unsigned int indices[] =    // OpenGL requires index buffer to store unsigned data!!!
+{
+    0,1,2,  // lower-half triangle for the rectangle
+    0,2,3   // upper-half triangle for the rectangle
+};
+
+unsigned int vertex_buffer_id;
+glGenBuffers(1, &vertex_buffer_id);
+glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_id);
+glBufferData(GL_ARRAY_BUFFER, 4 * 2 * sizeof(float), vertices, GL_STATIC_DRAW);
+glEnableVertexAttribArray(0);
+glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
+
+unsigned int index_buffer_id;
+glGenBuffers(1, &index_buffer_id);
+glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index_buffer_id);
+glBufferData(GL_ELEMENT_ARRAY_BUFFER, 3 * 2 * sizeof(unsigned int), indices, GL_STATIC_DRAW);
+
+// ...
+
+// glDrawArrays(GL_TRIANGLES, 0, 6);    // use glDrawArrays when index buffer is not in use
+glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+
+// ...
 ```
 
 <ins>Note in particular that</ins>, in OpenGL, when we bind a vertex buffer with glBindBuffer(GL_ARRAY_BUFFER, vbo) and then bind an index buffer with glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo), both buffers remain bound to the current rendering state. This is because the first parameter in the glBindBuffer function specifies the target to which the buffer is bound, and GL_ARRAY_BUFFER and GL_ELEMENT_ARRAY_BUFFER are different targets.
