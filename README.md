@@ -527,9 +527,11 @@ glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 
 ## Basic Error Report
 
-By basic I mean we are implementing error reporting using the OpenGL function `glGetError`. The error flags returned by this function can be found [here](https://docs.gl/gl4/glGetError).
+By basic I mean we are implementing error reporting using the OpenGL function `glGetError`. The value of error flags that can be returned by this function can be found [here](https://docs.gl/gl4/glGetError).
 
-One way to implement error reporting, using macros in MSVC, is as follows:
+- 
+
+One way to implement `glGetError` error reporting, using macros in MSVC, is as follows:
 
 ```cpp
 // Macros:
