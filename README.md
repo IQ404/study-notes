@@ -25,4 +25,4 @@ On the other hand, external linkage (e.g. functions and variables that are defin
 ## Preprocessing
 
 - The process of handling a backslash (`\`) followed by a newline (hitting Enter), even outside of preprocessor directives, is indeed the work of the preprocessor in C++.
-- The stringizing operator (`#`) in C++ can only be used within a macro definition (`#define`).
+- The stringizing operator (`#`) in C++ can only be used within a macro definition (`#define`). `#` has no special meaning in regular C++ code.
