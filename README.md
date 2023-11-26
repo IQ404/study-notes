@@ -524,3 +524,6 @@ glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
   Now, if index buffer is binded (as we did, <ins>which is te recommended way of using index buffer</ins>), the last parameter expecting a pointer sets the offset (<ins>in bytes</ins>) into the index buffer. Here we pass in `nullptr` (which is equivalent to `(void*)0`) means that we are drawing `6` indices from the beginning of the index buffer. If we passed in, say, `glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, (void*)(3*sizeof(unsigned int)))`, it will just draw the upper triangle.
 
   If index buffer is not binded, this last pointer parameter is treated as a pointer to the index data itself (which means the index data is sit on the memory of the CPU side). <ins>This is not recommended</ins>, because then it will send the index data from the CPU to the GPU each time glDrawElements is called.
+
+## Basic Error Report
+
