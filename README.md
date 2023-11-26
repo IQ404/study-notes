@@ -527,3 +527,49 @@ glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 
 ## Basic Error Report
 
+By basic I mean we are implementing error reporting using the OpenGL function `glGetError`. The error flags returned by this function can be found [here](https://docs.gl/gl4/glGetError).
+
+One way to implement error reporting is as follows:
+
+```cpp
+// Macros:
+
+#define ASSERT_GLErrors(b) if (!(b)) __debugbreak();     // __debugbreak is MSVC-specific
+
+/*
+GLCall(s):
+    - Add `;` at the end when using GLCall(s), as its current definition does not end with `;`.
+    - Don't write one-line statement using this macro, because its current definition body isn't enclosed with {}.
+*/
+#define GLCall(s)\
+        GLClearErrors();\
+        s;\
+        ASSERT_GLErrors(GLErrorLog(#s, __LINE__, __FILE__))
+
+static void GLClearErrors()
+{
+    while (glGetError() != GL_NO_ERROR);    // GL_NO_ERROR is guaranteed to be 0
+}
+
+static bool GLErrorLog(const char* function_called, int line_calling_from, const char* filepath_calling_from)
+{
+    if (GLenum error = glGetError())    // enters if block as long as error != 0
+    {
+        std::cout << "------[OpenGL Error]------" << '\n'
+            << "Error GLenum: " << error << '\n'
+            << "By executing: " << function_called << '\n'
+            << "At line: " << line_calling_from << '\n'
+            << "In file: " << filepath_calling_from << '\n'
+            << "--------------------------" << std::endl;
+
+        return false;
+    }
+    return true;
+}
+
+// ...
+
+GLCall(glDrawElements(GL_TRIANGLES, 6, GL_INT, nullptr));  // currently this line is intentionally incorrectly written (GL_INT should be GL_UNSIGNED_INT)
+
+// ...
+```
