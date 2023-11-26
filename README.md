@@ -539,7 +539,9 @@ One way to implement `glGetError` error reporting, using macros in MSVC, is as f
 #define ASSERT_GLErrors(b) if (!(b)) __debugbreak();     // __debugbreak is MSVC-specific
 
 /*
-GLCall(s):
+GLCall(s): calling OpenGL function with error reporting
+    - It is currently MSVC-specific.
+    - It will clear all the previously set OpenGL error flags.
     - Add `;` at the end when using GLCall(s), as its current definition does not end with `;`.
     - Don't write one-line statement using this macro, because its current definition body isn't enclosed with {}.
 */
