@@ -529,7 +529,9 @@ glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 
 By basic I mean we are implementing error reporting using the OpenGL function `glGetError`. The value of error flags that can be returned by this function can be found [here](https://docs.gl/gl4/glGetError).
 
-- 
+- In my current understanding, if we call some OpenGL function and some error occurs, a global error flag will be set to some `GLenum` representing the type of the error occurred. There may only be one such error flag but it is likely to exist multiple of such error flag in most implementations. Each error flag can only record one error, and if multiple errors occurred, other errors are either recorded by other error flags or ignored (and discarded). `glGetError` checks all the flags, returns and clears the value of one of the error flags (chosen arbitrarily if there are multiple errors), resetting it to `GL_NO_ERROR`. Hence, to relate error to its initiator, we still need to call `glGetError` in a loop.
+
+  ❓ Explore the possible situation(s) where newly occurred error is discarded even when there is available error flag(s).
 
 One way to implement `glGetError` error reporting, using macros in MSVC, is as follows:
 
