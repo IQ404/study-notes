@@ -555,7 +555,7 @@ GLCall(s): calling OpenGL function with error reporting
 #define GLCall(s)\
         GLClearErrors();\
         s;\
-        ASSERT_DebugBreak_MSVC(GLErrorLog(#s, __LINE__, __FILE__))
+        ASSERT_DebugBreak_MSVC(!(GLErrorLog(#s, __LINE__, __FILE__)))
 
 static void GLClearErrors()
 {
@@ -563,6 +563,7 @@ static void GLClearErrors()
 }
 
 static bool GLErrorLog(const char* function_called, int line_calling_from, const char* filepath_calling_from)
+// returns true if there is error; false there isn't.
 {
     if (GLenum error = glGetError())    // enters if block as long as error != 0
     {
@@ -573,9 +574,9 @@ static bool GLErrorLog(const char* function_called, int line_calling_from, const
             << "In file: " << filepath_calling_from << '\n'
             << "--------------------------" << std::endl;
 
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
 
 // ...
