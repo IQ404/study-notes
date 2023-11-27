@@ -19,6 +19,11 @@ The contents in those notes are written by myself but they are <ins>by no means<
 - [OpenGL](https://github.com/IQ404/study-notes/blob/opengl/README.md)
 - Vulkan  // TODO
 
+### Learning
+
+- Machine Learning  // TODO
+- Neural Networks  // TODO
+
 ### Miscellaneous
 
 - Volume Rendering  // TODO
