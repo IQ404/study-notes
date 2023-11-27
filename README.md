@@ -593,7 +593,55 @@ When the shader program object is created, each uniform in the program object (i
 
 To retrieve that ID, we need to find bind the shader program object.
 
-If `glGetUniformLocation` can't find that uniform, it will return `-1`. Note that this can happen when the uniform we are retrieving is actually written in the shader code but is compiled away (e.g., if this uniform is not used throughout the shader program). 
+If `glGetUniformLocation` can't find that uniform, it will return `-1`. Note that this can happen when the uniform we are retrieving is actually written in the shader code but is compiled away (e.g., if this uniform is not used throughout the shader program).
+
+Note in particular that:
+
+- Uniform values are maintained per shader program object. You can write uniform with the same name and type in multiple shaders and it will refer to one single uniform.
+- Once you set a uniform value in a shader program, that value remains set in that specific program until you explicitly change it or until the program is deleted.
+- You need to set the uniform value separately for each shader program object.
+
+Example:
+
+```cpp
+// ...
+GLCall(glUseProgram(shader_program_id));
+
+GLCall(int u_color_id = glGetUniformLocation(shader_program_id, "u_color"));
+//ASSERT_DebugBreak_MSVC(u_color_id != -1);
+
+float r = 0.0f;
+float increment = 0.0f;
+
+/* Loop until the user closes the window */
+while (!glfwWindowShouldClose(window))
+{
+    /* Render here */
+    GLCall(glClear(GL_COLOR_BUFFER_BIT));
+
+    if (r <= 0.0f)
+    {
+        increment = 0.05f;
+    }
+    if (r >= 1.0f)
+    {
+        increment = -0.05f;
+    }
+    r += increment;
+
+    GLCall(glUniform4f(u_color_id, r, 0.3f, 0.8f, 1.0f));
+
+    // glDrawArrays(GL_TRIANGLES, 0, 6);    // use glDrawArrays when index buffer is not in use
+    GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
+
+    /* Swap front and back buffers */
+    glfwSwapBuffers(window);
+
+    /* Poll for and process events */
+    glfwPollEvents();
+}
+// ...
+```
 
 ## V-Sync
 
