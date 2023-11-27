@@ -586,3 +586,7 @@ GLCall(glDrawElements(GL_TRIANGLES, 6, GL_INT, nullptr));  // currently this lin
 
 ## V-Sync
 
+```cpp
+// After we have created OpenGL rendering context
+glfwSwapInterval(1);
+```
