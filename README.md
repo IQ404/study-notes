@@ -605,3 +605,6 @@ glfwSwapInterval(1);
 
   When V-Sync is disabled, if a monitor updates its display line by line, screen tearing occurs when the buffer swap happens partway through this process, resulting in different parts of the screen showing data from different frames; if the monitor updates the entire screen at once, screen tearing is less likely to occur, but it can still happen.
 
+- Enabling V-sync can cause frame rate drop. Here is an example when monitor's refresh rate is larger than the rendering rate without V-Sync:
+
+  If my monitor is refreshing every 2 ms (500 fps), and if my rendering loop (if v-sync is disabled) reaches `glfwSwapbuffers` every 3 ms (333 fps.In my current understanding, the effective frame rate will approximately be the same as this if v-sync is off), then, say at time `t=0` the buffers are swapped and a new refresh cycle starts, the next refreshing cycle will start at `t=2`, but the back buffer will be ready at `t=3`, so the next frame on the monitor will be displaying what the current frame is displaying. Then, in the frame after next frame on the monitor (at `t=4`), data that was ready at `t=3` will be displayed. From `t=3` to `t=4`, the execution for my rendering will be waiting inside `glfwSwapbuffers`, and from `t=4`, the same thing happens as from `t=0`. This means that the monitor will now display new data every 4 ms (250 fps).
