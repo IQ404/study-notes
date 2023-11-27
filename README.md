@@ -591,8 +591,17 @@ GLCall(glDrawElements(GL_TRIANGLES, 6, GL_INT, nullptr));  // currently this lin
 glfwSwapInterval(1);
 ```
 
-`glfwSwapBuffers` sets the number of refresh cycles of the monitor to wait from the time `glfwSwapBuffers` was called before swapping the buffers.
+- `glfwSwapBuffers` sets the number of refresh cycles of the monitor to wait from the time `glfwSwapBuffers` was called before swapping the buffers.
 
-`1` means that, after the execution has enter `glfwSwapBuffers`, it will need to wait to swap the front/back buffers until the current refresh cycle of the monitor has completed.
+  `1` means that, after the execution has enter `glfwSwapBuffers`, it will need to pause and wait to swap the front/back buffers until the current refresh cycle of the monitor has completed. This is to enable V-Sync.
 
-Setting `0` instead means that the execution can swap the front/back buffers whenever it wants.
+  Setting `0` instead means that the execution can swap the front/back buffers whenever it wants. This is to disable V-Sync.
+
+- In my current understanding, swapping front/back buffers just involves changing the pointers to the front and back buffers (rather than physically copying the data from one buffer to the other), and thus is done really fast.
+
+  When V-Sync is enabled, the graphics driver of the monitor will be timed to ensure that the swapping of the buffers will be done after the current refresh cycle finishes and before the next refresh cycle begins.
+
+- In my current understanding, some monitor updates its display line by line, some reading all the data from the buffer in a single operation.
+
+  When V-Sync is disabled, if a monitor updates its display line by line, screen tearing occurs when the buffer swap happens partway through this process, resulting in different parts of the screen showing data from different frames; if the monitor updates the entire screen at once, screen tearing is less likely to occur, but it can still happen.
+
