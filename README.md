@@ -590,3 +590,9 @@ GLCall(glDrawElements(GL_TRIANGLES, 6, GL_INT, nullptr));  // currently this lin
 // After we have created OpenGL rendering context
 glfwSwapInterval(1);
 ```
+
+`glfwSwapBuffers` sets the number of refresh cycles of the monitor to wait from the time `glfwSwapBuffers` was called before swapping the buffers.
+
+`1` means that, after the execution has enter `glfwSwapBuffers`, it will need to wait to swap the front/back buffers until the current refresh cycle of the monitor has completed.
+
+Setting `0` instead means that the execution can swap the front/back buffers whenever it wants.
