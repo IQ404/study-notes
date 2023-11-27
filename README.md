@@ -584,6 +584,12 @@ GLCall(glDrawElements(GL_TRIANGLES, 6, GL_INT, nullptr));  // currently this lin
 
 Uniform allows us to send data from CPU to a shader program object on the GPU (each uniform is per shader program object) to be used in the shaders i the shader program object.
 
+When the shader program object is created, each uniform in the program object (if not compiled away) will be assigned with a unique ID.
+
+To retrieve that ID, we need to find bind the shader program object.
+
+If `glGetUniformLocation` can't find that uniform, it will return `-1`. Note that this can happen when the uniform we are retrieving is actually written in the shader code but is compiled away (e.g., if this uniform is not used throughout the shader program). 
+
 ## V-Sync
 
 ```cpp
