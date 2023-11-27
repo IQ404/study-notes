@@ -24,7 +24,20 @@ On the other hand, external linkage (e.g. functions and variables that are defin
 
 ## Preprocessing
 
-- The process of handling a backslash (`\`) followed by a newline (hitting Enter), even outside of preprocessor directives, is indeed the work of the preprocessor in C++.
-- The stringizing operator (`#`) in C++ can only be used within a macro definition (`#define`). `#` has no special meaning in regular C++ code.
+- A backslash (`\`) followed by a newline (hitting Enter), often refer to as line continuation, will remove the newline character (and the `\`) in preprocessing phase.
+
+  The process of handling a backslash (`\`) followed by a newline (hitting Enter), even outside of preprocessor directives, is indeed the work of the preprocessor in C++.
+
+- The `#` operator in preprocessing, often known as the stringizing operator, converts its following argument into a string literal.
+
+  E.g.
+
+  ```cpp
+  #define STRINGIZE(x) #x
+  ```
+
+  The stringizing operator (`#`) in C++ can only be used within a macro definition (`#define`). `#` has no special meaning in regular C++ code.
+
 - `__LINE__` returns the line it is placed.
+
 - `__FILE__` return the file path it is placed.
