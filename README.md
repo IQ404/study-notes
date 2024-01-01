@@ -9,6 +9,10 @@ The contents in those notes are written by myself but they are <ins>by no means<
 
 ## Contents
 
+### Mathematical Methods
+
+// TODO
+
 ### Programming Language
 
 - [C++](https://github.com/IQ404/study-notes/blob/cpp/README.md)
