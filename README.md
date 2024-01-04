@@ -749,3 +749,11 @@ glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 ❓ What happens when the OpenGL version/profile specified in `glfwWindowHint` mismatches the `#version` specified in the shader in use?
 
 ❓ Explain why, for my system, the OpenGL version specified in `glfwWindowHint` does not affect the OpenGL version in use (returned by `glGetString(GL_VERSION)`) when I use `glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);`.
+
+## Basic abstraction of VBO
+
+## Basic abstraction of index buffer
+
+## Basic abstraction of VAO
+
+## Basic abstraction of shader
