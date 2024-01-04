@@ -700,5 +700,26 @@ glfwSwapInterval(1);
 
 VAO is kinda OpenGL-special: there is no such concept in e.g. DirectX.
 
-VAO is mandatory in OpenGL: in compatibility mode (for older version of OpenGL), the OpenGL context will implicitly create a default VAO and assign its ID with `0`; in core mode, we need to explicitly create/manage VAO(s), and doing `glBindVertexArray(0)` leads no VAO is bound.
+VAO is mandatory in OpenGL: in compatibility mode (for older version of OpenGL), the OpenGL context will implicitly create a default VAO and assign its ID with `0`; in core mode, we need to explicitly create/manage VAO(s), and doing `glBindVertexArray(0)` leads no VAO to bound.
+
+```cpp
+// ...
+
+unsigned int vao_id;
+glGenVertexArrays(1, &vao_id);
+glBindVertexArray(vao_id);
+
+// ...
+
+glEnableVertexAttribArray(0);
+glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
+```
+
+We can think of a VAO as a constrct which has many slots (this number of slots isn't infinite, it is a fixed number. In my current system, this number is 16. One single VAO in OpenGL cannot hold more attributes than this number).
+
+Each of those slots is assigned with an index (e.g. `0` to `15`).
+
+`glEnableVertexAttribArray(0);` enables the slot `0` on the currently bounded VAO.
+
+Once enabled, we can link an attribute in the currently bounded VBO to that slot e.g. using `glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);` as above.
 
