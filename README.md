@@ -723,3 +723,4 @@ Each of those slots is assigned with an index (e.g. `0` to `15`).
 
 Once enabled, we can link an attribute in the currently bounded VBO to that slot e.g. using `glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);` as above.
 
+Once a VBO is linked to a VAO, we don't need to further bind the VBO to the current state once the VAO is bounded to issue draw call.
