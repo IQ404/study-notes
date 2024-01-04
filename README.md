@@ -698,3 +698,4 @@ glfwSwapInterval(1);
 
 ## Vertex Array Object
 
+VAO is kinda OpenGL-special, and it is mandatory in OpenGL.
