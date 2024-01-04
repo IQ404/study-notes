@@ -729,7 +729,7 @@ VAO itself stores the specifications of the layouts of the linked attributes in 
 
 Note that a VAO does NOT govern which shader program is in use.
 
-## Core-profile Versus Compat-profile
+## OpenGL context version/profile
 
 ```cpp
 glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
