@@ -726,3 +726,5 @@ Once enabled, we can link an attribute in the currently bounded VBO to that slot
 Once a VBO is linked to a VAO, we don't need to further bind the VBO to the current state once the VAO is bounded to issue draw call.
 
 VAO itself stores the specifications of the layouts of the linked attributes in the associated VBO(s). On the other end, the currently bounded VAO also links to the vertex shader in the currently bounded shader program. The integer `0` specified in e.g. `layout (location = 0) in vec4 position;` matches the slot index on the currently bounded VAO, meaning that the attribute data coming from the VBO linked with slot `0`, extracted according to the corresponding specification stored in the VAO, will be sent into the variable `vec4 position`.
+
+Note that a VAO does NOT govern which shader program is in use.
