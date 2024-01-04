@@ -729,5 +729,19 @@ VAO itself stores the specifications of the layouts of the linked attributes in 
 
 Note that a VAO does NOT govern which shader program is in use.
 
-## core-profile versus compat-profile
+## Core-profile Versus Compat-profile
 
+```cpp
+glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+//glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
+```
+
+`glfwWindowHint` sets hints for the next call to `glfwCreateWindow`.
+
+`glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4); glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);` means the OpenGL context to created uses OpenGL version `4.6`.
+
+❓ What happens when the OpenGL version/profile specified in `glfwWindowHint` mismatches the `#version` specified in the shader in use?
+
+❓ Explain why, for my system, the OpenGL version specified in `glfwWindowHint` does not affect the OpenGL version in use (returned by `glGetString(GL_VERSION)`) when I use `glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);`.
