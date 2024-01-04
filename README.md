@@ -698,4 +698,7 @@ glfwSwapInterval(1);
 
 ## Vertex Array Object
 
-VAO is kinda OpenGL-special, and it is mandatory in OpenGL.
+VAO is kinda OpenGL-special: there is no such concept in e.g. DirectX.
+
+VAO is mandatory in OpenGL: in compatibility mode (for older version of OpenGL), the OpenGL context will implicitly create a default VAO and assign its ID with `0`; in core mode, we need to explicitly create/manage VAO(s), and doing `glBindVertexArray(0)` leads no VAO is bound.
+
