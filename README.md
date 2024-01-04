@@ -535,7 +535,7 @@ By basic I mean we are implementing error reporting using the OpenGL function `g
 
   ❓ Explore the possible situation(s) where newly occurred error is discarded even when there is available error flag(s).
 
-- One important note is that, in many implementations, `glGetError` will return an error code when it is called without a valid OpenGL context (e.g. after `glfwTerminate();` is called), which means checking `glGetError()` in a loop may result in an infinite loop if we somehow do that after `glfwTerminate();`. However, in my current understanding, there is no guarantee for `glGetError` to return error code if there is no valid OpenGL context - so, make sure that we do NOT call `glGetError` after `glfwTerminate`.
+- One important note is that, in many implementations, `glGetError` will return an error code when it is called without a valid OpenGL context (e.g. after `glfwTerminate();` is called), which means checking `glGetError()` in a loop may result in an infinite loop if we somehow do that after `glfwTerminate();` (e.g. destructor of stack variable may invoke `glGetError` after `glfwTerminate();` which stays inside the closing curly bracket). However, in my current understanding, there is no guarantee for `glGetError` to return error code if there is no valid OpenGL context - so, make sure that we do NOT call `glGetError` after `glfwTerminate`.
 
 One way to implement `glGetError` error reporting, using macros in MSVC, is as follows:
 
