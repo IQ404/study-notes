@@ -750,6 +750,26 @@ glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 ❓ Explain why, for my system, the OpenGL version specified in `glfwWindowHint` does not affect the OpenGL version in use (returned by `glGetString(GL_VERSION)`) when I use `glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);`.
 
+## Data Model for VBO, VAO, Index Buffer and Vertex Shader
+
+- In my current understanding, the mental picture for the data model of these constructs is as follows:
+
+  - VAO has many slots, each to be linked to (an attribute of) a VBO.
+  - VAO itself stores the specifications of the layouts of the linked attributes in the associated VBO(s).
+  - VAO can also store the information of an index buffer.
+  - VAO is also connected to vertex shader such that each slot is associated to the corresponding vertex shader variable.
+  - For each slot, VAO interprets the data in the VBO(s) according to the specifications stored in the VAO. VAO then extracts the data in the VBO(s) according to the linked index buffer, and sends the data to the corresponding vertex shader variables in the active vertex shader.
+
+- It's crucial to distinguish the index buffer bound to the global state and the index buffer bound to the VAO state:
+
+  While a VAO is bound (i.e. active), it will capture the index buffer that is subsequently bound.
+
+  Once a VAO captures an index buffer, OpenGL will automatically use the captured index buffer for any subsequent drawing calls that use indices (like `glDrawElements`) whenever we bind the VAO.
+
+  We can bind an index buffer to the global state before binding any VAO. Such bound index buffer isn't associated with any subsequently bound VAO.
+
+  When you call `glDrawElements`, OpenGL uses the index buffer that is associated with the currently bound VAO to determine how to fetch vertex data from the vertex buffers (VBOs). The recent global index buffer binding state is independent of the recent VAO's state. Once an index buffer is associated with a VAO, you don't need to keep the index buffer bound globally for `glDrawElements` to use it. The key is the VAO's binding, not the global index buffer binding.
+
 ## Basic abstraction of VBO
 
 ## Basic abstraction of index buffer
