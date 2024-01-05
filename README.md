@@ -766,7 +766,7 @@ glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
   Once a VAO captures an index buffer, OpenGL will automatically use the captured index buffer for any subsequent drawing calls that use indices (like `glDrawElements`) whenever we bind the VAO.
 
-  We can bind an index buffer to the global state before binding any VAO. Such bound index buffer isn't associated with any subsequently bound VAO.
+  We can bind an index buffer to the global state before binding any VAO. Such bound index buffer isn't associated with any subsequently bound VAO. Order matters here: VAO does not retroactively capture an index buffer that was bound before the VAO was bound. In OpenGL, state capture for VAOs is based on the commands issued while the VAO is bound. This means that the VAO only stores the state of the index buffer if the index buffer is bound after the VAO itself is bound.
 
   When you call `glDrawElements`, OpenGL uses the index buffer that is associated with the currently bound VAO to determine how to fetch vertex data from the vertex buffers (VBOs). The recent global index buffer binding state is independent of the recent VAO's state. Once an index buffer is associated with a VAO, you don't need to keep the index buffer bound globally for `glDrawElements` to use it. The key is the VAO's binding, not the global index buffer binding.
 
