@@ -1,10 +1,10 @@
 # OpenGL
 
+## Contents
+
 ## Related Projects
 
 [This](https://github.com/IQ404/learning-opengl).
-
-## Contents
 
 ## Useful Links
 
