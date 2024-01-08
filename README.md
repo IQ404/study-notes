@@ -779,3 +779,5 @@ glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 ## Basic abstraction of VAO
 
 ## Basic abstraction of shader
+
+## Basic abstraction of renderer
