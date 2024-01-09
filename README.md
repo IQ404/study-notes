@@ -365,6 +365,8 @@ glDeleteProgram(shader_program_id);
 
 - `gl_Position` stores the <ins>clip space</ins> position of the vertex.
 
+  // NEED TO BE REWRITE ACCORDING TO COMPUTER GRAPHICS!!!
+
   Clip space is the space after transforming by the projection matrix. After the vertex shader, the clip space coordinates in gl_Position are automatically divided by their W component (perspective division) by OpenGL. This step converts clip space coordinates to normalized device coordinates (NDC), which range from -1 to 1 in each axis. The NDC are transformed into screen space coordinates through the viewport transformation. This step maps the NDC to the actual coordinates on the screen (or the framebuffer) and is handled by OpenGL as part of the fixed-function pipeline (❓ Need deeper understanding).
 
 - `glUseProgram` makes the program object with the provided ID in use for current rendering state.
