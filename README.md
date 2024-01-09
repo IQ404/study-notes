@@ -786,8 +786,13 @@ glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 ## Separating out the debug tools
 
+## Load PNG file using `stb_image.h`
+
 ## Texture in OpenGL
 
 ## Basic abstraction of texture
 
-## Blending
+## Basic Blending
+
+## Adding `glm` math library into the project
+
