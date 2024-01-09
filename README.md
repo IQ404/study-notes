@@ -359,6 +359,8 @@ glDeleteProgram(shader_program_id);
 
 - In vertex shader, `layout (location = 0)` indicates that, for each vertex, `vec4 position` matches the first (0th) attribute of that vertex coming from the vertex buffer (for our previous code, it matches the first `0` in `glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);`).
 
+  An important note here is that, currently location 0 actually feeds in 2 floats: tt is predefined that OpenGL will set the 1st and 2nd components of the vec4 to these two floats respectively, and set the 3rd and 4th components of the vec4 to 0.0f (This is based on the assumption that if Z is not provided, the vertex is meant to be in a plane) and 1.0f (implies a homogeneous position in space as opposed to a homogeneous direction vector, which would have set to 0.0f) respectively.
+
   The fragment shader outputs data to some framebuffer for latter use in the rendering pipeline. The `layout (location = 0)` in the fragment shader is saying that `vec4 color` is outputted to the `0`th color attachment in the framebuffer (❓ Elaborate on the color attachments in the framebuffer).
 
 - `gl_Position` stores the <ins>clip space</ins> position of the vertex.
