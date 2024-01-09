@@ -781,3 +781,11 @@ glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 ## Basic abstraction of shader
 
 ## Basic abstraction of renderer
+
+## Separating out the debug tools
+
+## Texture in OpenGL
+
+## Basic abstraction of texture
+
+## Blending
