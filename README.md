@@ -2,6 +2,8 @@
 
 ## Contents
 
+# Part I: Language Feature
+
 ## Currently Unclassified Notes
 
 One way to do dynamical allocation on the stack:
@@ -41,3 +43,6 @@ On the other hand, external linkage (e.g. functions and variables that are defin
 - `__LINE__` returns the line it is placed.
 
 - `__FILE__` return the file path it is placed.
+
+# Part II: Programming Style
+
