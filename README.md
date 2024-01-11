@@ -799,3 +799,12 @@ glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 ## Adding `glm` math library into the project
 
 - Note that, in `glm` (as in OpenGL), matrices are [column-majored](https://en.wikipedia.org/wiki/Row-_and_column-major_order).
+
+## Space transformations in OpenGL
+
+- In my current understanding:
+
+  - Object space (the space before model transformation), world space, and view space, in OpenGL, are represented in right-handed coordinates.
+  - All the spaces after transformed by projection matrix are represented in left-handed coordinates.
+  - The parameters representing near and far planes in function `glm::perspective` are expecting absolute distance from the camera to the plane in front of the camera.
+  - 
