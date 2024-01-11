@@ -804,7 +804,7 @@ glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 This is a perfect example of how OpenGL makes a simple concept f***ing complicated.
 
-- In my current understanding ([possible reference](https://stackoverflow.com/a/47857256)), by default (❓ TODO: how to change default setting?):
+- In my current understanding (possible references: [1](https://stackoverflow.com/a/47857256), [2](https://stackoverflow.com/a/72336611)), by default (❓ TODO: how to change default setting?):
 
   - Object space (the space before model transformation), world space, and view space, in OpenGL, are represented in right-handed coordinates (i.e. y-axis up, x-axis towards right, z-axis outwards).
   - All the spaces after transformed by projection matrix, in OpenGL, are represented in left-handed coordinates (i.e. y-axis up, x-axis towards right, z-axis inwards).
