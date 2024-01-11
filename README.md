@@ -802,6 +802,8 @@ glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 ## Space transformations in OpenGL
 
+This is a perfect example of how OpenGL makes a simple concept f***ing complicated.
+
 - In my current understanding:
 
   - Object space (the space before model transformation), world space, and view space, in OpenGL, are represented in right-handed coordinates.
