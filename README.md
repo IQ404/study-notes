@@ -806,8 +806,8 @@ This is a perfect example of how OpenGL makes a simple concept f***ing complicat
 
 - In my current understanding ([possible reference](https://stackoverflow.com/a/47857256)), by default (❓ TODO: how to change default setting?):
 
-  - Object space (the space before model transformation), world space, and view space, in OpenGL, are represented in right-handed coordinates.
-  - All the spaces after transformed by projection matrix, in OpenGL, are represented in left-handed coordinates.
+  - Object space (the space before model transformation), world space, and view space, in OpenGL, are represented in right-handed coordinates (i.e. y-axis up, x-axis towards right, z-axis outwards).
+  - All the spaces after transformed by projection matrix, in OpenGL, are represented in left-handed coordinates (i.e. y-axis up, x-axis towards right, z-axis inwards).
   - Projection matrices created by `glm` do this coordinates flipping for us.
   - The parameters representing near and far planes in function `glm::perspective` are expecting absolute distance from the camera to the plane in front of the camera.
   - The parameters representing near and far planes in function `glm::ortho` are expecting values on z-axis in a left-handed coordinates, with `near < far`.
