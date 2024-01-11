@@ -809,4 +809,4 @@ This is a perfect example of how OpenGL makes a simple concept f***ing complicat
   - Object space (the space before model transformation), world space, and view space, in OpenGL, are represented in right-handed coordinates.
   - All the spaces after transformed by projection matrix are represented in left-handed coordinates.
   - The parameters representing near and far planes in function `glm::perspective` are expecting absolute distance from the camera to the plane in front of the camera.
-  - 
+  - The parameters representing near and far planes in function `glm::ortho` are expecting values on z-axis in a left-handed coordinates.
