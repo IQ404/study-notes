@@ -813,3 +813,5 @@ This is a perfect example of how OpenGL makes a simple concept f***ing complicat
   - The parameters representing near and far planes in function `glm::ortho` are expecting values on z-axis in a left-handed coordinates, with `near < far`.
 
 ## Integrating `ImGui`
+
+The ImGui version that I am integrating is `1.90.1`. I will probably stick to it and not moving to an updated version unless there is any specific benefit.
