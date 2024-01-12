@@ -44,5 +44,10 @@ On the other hand, external linkage (e.g. functions and variables that are defin
 
 - `__FILE__` return the file path it is placed.
 
+- In my current understanding: (❓ NEED DEEPER UNDERSTANDING)
+
+  - The files included in a C++ project from the Solution Explorer of Visual Studio can be found by the `#include` directive through the syntax `#include "..."`
+  - The files under the folder recorded in `Properties -> Configuration Properties -> C/C++ -> General -> Additional Include Directories` can be found by the `#include` directive through the syntax `#include <...>`
+
 # Part II: Programming Style
 
