@@ -2,7 +2,7 @@
 
 ## Contents
 
-# Part I: Language Feature
+# Part I: Language Features
 
 ## Currently Unclassified Notes
 
