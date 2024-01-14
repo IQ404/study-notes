@@ -134,8 +134,6 @@ int main(void)
 }
 ```
 
-❓ Why does the object(s), at least on my machine, only shows on the canvas after `glfwPollEvents` (not immediately after `glfwSwapBuffers`)?
-
 Note that the code from `glBegin()` to `glEnd()` above is the legacy way to draw triangle in OpenGL. It is not encouraged to do so in modern OpenGL program. It is written here only to test if OpenGL is loaded correctly, since it is a fast way to render something.
 
 ## Vertex Buffer
