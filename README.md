@@ -55,3 +55,5 @@ On the other hand, external linkage (e.g. functions and variables that are defin
 
 # Part II: Styles
 
+## Avoid Singletons
+
