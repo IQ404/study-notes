@@ -821,3 +821,29 @@ The ImGui version that I am integrating is `1.90.1`. I will probably stick to it
 
 ## Multiple draw calls
 
+I think simply call the draw function multiple times will let OpenGL run the pipeline on GPU multiple times (though, this may not be optimal for performance in many cases).
+
+E.g.
+
+```cpp
+// Inside the render loop:
+
+shader.Bind();
+shader.SetUniform_4floats("u_Color", r, 0.3f, 0.8f, 1.0f);
+
+// model matrix is placing inside the render loop because the location of the object we are rendering can change over frames.
+{
+    glm::mat4 model_matrix = glm::translate(glm::mat4{ 1.0f }, modelA_world_coordinates);
+    glm::mat4 mvp_matrix = projection_matrix * view_matrix * model_matrix;
+    shader.SetUniform_float_matrix_4_4("u_MVP", mvp_matrix);
+    renderer.Draw(vao, index_buffer, shader);
+
+}
+// Note that model B will be on top of model A because the order we draw to the frame buffer.
+{
+    glm::mat4 model_matrix = glm::translate(glm::mat4{ 1.0f }, modelB_world_coordinates);
+    glm::mat4 mvp_matrix = projection_matrix * view_matrix * model_matrix;
+    shader.SetUniform_float_matrix_4_4("u_MVP", mvp_matrix);
+    renderer.Draw(vao, index_buffer, shader);
+}
+```
