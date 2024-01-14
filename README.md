@@ -607,6 +607,9 @@ If `glGetUniformLocation` can't find that uniform, it will return `-1`. Note tha
 Note in particular that:
 
 - Uniform values are maintained per shader program object. You can write uniform with the same name and type in multiple shaders and it will refer to one single uniform.
+
+  ❓ When single uniform is used by multiple threads, is there a performance overhead caused by locking and, if so, how does the GPU address that?
+  
 - Once you set a uniform value in a shader program, that value remains set in that specific program until you explicitly change it or until the program is deleted.
 - You need to set the uniform value separately for each shader program object.
 
