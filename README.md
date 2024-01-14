@@ -818,3 +818,6 @@ This is a perfect example of how OpenGL makes a simple concept f***ing complicat
 ## Integrating `ImGui`
 
 The ImGui version that I am integrating is `1.90.1`. I will probably stick to it and not moving to an updated version unless there is any specific benefit.
+
+## Multiple draw calls
+
