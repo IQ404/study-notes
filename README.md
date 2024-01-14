@@ -819,7 +819,7 @@ This is a perfect example of how OpenGL makes a simple concept f***ing complicat
 
 The ImGui version that I am integrating is `1.90.1`. I will probably stick to it and not moving to an updated version unless there is any specific benefit.
 
-❓ Why it seems that the ImGui window only appears on the canvas after the 2nd iteration of the render loop?
+❓ Understand why the ImGui window isn't showed up on the canvas at the end of the first iteration of the render loop.
 
 ## Multiple draw calls
 
