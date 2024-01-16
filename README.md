@@ -850,6 +850,10 @@ shader.SetUniform_4floats("u_Color", r, 0.3f, 0.8f, 1.0f);
 }
 ```
 
+```cpp
+int a = 1;
+```
+
 ## Separating Feature implementations into Tests
 
 ## Basic Menu System for Tests
