@@ -849,3 +849,7 @@ shader.SetUniform_4floats("u_Color", r, 0.3f, 0.8f, 1.0f);
     renderer.Draw(vao, index_buffer, shader);
 }
 ```
+
+## Separating Feature implementations into Tests
+
+## Basic Menu System for Tests
