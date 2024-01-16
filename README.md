@@ -49,6 +49,17 @@ On the other hand, external linkage (e.g. functions and variables that are defin
   - When preprocessor sees the syntax `#include "..."`, it will first search, within the files included in the C++ project from the Solution Explorer of Visual Studio, for the file specified by `"..."` under the directory where the file containing this line of `#include "..."`. If not found, it will search under the folders recorded in `Properties -> Configuration Properties -> C/C++ -> General -> Additional Include Directories` of the C++ project in Visual Studio. If still not found, it will give an error.
   - When preprocessor sees the syntax `#include <...>`, it will search under the folders recorded in `Properties -> Configuration Properties -> C/C++ -> General -> Additional Include Directories` of the C++ project in Visual Studio. If not found, it will give an error.
 
+## Pointer
+
+```cpp
+int*& r;  // r is a reference to a pointer to an int
+
+const int* x;  // x is a pointer to a constant int
+int const* y;  // y is a pointer to a constant int, same as above
+int* const z;  // z is a constant pointer to a (mutable) int
+int const i;  // this is equivalent to const int i;
+```
+
 ## Template
 
 
