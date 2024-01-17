@@ -66,6 +66,8 @@ int const i;  // this is equivalent to const int i;
 
 ## `std::pair`
 
+## `std::function`
+
 # Part II: Styles
 
 ## Avoid Singletons
