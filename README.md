@@ -60,6 +60,8 @@ int* const z;  // z is a constant pointer to a (mutable) int
 int const i;  // this is equivalent to const int i;
 ```
 
+## Lambda Expression
+
 ## Template
 
 
