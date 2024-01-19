@@ -25,7 +25,7 @@
 - [Basic abstraction of VAO](#basic-abstraction-of-vao)
 - [Basic abstraction of shader with Caching Uniform IDs on CPU](#basic-abstraction-of-shader-with-caching-uniform-ids-on-cpu)
 - [Basic abstraction of renderer](#basic-abstraction-of-renderer)
-- [Load PNG file using `stb_image.h`](##load-png-file-using-stb_imageh)
+- [Load PNG file using `stb_image.h`](#load-png-file-using-stb_imageh)
 - [Texture in OpenGL](#texture-in-opengl)
 - [Basic abstraction of texture](#basic-abstraction-of-texture)
 - [Basic Blending](#basic-blending)
