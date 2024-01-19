@@ -8,7 +8,7 @@
 - [What is OpenGL](#What-is-OpenGL)
 - [Dependencies](#Dependencies)
 - [Vertex Buffer](#Vertex-Buffer)
-- [Compiling/Linking Shaders](#Compiling/Linking-Shaders)
+- [Compiling/Linking Shaders](#Compiling-Linking-Shaders)
 - []()
 - []()
 - []()
