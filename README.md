@@ -814,7 +814,7 @@ glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
   When you call `glDrawElements`, OpenGL uses the index buffer that is associated with the currently bound VAO to determine how to fetch vertex data from the vertex buffers (VBOs). The recent global index buffer binding state is independent of the recent VAO's state. Once an index buffer is associated with a VAO, you don't need to keep the index buffer bound globally for `glDrawElements` to use it. The key is the VAO's binding, not the global index buffer binding.
 
-  But it is important to note that `glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0)` DOES break the binding of the index buffer to the active VAO!
+  But it is important to note that `glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0)` DOES break the binding of the index buffer to the active VAO! ([reference](https://stackoverflow.com/a/72760508/17172007))
 
 ## Separating out the debug tools
 
