@@ -18,6 +18,8 @@ char* arr = (char*)alloca(length * sizeof(char));
 
 // TODO: stack overflow caused by large number of nested function calls vs by allocating large array.
 
+// ❓ How is dynamical allocation on the stack affecting the performance compared to static allocation?
+
 ---
 
 Functions declared with `static` keyword at namespace scope will have internal linkage, which means it is only visible within its own translation unit (which is the "thing" merged by the preprocessor from all the associated header files and `.cpp` files).
