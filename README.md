@@ -18,7 +18,7 @@ char* arr = (char*)alloca(length * sizeof(char));
 
 // TODO: stack overflow caused by large number of nested function calls vs by allocating large array.
 
-// ❓ How is dynamical allocation on the stack affecting the performance compared to static allocation?
+❓ How is dynamical allocation on the stack affecting the performance compared to static allocation?
 
 ---
 
