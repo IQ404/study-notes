@@ -818,6 +818,75 @@ glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 ## Separating out the debug tools
 
+I chose to create a `.cpp` file and a `.h` file specifically for our previously created debug tools: I found that mixing tools with constructs will be highly likely to result in miserable situations for headers inclusion (e.g. caused by very subtle circular inclusion of headers). Only include the minimal of what we need helps to avoid such circular inclusions.
+
+`DebugTools.h`:
+
+```cpp
+#ifndef DEBUGTOOLS_H
+#define DEBUGTOOLS_H
+
+#include <GL/glew.h>        // include this before include gl.h
+
+// Macros:
+
+/*
+ASSERT_DebugBreak_MSVC(b): break at the current line if b evaluates to false
+    - It is currently MSVC-specific.
+    - Add `;` at the end when using it, as its current definition does not end with `;`.
+*/
+#define ASSERT_DebugBreak_MSVC(b) if (!(b)) __debugbreak()  // __debugbreak is MSVC-specific
+
+/*
+GLCall(s): calling OpenGL function with error reporting
+    - It is currently MSVC-specific.
+    - It will clear all the previously set OpenGL error flags.
+    - Add `;` at the end when using it, as its current definition does not end with `;`.
+    - Don't write one-line statement using this macro, because its current definition body isn't enclosed with {}.
+*/
+#define GLCall(s)\
+        GLClearErrors();\
+        s;\
+        ASSERT_DebugBreak_MSVC(!(GLErrorLog(#s, __LINE__, __FILE__)))
+
+void GLClearErrors();
+
+bool GLErrorLog(const char* function_called, int line_calling_from, const char* filepath_calling_from);
+// returns true if there is error; false there isn't.
+
+#endif // !DEBUGTOOLS_H
+```
+
+`DebugTools.cpp`:
+
+```cpp
+#include "DebugTools.h"
+
+#include <iostream>
+
+void GLClearErrors()
+{
+    while (glGetError() != GL_NO_ERROR);    // GL_NO_ERROR is guaranteed to be 0
+}
+
+bool GLErrorLog(const char* function_called, int line_calling_from, const char* filepath_calling_from)
+// returns true if there is error; false there isn't.
+{
+    if (GLenum error = glGetError())    // enters if block as long as error != 0
+    {
+        std::cout << "------[OpenGL Error]------" << '\n'
+            << "Error GLenum: " << error << '\n'
+            << "By executing: " << function_called << '\n'
+            << "At line: " << line_calling_from << '\n'
+            << "In file: " << filepath_calling_from << '\n'
+            << "--------------------------" << std::endl;
+
+        return true;
+    }
+    return false;
+}
+```
+
 ## Basic abstraction of VBO
 
 ## Basic abstraction of index buffer
