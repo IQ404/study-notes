@@ -92,6 +92,49 @@ int const i;  // this is equivalent to const int i;
 
 ## Template
 
+### Template Specialization
+
+Example usage:
+
+```cpp
+class Demo
+{
+public:
+    template<typename T>
+    static void fun()
+    {
+        std::cout << "class Demo has no implementation for this type on Demo::fun()" << std::endl;
+    }
+
+    template<>
+    static void fun<int>()
+    {
+        std::cout << "Demo::fun()'s implementation for int" << std::endl;
+    }
+
+    template<>
+    static void fun<float>()
+    {
+        std::cout << "Demo::fun()'s implementation for float" << std::endl;
+    }
+
+    template<>
+    static void fun<double>()
+    {
+        std::cout << "Demo::fun()'s implementation for double" << std::endl;
+    }
+};
+
+int main()
+{
+    //Demo::fun();        // error
+    Demo::fun<char>();  // class Demo has no implementation for this type on Demo::fun()
+    Demo::fun<int>();  // Demo::fun()'s implementation for int
+    Demo::fun<float>();  // Demo::fun()'s implementation for float
+    Demo::fun<double>();  // Demo::fun()'s implementation for double
+}
+```
+
 ## `std::pair`
 
 ## `std::function`
