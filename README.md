@@ -139,6 +139,8 @@ int main()
 
 - In my current mental picture, there is somewhere (e.g. a table, here for the class `Demo`) during compile-time which records all the identifiers of the specializations of the "mother" templated function (here it is `fun`). When the compiler first hit a usage of `fun`, it will first search within this table for the usage type. If the type is found in this table, the compiler will define a function (here it's a member function) according to the specialization. If not found, it will use the "mother" definition.
 
+- Note that we cannot have a function declared with `template<>` without the existence of a templated function it is specialized for.
+
 ## `std::pair`
 
 ## `std::function`
