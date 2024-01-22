@@ -946,6 +946,73 @@ void VBO::Unbind() const
 
 ## Basic abstraction of index buffer
 
+`IndexBuffer.h`:
+
+```cpp
+#ifndef INDEXBUFFER_H
+#define INDEXBUFFER_H
+
+class IndexBuffer
+{
+	unsigned int m_IBOID = 0;
+	unsigned int m_IndicesCount = 0;
+
+public:
+
+	/*
+	Currently we assume all index buffers contains data of type unsigned int
+	*/
+	IndexBuffer(const unsigned int* data, unsigned int count);	// count is the number of indices; bind after initialization
+	
+	~IndexBuffer();
+
+	void Bind() const;
+	
+	void Unbind() const;
+
+	unsigned int GetIndicesCount() const;
+};
+
+#endif // !INDEXBUFFER_H
+```
+
+`IndexBuffer.cpp`:
+
+```cpp
+#include "IndexBuffer.h"
+#include "DebugTools.h"
+
+IndexBuffer::IndexBuffer(const unsigned int* data, unsigned int count)	// count is the number of indices; bind after initialization
+    : m_IndicesCount{ count }
+{
+    ASSERT_DebugBreak_MSVC(sizeof(unsigned int) == sizeof(GLuint));
+
+    GLCall(glGenBuffers(1, &m_IBOID));
+    GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IBOID));
+    GLCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_IndicesCount * sizeof(unsigned int), data, GL_STATIC_DRAW));
+}
+
+IndexBuffer::~IndexBuffer()
+{
+    GLCall(glDeleteBuffers(1, &m_IBOID));
+}
+
+void IndexBuffer::Bind() const
+{
+    GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IBOID));
+}
+
+void IndexBuffer::Unbind() const
+{
+    GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
+}
+
+unsigned int IndexBuffer::GetIndicesCount() const
+{
+    return m_IndicesCount;
+}
+```
+
 ## Basic abstraction of VAO
 
 ## Basic abstraction of shader with Caching Uniform IDs on CPU
