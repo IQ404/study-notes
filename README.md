@@ -818,7 +818,7 @@ glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 ## Separating out the debug tools
 
-I chose to create a `.cpp` file and a `.h` file specifically for our previously created debug tools: I found that mixing tools with constructs will be highly likely to result in miserable situations for headers inclusion (e.g. caused by very subtle circular inclusion of headers). Only include the minimal of what we need helps to avoid such circular inclusions.
+I chose to create a `.cpp` file and a `.h` file specifically for our previously created debug tools: I found that mixing tools with constructs will be highly likely to result in miserable situations for headers inclusion (e.g. caused by very subtle circular inclusion of headers). Only include the minimal of what we need helps to avoid such circular inclusions. Plus, I personally avoid forward declaration where possible, because I think the necessity of forward declaration in a project is highly likely to be an indicator of a either globally or locally bad design of solving the problem.
 
 `DebugTools.h`:
 
