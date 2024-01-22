@@ -31,6 +31,10 @@
   - When preprocessor sees the syntax `#include "..."`, it will first search, within the files included in the C++ project from the Solution Explorer of Visual Studio, for the file specified by `"..."` under the directory where the file containing this line of `#include "..."`. If not found, it will search under the folders recorded in `Properties -> Configuration Properties -> C/C++ -> General -> Additional Include Directories` of the C++ project in Visual Studio. If still not found, it will give an error.
   - When preprocessor sees the syntax `#include <...>`, it will search under the folders recorded in `Properties -> Configuration Properties -> C/C++ -> General -> Additional Include Directories` of the C++ project in Visual Studio. If not found, it will give an error.
 
+## `static_assert`
+
+I may get this wrong but in my current understanding, when compiler at compile-time sees `static_assert(bool-constexpr , "message");`, at least for a C++20 compiler, it will evaluate `bool-constexpr`, and as soon as this `bool-constexpr` is evaluated to `false`, a compilation error is reported (and thus your program won't compile).
+
 ## `static` function
 
 Functions declared with `static` keyword at namespace scope will have internal linkage, which means it is only visible within its own translation unit (which is the "thing" merged by the preprocessor from all the associated header files and `.cpp` files).
