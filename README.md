@@ -24,6 +24,8 @@
 
 - `__FILE__` return the file path it is placed.
 
+- `__debugbreak()` is a <ins>MSVC-specific</ins> function that will break at the place where it is called if the visual studio project is run with the debugger, or it will exit the program if the project is run without the debugger.
+
 - In my current understanding: (❓ NEED DEEPER UNDERSTANDING)
 
   - When preprocessor sees the syntax `#include "..."`, it will first search, within the files included in the C++ project from the Solution Explorer of Visual Studio, for the file specified by `"..."` under the directory where the file containing this line of `#include "..."`. If not found, it will search under the folders recorded in `Properties -> Configuration Properties -> C/C++ -> General -> Additional Include Directories` of the C++ project in Visual Studio. If still not found, it will give an error.
