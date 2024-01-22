@@ -942,6 +942,8 @@ void VBO::Unbind() const
 }
 ```
 
+- Note that if a buffer object that is currently bound is deleted, the binding reverts to 0 (the absence of any buffer object).
+
 ## Basic abstraction of index buffer
 
 ## Basic abstraction of VAO
