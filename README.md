@@ -92,6 +92,8 @@ int const i;  // this is equivalent to const int i;
 
 ## Template
 
+- In my current understanding, at compile-time, when the compiler sees a normal class with a templated member function, it can compile it into a class as if without the templated member function, but in somewhere it will record the identifier of that templated member function as a valid name within the class. Later (note that it is still in compile-time) when the compiler sees the usage of that templated member function, the compiler has the ability to compile that member function definition into the class according to the usage. 
+
 ### Template Specialization
 
 Example usage:
@@ -134,6 +136,8 @@ int main()
     Demo::fun<double>();  // Demo::fun()'s implementation for double
 }
 ```
+
+- In my current mental picture, there is somewhere (e.g. a table, here for the class `Demo`) during compile-time which records all the identifiers of the specializations of the "mother" templated function (here it is `fun`). When the compiler first hit a usage of `fun`, it will first search within this table for the usage type. If the type is found in this table, the compiler will define a function (here it's a member function) according to the specialization. If not found, it will use the "mother" definition.
 
 ## `std::pair`
 
