@@ -214,6 +214,16 @@ glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
 
   `GL_FALSE` there indicates that we don't need OpenGL to further normalize the values we provided for the components (<ins>FURTHER ELABORATION NEEDED</ins>: how does this normalization actually work?).
 
+  - In my current understanding:
+  
+    If the data type of the vertex attribute is an unsigned type (like `GL_UNSIGNED_BYTE`), normalization scales the integer data to the range `[0, 1]`. For example, if the vertex attribute data is an array of `GL_UNSIGNED_BYTE` (values from `0` to `255`), with normalization enabled, these values are scaled to the range `0.0` to `1.0`.
+ 
+    If the data type is a signed type (like `GL_BYTE`), normalization scales the data to the range `[-1, 1]`. So, if you have an array of `GL_BYTE` (values from `-128` to `127`), with normalization enabled, these values are scaled to the range `-1.0` to `1.0`.
+
+    The normalization process does not change the actual storage format of the data in the buffer. Instead, the normalization is performed at the time the data is read and used by the GPU.
+
+    When vertex attribute data is normalized and presented to the vertex shader in OpenGL, it is typically in single-precision floating-point format (`float`) rather than double-precision floating-point format (`double`).
+
   `sizeof(float) * 2` there indicates the stride: how many bytes are there between each vertex.
 
   `0` there is a pointer (it is implicitly `(const void*)0`) indicating the offset (in bytes) of the targeted attribute into the vertex.
