@@ -21,7 +21,7 @@
 - [Data Model for VBO, VAO, Index Buffer and Vertex Shader](#data-model-for-vbo-vao-index-buffer-and-vertex-shader)
 - [Separating out the debug tools](#separating-out-the-debug-tools)
 - [Basic abstraction of VBO](#basic-abstraction-of-vbo)
-- [Basic abstraction of the layout inside a VBO](#)
+- [Basic abstraction of the layout inside a VBO](#basic-abstraction-of-the-layout-inside-a-vbo)
 - [Basic abstraction of index buffer](#basic-abstraction-of-index-buffer)
 - [Basic abstraction of VAO](#basic-abstraction-of-vao)
 - [Basic abstraction of shader with Caching Uniform IDs on CPU](#basic-abstraction-of-shader-with-caching-uniform-ids-on-cpu)
