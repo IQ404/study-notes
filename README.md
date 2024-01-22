@@ -889,6 +889,59 @@ bool GLErrorLog(const char* function_called, int line_calling_from, const char* 
 
 ## Basic abstraction of VBO
 
+`VBO.h`:
+
+```cpp
+#ifndef VBO_H
+#define VBO_H
+
+class VBO
+{
+	unsigned int m_VBOID = 0;
+
+public:
+
+	VBO(const void* data, unsigned int size);	// size in bytes; bind after initialization
+	
+	~VBO();
+
+	void Bind() const;
+	
+	void Unbind() const;
+};
+
+#endif // !VBO_H
+```
+
+`VBO.cpp`:
+
+```cpp
+#include "VBO.h"
+#include "DebugTools.h"
+
+VBO::VBO(const void* data, unsigned int size)   // size in bytes; bind after initialization
+{
+    GLCall(glGenBuffers(1, &m_VBOID));
+    GLCall(glBindBuffer(GL_ARRAY_BUFFER, m_VBOID));
+    GLCall(glBufferData(GL_ARRAY_BUFFER, size, data, GL_STATIC_DRAW));
+}
+
+VBO::~VBO()
+{
+    GLCall(glDeleteBuffers(1, &m_VBOID));
+}
+
+void VBO::Bind() const
+{
+    GLCall(glBindBuffer(GL_ARRAY_BUFFER, m_VBOID));
+}
+
+void VBO::Unbind() const
+{
+    GLCall(glBindBuffer(GL_ARRAY_BUFFER, 0));
+}
+```
+
 ## Basic abstraction of index buffer
 
 ## Basic abstraction of VAO
