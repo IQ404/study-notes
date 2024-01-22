@@ -1201,7 +1201,57 @@ void VAO::LinkVertexBuffer(const VBO& vbo, const VBOLayout& layout)
 
 ## Basic abstraction of renderer
 
+`Renderer.h`:
 
+```cpp
+#ifndef RENDERER_H
+#define RENDERER_H
+
+#include "VAO.h"
+#include "IndexBuffer.h"
+#include "Shader.h"
+
+class Renderer
+{
+
+public:
+
+    void Clear() const;  // Set the back buffer to black
+
+    void Draw(const VAO& vao, const IndexBuffer& index_buffer, const Shader& shader_program) const;
+};
+
+#endif // !RENDERER_H
+```
+
+`Renderer.cpp`:
+
+```cpp
+#include "Renderer.h"
+
+#include <iostream>
+#include "DebugTools.h"
+
+void Renderer::Clear() const
+{
+    GLCall(glClearColor(0.0f, 0.0f, 0.0f, 1.0f));
+    GLCall(glClear(GL_COLOR_BUFFER_BIT));
+}
+
+void Renderer::Draw(const VAO& vao, const IndexBuffer& index_buffer, const Shader& shader_program) const
+{
+    shader_program.Bind();
+    vao.Bind();
+    index_buffer.Bind();    // this isn't necessary as long as index_buffer has bound to vao somewhere (and without unbind) before this call
+
+    /*
+    Currently:
+        - we assume all index buffers contains data of type unsigned int
+        - we assume the only primitive we are drawing is triangle
+    */
+    GLCall(glDrawElements(GL_TRIANGLES, index_buffer.GetIndicesCount(), GL_UNSIGNED_INT, nullptr)); 
+}
+```
 
 ## Load PNG file using `stb_image.h`
 
