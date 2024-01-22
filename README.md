@@ -4,7 +4,7 @@
 
 # Part I: Features and Tools
 
-## Currently Unclassified Notes
+## Dynamical Allocation on Stack
 
 One way to do dynamical allocation on the stack:
 
@@ -19,12 +19,6 @@ char* arr = (char*)alloca(length * sizeof(char));
 // TODO: stack overflow caused by large number of nested function calls vs by allocating large array.
 
 ❓ How is dynamical allocation on the stack affecting the performance compared to static allocation?
-
----
-
-Functions declared with `static` keyword at namespace scope will have internal linkage, which means it is only visible within its own translation unit (which is the "thing" merged by the preprocessor from all the associated header files and `.cpp` files).
-
-On the other hand, external linkage (e.g. functions and variables that are defined at namespace scope) means it is visible across translation units (i.e. visible to the linker), so that, e.g., function definition in a `.cpp` file can be linked to the function declaration in another `.cpp` file.
 
 ## Preprocessing
 
@@ -50,6 +44,12 @@ On the other hand, external linkage (e.g. functions and variables that are defin
 
   - When preprocessor sees the syntax `#include "..."`, it will first search, within the files included in the C++ project from the Solution Explorer of Visual Studio, for the file specified by `"..."` under the directory where the file containing this line of `#include "..."`. If not found, it will search under the folders recorded in `Properties -> Configuration Properties -> C/C++ -> General -> Additional Include Directories` of the C++ project in Visual Studio. If still not found, it will give an error.
   - When preprocessor sees the syntax `#include <...>`, it will search under the folders recorded in `Properties -> Configuration Properties -> C/C++ -> General -> Additional Include Directories` of the C++ project in Visual Studio. If not found, it will give an error.
+
+## `static` function
+
+Functions declared with `static` keyword at namespace scope will have internal linkage, which means it is only visible within its own translation unit (which is the "thing" merged by the preprocessor from all the associated header files and `.cpp` files).
+
+On the other hand, external linkage (e.g. functions and variables that are defined at namespace scope) means it is visible across translation units (i.e. visible to the linker), so that, e.g., function definition in a `.cpp` file can be linked to the function declaration in another `.cpp` file.
 
 ## `mutable` data members
 
