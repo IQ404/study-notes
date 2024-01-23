@@ -642,6 +642,8 @@ GLCall(glDrawElements(GL_TRIANGLES, 6, GL_INT, nullptr));  // currently this lin
 // ...
 ```
 
+❓ Further explore [replacing text macros](https://en.cppreference.com/w/cpp/preprocessor/replace).
+
 ## Uniform
 
 Uniform allows us to send data from CPU to a shader program object on the GPU (each uniform is per shader program object) to be used in the shaders i the shader program object.
