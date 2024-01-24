@@ -1257,6 +1257,8 @@ private:
 
 The code for `ParseUnifiedShader`, `CompileShader` and `CreateShaderProgram` is the same as what we have covered in previous sections.
 
+`Shader.cpp`:
+
 ```cpp
 #include "Shader.h"
 #include "DebugTools.h"
@@ -1422,6 +1424,18 @@ unsigned int Shader::CreateShaderProgram(const std::string& vertexShader, const 
     return shader_program_id;
 }
 ```
+
+`std::unordered_map` is a container, implemented using hash table (❓ More on hash table are needed), that contains key-value pairs with unique keys.
+
+Here our keys are (of type) `std::string` and our values are (of type) `int`.
+
+In my current understanding, when we search for a key in a `std::unordered_map`, we cannot naively lookup what `m_UniformLocationCache[u_name]` returns because `m_UniformLocationCache[u_name]` will create a key using `u_name` and assign its associated value to `0` (and return a reference to the value) if `u_name` does not exist in the `std::unordered_map`.
+
+We can use `.find(u_name)` to search if the key `u_name` exists. If not, `.find(u_name)` will return `.end()` (❓ More on `.begin()` and `.end()` are needed).
+
+If not found, it means that the Id of the uniform we are looking for hasn't been stored in our cache yet. We then use `m_UniformLocationCache[u_name] = u_id;` to create the key and assign it with the value.
+
+Note that we choose to store key-value pairs for uniforms which aren't actually exist on the GPU (e.g. if the `u_name` provided is out of nowhere, or if the uniform has been optimized away).
 
 ## Basic abstraction of renderer
 
