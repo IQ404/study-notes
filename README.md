@@ -153,6 +153,10 @@ int main()
 
 ## Avoid Singletons
 
+The memory allocation of variables with static storage duration are determined by the linker at linking stage.
+
+Note that linkers used by C++ are acutally not unique to C++.
+
 The initialization order of global variables <ins>in single translation unit</ins> is defined by the order of their declarations.
 
 The initialization order of global variables across multiple tranlation units are undefined.
