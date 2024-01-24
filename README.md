@@ -1277,7 +1277,7 @@ Shader::Shader(const std::string& filepath)
 
 Shader::~Shader()
 {
-    Unbind();
+    Unbind();	// Note that a program object is in use as part of current rendering state, it will be flagged for deletion, but it will not be deleted until it is no longer part of current state for any rendering context.
     GLCall(glDeleteProgram(m_RendererID));
 }
 
