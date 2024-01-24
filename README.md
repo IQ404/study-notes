@@ -496,7 +496,9 @@ ShaderProgramSourceCode shader_program_source_code = ParseUnifiedShader("res/sha
 unsigned int shader_program_id = CreateShaderProgram(shader_program_source_code.VertexShaderSourceCode, shader_program_source_code.FragmentShaderSourceCode);
 ```
 
-where `Basic.shader` contains:
+Note that `std::string::find` returns the position of the first character of the first match if match is found, and returns `string::npos` if no matches were found.
+
+`Basic.shader` contains:
 
 ```cpp
 #shader vertex
