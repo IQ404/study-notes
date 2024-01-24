@@ -153,3 +153,10 @@ int main()
 
 ## Avoid Singletons
 
+The initialization order of global variables <ins>in single translation unit</ins> is defined by the order of their declarations.
+
+The initialization order of global variables across multiple tranlation units are undefined.
+
+You can use Meyers singleton, but (❓ more on this are needed) it is still not thread safe.
+
+The takeaway is: <ins>keep your objects dependencies in its own single trnaslation unit</ins>.
