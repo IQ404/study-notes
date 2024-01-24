@@ -159,4 +159,4 @@ The initialization order of global variables across multiple tranlation units ar
 
 You can use Meyers singleton, but (❓ more on this are needed) it is still not thread safe.
 
-The takeaway is: <ins>keep your objects dependencies in its own single trnaslation unit</ins>.
+The takeaway is: <ins>keep your objects dependencies in its own single tranlation unit</ins>.
