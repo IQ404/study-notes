@@ -1446,6 +1446,8 @@ unsigned int Shader::CreateShaderProgram(const std::string& vertexShader, const 
   - `GL_FALSE` there refers to whether the matrix (data) needs to be transposed. OpenGL reads matrix in the column-major order. If the data provided has layout of row-major order, the action of transpose will fit it with the reading order of OpenGL.
   - The last parameter should be provided with a pointer to the first `float` of the data array.
 
+- `glUniform1i` sets the value of the uniform with the provided one `int`. It is worth noting that, in our case, this is used to set the value for `uniform sampler2D u_Texture;` in the fragment shader. `uniform sampler2D` takes an `int` corresponding to the texture unit the 2D sampler will sample from.
+
 ## Basic abstraction of renderer
 
 `Renderer.h`:
