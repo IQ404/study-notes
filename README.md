@@ -1437,6 +1437,8 @@ If not found, it means that the Id of the uniform we are looking for hasn't been
 
 Note that we choose to store key-value pairs for uniforms which aren't actually exist on the GPU (e.g. if the `u_name` provided is out of nowhere, or if the uniform has been optimized away).
 
+❓ Performance comparison between `std::unordered_map` and `std::vector<std::pair>`.
+
 ## Basic abstraction of renderer
 
 `Renderer.h`:
