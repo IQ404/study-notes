@@ -151,6 +151,16 @@ int main()
 
 # Part II: Styles
 
+## Prefer Default Arguments over Overloading
+
+## Use In-class Member Initializers
+
+## Avoid trivial getters and setters
+
+## Only One Name per Declaration
+
+## Don't insist to have only one `return` statement in a function
+
 ## Avoid Singletons
 
 The memory allocation of variables with static storage duration are determined by the linker at linking stage.
