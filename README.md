@@ -151,6 +151,10 @@ int main()
 
 # Part II: Styles
 
+## Write ISO Standard C++
+
+
+
 ## Prefer Default Arguments over Overloading
 
 ## Use In-class Member Initializers
