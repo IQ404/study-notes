@@ -35,6 +35,10 @@
 
 I may get this wrong but in my current understanding, when compiler at compile-time sees `static_assert(bool-constexpr , "message");`, at least for a C++20 compiler, it will evaluate `bool-constexpr`, and as soon as this `bool-constexpr` is evaluated to `false`, a compilation error is reported (and thus your program won't compile).
 
+## `inline` function
+
+❓ [Why having a function declared as inline without a definition results in a linker error?](https://stackoverflow.com/q/77878108/17172007)
+
 ## `static` function
 
 Functions declared with `static` keyword at namespace scope will have internal linkage, which means it is only visible within its own translation unit (which is the "thing" merged by the preprocessor from all the associated header files and `.cpp` files).
