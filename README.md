@@ -13,7 +13,6 @@ I chose not to mannually write a "contents" since the "Outline" button on the to
 - [Slack](https://cpplang.slack.com/)
 - [Discord](https://www.includecpp.org/)
 
-
 # Part I: Features and Tools
 
 ## Preprocessing
