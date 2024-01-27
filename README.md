@@ -43,7 +43,7 @@ I have to say it requires quite an effort to really dive into the (up-to-date) s
 
 It is definitely worth considering why doing a thing before doing it.
 
-For now, I prefer to simply think of the use of an `inline` function as when we need the definition of the function to always immediately follow the declaration<ins>s</ins> of the function.
+For now, I prefer to simply think of the use of an `inline` function only when we need the definition of the function to always immediately follow the declaration<ins>s</ins> of the function.
 
 For other cases, why using a (modern) `inline` function?
 
