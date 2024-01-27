@@ -178,6 +178,8 @@ Other things to note:
 - Hide the platform-specific implementations.
 - Don't add new identifiers to the `std` namespace: they might subsequently be added to the standard.
 - Use `#include` guards for ALL `.h` files rather than using `#pragma`. This is because the meaning of the former is precisely defined for all platforms, while the meaning behind the latter can change. We want to make sure things that works for us really and will always be working for us.
+- Use the syntax `using A = B;` for any `B` that is platform-dependent: if switching platform, we'll just need to find out how the target platform defines `A` and update this one single line.
+- Use identifiers from `std` where possible: they are extremely unlikely to change due to the importance of backward compatibility.
 
 ## Prefer Default Arguments over Overloading
 
