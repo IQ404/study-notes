@@ -4,6 +4,16 @@
 
 I chose not to mannually write a "contents" since the "Outline" button on the top right corner of a github markdown page has already provided a beautiful navigator.
 
+## Resources
+
+- [IsoCpp](https://isocpp.org/)
+- [CppCon](https://www.youtube.com/@CppCon)
+- [ACCU](https://www.youtube.com/@ACCUConf)
+- [Meeting C++](https://www.youtube.com/@MeetingCPP)
+- [Slack](https://cpplang.slack.com/)
+- [Discord](https://www.includecpp.org/)
+
+
 # Part I: Features and Tools
 
 ## Preprocessing
