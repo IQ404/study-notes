@@ -167,7 +167,9 @@ int main()
 
 ## Write ISO Standard C++
 
+Thinking within the standard, within the core guidelines.
 
+Thinking the reasons behind the consequences of playing golf with a tennis racquet is highly probable to result in a waste of time, at least in writing code.
 
 ## Prefer Default Arguments over Overloading
 
