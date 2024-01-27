@@ -47,7 +47,7 @@ For now, I prefer to simply think of the use of an `inline` function only when w
 
 For other cases, why using a (modern) `inline` function (where inling is completely irrelavant to the decorator)?
 
-- It's worthing noting that, there will only be one copy of the `inline` function on memory even though its definition can appear multiple times in the source code (in different translation units). Whereas each `static` function stands alone on memory.
+- It's worthing noting that, there will only be one copy of the `inline` function on memory even though its definition can appear multiple times in different translation units (every call will refer to a function pointer pointing to the same memory address). Whereas each `static` function stands alone on memory.
 
 ## `static` function
 
