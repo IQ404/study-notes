@@ -39,6 +39,14 @@ I may get this wrong but in my current understanding, when compiler at compile-t
 
 ❓ [Why having a function declared as inline without a definition results in a linker error?](https://stackoverflow.com/q/77878108/17172007)
 
+I have to say it requires quite an effort to really dive into the (up-to-date) standard. Let's not talk about whether it is worth, I think at some point it is.
+
+It is definitely worth considering why doing a thing before doing that.
+
+For now, I prefer to simply think of the use of an `inline` function as when we need the definition of the function to always immediately follow the declaration<ins>s</ins> of the function.
+
+For other cases, why using a (modern) `inline` function?
+
 ## `static` function
 
 Functions declared with `static` keyword at namespace scope will have internal linkage, which means it is only visible within its own translation unit (which is the "thing" merged by the preprocessor from all the associated header files and `.cpp` files).
