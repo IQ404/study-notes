@@ -171,6 +171,12 @@ Thinking within the standard, within the core guidelines. Think about the reason
 
 This is because thinking the reasons behind the consequences of playing golf with a tennis racquet is highly probable to result in a waste of time, at least in writing code.
 
+Other things to note:
+
+- Hide the platform-specific implementations.
+- 
+- Use `#include` guards for ALL `.h` files rather than using `#pragma`. This is because the meaning of the former is precisely defined for all platforms, while the meaning behind the latter can change. We want to make sure things that works for us really and will always be working for us.
+
 ## Prefer Default Arguments over Overloading
 
 ## Use In-class Member Initializers
