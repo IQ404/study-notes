@@ -176,7 +176,7 @@ This is because thinking the reasons behind the consequences of playing golf wit
 Other things to note:
 
 - Hide the platform-specific implementations.
-- Don't add new identifiers to the `std` namespace.
+- Don't add new identifiers to the `std` namespace: they might subsequently be added to the standard.
 - Use `#include` guards for ALL `.h` files rather than using `#pragma`. This is because the meaning of the former is precisely defined for all platforms, while the meaning behind the latter can change. We want to make sure things that works for us really and will always be working for us.
 
 ## Prefer Default Arguments over Overloading
