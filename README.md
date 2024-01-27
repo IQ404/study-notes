@@ -2,43 +2,7 @@
 
 ## Contents
 
-- [Related Projects](#Related-Projects)
-- [Useful Links](#Useful-Links)
-- [Currently Unclassified Notes](#Currently-Unclassified-Notes)
-- [What is OpenGL](#What-is-OpenGL)
-- [Dependencies](#Dependencies)
-- [Vertex Buffer](#Vertex-Buffer)
-- [Compiling/Linking Shaders](#compilinglinking-shaders)
-- [Writing Your First Shader](#writing-your-first-shader)
-- [Draw Call without Index Buffer](#draw-call-without-index-buffer)
-- [Unifying Shaders Source Code into One File](#unifying-shaders-source-code-into-one-file)
-- [Index Buffer](#index-buffer)
-- [Basic Error Report](#basic-error-report)
-- [Uniform](#Uniform)
-- [V-Sync](#v-sync)
-- [Vertex Array Object](#vertex-array-object)
-- [OpenGL context version/profile](#opengl-context-versionprofile)
-- [Data Model for VBO, VAO, Index Buffer and Vertex Shader](#data-model-for-vbo-vao-index-buffer-and-vertex-shader)
-- [Separating out the debug tools](#separating-out-the-debug-tools)
-- [Basic abstraction of VBO](#basic-abstraction-of-vbo)
-- [Basic abstraction of the layout inside a VBO](#basic-abstraction-of-the-layout-inside-a-vbo)
-- [Basic abstraction of index buffer](#basic-abstraction-of-index-buffer)
-- [Basic abstraction of VAO](#basic-abstraction-of-vao)
-- [Basic abstraction of shader with Caching Uniform IDs on CPU](#basic-abstraction-of-shader-with-caching-uniform-ids-on-cpu)
-- [Basic abstraction of renderer](#basic-abstraction-of-renderer)
-- [Load PNG file using `stb_image.h`](#load-png-file-using-stb_imageh)
-- [Texture in OpenGL](#texture-in-opengl)
-- [Basic abstraction of texture](#basic-abstraction-of-texture)
-- [Basic Blending](#basic-blending)
-- [Adding `glm` math library into the project](#adding-glm-math-library-into-the-project)
-- [Space transformations in OpenGL](#space-transformations-in-opengl)
-- [Integrating `ImGui`](#integrating-imgui)
-- [Multiple draw calls](#multiple-draw-calls)
-- [Separating Feature implementations into Tests](#separating-feature-implementations-into-tests)
-- [Basic Menu System for Tests](#basic-menu-system-for-tests)
-- [A Basic Texture Test](#a-basic-texture-test)
-- To be continued...
-
+I chose not to mannually write a "contents" since the "Outline" button on the top right corner of a github markdown page has already provided a beautiful navigator.
 
 ## Related Projects
 
