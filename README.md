@@ -45,7 +45,7 @@ It is definitely worth considering why doing a thing before doing it.
 
 For now, I prefer to simply think of the use of an `inline` function only when we need the definition of the function to always immediately follow the declaration<ins>s</ins> of the function.
 
-For other cases, why using a (modern) `inline` function?
+For other cases, why using a (modern) `inline` function (where inling is completely irrelavant to the decorator)?
 
 - It's worthing noting that, there will only be one copy of the `inline` function on memory even though its definition can appear multiple times in the source code (in different translation units). Whereas each `static` function stands alone on memory.
 
