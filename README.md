@@ -41,11 +41,13 @@ I may get this wrong but in my current understanding, when compiler at compile-t
 
 I have to say it requires quite an effort to really dive into the (up-to-date) standard. Let's not talk about whether it is worth, I think at some point it is.
 
-It is definitely worth considering why doing a thing before doing that.
+It is definitely worth considering why doing a thing before doing it.
 
 For now, I prefer to simply think of the use of an `inline` function as when we need the definition of the function to always immediately follow the declaration<ins>s</ins> of the function.
 
 For other cases, why using a (modern) `inline` function?
+
+- It's worthing noting that, there will only be one copy of the `inline` function on memory even though its definition can appear multiple times in the source code (in different translation units). Whereas each `static` function stands alone on memory.
 
 ## `static` function
 
