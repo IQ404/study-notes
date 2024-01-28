@@ -189,6 +189,7 @@ Other things to note:
 - Use `#include` guards for ALL `.h` files rather than using `#pragma`. This is because the meaning of the former is precisely defined for all platforms, while the meaning behind the latter can change. We want to make sure things that works for us really and will always be working for us.
 - Use the syntax `using A = B;` for any `B` that is platform-dependent: if switching platform, we'll just need to find out how the target platform defines `A` and update this one single line.
 - Use identifiers from `std` where possible: they are extremely unlikely to change due to the importance of backward compatibility ("stability over decades" is a feature of C++, where stability here means old code still builds with modern compilers).
+- Learn to read code from the past, as you may be asked to maintain old code; be mindful for the future, write code to last.
 
 ## Prefer Default Arguments over Overloading
 
