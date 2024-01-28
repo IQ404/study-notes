@@ -1473,6 +1473,19 @@ void Renderer::Draw(const VAO& vao, const IndexBuffer& index_buffer, const Shade
 
 ## Load PNG file using `stb_image.h`
 
+### Add the `stb` library into the project
+
+Go to the [stb repository](https://github.com/nothings/stb). Find the [stb_image.h file](https://github.com/nothings/stb/blob/master/stb_image.h). Click `Raw`. Then, use `CTRL + A` and then `CTRL + C` to copy all the source code. Next, add a new header file in your project, delete everything in that file (so that it is an empty file), and paste the source code into the header file (maybe name this header file as `stb_image.h`). Now, create a new `.cpp` flie with the content as follows:
+
+```cpp
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+```
+
+Then, hit `CTRL + F7` to compile. Your project should now contain the `stb` library.
+
+###
+
 ## Texture in OpenGL
 
 ## Basic abstraction of texture
