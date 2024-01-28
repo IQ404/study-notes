@@ -197,6 +197,8 @@ Other things to note:
 
 ## Prefer Default Arguments over Overloading
 
+### A Digression: Problem domain & Solution domain
+
 ## Use In-class Member Initializers
 
 ## Avoid trivial getters and setters
