@@ -1471,9 +1471,9 @@ void Renderer::Draw(const VAO& vao, const IndexBuffer& index_buffer, const Shade
 }
 ```
 
-## Load PNG file using `stb_image.h`
+## Add the `stb` library into the project
 
-### Add the `stb` library into the project
+We will be using the `stb` library to load PNG files into our project.
 
 Go to the [stb repository](https://github.com/nothings/stb). Find the [stb_image.h file](https://github.com/nothings/stb/blob/master/stb_image.h). Click `Raw`. Then, use `CTRL + A` and then `CTRL + C` to copy all the source code. Next, add a new header file in your project, delete everything in that file (so that it is an empty file), and paste the source code into the header file (maybe name this header file as `stb_image.h`). Now, create a new `.cpp` flie with the content as follows:
 
@@ -1484,11 +1484,105 @@ Go to the [stb repository](https://github.com/nothings/stb). Find the [stb_image
 
 Then, hit `CTRL + F7` to compile. Your project should now contain the `stb` library.
 
-###
-
 ## Texture in OpenGL
 
 ## Basic abstraction of texture
+
+`Texture.h`:
+
+```cpp
+#ifndef TEXTURE_H
+#define TEXTURE_H
+
+#include <string>
+
+class Texture
+{
+	unsigned int m_RendererID = 0;
+	std::string m_FilePath;
+	unsigned char* m_CPUBuffer = nullptr;
+	int m_Width = 0;
+	int m_Height = 0;
+	int m_BytesPerPixel = 0;
+
+public:
+
+	Texture(const std::string& file_path);
+	
+	~Texture();
+
+	void Bind(unsigned int slot = 0) const;
+
+	void Unbind() const;
+
+	int GetWidth() const
+	{
+		return m_Width;
+	}
+
+	int GetHeight() const
+	{
+		return m_Height;
+	}
+};
+
+
+#endif // !TEXTURE_H
+```
+
+`Texture.cpp`:
+
+```cpp
+#include "Texture.h"
+#include "DebugTools.h"
+#include "stb_image.h"
+
+Texture::Texture(const std::string& file_path)
+	: m_FilePath{ file_path }
+{
+	stbi_set_flip_vertically_on_load(1);	// this is due to that we are loading PNG file (origin at top left) and OpenGL texture's origin is at bottom left
+
+	m_CPUBuffer = stbi_load(m_FilePath.c_str(), &m_Width, &m_Height, &m_BytesPerPixel, 4);	// 4 for rgba
+
+	GLCall(glGenTextures(1, &m_RendererID));
+	// Here we associate the texture to the default texture unit (slot): 0
+	GLCall(glBindTexture(GL_TEXTURE_2D, m_RendererID));
+	// Set up the necessary settings for the bound texture (those are states of the texture object, not the texture unit):
+	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR));
+	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
+	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE));	// S is the X (horizontal) for texture
+	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE));	// T is the Y (vertical) for texture
+	// Send the texture data from CPU to GPU:
+	GLCall(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_CPUBuffer));
+
+	GLCall(glBindTexture(GL_TEXTURE_2D, 0));	// After this line, texture unit 0 is associated with the default texture object with ID 0.
+
+	// If we don't want to retain a copy of the pixel data of the texture:
+	if (m_CPUBuffer)
+	{
+		stbi_image_free(m_CPUBuffer);
+		m_CPUBuffer = nullptr;	// TODO: this is necessary?
+	}
+}
+
+Texture::~Texture()
+{
+	GLCall(glDeleteTextures(1, &m_RendererID));	// relese the memory storing the texture data on the GPU
+}
+
+void Texture::Bind(unsigned int slot /* = 0 */) const
+// Associate the provided texture unit (slot) to the texture object represented by this Texture
+{
+	GLCall(glActiveTexture(GL_TEXTURE0 + slot));
+	GLCall(glBindTexture(GL_TEXTURE_2D, m_RendererID));
+}
+
+void Texture::Unbind() const
+// Associate the active texture unit to the default texture object with ID 0
+{
+	GLCall(glBindTexture(GL_TEXTURE_2D, 0));
+}
+```
 
 ## Basic Blending
 
