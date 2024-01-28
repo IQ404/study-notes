@@ -1486,6 +1486,10 @@ Then, hit `CTRL + F7` to compile. Your project should now contain the `stb` libr
 
 ## Texture in OpenGL
 
+In my current understanding, the GPU implements OpenGL with many slots (called texture units) to link with texture objects.
+
+There is an active texture unit for the current rendering state, and the default active textrue unit is `0`.
+
 ## Basic abstraction of texture
 
 `Texture.h`:
