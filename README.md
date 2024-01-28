@@ -180,6 +180,14 @@ int main()
 
 # Part II: Styles
 
+## Abstraction
+
+Abstraction is the most powerful concept of C++.
+
+The meaning of abstraction can be:
+
+- An interface that encapsulates extension.
+
 ## Write ISO Standard C++
 
 Thinking within the standard, within the core guidelines. Think about the reasoning of following them, not the underlying mechanisms of what happens after breaking them.
