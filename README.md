@@ -1486,11 +1486,17 @@ Then, hit `CTRL + F7` to compile. Your project should now contain the `stb` libr
 
 ## Texture in OpenGL
 
+Texture is represented by texture object on GPU.
+
 In my current understanding, the GPU implements OpenGL with many slots (called texture units) to link with texture objects.
+
+On my laptop, there are 32 texture units available.
 
 There is an active texture unit for the current rendering state, and the default active textrue unit is `0`.
 
 Note that there is also a default texture object. When calling `glBindTexture(GL_TEXTURE_2D, 0)`, it actually associates the default texture object with the active texture unit.
+
+Textrue object stores states representing the texture parameters associated with it. Note that those states are NOT stored in texture units.
 
 ## Basic abstraction of texture
 
