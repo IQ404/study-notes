@@ -182,7 +182,7 @@ int main()
 
 ## Abstraction
 
-Abstraction is the most powerful concept of C++ (so-called zero overhead abstraction).
+Abstraction is the most powerful concept of C++ (so-called "zero overhead abstraction").
 
 The meaning of abstraction can be:
 
