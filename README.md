@@ -4,8 +4,6 @@
 
 I chose not to mannually write a "contents" since the "Outline" button on the top right corner of a github markdown page has already provided a beautiful navigator.
 
-- [v](#v-sync)
-
 ### TODOs
 
 - Batch Rendering
