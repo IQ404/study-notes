@@ -1511,7 +1511,7 @@ Textrue object stores states representing the texture parameters associated with
 
 class Texture
 {
-	unsigned int m_RendererID = 0;
+	unsigned int m_TextureObjectID = 0;
 	std::string m_FilePath;
 	unsigned char* m_CPUBuffer = nullptr;
 	int m_Width = 0;
@@ -1557,9 +1557,9 @@ Texture::Texture(const std::string& file_path)
 
 	m_CPUBuffer = stbi_load(m_FilePath.c_str(), &m_Width, &m_Height, &m_BytesPerPixel, 4);	// 4 for rgba
 
-	GLCall(glGenTextures(1, &m_RendererID));
+	GLCall(glGenTextures(1, &m_TextureObjectID));
 	// Here we associate the texture to the default texture unit (slot): 0
-	GLCall(glBindTexture(GL_TEXTURE_2D, m_RendererID));
+	GLCall(glBindTexture(GL_TEXTURE_2D, m_TextureObjectID));
 	// Set up the necessary settings for the bound texture (those are states of the texture object, not the texture unit):
 	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR));
 	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
@@ -1580,14 +1580,14 @@ Texture::Texture(const std::string& file_path)
 
 Texture::~Texture()
 {
-	GLCall(glDeleteTextures(1, &m_RendererID));	// relese the memory storing the texture data on the GPU
+	GLCall(glDeleteTextures(1, &m_TextureObjectID));	// relese the memory storing the texture data on the GPU
 }
 
 void Texture::Bind(unsigned int slot /* = 0 */) const
 // Associate the provided texture unit (slot) to the texture object represented by this Texture
 {
 	GLCall(glActiveTexture(GL_TEXTURE0 + slot));
-	GLCall(glBindTexture(GL_TEXTURE_2D, m_RendererID));
+	GLCall(glBindTexture(GL_TEXTURE_2D, m_TextureObjectID));
 }
 
 void Texture::Unbind() const
