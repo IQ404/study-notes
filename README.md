@@ -1609,6 +1609,8 @@ void Texture::Unbind() const
 
 - `glGenTextures(1, &m_TextureObjectID)` generates 1 texture object on GPU and assigns its ID to the `unsigned int` variable `m_TextureObjectID`.
 
+- `glBindTexture(GL_TEXTURE_2D, m_TextureObjectID)` 
+
 ## Basic Blending
 
 ## Adding `glm` math library into the project
