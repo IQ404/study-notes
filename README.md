@@ -31,7 +31,7 @@ I chose not to mannually write a "contents" since the "Outline" button on the to
 
   There are certain points (called synchronization point) where synchronization between the CPU and GPU is required. Generally, when encountering a synchronization point, CPU does not need to wait for all queued commands in GPU to finish before it continues executing. For examples:
 
-  - When swapping buffers (often at the end of rendering a frame, e.g., `glfwSwapBuffers()` in GLFW), the CPU waits for the GPU to finish rendering the current frame before the buffers are swapped. This wait is usually for the completion of the frame rendering commands only, not all commands in the queue.
+  - When swapping buffers (often at the end of rendering a frame, e.g., `glfwSwapBuffers()` in GLFW), the CPU waits for the GPU to finish rendering the current frame before the buffers are swapped. This wait is usually for the completion of the frame rendering commands only, not all commands in the queue. (❓ Is this true? Especially when using ImGui.)
  
   - When reading data back from the GPU (e.g., `glReadPixels`), the CPU will wait for the GPU to finish all operations that affect the data being read back. For example, if you're reading from a framebuffer, the CPU will (only) wait for all rendering commands that update that framebuffer to complete.
  
