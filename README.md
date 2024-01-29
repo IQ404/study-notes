@@ -1611,6 +1611,8 @@ void Texture::Unbind() const
 
 - In my current understanding, each texture unit holds multiple targets. `glBindTexture(GL_TEXTURE_2D, m_TextureObjectID)` links the texture object referred by `m_TextureObjectID` to the `GL_TEXTURE_2D` target on the currently active texture unit. Each target can only link to a single texture object, but each texture unit can link to multiple texture objects, each links to a different targets on the texture unit.
 
+  It is also my current understanding that a single texture object cannot be bound to multiple targets in OpenGL. When you create a texture with `glGenTextures` and then bind it for the first time with `glBindTexture`, the texture object gets its target type, and this target type is fixed for the lifetime of the texture object. This means that if you first bind a texture object to `GL_TEXTURE_2D`, it will always be a `GL_TEXTURE_2D` texture, and attempting to bind it to a different target (like `GL_TEXTURE_3D`) will result in an error.
+
 - 
 
 - `glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_CPUBuffer)`
