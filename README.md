@@ -1493,7 +1493,7 @@ In my current understanding, the GPU implements OpenGL with many slots (called t
 
 On my laptop, there are 32 texture units available.
 
-There is an active texture unit for the current rendering state, and the default active textrue unit is `0`.
+There is an active texture unit for the current rendering state, and the default active texture unit is `0`.
 
 Note that there is also a default texture object. When calling `glBindTexture(GL_TEXTURE_2D, 0)`, it actually associates the default texture object with the active texture unit.
 
