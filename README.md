@@ -8,7 +8,7 @@ I chose not to mannually write a "contents" since the "Outline" button on the to
 
 - Batch Rendering
 - Integrate CSC8502 into this note
-- GLSL
+- Current GLSL stuffs is kinda separated from the OpenGl stuffs, merge them together.
 
 ## Related Projects
 
@@ -1684,3 +1684,24 @@ shader.SetUniform_4floats("u_Color", r, 0.3f, 0.8f, 1.0f);
 ## Basic Menu System for Tests
 
 ## A Basic Texture Test
+
+---
+
+## What is GLSL
+
+## Shader Basics Revisit
+
+## Texture Revisit
+
+## Common Functions in GLSL
+
+## Built-in Math Functions in GLSL
+
+## Lighting Models
+
+### Toon/Cel Shading
+
+## Vertex Shader Revisit
+
+## Signed Distance Function (SDF) for Simple Shapes
+
