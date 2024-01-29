@@ -1645,6 +1645,8 @@ This is a perfect example of how OpenGL makes a simple concept f***ing complicat
 
 ## Integrating `ImGui`
 
+Currently this section will only show how to get ImGui working within a C++ OpenGL project. <ins>I need a much more rigorous learning on ImGui before I can understand what are actually happening underneath ImGui.</ins>
+
 The ImGui version that I am integrating is `1.90.1`. I will probably stick to it and not moving to an updated version unless there is any specific benefit.
 
 ❓ Understand why the ImGui window isn't showed up on the canvas at the end of the first iteration of the render loop.
