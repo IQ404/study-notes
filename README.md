@@ -1596,6 +1596,14 @@ void Texture::Unbind() const
 }
 ```
 
+- `stbi_load` returns a pointer to an unsigned char being the head of an array storing the pixels data channel by channel.
+
+  - 
+  
+  - When setting `stbi_set_flip_vertically_on_load(1);`, the array is arranged in a bottom-to-top line-by-line style with the head element being the 1st channel of the bottom-left pixel of the PNG texture.
+
+    Otherwise (the default case), the array is arranged in a top-to-bottom line-by-line style with the head element being the 1st channel of the top-left pixel of the PNG texture.
+
 ## Basic Blending
 
 ## Adding `glm` math library into the project
