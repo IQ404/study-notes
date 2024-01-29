@@ -1497,7 +1497,7 @@ There is an active texture unit for the current rendering state, and the default
 
 Note that there is also a default texture object. When calling `glBindTexture(GL_TEXTURE_2D, 0)`, it actually associates the default texture object with the active texture unit.
 
-Textrue object stores states representing the texture parameters associated with it. Note that those states are NOT stored in texture units.
+Texture object stores states representing the texture parameters associated with it. Note that those states are NOT stored in texture units.
 
 ## Basic abstraction of texture
 
