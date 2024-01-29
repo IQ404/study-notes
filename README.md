@@ -7,7 +7,7 @@ I chose not to mannually write a "contents" since the "Outline" button on the to
 ### TODOs
 
 - Integrate CSC8502 into this note
-- Current GLSL stuffs is kinda separated from the OpenGl stuffs, merge them together.
+- The current GLSL stuffs are kinda separated from the OpenGl stuffs, merge them together.
 
 ## Related Projects
 
