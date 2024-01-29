@@ -23,6 +23,10 @@ The contents in those notes are written by myself but they are <ins>by no means<
 - [OpenGL](https://github.com/IQ404/study-notes/blob/opengl/README.md)
 - Vulkan  // TODO
 
+### GPGPU
+
+- [CUDA](https://github.com/IQ404/study-notes/blob/cuda/README.md)
+
 ### Learning
 
 - Machine Learning  // TODO
