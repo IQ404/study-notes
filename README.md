@@ -1599,11 +1599,15 @@ void Texture::Unbind() const
 
 - `stbi_load` returns a pointer to an unsigned char being the head of an array storing the pixels data channel by channel.
 
-  - 
+  - `stbi_load` takes in a C-style characters array and gives back the width and the height of the PNG texture (in number of pixels, not in `unsigned char`!) as well as how many bytes is used to represent a pixel by the PNG file. The last argument `4` indicates how many channels we want, here we want exactly RGBA.
+ 
+    ❓ When we provide the last argument as `1` or `2`, the 1st component will be "grey" according to the document in [stb_image.h source code](https://github.com/nothings/stb/blob/master/stb_image.h). What does this "grey" means?
   
   - When setting `stbi_set_flip_vertically_on_load(1);`, the array is arranged in a bottom-to-top line-by-line style with the head element being the 1st channel of the bottom-left pixel of the PNG texture.
 
     Otherwise (the default case), the array is arranged in a top-to-bottom line-by-line style with the head element being the 1st channel of the top-left pixel of the PNG texture.
+
+- `glGenTextures(1, &m_TextureObjectID)` generates 1 texture object on GPU and assigns its ID to the `unsigned int` variable `m_TextureObjectID`.
 
 ## Basic Blending
 
