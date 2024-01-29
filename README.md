@@ -12,7 +12,7 @@ I chose not to mannually write a "contents" since the "Outline" button on the to
 
 ## Related Projects
 
-[This](https://github.com/IQ404/learning-opengl).
+[Please see this repository](https://github.com/IQ404/learning-opengl).
 
 ## Useful Links
 
@@ -1704,4 +1704,8 @@ shader.SetUniform_4floats("u_Color", r, 0.3f, 0.8f, 1.0f);
 ## Vertex Shader Revisit
 
 ## Signed Distance Function (SDF) for Simple Shapes
+
+## Noise // TODO
+
+## Post-processing // TODO
 
