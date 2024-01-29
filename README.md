@@ -1483,7 +1483,7 @@ Go to the [stb repository](https://github.com/nothings/stb). Find the [stb_image
 #include "stb_image.h"
 ```
 
-Then, hit `CTRL + F7` to compile. Your project should now contain the `stb` library.
+~~Then, hit `CTRL + F7` to compile. Your project should now contain the `stb` library.~~
 
 ## Texture in OpenGL
 
