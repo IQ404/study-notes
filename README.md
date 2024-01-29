@@ -235,6 +235,11 @@ Other things to note:
 
 ### A Digression: Problem domain & Solution domain
 
+In short: (probably incomplete)
+
+- The requirements live in the problem domain.
+- The approaches live in the solution domain.
+
 ## Use In-class Member Initializers
 
 ## Avoid trivial getters and setters
