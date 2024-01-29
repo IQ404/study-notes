@@ -8,6 +8,7 @@ I chose not to mannually write a "contents" since the "Outline" button on the to
 
 - Batch Rendering
 - Integrate CSC8502 into this note
+- GLSL
 
 ## Related Projects
 
