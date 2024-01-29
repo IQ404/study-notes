@@ -180,6 +180,34 @@ int main()
 
 # Part II: Styles
 
+## Header-only Implementation
+
+This is a style I encountered when I read the source code of the [stb library](https://github.com/nothings/stb/blob/master/stb_image.h).
+
+In the header file (let's call it `my_header.h`):
+
+```cpp
+#ifndef MY_HEADER_H
+#define MY_HEADER_H
+
+// ...header contents...
+
+#endif  // MY_HEADER_H
+
+#ifdef MY_HEADER_IMPLEMENTATION
+
+// ...header implementations...
+
+#endif // MY_HEADER_IMPLEMENTATION
+```
+
+When using the header file (`my_header.h`), include `my_header.h` in the project, then create a `.cpp` file in the project as follows:
+
+```cpp
+#define MY_HEADER_IMPLEMENTATION
+#include "my_header.h"
+```
+
 ## Abstraction
 
 Abstraction is the most powerful concept of C++ (so-called "zero overhead abstraction").
