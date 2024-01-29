@@ -1574,7 +1574,7 @@ Texture::Texture(const std::string& file_path)
 	if (m_CPUBuffer)
 	{
 		stbi_image_free(m_CPUBuffer);
-		m_CPUBuffer = nullptr;	// TODO: this is necessary?
+		m_CPUBuffer = nullptr;	// m_CPUBuffer != nullptr after the above line.
 	}
 }
 
@@ -1609,7 +1609,9 @@ void Texture::Unbind() const
 
 - `glGenTextures(1, &m_TextureObjectID)` generates 1 texture object on GPU and assigns its ID to the `unsigned int` variable `m_TextureObjectID`.
 
-- `glBindTexture(GL_TEXTURE_2D, m_TextureObjectID)` 
+- In my current understanding, each texture unit holds multiple targets. `glBindTexture(GL_TEXTURE_2D, m_TextureObjectID)` links the texture object referred by `m_TextureObjectID` to the `GL_TEXTURE_2D` target on the currently active texture unit. Each target can only link to a single texture object, but each texture unit can link to multiple texture objects, each links to a different targets on the texture unit.
+
+- 
 
 ## Basic Blending
 
