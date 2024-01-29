@@ -1613,6 +1613,17 @@ void Texture::Unbind() const
 
 - 
 
+- `glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_CPUBuffer)`
+
+  - In my current understanding, the 1st parameter tells OpenGL what to do with the interpretation of the data in the first place. ❓ Understand the cases when we are not using `GL_TEXTURE_2D` here.
+  - `m_CPUBuffer` provides the data.
+  - `GL_UNSIGNED_BYTE` tells how to interpret the data being sent (i.e. the data in `m_CPUBuffer`).
+  - `GL_RGBA` specifies how those unsigned bytes in `m_CPUBuffer` are grouped (here 4 unsigned bytes for each group).
+  - `GL_RGBA8` tells OpenGL how to store the sent data on GPU.
+  - The 1st `0` means this is not a multi-level texture. ❓ What is a multi-level texture?
+  - For more details, you may see the [gl docs](https://docs.gl/gl4/glTexImage2D).
+  - ❓ The gl docs says `border` (the 6th parameter) must be `0`. Why?
+
 ## Basic Blending
 
 ## Adding `glm` math library into the project
