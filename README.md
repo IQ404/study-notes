@@ -1702,6 +1702,10 @@ shader.SetUniform_4floats("u_Color", r, 0.3f, 0.8f, 1.0f);
 
 ## Built-in Math Functions in GLSL
 
+## Adding OBJ Loader into the project // TODO
+
+[repo](https://github.com/Bly7/OBJ-Loader)
+
 ## Lighting Models
 
 ### Toon/Cel Shading
