@@ -1724,6 +1724,8 @@ shader.SetUniform_4floats("u_Color", r, 0.3f, 0.8f, 1.0f);
 
 ## A Basic Texture Test
 
+- Note that `sampler2D` takes an integer correspond to the texture unit, we aren't providing which target to sample from! In my current understanding, this is because `sampler2D` will ONLY sample from the target `GL_TEXTURE_2D`.
+
 ## Batch Rendering // TODO
 
 ## What is GLSL
