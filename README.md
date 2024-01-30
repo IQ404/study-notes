@@ -1657,6 +1657,10 @@ void Texture::Unbind() const
   - For more details, you may see the [gl docs](https://docs.gl/gl4/glTexImage2D).
   - ❓ The gl docs says `border` (the 6th parameter) must be `0`. Why?
 
+- `glDeleteTextures` deletes `n` (here is `1`) texture(s) whose IDs are specified in the array (here provided by `&m_TextureObjectID`).
+
+- The currently active texture unit can be changed using `glActiveTexture`. Note that this function receives a GL macro, NOT an integer literal!
+
 ## Basic Blending
 
 ## Adding `glm` math library into the project
