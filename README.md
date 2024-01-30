@@ -1651,7 +1651,7 @@ void Texture::Unbind() const
 - `glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_CPUBuffer)`
 
   - In my current understanding, the 1st parameter tells OpenGL what to do with the interpretation of the data in the first place. ❓ Understand the cases when we are not using `GL_TEXTURE_2D` here.
-  - `m_CPUBuffer` provides the data.
+  - `m_CPUBuffer` provides the data. ❓ If this is provided as `nullptr`, how to provide the data in a later stage?
   - `GL_UNSIGNED_BYTE` tells how to interpret the data being sent (i.e. the data in `m_CPUBuffer`).
   - `GL_RGBA` specifies how those unsigned bytes in `m_CPUBuffer` are grouped (here 4 unsigned bytes for each group).
   - `GL_RGBA8` tells OpenGL how to store the sent data on GPU.
