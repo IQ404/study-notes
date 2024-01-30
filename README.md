@@ -141,6 +141,8 @@ int main(void)
 }
 ```
 
+❓ Why doesn't the image (e.g., say we have some texture) show on the window (I tried this using Visual Studio's break points) immediately after `glfwSwapBuffers`?
+
 ❓ Explain in detail what is `glfwPollEvents` doing.
 
 Note that the code from `glBegin()` to `glEnd()` above is the legacy way to draw triangle in OpenGL. It is not encouraged to do so in modern OpenGL program. It is written here only to test if OpenGL is loaded correctly, since it is a fast way to render something.
