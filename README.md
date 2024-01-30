@@ -1675,7 +1675,7 @@ $$
 
 where $f$ denotes "RGBA factor", $\vec{c}$ is a 4-components vector representing the color data in RGBA format, $s$ means the color we output from the fragment shader, $d$ means the color that is already in the frame buffer the fragment shader is drawing to, $b$ means the color in the frame buffer after this blending, and the operator $\cdot$ is an operation that can be user-defined by `glBlendEquation`.
 
-By default, OpenGL disables blending. The following example code shows how to enable as well as the setups for blending:
+By default, OpenGL disables blending. The following code shows how to enable blending and an example setup for blending:
 
 ```cpp
 glEnable(GL_BLEND);
@@ -1687,7 +1687,11 @@ glBlendEquation(GL_FUNC_ADD);
 glDisable(GL_BLEND);
 ```
 
-- 
+- `GL_SRC_ALPHA` sets $f_s$ to the $A$-component (of the RGBA format) of $\vec{c}_s$.
+
+- `GL_ONE_MINUS_SRC_ALPHA` set $f_d$ to $1-A$ where $A$ is the $A$-component (of the RGBA format) of $\vec{c}_s$.
+
+- `GL_FUNC_ADD` sets the operator $\cdot$ to $+$ (i.e. normal addition).
 
 - It's good to disable blending (as we did with `glDisable(GL_BLEND);`) when it's no longer needed, as leaving it enabled when drawing opaque objects can unnecessarily hurt performance.
 
