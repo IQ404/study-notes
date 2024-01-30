@@ -1695,6 +1695,8 @@ glDisable(GL_BLEND);
 
 - It's good to disable blending (as we did with `glDisable(GL_BLEND);`) when it's no longer needed, as leaving it enabled when drawing opaque objects can unnecessarily hurt performance.
 
+❓ Say, the output color has alpha being `0.5` and the color in the frame buffer has alpha being `1`. Such blending will result in the final color in the frame buffer to have alpha being `0.75`. Does this matter (since it seems that we never use alpha in the frame buffer for this kind of blending)? If so, what does this imply?
+
 Note that disabling blending (so that the fragment shader will simply be overfwriting the target frame buffer) is effectively the same as enabling blending with the following settings:
 
 ```cpp
@@ -1702,6 +1704,8 @@ glEnable(GL_BLEND);
 glBlendFunc(GL_ONE, GL_ZERO);
 glBlendEquation(GL_FUNC_ADD);
 ```
+
+
 
 ## Adding `glm` math library into the project
 
