@@ -1502,6 +1502,8 @@ There is an active texture unit for the current rendering state, and the default
 
 Note that there is also a default texture object. When calling `glBindTexture(GL_TEXTURE_2D, 0)`, it actually associates the default texture object with (the `GL_TEXTURE_2D` target on) the active texture unit.
 
+❓ I think the default texture object (with ID `0`) is a diffent kind of texture object (compared to those texture objects created by `glGenTextures`) in that it can link to different type of targets. I'm not sure if it is linked to all the targets on all texture units that were bound with it (and without binding to other texture objects, yet) simultaneously, or if binding it to target A then binding it to target B will leave target A unbinded to any texture object.
+
 Texture object stores states representing the texture parameters associated with it. Note that those states are NOT stored in texture units. (possible [reference](https://computergraphics.stackexchange.com/a/7846))
 
 ## Basic abstraction of texture
