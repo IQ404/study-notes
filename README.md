@@ -1834,7 +1834,11 @@ namespace Test
 
 	TestTexture2D::~TestTexture2D()
 	{
-
+	    /*
+	    Remember to disable blending with glDisable(GL_BLEND) when it's no longer needed, as leaving it enabled when drawing opaque objects
+	    can unnecessarily hurt performance.
+	    */
+	    GLCall(glDisable(GL_BLEND));
 	}
 
 	void TestTexture2D::OnUpdate(float dt)
