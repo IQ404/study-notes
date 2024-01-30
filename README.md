@@ -1669,9 +1669,7 @@ In my current understanding, blending specifies the mathematical way of how to c
 
 The blending function, defined in OpenGL by `glBlendFunc` is in the following form:
 
-$$
-f_{src} \vec{c}_{src} \cdot f_{dest} \vec{c}_{dest}
-$$
+$$ f_{src} \vec{c}_{src} \cdot f_{dest} \vec{c}_{dest} $$
 
 By default, OpenGL disables blending. The following example code shows how to enable as well as set up for blending:
 
