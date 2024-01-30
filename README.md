@@ -1496,7 +1496,7 @@ In my current understanding, the GPU implements OpenGL with many slots (called t
 
 On my laptop, there are 32 texture units available.
 
-In my current understanding, there are many targets on each texture unit. A texture object is linked to a texture unit by linking to one of the targets on the texture unit. The first time a texture object binds to a target defines the type of the texture object, and this type cannot change in the following lifetime of this texture object.
+In my current understanding, there are many targets on each texture unit. A texture object is linked to a texture unit by linking to one of the targets on the texture unit. The first time a texture object binds to a target defines the type of the texture object, and this type cannot change in the following lifetime of this texture object. It is also my current understanding that, on the other hand, the same texture object can be simultaneously bound to multiple texture units, as long as it's bound to the same type of target for each texture unit.
 
 There is an active texture unit for the current rendering state, and the default active texture unit is `0`.
 
