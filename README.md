@@ -1695,7 +1695,7 @@ glDisable(GL_BLEND);
 
 - It's good to disable blending (as we did with `glDisable(GL_BLEND);`) when it's no longer needed, as leaving it enabled when drawing opaque objects can unnecessarily hurt performance.
 
-Note that disabling blending is effectively the same as enabling blending with the following settings:
+Note that disabling blending (so that the fragment shader will simply be overfwriting the target frame buffer) is effectively the same as enabling blending with the following settings:
 
 ```cpp
 glEnable(GL_BLEND);
