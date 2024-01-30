@@ -1553,6 +1553,8 @@ public:
 #include "DebugTools.h"
 #include "stb_image.h"
 
+#include <iostream>
+
 Texture::Texture(const std::string& file_path)
 	: m_FilePath{ file_path }
 {
@@ -1561,7 +1563,7 @@ Texture::Texture(const std::string& file_path)
 	m_CPUBuffer = stbi_load(m_FilePath.c_str(), &m_Width, &m_Height, &m_BytesPerPixel, 4);	// 4 for rgba
 
 	GLCall(glGenTextures(1, &m_TextureObjectID));
-	// Here we associate the texture to the default texture unit (slot): 0
+	// Here we associate the texture to the target GL_TEXTURE_2D of the default texture unit (slot): 0
 	GLCall(glBindTexture(GL_TEXTURE_2D, m_TextureObjectID));
 	// Set up the necessary settings for the bound texture (those are states of the texture object, not the texture unit):
 	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR));
@@ -1571,7 +1573,7 @@ Texture::Texture(const std::string& file_path)
 	// Send the texture data from CPU to GPU:
 	GLCall(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_CPUBuffer));
 
-	GLCall(glBindTexture(GL_TEXTURE_2D, 0));	// After this line, texture unit 0 is associated with the default texture object with ID 0.
+	GLCall(glBindTexture(GL_TEXTURE_2D, 0));	// After this line, target GL_TEXTURE_2D on texture unit 0 is associated with the default texture object with ID 0.
 
 	// If we don't want to retain a copy of the pixel data of the texture:
 	if (m_CPUBuffer)
@@ -1587,14 +1589,14 @@ Texture::~Texture()
 }
 
 void Texture::Bind(unsigned int slot /* = 0 */) const
-// Associate the provided texture unit (slot) to the texture object represented by this Texture
+// Associate the GL_TEXTURE_2D target of the provided texture unit (slot) to the texture object represented by this Texture
 {
 	GLCall(glActiveTexture(GL_TEXTURE0 + slot));
 	GLCall(glBindTexture(GL_TEXTURE_2D, m_TextureObjectID));
 }
 
 void Texture::Unbind() const
-// Associate the active texture unit to the default texture object with ID 0
+// Associate the GL_TEXTURE_2D target of the active texture unit to the default texture object with ID 0
 {
 	GLCall(glBindTexture(GL_TEXTURE_2D, 0));
 }
