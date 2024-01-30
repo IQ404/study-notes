@@ -1699,6 +1699,8 @@ glDisable(GL_BLEND);
 
 ❓ If we treat alpha as transparency/translucency, how physically is this way of blending?
 
+❓ How to control which outputting source and destination buffer the blending is setting for?
+
 Note that disabling blending (so that the fragment shader will simply be overfwriting the target frame buffer) is effectively the same as enabling blending with the following settings:
 
 ```cpp
