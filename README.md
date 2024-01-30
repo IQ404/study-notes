@@ -1663,7 +1663,28 @@ void Texture::Unbind() const
 
 - The currently active texture unit can be changed using `glActiveTexture`. Note that this function receives a GL macro, NOT an integer literal!
 
-## Basic Blending
+## Basic Blending in OpenGL
+
+In my current understanding, blending specifies the mathematical way of how to combine the color we output from the fragment shader with the color that is already in the frame buffer the fragment shader is drawing to.
+
+The blending function, defined in OpenGL by `glBlendFunc` is in the following form:
+
+$$
+f_{src} \vec{c}_{src} \cdot f_{dest} \vec{c}_{dest}
+$$
+
+By default, OpenGL disables blending. The following example code shows how to enable as well as set up for blending:
+
+```cpp
+glEnable(GL_BLEND);
+glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+// rendering...
+
+glDisable(GL_BLEND);
+```
+
+- It's good to disable blending (as we did with `glDisable(GL_BLEND);`) when it's no longer needed, as leaving it enabled when drawing opaque objects can unnecessarily hurt performance.
 
 ## Adding `glm` math library into the project
 
