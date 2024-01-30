@@ -1638,7 +1638,7 @@ void Texture::Unbind() const
 
   - `GL_CLAMP_TO_EDGE` means taking the nearest (and thus, on edge of the texture) row (for T) / column (for S).
  
-    On the other hand, `GL_REPEAT` is like taking a mod operator along row (for T) / column (for S).
+    On the other hand, `GL_REPEAT` is like taking a $mod$ operator along row (for T) / column (for S).
 
 - `glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_CPUBuffer)`
 
