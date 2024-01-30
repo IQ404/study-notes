@@ -1632,13 +1632,13 @@ void Texture::Unbind() const
  
     ❓ Explore the other options.
  
-  - `GL_TEXTURE_WRAP_S` controls how to sample if the sampling point is outside of the texture in horizontal direction (axis).
+  - `GL_TEXTURE_WRAP_S` controls how to sample if the sampling point is outside of the texture in horizontal direction (x-axis).
  
-    `GL_TEXTURE_WRAP_T` controls how to sample if the sampling point is outside of the texture in vertical direction (axis).
+    `GL_TEXTURE_WRAP_T` controls how to sample if the sampling point is outside of the texture in vertical direction (y-axis).
 
   - `GL_CLAMP_TO_EDGE` means taking the nearest (and thus, on edge of the texture) row (for T) / column (for S).
  
-    On the other hand, `GL_REPEAT` is like taking a $mod$ operator along row (for T) / column (for S).
+    On the other hand, `GL_REPEAT` is like taking a $mod$ operation along row (for S) / column (for T).
 
 - `glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_CPUBuffer)`
 
