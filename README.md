@@ -1841,6 +1841,7 @@ namespace Test
 	{
 
 	}
+
 	void TestTexture2D::OnRender()
 	{
         // model matrix is effectively placing inside the render loop because the location of the object we are rendering can change over frames.
