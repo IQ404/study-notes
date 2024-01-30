@@ -141,7 +141,7 @@ int main(void)
 }
 ```
 
-❓ Why doesn't the image (e.g., say we have some texture) show on the window (I tried this using Visual Studio's break points) immediately after `glfwSwapBuffers`?
+❓ Why doesn't the image (e.g., say we have some texture) show on the window (I tried this using Visual Studio's break points) immediately after `glfwSwapBuffers`? (note that if we put sufficient stuffs in between `glfwSwapBuffers` and `glfwPollEvents`, the texture will appear on the window before `glfwPollEvents`)
 
 ❓ Explain in detail what is `glfwPollEvents` doing.
 
