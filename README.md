@@ -1500,7 +1500,7 @@ There is an active texture unit for the current rendering state, and the default
 
 Note that there is also a default texture object. When calling `glBindTexture(GL_TEXTURE_2D, 0)`, it actually associates the default texture object with the active texture unit.
 
-Texture object stores states representing the texture parameters associated with it. Note that those states are NOT stored in texture units.
+Texture object stores states representing the texture parameters associated with it. Note that those states are NOT stored in texture units. (possible [reference](https://computergraphics.stackexchange.com/a/7846))
 
 ## Basic abstraction of texture
 
@@ -1616,7 +1616,29 @@ void Texture::Unbind() const
 
   It is also my current understanding that a single texture object cannot be bound to multiple targets in OpenGL. When you create a texture with `glGenTextures` and then bind it for the first time with `glBindTexture`, the texture object gets its target type, and this target type is fixed for the lifetime of the texture object. This means that if you first bind a texture object to `GL_TEXTURE_2D`, it will always be a `GL_TEXTURE_2D` texture, and attempting to bind it to a different target (like `GL_TEXTURE_3D`) will result in an error.
 
-- 
+- In my current understanding, for the above uses of `glTexParameteri`:
+
+  - `i` in `glTexParameteri` means the (value of the) parameter we are setting is of type `GLint`.
+
+  - `GL_TEXTURE_2D` tells OpenGl that this `glTexParameteri` function is modifying the texture parameter on the texture object linked to the `GL_TEXTURE_2D` target on the currently active texture unit.
+ 
+  - `GL_TEXTURE_MIN_FILTER` specifies which parameter we are setting. In this case, `GL_TEXTURE_MIN_FILTER` controls how the texture will be resampled down if the texture needs to be rendered in a lower resolution (i.e. with a smaller number of pixels).
+
+    `GL_TEXTURE_MAG_FILTER` controls how the texture will be resampled up if the texture needs to be rendered in a higher resolution (i.e. with a larger number of pixels).
+
+    ❓ Explore the cases where resampling up and down happens simultaneously.
+ 
+  - `GL_LINEAR`, in my current understanding, means scaling will be done linearly.
+ 
+    ❓ Explore the other options.
+ 
+  - `GL_TEXTURE_WRAP_S` controls how to sample if the sampling point is outside of the texture in horizontal direction (axis).
+ 
+    `GL_TEXTURE_WRAP_T` controls how to sample if the sampling point is outside of the texture in vertical direction (axis).
+
+  - `GL_CLAMP_TO_EDGE` means taking the nearest (and thus, on edge of the texture) row (for T) / column (for S).
+ 
+    On the other hand, `GL_REPEAT` is like taking a mod operator along row (for T) / column (for S).
 
 - `glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_CPUBuffer)`
 
