@@ -1669,18 +1669,25 @@ In my current understanding, blending specifies the mathematical way of how to c
 
 The blending function, defined in OpenGL by `glBlendFunc`, is in the following form:
 
-$$f_s {\vec{c}}_{s}} \times f_s {\vec{c}}_{s}}$$
+$$
+f_s \vec{c}_s \cdot f_d \vec{c}_d
+$$
 
-By default, OpenGL disables blending. The following example code shows how to enable as well as set up for blending:
+where $f$ denotes "RGBA factor", $\vec{c}$ is a 4-components vector representing the color data in RGBA format, $s$ means the color we output from the fragment shader, $d$ means the color that is already in the frame buffer the fragment shader is drawing to, and the operator $\cdot$ is an operation that can be user-defined by `glBlendEquation`.
+
+By default, OpenGL disables blending. The following example code shows how to enable as well as the setups for blending:
 
 ```cpp
 glEnable(GL_BLEND);
 glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+glBlendEquation(GL_FUNC_ADD);
 
 // rendering...
 
 glDisable(GL_BLEND);
 ```
+
+- 
 
 - It's good to disable blending (as we did with `glDisable(GL_BLEND);`) when it's no longer needed, as leaving it enabled when drawing opaque objects can unnecessarily hurt performance.
 
@@ -1806,6 +1813,7 @@ namespace Test
 
         GLCall(glEnable(GL_BLEND));
         GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
+        GLCall(glBlendEquation(GL_FUNC_ADD));
 
         float vertices[] =
         {
