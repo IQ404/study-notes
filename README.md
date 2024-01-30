@@ -1640,6 +1640,8 @@ void Texture::Unbind() const
  
     On the other hand, `GL_REPEAT` is like taking a $mod$ operation along row (for S) / column (for T).
 
+- Note that we should always set up those texture parameters before rendering the texture.
+
 - `glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_CPUBuffer)`
 
   - In my current understanding, the 1st parameter tells OpenGL what to do with the interpretation of the data in the first place. ❓ Understand the cases when we are not using `GL_TEXTURE_2D` here.
