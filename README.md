@@ -1711,6 +1711,12 @@ glBlendEquation(GL_FUNC_ADD);
 
 ## Adding `glm` math library into the project
 
+`glm` is another header-only library, which is wonderful.
+
+Go to the [repository](https://github.com/g-truc/glm), click `Releases`, download the `.zip` file in the `Assets` section of the latest version (I believe I am using `0.9.9.8` here). This `.zip` shall only have one folder (named `glm`). Inside this `glm` folder, there is another `glm` folder. Copy this sub `glm` folder into your project. Under the `Show All Files` view of the `Solution Exploer` of Visual Studio, right-click on the `glm` folder we just pasted in, and then click `Include In Project`.
+
+Now, make sure that in 
+
 - Note that, in `glm` (as in OpenGL), matrices are [column-majored](https://en.wikipedia.org/wiki/Row-_and_column-major_order).
 
 ## Space transformations in OpenGL
