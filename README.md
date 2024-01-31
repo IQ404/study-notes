@@ -178,6 +178,8 @@ int main()
 
 The first object (of type `T1`) can be access through `p.first` and the second object (of type `T2`) can be access through `p.second`.
 
+- We can define a vector of `std::pair`, e.g. `std::vector<std::pair<std::string, int>>`. Such data structure can be used as a kind of "map" (note in particular that we can have identical keys in such kind of map).
+
 ## Lambda Expression
 
 Right now, I think of lambda as an object in which, when compiler sees its definition, the compiler creates an anonymous class with data members holding the values captured by the lambda, and with an overloaded `operator()` method holding the function content specified by the lambda.
