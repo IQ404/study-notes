@@ -1725,6 +1725,8 @@ Normally in a C++ OpenGL project, we want to `#include "glm/glm.hpp"` and `#incl
 
 - Note that, in `glm` (as in OpenGL), matrices are [column-majored](https://en.wikipedia.org/wiki/Row-_and_column-major_order).
 
+  Thus, we don't need to transpose the matrix memory layout when sending the matrices created by glm library as uniforms to OpenGL shaders.
+
 ## Space transformations in OpenGL
 
 This is a perfect example of how OpenGL makes a simple concept f***ing complicated.
