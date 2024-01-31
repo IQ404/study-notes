@@ -174,6 +174,10 @@ int main()
 
 ## `std::pair`
 
+`std::pair<T1, T2> p` can be used to store two objects (possibly of different types).
+
+The first object (of type `T1`) can be access through `p.first` and the second object (of type `T2`) can be access through `p.second`.
+
 ## Lambda Expression
 
 Right now, I think of lambda as an object in which, when compiler sees its definition, the compiler creates an anonymous class with data members holding the values captured by the lambda, and with an overloaded `operator()` method holding the function content specified by the lambda.
