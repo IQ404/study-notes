@@ -176,6 +176,8 @@ int main()
 
 ## Lambda Expression
 
+Right now, I think of lambda as an object in which, when compiler sees its definition, the compiler creates an anonymous class with data members holding the values captured by the lambda, and with an overloaded `operator()` method holding the function content specified by the lambda.
+
 ❓ when a lambda is destroyed, is the associated implicit class definition (especially the content of the `operator()` function) destroyed with it? If this lambda was copied, or assigned to a `std::function`, how are those associated implicit contents being managed? 
 
 ## `std::function`
