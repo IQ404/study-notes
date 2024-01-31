@@ -1721,6 +1721,8 @@ Once all these are done, your project should compile.
 
 Normally in a C++ OpenGL project, we want to `#include "glm/glm.hpp"` and `#include "glm/gtc/matrix_transform.hpp"` in files where we use the glm library.
 
+- Note that the GLM library is a C++ mathematics library designed to mirror GLSL's syntax and functionalities to ease the development of OpenGL applications in C++. Shader code in OpenGL uses GLSL (OpenGL Shading Language), which is a separate language from C++. So, even if we are not including the glm library, we can still use the identifiers like `vec2`, `vec3`, `vec4`, `mat4`, etc. in our shaders.
+
 - Note that, in `glm` (as in OpenGL), matrices are [column-majored](https://en.wikipedia.org/wiki/Row-_and_column-major_order).
 
 ## Space transformations in OpenGL
