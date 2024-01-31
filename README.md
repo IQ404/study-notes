@@ -117,8 +117,6 @@ int* const z;  // z is a constant pointer to a (mutable) int
 int const i;  // this is equivalent to const int i;
 ```
 
-## Lambda Expression
-
 ## Template
 
 - In my current understanding, the typename(s) in `template<...>` specify the type parameters the compiler will be required to define the following construct.
@@ -176,7 +174,15 @@ int main()
 
 ## `std::pair`
 
+## Lambda Expression
+
+❓ when a lambda is destroyed, is the associated implicit class definition (especially the content of the `operator()` function) destroyed with it? If this lambda was copied, or assigned to a `std::function`, how are those associated implicit contents being managed? 
+
 ## `std::function`
+
+Right now, I just think of `std::function` as a container for lambda (and for other functional things).
+
+❓ I don't know how precisely a lambda is stored inside a `std::function`. How much copying does the assignment involve? Are there any (potential) move semantics (or copy elision) happening?
 
 # Part II: Styles
 
