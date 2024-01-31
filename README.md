@@ -1788,7 +1788,7 @@ namespace Test
 
 	public:
 
-		TestBase() = delete;	// we don't want the user to construct TestBase
+		TestBase() = delete;	// we don't want the user to directly construct TestBase
 
 		virtual ~TestBase()
 		{
