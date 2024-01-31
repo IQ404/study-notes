@@ -1713,9 +1713,13 @@ glBlendEquation(GL_FUNC_ADD);
 
 `glm` is another header-only library, which is wonderful.
 
-Go to the [repository](https://github.com/g-truc/glm), click `Releases`, download the `.zip` file in the `Assets` section of the latest version (I believe I am using `0.9.9.8` here). This `.zip` shall only have one folder (named `glm`). Inside this `glm` folder, there is another `glm` folder. Copy this sub `glm` folder into your project. Under the `Show All Files` view of the `Solution Exploer` of Visual Studio, right-click on the `glm` folder we just pasted in, and then click `Include In Project`.
+Go to the [repository](https://github.com/g-truc/glm), click `Releases`, download the `.zip` file in the `Assets` section of the latest version (I believe I am using `0.9.9.8` here). This `.zip` shall only have one folder (named `glm`). Inside this `glm` folder, there is another `glm` folder. Copy this sub `glm` folder into your project. Under the `Show All Files` view of the `Solution Exploer` of Visual Studio, right-click on the `glm` folder we just pasted in, and then click `Include In Project`. (For glm versions older than the version I am using, there may be a `dummy.cpp` file which contains a `int main()` function which will interfere with your own main function, and thus should be `Exclude From Project`. But I believe at least from the version I am using, `glm` does not contain this `dummy.cpp` anymore)
 
-Now, make sure that in 
+Now, make sure that in `Properties -> Configuration Properties -> C/C++ -> General -> Additional Include Directories` of your C++ project in Visual Studio, you have include the folder you pasted the `glm` folder in.
+
+Once all these are done, your project should compile.
+
+Normally in a C++ OpenGL project, we want to `#include "glm/glm.hpp"` and `#include "glm/gtc/matrix_transform.hpp"` in files where we want to use the glm library.
 
 - Note that, in `glm` (as in OpenGL), matrices are [column-majored](https://en.wikipedia.org/wiki/Row-_and_column-major_order).
 
