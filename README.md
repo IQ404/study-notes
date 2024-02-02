@@ -1825,7 +1825,7 @@ int main()
  
   - Now, ImGui should have all the current state information for the new frame.
  
-  - Subsequent calls of ImGui widgets functions will result in ImGui drawing the widgets in accordance with the current state.
+  - Subsequent calls of ImGui widgets functions will result in ImGui drawing the widgets in accordance with the current states.
 
 ❓ Understand why the ImGui window isn't showed up on the canvas at the end of the first iteration of the render loop.
 
@@ -2118,7 +2118,7 @@ int main(void)
             glfwSwapBuffers(window);
 
             /* Poll for and process events */
-            glfwPollEvents();
+            glfwPollEvents();  // should we put this at the beginning of the rendering loop?
             // TODO: understand why the ImGui window isn't showed up on the canvas at this point in the first iteration of the render loop.
         }
 
