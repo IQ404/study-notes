@@ -1755,7 +1755,7 @@ In the `imgui-1.90.1` folder, there is a folder named `examples`, in that, open 
 
 Now, we should have all the files we need for integrating ImGui.
 
-Right-click your `imgui` folder under the `Show All Files` view in the `Solution Explorer` in the Visual Studio. Select `Include In Project`. Then, right-click on the `main.cpp` in your `imgui` folder and select "Exclude From Project".
+Right-click your `imgui` folder under the `Show All Files` view in the `Solution Explorer` in the Visual Studio. Select `Include In Project`. Then, right-click on the `main.cpp` in your `imgui` folder and select `Exclude From Project`.
 
 In your main file, the scaffolding looks something like this:
 
