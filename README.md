@@ -196,6 +196,8 @@ Right now, I just think of `std::function` as a container for lambda (and for ot
 
 ❓ I don't know how precisely a lambda is stored inside a `std::function`. How much copying does the assignment involve? Are there any (potential) move semantics (or copy elision) happening?
 
+- Currently, I think the significant part of the overhead, if copying is happening, is the copying of the variables (captured by value) stored in the lambda object.
+
 # Part II: Styles
 
 ## Header-only Implementation
