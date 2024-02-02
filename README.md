@@ -184,9 +184,19 @@ The first object (of type `T1`) can be access through `p.first` and the second o
 
 Right now, I think of lambda as an object in which, when compiler sees its definition, the compiler creates an anonymous class with data members holding the values captured by the lambda, and with an overloaded `operator()` method holding the function content specified by the lambda.
 
-- Note that each lambda expression results in a unique, compiler-generated closure type, regardless of the similarity in their functionality or captured variables. This means that for each lambda, the compiler generates a separate class type with its own `operator()` method.
+- Note that:
 
-  Also note that, Given a lambda object with identifier `la`, `lb` will have the same type as `la` (i.e. they both are instances of the same compiler-generated closure type) if `auto lb = la;`.
+  ```cpp
+  auto la = [some_var](some_args){/* some code */};
+  auto lb = la;
+  auto lc = [some_var](some_args){/* some code */};
+  ```
+
+  The types of all lambda objects are compiler-generated closure type.
+
+  `lb` has the same type as `la` (i.e. they both are instances of the same compiler-generated closure type).
+
+  For `la` and `lc`, even they have exactly the same capture list, parameter list, and body, the compiler treats them as distinct types. Each of them results in the generation of a unique closure type by the compiler.
 
 ❓ when a lambda is destroyed, is the associated implicit class definition (especially the content of the `operator()` function) destroyed with it? If this lambda was copied, or assigned to a `std::function`, how are those associated implicit contents being managed?
 
