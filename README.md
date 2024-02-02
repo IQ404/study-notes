@@ -210,6 +210,8 @@ Right now, I just think of `std::function` as a container for lambda (and for ot
 
 - Currently, I think the significant part of the overhead, if copying is happening, is the copying of the variables (captured by value) stored in the lambda object.
 
+❓ Understand the cause of the runtime overrhead of calling `std::function`.
+
 # Part II: Styles
 
 ## Header-only Implementation
