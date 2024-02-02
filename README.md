@@ -1823,7 +1823,7 @@ int main()
  
   - The NewFrame functions called at the beginning of the rendering loop query glfw for continuous data.
  
-  - Now, ImGui should gave all the current state information for the new frame.
+  - Now, ImGui should have all the current state information for the new frame.
  
   - Subsequent calls of ImGui widgets functions will result in ImGui drawing the widgets in accordance with the current state.
 
@@ -2070,7 +2070,7 @@ int main(void)
         ImGui::CreateContext();
         ImGui_ImplGlfw_InitForOpenGL(window, true);
         ImGui::StyleColorsDark();
-        const char* glsl_version = "#version 130";
+        const char* glsl_version = "#version 130";  // pointing directly to the read-only section of the memory where the compiler allocates storage for string literals
         ImGui_ImplOpenGL3_Init(glsl_version);
 
         Test::TestBase* current_test = nullptr;
