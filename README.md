@@ -1745,6 +1745,72 @@ Currently this section will only show how to get ImGui working within a C++ Open
 
 The ImGui version that I am integrating is `1.90.1`. I will probably stick to it and not moving to an updated version unless there is any specific benefit.
 
+First, go to the [repository](https://github.com/ocornut/imgui), click `Releases`. Under the `Assets` section, download `Source Code (zip)`.
+
+Maybe create a folder named `imgui` in your project, copy and paste all the `.h` and `.cpp` files listed in the `imgui-1.90.1` folder (which should be the only folder in `Source Code (zip)`).
+
+In the `imgui-1.90.1` folder, there is a folder named `backends`, open that, there should be 5 files named `imgui_impl_glfw.h`, `imgui_impl_glfw.cpp`, `imgui_impl_opengl3.h`, `imgui_impl_opengl3.cpp`, and `imgui_impl_opengl3_loader.h` respectively. Copy these 5 files into your `imgui` folder as well.
+
+In the `imgui-1.90.1` folder, there is a folder named `examples`, in that, open the folder named `example_glfw_opengl3`. Copy the `main.cpp` file in that folder into your `imgui` folder. MAKE SURE that you exclude this flie from your project. This file just serves as an example so that we can copy and paste the scaffolding source code into our files.
+
+Now, we should have all the files we need for integrating ImGui.
+
+Right-click your `imgui` folder under the `Show All Files` view in the `Solution Explorer` in the Visual Studio. Select `Include In Project`. Then, right-click on the `main.cpp` in your `imgui` folder and select "Exclude From Project".
+
+In your main file, the scaffolding looks something like this:
+
+```cpp
+// include necessary stuffs... (e.g. glew and glfw)
+
+#include "imgui/imgui.h"
+#include "imgui/imgui_impl_glfw.h"
+#include "imgui/imgui_impl_opengl3.h"
+
+// maybe other inclusions...
+
+int main()
+{
+
+    // initialize glfw and other stuffs...
+
+    {
+        ImGui::CreateContext();
+        ImGui_ImplGlfw_InitForOpenGL(window, true);  // GLFWwindow* window
+        ImGui::StyleColorsDark();
+        const char* glsl_version = "#version 130";
+        ImGui_ImplOpenGL3_Init(glsl_version);
+
+        // Other initial setups...
+
+        while (!glfwWindowShouldClose(window))
+        {
+            // Maybe clear color buffer here...
+
+            ImGui_ImplOpenGL3_NewFrame();
+            ImGui_ImplGlfw_NewFrame();
+            ImGui::NewFrame();
+
+            // Other rendering mechanisms...
+
+            ImGui::Render();
+            ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+            // swap buffers and poll events...
+        }
+
+        // Any heap clean-up...
+    }
+
+    ImGui_ImplOpenGL3_Shutdown();
+    ImGui_ImplGlfw_Shutdown();
+    ImGui::DestroyContext();
+
+    // terminate glfw...
+}
+```
+
+- 
+
 ❓ Understand why the ImGui window isn't showed up on the canvas at the end of the first iteration of the render loop.
 
 ## Multiple draw calls
