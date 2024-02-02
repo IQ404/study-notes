@@ -1809,7 +1809,23 @@ int main()
 }
 ```
 
-- 
+- In my current understanding: (may need to be more accurate)
+
+  - The operating system continuously receives data from devices connected to the computer.
+ 
+  - The operating system continuously sending data relevant to the window of our application. This communication is set up during the initialization of glfw in our application.
+ 
+  - There are mainly two types of data: continuous states (e.g. the position of the mouse) and events (e.g. mouse click). Those "discrete" actions that are categorized as events, when happen, are sent by the operating system into a events queue - a data structure managed by glfw. The former, on the hand, can be queried from the operating system through functions provided by glfw.
+ 
+  - `glfwPollEvents` takes all the events in the events queue (probably clear the events queue) and calls the corresponding callback functions which have been set up for glfw. Each callback function assocates with a kind of event.
+ 
+  - When initialize ImGui with glfw, ImGui can set up callback functions. Thus, when `glfwPollEvents` calls callback functions, ImGui can be informed with the events data.
+ 
+  - The NewFrame functions called at the beginning of the rendering loop query glfw for continuous data.
+ 
+  - Now, ImGui should gave all the current state information for the new frame.
+ 
+  - Subsequent calls of ImGui widgets functions will result in ImGui drawing the widgets in accordance with the current state.
 
 ❓ Understand why the ImGui window isn't showed up on the canvas at the end of the first iteration of the render loop.
 
