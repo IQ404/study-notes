@@ -196,7 +196,7 @@ Right now, I think of lambda as an object in which, when compiler sees its defin
 
   `lb` has the same type as `la` (i.e. they both are instances of the same compiler-generated closure type).
 
-  For `la` and `lc`, even they have exactly the same capture list, parameter list, and body, the compiler treats them as distinct types. Each of them results in the generation of a unique closure type by the compiler.
+  For `la` and `lc`, even if they have exactly the same capture list, parameter list, and body, the compiler treats them as distinct types. Each of them results in the generation of a unique closure type by the compiler.
 
 ❓ when a lambda is destroyed, is the associated implicit class definition (especially the content of the `operator()` function) destroyed with it? If this lambda was copied, or assigned to a `std::function`, how are those associated implicit contents being managed?
 
