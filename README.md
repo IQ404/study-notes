@@ -2466,19 +2466,51 @@ void main()
 
 by this we can "return" multiple values from one function.
 
-❓ Do GLSL function parameters must be declared with `in`/`out`?
+❓ Do GLSL function parameters must be declared with `in`/`out`? (no, note also that there is `inout`)
 
 Types that are mainly used in GLSL are: `float`, `bool` and `int`.
 
 There are also built-in vector and matrix types in GLSL: `vec2`, `vec3`, `vec4`; `mat2`, `mat3`, `mat4`.
 
-❓ What does `vec4 * mat4` means?
+Common mathematical operations: `+`, `-`, `*`, `/`, `=`, `+=`, `-=`, `*=`, `/=`.
 
-❓ Does GLSL switch statement must be switching on integer types (like in C++)?
+In GLSL, vector operating on vector/scalar and vice versa is component-wise; matrix operating on scalar and vice versa is component-wise.
 
-❓ Can we have multiple return statements in a GLSL function?
+Matrix operating on matrix follows linear algebra.
 
-❓ Can I write statement without curly braces like in C++ (e.g. in a long if-else-if block)?
+Plus, we can do component-wise multiplication between matrices as follows:
+
+```cpp
+// m1, m2, m3 are glsl matrices
+m1 = matrixCompMult(m2, m3);
+```
+
+❓ What if I do division between matrices?
+
+I believe matrix `*` vector follows linear algebra.
+
+❓ What does vector `*` matrix means?
+
+In GLSL, type can be preceded with "type qualifier" (e.g. `varying`, `uniform`):
+
+```cpp
+varying vec4 var1;
+uniform vec4 var2;
+```
+
+// TODO: explain the meaning of these type qualifiers.
+
+GLSL supports standard `for` loop, `while` loop and `do-while` loop (with the same syntax as in C++).
+
+The keywords `break`, `continue` (for loops) and `return` (for functions) are also supported by GLSL.
+
+I believe `if` and `if-else` statements in GLSL also work the same as in C++.
+
+❓ Does GLSL `switch` statement must be switching on integer types (like in C++)? (yes, and the cases must be integer constant, as in C++)
+
+❓ Can we have multiple `return` statements in a GLSL function? (yes)
+
+❓ Can I write statement without curly braces like in C++ (e.g. in a long if-else-if block)? (yes)
 
 ## Shader Basics Revisit
 
