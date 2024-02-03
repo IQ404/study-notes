@@ -2373,6 +2373,7 @@ With all our setup up to this point, our unified `.shader` file now looks like t
 #version 460 core
 
 layout (location = 0) in vec4 position;	// right now this position is the position in local (object) space in right-handed coordinates.
+
 /*
 Note that currently location 0 actually feeds in 2 floats.
 It is predefined that OpenGL will set the 1st and 2nd components of the vec4 to these two floats respectively,
