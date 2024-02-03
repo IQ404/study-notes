@@ -2512,6 +2512,8 @@ I believe `if` and `if-else` statements in GLSL also work the same as in C++.
 
 ❓ Can I write statement without curly braces like in C++ (e.g. in a long if-else-if block)? (yes)
 
+
+
 ## Shader Basics Revisit
 
 ## Texture Revisit
