@@ -2466,6 +2466,14 @@ void main()
 
 by this we can "return" multiple values from one function.
 
+❓ Do GLSL function parameters must be declared with `in`/`out`?
+
+Types that are mainly used in GLSL are: `float`, `bool` and `int`.
+
+There are also built-in vector and matrix types in GLSL: `vec2`, `vec3`, `vec4`; `mat2`, `mat3`, `mat4`.
+
+❓ What does `vec4 * mat4` means?
+
 ## Shader Basics Revisit
 
 ## Texture Revisit
