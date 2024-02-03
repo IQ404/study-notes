@@ -7,6 +7,7 @@ I chose not to mannually write a "contents" since the "Outline" button on the to
 ### TODOs
 
 - Integrate CSC8502 into this note
+- The current GLSL stuffs are messy and incomprehensive, polish them!
 - The current GLSL stuffs are kinda separated from the OpenGl stuffs, merge them together.
 
 ## Related Projects
@@ -2419,6 +2420,51 @@ void main()
 As I probably have mentioned, shaders are programs that run on the GPU.
 
 GLSL (OpenGL Shading Language) is the language to write source code for OpenGL shaders.
+
+GLSL has C-style syntax.
+
+Every vertex or fragment shader has to have a `void main() { ... }` function, acting as an entry point.
+
+```cpp
+void main()
+{
+	gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+}
+```
+
+here `gl_FragColor` is a reserved name.
+
+You can define your own function:
+
+```cpp
+vec4 getColor()
+{
+	return vec4(1.0);
+}
+
+void main()
+{
+	gl_FragColor = getColor();
+}
+```
+
+GLSL's function parameter resembles "pass-by-reference" with `out`:
+
+```cpp
+void getColorOut(in vec4 color, out vec4 final)
+{
+	final = color * vec4(0.5);
+}
+
+void main()
+{
+	vec4 final;
+	getColorOut(vec4(1.0), final);
+	gl_FragColor = final;
+}
+```
+
+by this we can "return" multiple values from one function.
 
 ## Shader Basics Revisit
 
