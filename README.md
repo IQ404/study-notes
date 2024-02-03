@@ -1937,7 +1937,7 @@ namespace Test
 	class TestMenu : public TestBase
 	{
 		std::vector< std::pair< std::string, std::function< TestBase* () > > > m_Tests;
-		TestBase*& m_CurrentTest;
+		TestBase*& m_CurrentTest;  // we want to direct modify an external pointer
 
 	public:
 
