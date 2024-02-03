@@ -2141,6 +2141,8 @@ int main(void)
 
 where the specific tests will be presented in the following sections.
 
+- An observation: the name provided to `ImGui::Begin` is remembered by ImGui and ImGui associates a specific panel in which the name is used as the key to invoke that panel. For example, each panel has its own position recorded by ImGui.
+
 ## A Basic Background Color Test
 
 `TestClearColor.h`:
