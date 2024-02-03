@@ -1739,6 +1739,35 @@ This is a perfect example of how OpenGL makes a simple concept f***ing complicat
   - The parameters representing near and far planes in function `glm::perspective` are expecting absolute distance from the camera to the plane in front of the camera.
   - The parameters representing near and far planes in function `glm::ortho` are expecting values on z-axis in a left-handed coordinates, with `near < far`.
 
+## Multiple draw calls
+
+I think simply call the draw function multiple times will let OpenGL run the pipeline on GPU multiple times (though, this may not be optimal for performance in many cases).
+
+E.g.
+
+```cpp
+// Inside the render loop:
+
+shader.Bind();
+shader.SetUniform_4floats("u_Color", r, 0.3f, 0.8f, 1.0f);
+
+// model matrix is placing inside the render loop because the location of the object we are rendering can change over frames.
+{
+    glm::mat4 model_matrix = glm::translate(glm::mat4{ 1.0f }, modelA_world_coordinates);
+    glm::mat4 mvp_matrix = projection_matrix * view_matrix * model_matrix;
+    shader.SetUniform_float_matrix_4_4("u_MVP", mvp_matrix);
+    renderer.Draw(vao, index_buffer, shader);
+
+}
+// Note that model B will be on top of model A because the order we draw to the frame buffer.
+{
+    glm::mat4 model_matrix = glm::translate(glm::mat4{ 1.0f }, modelB_world_coordinates);
+    glm::mat4 mvp_matrix = projection_matrix * view_matrix * model_matrix;
+    shader.SetUniform_float_matrix_4_4("u_MVP", mvp_matrix);
+    renderer.Draw(vao, index_buffer, shader);
+}
+```
+
 ## Integrating `ImGui`
 
 Currently this section will only show how to get ImGui working within a C++ OpenGL project. <ins>I need a much more rigorous learning on ImGui before I can understand what are actually happening underneath ImGui.</ins>
@@ -1828,35 +1857,6 @@ int main()
   - Subsequent calls of ImGui widgets functions will result in ImGui drawing the widgets in accordance with the current states.
 
 ❓ Understand why the ImGui window isn't showed up on the canvas at the end of the first iteration of the render loop.
-
-## Multiple draw calls
-
-I think simply call the draw function multiple times will let OpenGL run the pipeline on GPU multiple times (though, this may not be optimal for performance in many cases).
-
-E.g.
-
-```cpp
-// Inside the render loop:
-
-shader.Bind();
-shader.SetUniform_4floats("u_Color", r, 0.3f, 0.8f, 1.0f);
-
-// model matrix is placing inside the render loop because the location of the object we are rendering can change over frames.
-{
-    glm::mat4 model_matrix = glm::translate(glm::mat4{ 1.0f }, modelA_world_coordinates);
-    glm::mat4 mvp_matrix = projection_matrix * view_matrix * model_matrix;
-    shader.SetUniform_float_matrix_4_4("u_MVP", mvp_matrix);
-    renderer.Draw(vao, index_buffer, shader);
-
-}
-// Note that model B will be on top of model A because the order we draw to the frame buffer.
-{
-    glm::mat4 model_matrix = glm::translate(glm::mat4{ 1.0f }, modelB_world_coordinates);
-    glm::mat4 mvp_matrix = projection_matrix * view_matrix * model_matrix;
-    shader.SetUniform_float_matrix_4_4("u_MVP", mvp_matrix);
-    renderer.Draw(vao, index_buffer, shader);
-}
-```
 
 ## Separating Feature implementations into Tests
 
