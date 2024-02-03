@@ -2416,6 +2416,10 @@ void main()
 
 ## What is GLSL
 
+As I probably have mentioned, shaders are programs that run on the GPU.
+
+GLSL (OpenGL Shading Language) is the language to write source code for OpenGL shaders.
+
 ## Shader Basics Revisit
 
 ## Texture Revisit
