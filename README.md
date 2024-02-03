@@ -2273,9 +2273,8 @@ namespace Test
 {
 	TestTexture2D::TestTexture2D()
         : m_modelA_world_coordinates{ 320.0f,240.0f,0.0f }, m_modelB_world_coordinates{ 120.0f,40.0f,0.0f }
+        TestBase(test_name)
 	{
-        test_name = "2D Texture Test";
-
         GLCall(glEnable(GL_BLEND));
         GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
         GLCall(glBlendEquation(GL_FUNC_ADD));
