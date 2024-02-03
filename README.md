@@ -2474,6 +2474,12 @@ There are also built-in vector and matrix types in GLSL: `vec2`, `vec3`, `vec4`;
 
 ❓ What does `vec4 * mat4` means?
 
+❓ Does GLSL switch statement must be switching on integer types (like in C++)?
+
+❓ Can we have multiple return statements in a GLSL function?
+
+❓ Can I write statement without curly braces like in C++ (e.g. in a long if-else-if block)?
+
 ## Shader Basics Revisit
 
 ## Texture Revisit
