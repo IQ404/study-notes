@@ -2491,14 +2491,19 @@ I believe matrix `*` vector follows linear algebra.
 
 ❓ What does vector `*` matrix means?
 
-In GLSL, type can be preceded with "type qualifier" (e.g. `varying`, `uniform`):
+In GLSL, type can be preceded with "type qualifier":
 
 ```cpp
-varying vec4 var1;
-uniform vec4 var2;
+uniform vec4 var1;
+attribute vec4 var2;
+varying vec4 var3;
 ```
 
-// TODO: explain the meaning of these type qualifiers.
+The type qualifier `uniform` means `var1` is a global real-only variable (global to the shader program i.e. the data behind is a singleton and is shared to both vertex shader and fragment shader). The word "uniform" means it is not changing in the shader program, it holds the same value no matter it is access by the vertex shader or by the fragment shader.
+
+Variable declared with the `attribute` type qualifier is per-vertex data in vertex shader. It is the data coming from mesh itself, defined at each vertex. (❓ deeper understanding needed)
+
+
 
 GLSL supports standard `for` loop, `while` loop and `do-while` loop (with the same syntax as in C++).
 
