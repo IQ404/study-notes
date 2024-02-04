@@ -2503,7 +2503,26 @@ The type qualifier `uniform` means `var1` is a global real-only variable (global
 
 Variable declared with the `attribute` type qualifier is per-vertex data in vertex shader. It is the data coming from mesh itself, defined at each vertex. (❓ deeper understanding needed)
 
+```cpp
+// An extremely high-level pseudo-code of how a shader program works:
+function drawWithShader(mesh, uniforms)
+{
+	for (face in mesh.faces)	// assume each face is a triangle
+	{
+		varyings = [
+			callVertexShader(face.vertex1.attributes, uniforms),
+			callVertexShader(face.vertex2.attributes, uniforms),
+			callVertexShader(face.vertex3.attributes, uniforms)
+		]
 
+		for (pixel in pixels_covering_face)
+		{
+			fragmentVarying = interpolateVaryings(varyings, pixel)
+			callFragmentShader(fragmentVarying, uniforms)
+		}
+	}
+}
+```
 
 GLSL supports standard `for` loop, `while` loop and `do-while` loop (with the same syntax as in C++).
 
