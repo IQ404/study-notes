@@ -2503,7 +2503,9 @@ varying vec4 var3;
 
 The type qualifier `uniform` means `var1` is a global real-only variable (global to the shader program i.e. the data behind is a singleton and is shared to both vertex shader and fragment shader). The word "uniform" means it is not changing in the shader program, it holds the same value no matter it is access by the vertex shader or by the fragment shader.
 
-Variable declared with the `attribute` type qualifier is per-vertex data in vertex shader. It is the data coming from mesh itself, defined at each vertex. (❓ deeper understanding needed)
+Variable declared with the `attribute` type qualifier is per-vertex data in vertex shader. It is the data coming from mesh itself, defined at each vertex. (❓ Deeper understanding needed. E.g., how do I control which kind of attribute is input into the variable?)
+
+Variables declared with `varying` are to be outputted from the vertex shader, and then to be interpolated (which could then be received by the fragment shader). (❓ Deeper understanding needed. E.g., how is `varying` variables differ from the normal `out` variables?)
 
 ```cpp
 // An extremely high-level pseudo-code of how a shader program works:
@@ -2519,7 +2521,7 @@ function DrawWithShader(mesh, uniforms)
 		// Rasterization to obtain pixels_covering_face...
 		for (pixel in pixels_covering_face)
 		{
-			fragment_varying = InterpolateVaryings(varyings, pixel)
+			fragment_varying = InterpolateTriangleVaryings(varyings, pixel)
 			callFragmentShader(fragment_varying, uniforms)
 		}
 	}
