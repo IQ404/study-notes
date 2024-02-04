@@ -2421,6 +2421,21 @@ void main()
 
 As I probably have mentioned, shaders are programs that run on the GPU.
 
+An OpenGl shader program abstrcts a rendering pipeline based on rasterization.
+
+An OpenGl shader program (should at least) contains a vertex shader (runs on per-vertex basis) and a fragment shader (runs on per-pixel basis).
+
+The responsibilities of a vertex shader are:
+
+- Output the clip space position of the vertex into `gl_Position`.
+- Supply varying values down the pipeline (e.g. for fragment shader).
+
+The responsibility of a vertex shader is:
+
+- Calculate the final color (and then output the final color to e.g. `gl_FragColor`).
+
+❓ What are the difference between outputting the final color to `gl_FragColor` and to, e.g. `layout (location = 0) out vec4 color;`?
+
 GLSL (OpenGL Shading Language) is the language to write source code for OpenGL shaders.
 
 GLSL has C-style syntax.
@@ -2539,8 +2554,6 @@ I believe `if` and `if-else` statements in GLSL also work the same as in C++.
 ❓ Can we have multiple `return` statements in a GLSL function? (yes)
 
 ❓ Can I write statement without curly braces like in C++ (e.g. in a long if-else-if block)? (yes)
-
-
 
 ## Shader Basics Revisit
 
