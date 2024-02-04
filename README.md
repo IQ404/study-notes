@@ -2522,6 +2522,8 @@ Variable declared with the `attribute` type qualifier is per-vertex data in vert
 
 Variables declared with `varying` are to be outputted from the vertex shader, and then to be interpolated (which could then be received by the fragment shader). (❓ Deeper understanding needed. E.g., how is `varying` variables differ from the normal `out` variables?)
 
+❗ `varying`, `attribute` and `gl_FragColor` are all removed in modern GLSL!!!
+
 ```cpp
 // An extremely high-level pseudo-code of how a shader program works:
 function DrawWithShader(mesh, uniforms)
