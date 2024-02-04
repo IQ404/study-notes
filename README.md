@@ -2432,7 +2432,7 @@ The responsibilities of a vertex shader are:
 
 The responsibility of a vertex shader is:
 
-- Calculate the final color (and then output the final color to e.g. `gl_FragColor`).
+- Calculate the final color of the pixel (and then output the final color to e.g. `gl_FragColor`).
 
 ❓ What are the difference between outputting the final color to `gl_FragColor` and to, e.g. `layout (location = 0) out vec4 color;`?
 
