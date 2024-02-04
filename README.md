@@ -2505,7 +2505,7 @@ Variable declared with the `attribute` type qualifier is per-vertex data in vert
 
 ```cpp
 // An extremely high-level pseudo-code of how a shader program works:
-function drawWithShader(mesh, uniforms)
+function DrawWithShader(mesh, uniforms)
 {
 	for (face in mesh.faces)	// assume each face is a triangle
 	{
@@ -2514,11 +2514,11 @@ function drawWithShader(mesh, uniforms)
 			callVertexShader(face.vertex2.attributes, uniforms),
 			callVertexShader(face.vertex3.attributes, uniforms)
 		]
-
+		// Rasterization to obtain pixels_covering_face...
 		for (pixel in pixels_covering_face)
 		{
-			fragmentVarying = interpolateVaryings(varyings, pixel)
-			callFragmentShader(fragmentVarying, uniforms)
+			fragment_varying = InterpolateVaryings(varyings, pixel)
+			callFragmentShader(fragment_varying, uniforms)
 		}
 	}
 }
