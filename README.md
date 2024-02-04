@@ -4,7 +4,7 @@
 
 I chose not to mannually write a "contents" since the "Outline" button on the top right corner of a github markdown page has already rendered a beautiful navigator.
 
-The basic structure of this note I'm planning is as follows: in the first part we will try to get familiar with the OpenGL context at the C++ end; in the second part I will try to introduce how to write shaders; then in the third part, we will try to dive into some rendering techniques.
+The basic structure of this note I'm planning is as follows: in the first part we will try to get familiar with the OpenGL context mainly from the C++ end; in the second part I will try to introduce how to write shaders; then in the third part, we will try to dive into some rendering techniques.
 
 ### TODOs
 
