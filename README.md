@@ -2452,7 +2452,7 @@ You can define your own function:
 ```cpp
 vec4 getColor()
 {
-	return vec4(1.0);
+	return vec4(1.0);  // 1.0 is used for all components
 }
 
 void main()
