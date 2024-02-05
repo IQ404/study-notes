@@ -2593,7 +2593,9 @@ GLSL typically deals with colors by floating point numbers in range `[0.0, 1.0]`
 
 ## Common Functions in GLSL
 
-`mix(a,b,t)` returns `a + t * (b - a)`.
+`mix(a,b,t)` returns `a + t * (b - a)` where `t` is a percentage between `0` and `1`.
+
+Note that `a` and `b` can be scalars, but it can also be vectors.
 
 ## Built-in Math Functions in GLSL
 
