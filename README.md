@@ -2516,7 +2516,7 @@ vec3 same_as_p = vec3(hp);
 On the other hand:
 
 ```cpp
-mat4(1.0);  // Identity matrix
+mat4 idm = mat4(1.0);  // Identity matrix
 ```
 
 Note that the predefined variable `gl_FragColor` is removed in modern GLSL. You need to define your own `out` variable for the output of the fragment shader. You can use any name you want.
