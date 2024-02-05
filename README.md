@@ -2504,6 +2504,13 @@ I believe matrix `*` vector follows linear algebra.
 
 ❓ What does vector `*` matrix means?
 
+We can "compose" high-dimensional vectors from low-dimensional vectors:
+
+```cpp
+vec3 p = vec3(1.0, 0.0, 0.0);
+vec4 hp = vec4(p, 1.0);
+```
+
 Note that the predefined variable `gl_FragColor` is removed in modern GLSL. You need to define your own `out` variable for the output of the fragment shader. You can use any name you want.
 
 In GLSL, type can be preceded with "type qualifier":
