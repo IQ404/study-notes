@@ -2540,7 +2540,18 @@ The use of `attribute` qualifier is replaced by the use of an `in` qualifier in 
 The use of `varying` qualifier is replaced by the use of an `out` qualifier at vertex shader's end and an `in` qualifier at fragment shader's end.
 
 ```cpp
-// An extremely high-level pseudo-code of how a shader program works:
+// assume the shader program is linked only with vertex shader + fragment shader.
+
+// part of vertex shader:
+out vec2 v_TexCoord;
+
+// part of fragment shader:
+in vec2 v_TexCoord;  // this has to have the same type and same name as in the vertex shader.
+```
+
+An extremely high-level pseudo-code of how a shader program works:
+
+```cpp
 function DrawWithShader(mesh, uniforms)
 {
 	for (face in mesh.faces)	// assume each face is a triangle
