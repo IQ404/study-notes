@@ -2432,7 +2432,7 @@ The responsibilities of a vertex shader are:
 
 The responsibility of a vertex shader is:
 
-- Calculate the final color of the pixel (and then output the final color to e.g. frame buffer).
+- Calculate the final color of the <ins>rasterized</ins> pixel (and then output the final color to e.g. frame buffer).
 
 GLSL (OpenGL Shading Language) is the language to write source code for OpenGL shaders.
 
