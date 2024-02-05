@@ -2504,12 +2504,19 @@ I believe matrix `*` vector follows linear algebra.
 
 ❓ What does vector `*` matrix means? (see [here](https://en.wikibooks.org/wiki/GLSL_Programming/Vector_and_Matrix_Operations))
 
-We can compose vector from other vectors:
+We can compose vector from scalars or other vectors:
 
 ```cpp
+vec4 q = vec4(1.0);  // 1.0, 1.0, 1.0, 1.0
 vec3 p = vec3(1.0, 0.0, 0.0);
 vec4 hp = vec4(p, 1.0);
 vec3 same_as_p = vec3(hp);
+```
+
+On the other hand:
+
+```cpp
+mat4(1.0);  // Identity matrix
 ```
 
 Note that the predefined variable `gl_FragColor` is removed in modern GLSL. You need to define your own `out` variable for the output of the fragment shader. You can use any name you want.
