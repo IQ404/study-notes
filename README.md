@@ -2574,6 +2574,10 @@ I believe `if` and `if-else` statements in GLSL also work the same as in C++.
 
 ## Shader Basics Revisit
 
+GLSL typically deals with colors by floating point numbers in range `[0.0, 1.0]`.
+
+
+
 ## Texture Revisit
 
 ## Common Functions in GLSL
