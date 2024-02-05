@@ -2529,7 +2529,7 @@ attribute vec4 var2;	// removed in modern GLSL
 varying vec4 var3;	// removed in modern GLSL
 ```
 
-The type qualifier `uniform` means `var1` is a global real-only variable (global to the shader program i.e. the data behind is a singleton and is shared to both vertex shader and fragment shader). The word "uniform" means it is not changing in the shader program, it holds the same value no matter it is access by the vertex shader or by the fragment shader.
+The type qualifier `uniform` means `var1` is a global real-only (within shader) variable (global to the shader program i.e. the data behind is a singleton and is shared to both vertex shader and fragment shader). The word "uniform" means it is not changing in the shader program, it holds the same value no matter it is access by the vertex shader or by the fragment shader. E.g.
 
 ```cpp
 // part of any kind of shader:
@@ -2538,7 +2538,7 @@ uniform vec4 u_Color;  // set and then sent from CPU side.
 
 ~~Variables declared with `varying` are to be outputted from the vertex shader, and then to be interpolated (which could then be received by the fragment shader). (❓ Deeper understanding needed. E.g., how is `varying` variables differ from the normal `out` variables?)~~
 
-The use of `varying` qualifier is replaced by the use of an `out` qualifier at vertex shader's end and an `in` qualifier at fragment shader's end.
+The use of `varying` qualifier is replaced by the use of an `out` qualifier at vertex shader's end and an `in` qualifier at fragment shader's end. E.g.
 
 ```cpp
 // assume the shader program is linked only with vertex shader + fragment shader.
@@ -2552,10 +2552,11 @@ in vec2 v_TexCoord;  // this has to have the same type and same name as in the v
 
 ~~Variable declared with the `attribute` type qualifier is per-vertex data in vertex shader. It is the data coming from mesh itself, defined at each vertex. (❓ Deeper understanding needed. E.g., how do I control which kind of attribute is input into the variable?)~~
 
-The use of `attribute` qualifier is replaced by the use of an `in` qualifier in vertex shaders.
+The use of `attribute` qualifier is replaced by the use of an `in` qualifier in vertex shaders. E.g.
 
 ```cpp
-
+// part of vertex shader:
+layout (location = 2) in vec2 texColor;
 ```
 
 An extremely high-level pseudo-code of how a shader program works:
