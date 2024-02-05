@@ -2432,9 +2432,7 @@ The responsibilities of a vertex shader are:
 
 The responsibility of a vertex shader is:
 
-- Calculate the final color of the pixel (and then output the final color to e.g. `gl_FragColor`).
-
-❓ What are the difference between outputting the final color to `gl_FragColor` and to, e.g. `layout (location = 0) out vec4 color;`?
+- Calculate the final color of the pixel (and then output the final color to e.g. frame buffer).
 
 GLSL (OpenGL Shading Language) is the language to write source code for OpenGL shaders.
 
@@ -2445,11 +2443,9 @@ Every vertex or fragment shader has to have a `void main() { ... }` function, ac
 ```cpp
 void main()
 {
-	gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+	some_color = vec4(1.0, 0.0, 0.0, 1.0);
 }
 ```
-
-here `gl_FragColor` is a reserved name.
 
 You can define your own function:
 
@@ -2461,14 +2457,14 @@ vec4 getColor()
 
 void main()
 {
-	gl_FragColor = getColor();
+	some_color = getColor();
 }
 ```
 
 GLSL's function parameter resembles "pass-by-reference" with `out`:
 
 ```cpp
-void getColorOut(in vec4 color, out vec4 final)
+void GetColorOut(in vec4 color, out vec4 final)
 {
 	final = color * vec4(0.5);
 }
@@ -2476,8 +2472,8 @@ void getColorOut(in vec4 color, out vec4 final)
 void main()
 {
 	vec4 final;
-	getColorOut(vec4(1.0), final);
-	gl_FragColor = final;
+	GetColorOut(vec4(1.0), final);
+	some_color = final;
 }
 ```
 
@@ -2512,17 +2508,19 @@ In GLSL, type can be preceded with "type qualifier":
 
 ```cpp
 uniform vec4 var1;
-attribute vec4 var2;
-varying vec4 var3;
+attribute vec4 var2;	// removed in modern GLSL
+varying vec4 var3;	// removed in modern GLSL
 ```
 
 The type qualifier `uniform` means `var1` is a global real-only variable (global to the shader program i.e. the data behind is a singleton and is shared to both vertex shader and fragment shader). The word "uniform" means it is not changing in the shader program, it holds the same value no matter it is access by the vertex shader or by the fragment shader.
 
-Variable declared with the `attribute` type qualifier is per-vertex data in vertex shader. It is the data coming from mesh itself, defined at each vertex. (❓ Deeper understanding needed. E.g., how do I control which kind of attribute is input into the variable?)
+~~Variable declared with the `attribute` type qualifier is per-vertex data in vertex shader. It is the data coming from mesh itself, defined at each vertex. (❓ Deeper understanding needed. E.g., how do I control which kind of attribute is input into the variable?)~~
 
-Variables declared with `varying` are to be outputted from the vertex shader, and then to be interpolated (which could then be received by the fragment shader). (❓ Deeper understanding needed. E.g., how is `varying` variables differ from the normal `out` variables?)
+~~Variables declared with `varying` are to be outputted from the vertex shader, and then to be interpolated (which could then be received by the fragment shader). (❓ Deeper understanding needed. E.g., how is `varying` variables differ from the normal `out` variables?)~~
 
-❗ `varying`, `attribute` and `gl_FragColor` are all removed in modern GLSL!!!
+The use of `attribute` qualifier is replaced by the use of an `in` qualifier in vertex shaders.
+
+The use of `varying` qualifier is replaced by the use of an `out` qualifier at vertex shader's end and an `in` qualifier at fragment shader's end.
 
 ```cpp
 // An extremely high-level pseudo-code of how a shader program works:
