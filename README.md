@@ -2593,6 +2593,8 @@ GLSL typically deals with colors by floating point numbers in range `[0.0, 1.0]`
 
 ## Common Functions in GLSL
 
+`mix(a,b,t)` returns `a + t * (b - a)`.
+
 ## Built-in Math Functions in GLSL
 
 ## Adding OBJ Loader into the project // TODO
