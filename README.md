@@ -2653,6 +2653,12 @@ color = vec4(texColor.r);
 
 The resulting image holds the similar meaning. It will be a black-and-white image indicating the distribution of red, where brighter region (more white) indicates more red.
 
+### Blend textures with Transparency within Fragment shader
+
+
+
+❓ To sample two textures in a single fragment shader, are there any ways other than using multiple texture units?
+
 ## Common Functions in GLSL
 
 `mix(a,b,t)` returns `a + t * (b - a)` where `t` is a percentage between `0` and `1`.
