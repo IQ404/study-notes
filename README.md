@@ -2436,6 +2436,8 @@ The responsibilities of a vertex shader are:
 - Output the clip space position of the vertex into `gl_Position`.
 - Supply varying values down the pipeline (e.g. for fragment shader).
 
+❓ Understand the exact maths of how vertex varyings are interpolated to get fragment varying.
+
 The responsibility of a vertex shader is:
 
 - Calculate the final color of the <ins>rasterized</ins> pixel (and then output the final color to e.g. frame buffer).
