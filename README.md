@@ -2687,9 +2687,31 @@ Apart from the previously mentioned `GL_CLAMP_TO_EDGE` and `GL_REPEAT`, another 
 
 Filtering modes are the texture parameter we set previously for `GL_TEXTURE_MIN_FILTER` and `GL_TEXTURE_MAG_FILTER`.
 
+I think the most frequently-used two kinds of filters we can choose from in OpenGL are the Nearest filtering and the Linear filtering.
 
+Let's first talk about MAG filter (when you zoom in and the pixels to render is more than the texels): under such circumstances, nearest filtering roughly means that just give me the value of the texel where my sampling point hits (❓ Not sure what if the sampling point is on edges of texels). On the other hand, in the setting of Linear filtering, each time GPU will sample the four closest texels and then blend the values using bilinar filtering (❓ Understand bilinear filtering).
+
+Nearest filtering is faster than Linear filtering, since GPU only needs to get one texel value.
+
+For MIN filter (when you zoom out and the pixels to render is less than the texels), we have an extra option to use mipmaps.
+
+Mipmaps is a set of textures, each one of them is half the size of the last.
+
+I think, if the mipmaps is created rather than being read in, the larest texture in a mipmaps is the original texture being read in. (❓ Verify this)
+
+❓ How can we create or read in mipmaps? Does it have to happen at the point when we create the texture?
+
+When sampling with mipmaps, GPU can decide which texture in the mipmaps chain to read from. (❓ How exactly does this result in acceleration on the GPU?)
+
+Trilinear Filtering: If you choose to use mipmaps, you can further choose from "only sampling from the nearest mipmap level (I think level here just means the one texture chosen from the set)" or "sampling 2 nearest (upper and lower) mipmap levels and then blend them together". Trilinear filtering means you choose the latter, and on each mipmap level, bilinar filtering is applied.
+
+❓ How to actually set up those settings in OpenGL? 
+
+❓ What happens in situations like, say, the texture is mapped onto the geometry such that we need to zoom in one direction and zoom out in another direction (e.g. a square texture on a rectangular mesh).
 
 ## Common Functions in GLSL
+
+`floor` // TODO
 
 `mix(a,b,t)` returns `a + t * (b - a)` where `t` is a percentage between `0` and `1`.
 
