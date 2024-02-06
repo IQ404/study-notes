@@ -2655,7 +2655,23 @@ The resulting image holds the similar meaning. It will be a black-and-white imag
 
 ### Blend textures with Transparency within Fragment shader
 
+An Example:
 
+```cpp
+// part of a fragment shader:
+
+uniform sampler2D u_TextureAtBottom;
+uniform sampler2D u_TextureOnTop;
+in vec2 v_TexCoord;
+layout (location = 0) out vec4 color;
+
+void main()
+{
+	vec4 texColorAtBottom = texture(u_TextureAtBottom, v_TexCoord);
+	vec4 texColorOnTop = texture(u_TextureOnTop, v_TexCoord);
+	color = mix(texColorAtBottom, texColorOnTop, texColorOnTop.a);
+}
+```
 
 ❓ To sample two textures in a single fragment shader, are there any ways other than using multiple texture units?
 
