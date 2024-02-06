@@ -2599,7 +2599,7 @@ GLSL typically deals with colors by floating point numbers in range `[0.0, 1.0]`
 
 ## Texture Revisit
 
-
+Note that `texture2D`, if not completely replaced by `texture`, is strongly deprecated (see [here](https://stackoverflow.com/questions/12307278/texture-vs-texture2d-in-glsl)).
 
 ## Common Functions in GLSL
 
