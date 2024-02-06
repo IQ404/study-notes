@@ -2599,9 +2599,25 @@ GLSL typically deals with colors by floating point numbers in range `[0.0, 1.0]`
 
 ## Texture Revisit
 
+In the 2D texture space (i.e. on a 2D texture), at least in OpenGL, the origin `(0, 0)` is at bottom-left. the first component lies on the U-axis toward right, the second component lies on the V-axis toward top.
+
 A texel is a color value of a texture at a given texure coordinates.
 
-- `texture` returns a `vec4`.
+A texture object holding the data of a 2D texture on GPU linked to the `GL_TEXTURE_2D` target of a texture unit can be sampled by a 2D sampler. Such a sampler is represented in a fragment shader using the `sampler2D` keyword. And together with a texture coordinates represented by `vec2`, the sampler can supply the sampled texel to the fragment shader via the built-in GLSL function `texture` (which returns a `vec4` representing the texel). E.g.
+
+```cpp
+// part of a fragment shader:
+
+uniform sampler2D u_Texture;
+in vec2 v_TexCoord;
+
+layout (location = 0) out vec4 color;
+
+void main()
+{
+	color = texture(u_Texture, v_TexCoord);
+}
+```
 
 Note that `texture2D`, if not completely replaced by `texture`, is strongly deprecated (see [here](https://stackoverflow.com/questions/12307278/texture-vs-texture2d-in-glsl)).
 
@@ -2626,6 +2642,14 @@ void main()
 	color = texColor * red_channel;
 }
 ```
+
+If we were to write:
+
+```cpp
+color = vec4(texColor.r);
+```
+
+The resulting image holds the similar meaning. It will be a black-and-white image indicating the distribution of red, where brighter region (more white) indicates more red.
 
 ## Common Functions in GLSL
 
