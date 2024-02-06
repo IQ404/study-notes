@@ -2599,7 +2599,33 @@ GLSL typically deals with colors by floating point numbers in range `[0.0, 1.0]`
 
 ## Texture Revisit
 
+A texel is a color value of a texture at a given texure coordinates.
+
+- `texture` returns a `vec4`.
+
 Note that `texture2D`, if not completely replaced by `texture`, is strongly deprecated (see [here](https://stackoverflow.com/questions/12307278/texture-vs-texture2d-in-glsl)).
+
+### Multiplicative Blending (also called modulate/modulation blending)
+
+It just means `Color1 * Color2`
+
+E.g. the following code will filter the texture with only red left:
+
+```cpp
+// part of a fragment shader:
+
+uniform sampler2D u_Texture;
+in vec2 v_TexCoord;
+
+layout (location = 0) out vec4 color;
+
+void main()
+{
+	vec4 red_channel = vec4(1.0, 0.0, 0.0, 1.0);
+	vec4 texColor = texture(u_Texture, v_TexCoord);
+	color = texColor * red_channel;
+}
+```
 
 ## Common Functions in GLSL
 
