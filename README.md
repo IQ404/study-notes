@@ -2669,7 +2669,7 @@ void main()
 {
 	vec4 texColorAtBottom = texture(u_TextureAtBottom, v_TexCoord);
 	vec4 texColorOnTop = texture(u_TextureOnTop, v_TexCoord);
-	color = mix(texColorAtBottom, texColorOnTop, texColorOnTop.a);
+	color = mix(texColorAtBottom, texColorOnTop, texColorOnTop.a);  // amounts to (1 - texColorOnTop.a) * texColorAtBottom + texColorOnTop.a * texColorOnTop
 }
 ```
 
