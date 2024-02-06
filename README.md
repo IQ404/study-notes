@@ -2621,6 +2621,8 @@ void main()
 
 Note that `texture2D`, if not completely replaced by `texture`, is strongly deprecated (see [here](https://stackoverflow.com/questions/12307278/texture-vs-texture2d-in-glsl)).
 
+❓ Is the sampler per-fragment-shader or per-texture-unit or per-texture-unit-target or per-shader-program? Is that possible if two sampling processes happens at the same time? If so, is that possible if a single sampler is queried by both processes?
+
 ### Multiplicative Blending (also called modulate/modulation blending)
 
 It just means `Color1 * Color2`
