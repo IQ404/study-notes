@@ -1629,7 +1629,7 @@ void Texture::Unbind() const
 
   - `i` in `glTexParameteri` means the (value of the) parameter we are setting is of type `GLint`.
 
-  - `GL_TEXTURE_2D` tells OpenGl that this `glTexParameteri` function is modifying the texture parameter on the texture object linked to the `GL_TEXTURE_2D` target on the currently active texture unit.
+  - `GL_TEXTURE_2D` tells OpenGL that this `glTexParameteri` function is modifying the texture parameter on the texture object linked to the `GL_TEXTURE_2D` target on the currently active texture unit.
  
   - `GL_TEXTURE_MIN_FILTER` specifies which parameter we are setting. In this case, `GL_TEXTURE_MIN_FILTER` controls how the texture will be resampled down if the texture needs to be rendered in a lower resolution (i.e. with a smaller number of pixels).
 
@@ -2425,11 +2425,11 @@ GLSL (OpenGL Shading Language) is the language to write source code for OpenGL s
 
 GLSL has C-style syntax.
 
-An OpenGl shader program abstrcts a rendering pipeline based on rasterization.
+An OpenGL shader program abstrcts a rendering pipeline based on rasterization.
 
 ## Shader Basics Revisit
 
-An OpenGl shader program (should at least) contains a vertex shader (runs on per-vertex basis) and a fragment shader (runs on per-pixel basis).
+An OpenGL shader program (should at least) contains a vertex shader (runs on per-vertex basis) and a fragment shader (runs on per-pixel basis).
 
 The responsibilities of a vertex shader are:
 
