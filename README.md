@@ -2675,6 +2675,12 @@ void main()
 
 ❓ To sample two textures in a single fragment shader, are there any ways other than using multiple texture units?
 
+### Addressing
+
+Addressing mode is just another name for wrap mode (recall the texture parameter we set previously for wrap mode, when initializing a Texture in our project).
+
+Apart from the previously mentioned `GL_CLAMP_TO_EDGE` and `GL_REPEAT`, another probably frequently-used parameter value is `GL_MIRRORED_REPEAT`. Its effect is exactly as its name suggests.
+
 ## Common Functions in GLSL
 
 `mix(a,b,t)` returns `a + t * (b - a)` where `t` is a percentage between `0` and `1`.
