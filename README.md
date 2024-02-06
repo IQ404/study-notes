@@ -2603,7 +2603,7 @@ In the 2D texture space (i.e. on a 2D texture), at least in OpenGL, the origin `
 
 A texel is a color value of a texture at a given texure coordinates.
 
-A texture object holding the data of a 2D texture on GPU linked to the `GL_TEXTURE_2D` target of a texture unit can be sampled by a 2D sampler. Such a sampler is represented in a fragment shader using the `sampler2D` keyword. And together with a texture coordinates represented by `vec2`, the sampler can supply the sampled texel to the fragment shader via the built-in GLSL function `texture` (which returns a `vec4` representing the texel). E.g.
+A texture object holding the data of a 2D texture on GPU linked to the `GL_TEXTURE_2D` target of a texture unit can be sampled by a 2D sampler. Such a sampler is represented in a fragment shader using the `sampler2D` keyword in which the variable holds an `int` representing which texture unit to sample from. And together with a texture coordinates represented by `vec2`, the sampler can supply the sampled texel to the fragment shader via the built-in GLSL function `texture` (which returns a `vec4` representing the texel). E.g.
 
 ```cpp
 // part of a fragment shader:
