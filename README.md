@@ -2720,8 +2720,19 @@ Trilinear Filtering: If you choose to use mipmaps, you can further choose from "
   return 1.0;
   ```
 
-- `smoothstep(lower, upper, value)`
+- `smoothstep(lower, upper, value)` is implemented as follows:
 
+  ```cpp
+  t = clamp((value - lower)/(upper - lower), 0.0, 1.0);
+  return t * t * (3.0 - 2.0 * t);  // cubic Hermite interpolation
+  ```
+  
+  For details, see [here](https://en.wikipedia.org/wiki/Smoothstep).
+  
+  Currently, I just think of `smoothstep` of redistributing the numbers within a range towards the polars.
+
+  ❓ Understand (cubic) Hermite interpolation.
+  
 - `mix(a,b,t)` returns `a + t * (b - a)` where `t` is a percentage between `0` and `1`.
 
   Note that `a` and `b` can be scalars, but it can also be vectors.`
