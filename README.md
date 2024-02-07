@@ -2713,12 +2713,13 @@ Trilinear Filtering: If you choose to use mipmaps, you can further choose from "
 
 `floor` // TODO
 
-- `step(threshold, value)` is implemented as follows:
+- `min`
 
-  ```cpp
-  if (value < threshold) return 0.0;
-  return 1.0;
-  ```
+- `max`
+
+- `clamp`
+
+- `saturate(value)` or just `sat(value)` is NOT a built-in function in GLSL, but it's very common to see in shader code. It is just `clamp(value, 0.0, 1.0)`.
 
 - `smoothstep(lower, upper, value)` is implemented as follows:
 
@@ -2732,14 +2733,19 @@ Trilinear Filtering: If you choose to use mipmaps, you can further choose from "
   Currently, I just think of `smoothstep` as normalizing the number between a range to `[0, 1]` and then redistributing them towards the polars.
 
   ❓ Understand (cubic) Hermite interpolation.
-  
+
+- `step(threshold, value)` is implemented as follows:
+
+  ```cpp
+  if (value < threshold) return 0.0;
+  return 1.0;
+  ```
+
 - `mix(a,b,t)` returns `a + t * (b - a)` where `t` is a percentage between `0` and `1`.
 
   Note that `a` and `b` can be scalars, but it can also be vectors.`
 
   `mix` sometimes (e.g. in HLSL) is also called `lerp`, stands for linear interpolation.
-
-- `saturate(value)` or just `sat(value)` is NOT a built-in function in GLSL, but it's very common to see in shader code. It is just `clamp(value, 0.0, 1.0)`.
 
 ## Built-in Math Functions in GLSL
 
