@@ -1637,7 +1637,7 @@ void Texture::Unbind() const
 
     ❓ Explore the cases where resampling up and down happens simultaneously.
  
-  - `GL_LINEAR`, in my current understanding, means scaling will be done linearly (i.e. in a linearly interpolation manner ❓ Currently I don't think this understanding is correct, see later section on filtering).
+  - `GL_LINEAR`, in my current understanding, means scaling will be done linearly (i.e. in a linearly interpolation manner). ❓ Currently I don't think this understanding is correct, see later section on filtering.
  
     ❓ Explore the other options.
  
