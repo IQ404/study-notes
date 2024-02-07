@@ -2739,6 +2739,8 @@ Trilinear Filtering: If you choose to use mipmaps, you can further choose from "
 
   `mix` sometimes (e.g. in HLSL) is also called `lerp`, stands for linear interpolation.
 
+- `saturate(value)` or just `sat(value)` is NOT a built-in function in GLSL, but it's very common to see in shader code. It is just `clamp(value, 0.0, 1.0)`.
+
 ## Built-in Math Functions in GLSL
 
 ## Adding OBJ Loader into the project // TODO
