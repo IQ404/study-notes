@@ -2729,7 +2729,7 @@ Trilinear Filtering: If you choose to use mipmaps, you can further choose from "
   
   For details, see [here](https://en.wikipedia.org/wiki/Smoothstep).
   
-  Currently, I just think of `smoothstep` of redistributing the numbers within a range towards the polars.
+  Currently, I just think of `smoothstep` as redistributing the numbers within a range towards the polars.
 
   ❓ Understand (cubic) Hermite interpolation.
   
