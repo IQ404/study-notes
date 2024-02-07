@@ -2695,7 +2695,7 @@ Nearest filtering is faster than Linear filtering, since GPU only needs to get o
 
 For MIN filter (when you zoom out and the pixels to render is less than the texels), we have an extra option to use mipmaps.
 
-Mipmaps is a set of textures, each one of them is half the size of the last.
+Mipmaps is a set of textures, each one of them is half the size of the last until $1 \times 1$.
 
 I think, if the mipmaps is created rather than being read in, the larest texture in a mipmaps is the original texture being read in. (❓ Verify this)
 
