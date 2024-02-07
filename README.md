@@ -2722,7 +2722,9 @@ Trilinear Filtering: If you choose to use mipmaps, you can further choose from "
 
 - `mix(a,b,t)` returns `a + t * (b - a)` where `t` is a percentage between `0` and `1`.
 
-  Note that `a` and `b` can be scalars, but it can also be vectors.
+  Note that `a` and `b` can be scalars, but it can also be vectors.`
+
+  `mix` sometimes (e.g. in HLSL) is also called `lerp`, stands for linear interpolation.
 
 ## Built-in Math Functions in GLSL
 
