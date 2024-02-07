@@ -2713,16 +2713,16 @@ Trilinear Filtering: If you choose to use mipmaps, you can further choose from "
 
 `floor` // TODO
 
-`step(threshold, value)` is implemented as follows:
+- `step(threshold, value)` is implemented as follows:
 
-```cpp
-if (value < threshold) return 0.0;
-return 1.0;
-```
+  ```cpp
+  if (value < threshold) return 0.0;
+  return 1.0;
+  ```
 
-`mix(a,b,t)` returns `a + t * (b - a)` where `t` is a percentage between `0` and `1`.
+- `mix(a,b,t)` returns `a + t * (b - a)` where `t` is a percentage between `0` and `1`.
 
-Note that `a` and `b` can be scalars, but it can also be vectors.
+  Note that `a` and `b` can be scalars, but it can also be vectors.
 
 ## Built-in Math Functions in GLSL
 
