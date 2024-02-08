@@ -2713,6 +2713,8 @@ Trilinear Filtering: If you choose to use mipmaps, you can further choose from "
 
 `floor` // TODO
 
+- `abs`
+
 - `min`
 
 - `max`
