@@ -2736,7 +2736,7 @@ Trilinear Filtering: If you choose to use mipmaps, you can further choose from "
 
   ❓ Understand (cubic) Hermite interpolation.
 
-  I implement a photograph-filter using `smoothstep` in our project. See the related repository.
+  I implement a photograph-filter using `smoothstep` in our project. See the related repository of this note.
 
 - `step(threshold, value)` is implemented as follows:
 
@@ -2751,7 +2751,7 @@ Trilinear Filtering: If you choose to use mipmaps, you can further choose from "
 
   `mix` sometimes (e.g. in HLSL) is also called `lerp`, stands for linear interpolation.
 
-Using the abovementioned functions, one can implement graph of functions purely within fragment shader. See the related repository.
+Using the abovementioned functions, one can implement graph of functions purely within fragment shader. See the related repository of this note.
 
 ## Built-in Math Functions in GLSL
 
