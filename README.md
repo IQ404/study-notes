@@ -2711,23 +2711,58 @@ Trilinear Filtering: If you choose to use mipmaps, you can further choose from "
 
 ## Common Functions in GLSL
 
-`floor` // TODO
+- `abs` stands for absolute value
 
-- `abs`
+  ```cpp
+  vec2 v = vec2(-1.5, 2.3);
+  vec2 result = abs(v);
+  // result will be vec2(1.5, 2.3)
+  ```
 
-- `min`
+- `min(a, b)` returns the smaller value between `a` and `b` (componentwisely)
 
-- `max`
+  ```cpp
+  vec2 a = vec2(1.0, 3.0);
+  vec2 b = vec2(2.0, 2.0);
+  vec2 result = min(a, b); // result is vec2(1.0, 2.0)
+  ```
 
-- `clamp`
+- `max(a, b)` returns the larger value between `a` and `b` (componentwisely)
+
+  ```cpp
+  vec2 a = vec2(1.0, 3.0);
+  vec2 b = vec2(2.0, 2.0);
+  vec2 result = max(a, b); // result is vec2(2.0, 3.0)
+  ```
+
+- `clamp(value, lower, upper)` returns the cloest value to `value` that is within the range `[lower, upper]` (componentwisely)
+
+  ```cpp
+  vec2 value = vec2(0.5, 2.5);
+  vec2 minVal = vec2(0.0, 1.0);
+  vec2 maxVal = vec2(1.0, 2.0);
+  
+  vec2 result = clamp(value, minVal, maxVal);
+  // result will be vec2(0.5, 2.0)
+  ```
 
 - `saturate(value)` or just `sat(value)` is NOT a built-in function in GLSL, but it's very common to see in shader code. It is just `clamp(value, 0.0, 1.0)`.
 
-- `smoothstep(lower, upper, value)` is implemented as follows:
+- `smoothstep(lower, upper, value)` is implemented similarly as follows:
 
   ```cpp
   t = clamp((value - lower)/(upper - lower), 0.0, 1.0);
   return t * t * (3.0 - 2.0 * t);  // cubic Hermite interpolation
+  ```
+
+  It is implemented such that it can also perform componentwisely:
+
+  ```cpp
+  vec2 edge0 = vec2(0.2, 0.3);
+  vec2 edge1 = vec2(0.8, 0.9);
+  vec2 x = vec2(0.5, 0.85);
+  
+  vec2 result = smoothstep(edge0, edge1, x);  // 0.5, 0.9803...
   ```
   
   For details, see [here](https://en.wikipedia.org/wiki/Smoothstep).
@@ -2738,20 +2773,42 @@ Trilinear Filtering: If you choose to use mipmaps, you can further choose from "
 
   I implement a photograph-filter using `smoothstep` in our project. See the related repository of this note.
 
-- `step(threshold, value)` is implemented as follows:
+- `step(threshold, value)` is implemented similarly as follows:
 
   ```cpp
   if (value < threshold) return 0.0;
   return 1.0;
   ```
 
+  It is implemented such that it can also perform componentwisely:
+
+  ```cpp
+  vec2 edge = vec2(0.5, 0.5);  // this can also be float edge = 0.5;
+  vec2 x = vec2(0.3, 0.6); // Value to compare against the edge
+  
+  vec2 result = step(edge, x);
+  // result will be vec2(0.0, 1.0)
+  ```
+
 - `mix(a,b,t)` returns `a + t * (b - a)` where `t` is a percentage between `0` and `1`.
 
-  Note that `a` and `b` can be scalars, but it can also be vectors.`
+  It is implemented such that it can also perform componentwisely:
+
+  ```cpp
+  vec2 x = vec2(1.0, 2.0); // Start value
+  vec2 y = vec2(3.0, 4.0); // End value
+  vec2 a = vec2(0.5, 0.25); // Interpolation factor for each component
+  float b = 0.5;
+  
+  vec2 result1 = mix(x, y, a);  // 2.0, 2.5
+  vec2 result1 = mix(x, y, b);  // 2.0, 3.0
+  ```
 
   `mix` sometimes (e.g. in HLSL) is also called `lerp`, stands for linear interpolation.
 
 Using the abovementioned functions, one can implement graph of functions purely within fragment shader. See the related repository of this note.
+
+`floor` // TODO
 
 ## Built-in Math Functions in GLSL
 
