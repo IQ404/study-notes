@@ -2784,7 +2784,7 @@ Trilinear Filtering: If you choose to use mipmaps, you can further choose from "
 
   ```cpp
   vec2 edge = vec2(0.5, 0.5);  // this can also be float edge = 0.5;
-  vec2 x = vec2(0.3, 0.6); // Value to compare against the edge
+  vec2 x = vec2(0.3, 0.6);
   
   vec2 result = step(edge, x);
   // result will be vec2(0.0, 1.0)
@@ -2795,9 +2795,9 @@ Trilinear Filtering: If you choose to use mipmaps, you can further choose from "
   It is implemented such that it can also perform componentwisely:
 
   ```cpp
-  vec2 x = vec2(1.0, 2.0); // Start value
-  vec2 y = vec2(3.0, 4.0); // End value
-  vec2 a = vec2(0.5, 0.25); // Interpolation factor for each component
+  vec2 x = vec2(1.0, 2.0);
+  vec2 y = vec2(3.0, 4.0);
+  vec2 a = vec2(0.5, 0.25);
   float b = 0.5;
   
   vec2 result1 = mix(x, y, a);  // 2.0, 2.5
