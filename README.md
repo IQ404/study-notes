@@ -2818,7 +2818,7 @@ Using the abovementioned functions, one can implement graph of functions purely 
 
 - `fract(value)` returns the fractional part of `value`.
 
-- `mod(x, y)` returns the floating point version of $x \text{mod} y$.
+- `mod(x, y)` returns the floating point version of $x$ $\text{mod}$ $y$.
 
 ## Built-in Math Functions in GLSL
 
