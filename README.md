@@ -2808,7 +2808,17 @@ Trilinear Filtering: If you choose to use mipmaps, you can further choose from "
 
 Using the abovementioned functions, one can implement graph of functions purely within fragment shader. See the related repository of this note.
 
-`floor` // TODO
+- `floor(value)` returns the value of the nearest integer that is less than or equal to `value`.
+
+- `ceil(value)` is the exact opposite of `floor(value)`.
+
+- `round(value)` returns the value of the nearest integer to `value`.
+
+  ❓ How does `round` deal with `.5`?
+
+- `fract(value)` returns the fractional part of `value`.
+
+- `mod(x, y)` returns the floating point version of $x \mod y$.
 
 ## Built-in Math Functions in GLSL
 
