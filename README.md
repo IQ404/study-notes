@@ -2597,9 +2597,11 @@ I believe `if` and `if-else` statements in GLSL also work the same as in C++.
 
 ❓ Can I write statement without curly braces like in C++ (e.g. in a long if-else-if block)? (yes)
 
+## Texture Revisit
+
 GLSL typically deals with colors by floating point numbers in range `[0.0, 1.0]`.
 
-## Texture Revisit
+In my current understanding, if the color provided to output from the fragment shader is out of this range (e.g., `vec4(-10.0, -10.0, 5.0, 1.0)`), OpenGL will clamp the values to `[0.0, 1.0]`.
 
 In the 2D texture space (i.e. on a 2D texture), at least in OpenGL, the origin `(0, 0)` is at bottom-left. the first component lies on the U-axis toward right, the second component lies on the V-axis toward top.
 
