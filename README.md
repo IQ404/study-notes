@@ -2812,13 +2812,19 @@ Using the abovementioned functions, one can implement graph of functions purely 
 
 - `floor(value)` returns the value of the nearest integer that is less than or equal to `value`.
 
+  Note that this definition is strictly implemented for negative number as well, which means, e.g., `floor(-1.6)` returns `-2`.
+
 - `ceil(value)` is the exact opposite of `floor(value)`.
+
+  Note that this means, e.g., `ceil(-1.6)` returns `-1`.
 
 - `round(value)` returns the value of the nearest integer to `value`.
 
   ❓ How does `round` deal with `.5`?
 
 - `fract(value)` returns the fractional part of `value`.
+
+  Beware that `fract` is implemented base on `floor`, which means, e.g., `fract(-0.6)` returns `0.4`.
 
 - `mod(x, y)` returns the floating point version of $x$ $\text{mod}$ $y$.
 
