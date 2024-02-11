@@ -2814,6 +2814,8 @@ Trilinear Filtering: If you choose to use mipmaps, you can further choose from "
   return (value - min)/(max - min)
   ```
 
+  Comparing to `smoothstep`, `InverseLerp` is like "`linearstep`".
+
 Using the abovementioned functions, one can implement graph of functions purely within fragment shader. See the related repository of this note.
 
 - `floor(value)` returns the value of the nearest integer that is less than or equal to `value`.
