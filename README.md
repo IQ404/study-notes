@@ -2859,8 +2859,6 @@ Using the abovementioned functions, one can implement graph of functions on a gr
 
   ❓ How does the GPU adress the situation at edge of the rasterized region where there is not enough pixels to form block?
 
-  ❓ What a miserable question but... what if we are rendering onto a $1 \times n$ or $n \times 1$ window?
-
   ❓ Can a block consist of fragments of different primitives (e.g., a block covering the edge connecting two triangles)? 
 
   For example, `normalize(cross(dFdx(world_pos), dFdy(world_pos)))` can give the world normal. ❓ Wouldn't this result in artifacts on edges or on lumpy objects that are small in screen space?
