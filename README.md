@@ -2808,6 +2808,8 @@ Trilinear Filtering: If you choose to use mipmaps, you can further choose from "
 
   `mix` sometimes (e.g. in HLSL) is also called `lerp`, stands for linear interpolation.
 
+Using the abovementioned functions, one can implement graph of functions purely within fragment shader. See the related repository of this note.
+
 - `InverseLerp(value, min, max)` is NOT a built-in function in GLSL, but it's very common to see in shader code. It's a rearrange of `mix(a,b,t)` to get `t` from `a`, `b` and `mix(a,b,t)`:
 
   ```cpp
@@ -2816,7 +2818,12 @@ Trilinear Filtering: If you choose to use mipmaps, you can further choose from "
 
   Comparing to `smoothstep`, `InverseLerp` is like "`linearstep`".
 
-Using the abovementioned functions, one can implement graph of functions purely within fragment shader. See the related repository of this note.
+- `Remap(value, inMin, inMax, outMin, outMax)` is NOT a built-in function in GLSL, but it's very common to see in shader code. It linearly remaps the `value` between `inMin` and `inMax` to a value between `outMin` and `outMax`:
+  
+  ```cpp
+  t = InverseLerp(value, inMin, inMax);
+  return mix(outMin, outMax, t);
+  ```
 
 - `floor(value)` returns the value of the nearest integer that is less than or equal to `value`.
 
