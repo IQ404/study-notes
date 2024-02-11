@@ -2808,6 +2808,12 @@ Trilinear Filtering: If you choose to use mipmaps, you can further choose from "
 
   `mix` sometimes (e.g. in HLSL) is also called `lerp`, stands for linear interpolation.
 
+- `InverseLerp(value, min, max)` is NOT a built-in function in GLSL, but it's very common to see in shader code. It's a rearrange of `mix(a,b,t)` to get `t` from `a`, `b` and `mix(a,b,t)`:
+
+  ```cpp
+  return (value - min)/(max - min)
+  ```
+
 Using the abovementioned functions, one can implement graph of functions purely within fragment shader. See the related repository of this note.
 
 - `floor(value)` returns the value of the nearest integer that is less than or equal to `value`.
@@ -2827,6 +2833,8 @@ Using the abovementioned functions, one can implement graph of functions purely 
   Beware that `fract` is implemented base on `floor`, which means, e.g., `fract(-0.6)` returns `0.4`.
 
 - `mod(x, y)` returns the floating point version of $x$ $\text{mod}$ $y$.
+
+Using the abovementioned functions, one can implement graph of functions on a grid purely within fragment shader. See the related repository of this note.
 
 ## Built-in Math Functions in GLSL
 
