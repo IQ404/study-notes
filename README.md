@@ -2861,7 +2861,7 @@ Using the abovementioned functions, one can implement graph of functions on a gr
 
   ❓ Can a block consist of fragments of different primitives (e.g., a block covering the edge connecting two triangles)? 
 
-  For example, `normalize(cross(dFdx(world_pos), dFdy(world_pos)))` can give the world normal. ❓ Wouldn't this result in artifacts on edges or on lumpy objects that are small in screen space?
+  For example, `normalize(cross(dFdx(world_pos), dFdy(world_pos)))` can give the world normal.
 
   In this example, note that, in my current understanding, the mathematical formula for a cross product is the same no matter we are using a left or a right-handed coordinates. The handedness affects the resulting vector (and whether we can obtain its direction using left or right hand rule). If `world_pos` is in right handed coordinates, the `cross` can then be interpreted using right hand rule.
 
