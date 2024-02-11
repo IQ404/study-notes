@@ -2845,6 +2845,10 @@ Using the abovementioned functions, one can implement graph of functions purely 
 
 Using the abovementioned functions, one can implement graph of functions on a grid purely within fragment shader. See the related repository of this note.
 
+- `dFdx(value)` is only available in fragment shader.
+
+- `dFdy(value)` is only available in fragment shader.
+
 ## Built-in Math Functions in GLSL
 
 ## Adding OBJ Loader into the project // TODO
