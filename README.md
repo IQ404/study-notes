@@ -2857,6 +2857,8 @@ Using the abovementioned functions, one can implement graph of functions on a gr
 
   ❓ Any extra overhead these function would occur in any situations that is worth mentioning?
 
+  ❓ Fully explain how does `dF/dx` and `dF/dy` can be implemented, especially how does the GPU works to accomplish the implementation.
+
 ## Built-in Math Functions in GLSL
 
 ## Adding OBJ Loader into the project // TODO
