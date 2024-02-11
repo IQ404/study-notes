@@ -2851,6 +2851,8 @@ Using the abovementioned functions, one can implement graph of functions on a gr
 
   - `dFdy(value)` returns the difference between `value` calculated in the current fragment shader and the `value` calculated in the fragment shader invoked for a vertical neighbour pixel.
 
+  For example, `normalize(cross(dFdx(world_pos), dFdy(world_pos)))` can give the world normal. ❓ Wouldn't this result in artifacts on edges or on lumpy objects that are small in screen space?
+
   ❓ Any extra overhead these function would occur in any situations that is worth mentioning?
 
 ## Built-in Math Functions in GLSL
