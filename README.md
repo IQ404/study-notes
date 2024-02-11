@@ -2859,7 +2859,7 @@ Using the abovementioned functions, one can implement graph of functions on a gr
 
   ❓ How does the GPU adress the situation at edge of the rasterized region where there is not enough pixels to form block?
 
-  ❓ Can a block consist of fragments of different primitives (e.g., a block covering the edge connecting two triangles)? 
+  ❓ Can a block consist of fragments of different primitives (e.g., a block covering the edge connecting two triangles)? (In my current understanding, direct computation of `dFdx` and `dFdy` in GLSL within fragment shaders is restricted to individual primitives)
 
   For example, `normalize(cross(dFdx(world_pos), dFdy(world_pos)))` can give the world normal.
 
