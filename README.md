@@ -2845,9 +2845,13 @@ Using the abovementioned functions, one can implement graph of functions purely 
 
 Using the abovementioned functions, one can implement graph of functions on a grid purely within fragment shader. See the related repository of this note.
 
-- `dFdx(value)` is only available in fragment shader.
+- Screen-space Derivative (only available in fragment shader)
 
-- `dFdy(value)` is only available in fragment shader.
+  - `dFdx(value)` returns the difference between `value` calculated in the current fragment shader and the `value` calculated in the fragment shader invoked for a horizontal neighbour pixel.
+
+  - `dFdy(value)` returns the difference between `value` calculated in the current fragment shader and the `value` calculated in the fragment shader invoked for a vertical neighbour pixel.
+
+  ❓ Any extra overhead these function would occur in any situations that is worth mentioning?
 
 ## Built-in Math Functions in GLSL
 
