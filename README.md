@@ -2851,6 +2851,8 @@ Using the abovementioned functions, one can implement graph of functions on a gr
 
   - `dFdy(value)` returns the difference between `value` calculated in the current fragment shader and the `value` calculated in the fragment shader invoked for a vertical neighbour pixel.
 
+  In my current understanding, the difference calculated in `dFdx` is calculated towards right, and the difference calculated in `dFdy` is calculated towards top. ❓ What a miserable question but... what if we are rendering onto a $1 \times n$ or $n \times 1$ window?
+
   For example, `normalize(cross(dFdx(world_pos), dFdy(world_pos)))` can give the world normal. ❓ Wouldn't this result in artifacts on edges or on lumpy objects that are small in screen space?
 
   In this example, note that, in my current understanding, the mathematical formula for a cross product is the same no matter we are using a left or a right-handed coordinates. The handedness affects the resulting vector (and whether we can obtain its direction using left or right hand rule). If `world_pos` is in right handed coordinates, the `cross` can then be interpreted using right hand rule.
