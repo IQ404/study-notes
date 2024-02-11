@@ -2821,7 +2821,7 @@ Using the abovementioned functions, one can implement graph of functions purely 
 - `Remap(value, inMin, inMax, outMin, outMax)` is NOT a built-in function in GLSL, but it's very common to see in shader code. It linearly remaps the `value` between `inMin` and `inMax` to a value between `outMin` and `outMax`:
   
   ```cpp
-  t = InverseLerp(value, inMin, inMax);
+  float t = InverseLerp(value, inMin, inMax);
   return mix(outMin, outMax, t);
   ```
 
