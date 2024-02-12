@@ -2869,6 +2869,11 @@ Using the abovementioned functions, one can implement graph of functions on a gr
 
 ## Built-in Math Functions in GLSL
 
+- `sin(x)` expects `x` to be a value in radians and returns the sine of it.
+- `cos(x)` expects `x` to be a value in radians and returns the cosine of it.
+
+Using trigonometric function, our project implemented an old style TV scan lines effect in fragment shader. See the related project of this note.
+
 ## Adding OBJ Loader into the project // TODO
 
 [repo](https://github.com/Bly7/OBJ-Loader)
