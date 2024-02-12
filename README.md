@@ -1861,6 +1861,8 @@ int main()
 
 ❓ Understand why the ImGui window isn't showed up on the canvas at the end of the first iteration of the render loop.
 
+❓ In the above code we supply `glsl_version` as `#version 130`. Here it also seems to be fine to supply `#version 460`. What's the relationship between the version number supplied here, the version number supplied in `glfwWindowHint` and the version number specified in shaders?
+
 ## Separating Feature implementations into Tests
 
 `TestBase.h`:
