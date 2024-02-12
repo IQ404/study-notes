@@ -779,7 +779,7 @@ glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 `glfwWindowHint` sets hints for the next call to `glfwCreateWindow`.
 
-`glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4); glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);` means the OpenGL context to created uses OpenGL version `4.6`.
+`glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4); glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);` means the OpenGL context to be created uses OpenGL version `4.6`.
 
 ❓ What happens when the OpenGL version/profile specified in `glfwWindowHint` mismatches the `#version` specified in the shader in use?
 
