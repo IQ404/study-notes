@@ -2874,6 +2874,12 @@ Using the abovementioned functions, one can implement graph of functions on a gr
 
 Using trigonometric function, our project implemented an old style TV scan lines effect in fragment shader. See the related project of this note.
 
+### Swizzling
+
+```cpp
+
+```
+
 ## Adding OBJ Loader into the project // TODO
 
 [repo](https://github.com/Bly7/OBJ-Loader)
