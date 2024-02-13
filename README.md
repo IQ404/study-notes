@@ -2902,9 +2902,9 @@ OBJ Loader is a single-header-only `.obj` file loader for C++ projects. It is wr
 
 > All you need to to is copy over the `OBJ_Loader.h` header file, include it in your solution, and you are good to go.
 
-- At the current point, I haven't dive deep into how OBJ Loader gathers data into its classes.
+- At the current point, I haven't dived deep into how OBJ Loader gathers data into its classes.
 
-  By far, I think, for each mesh loaded, `Vertices` is a `std::vector` that contains all the vertices to draw the mesh such that every three consecutive vertices in `Vertices` forms a face (triangle) specified in the `.obj` file.
+  By far, I think, for each mesh loaded, `Vertices` is a `std::vector` that contains all the vertices to draw the mesh such that every three consecutive vertices in `Vertices` form a `f`ace (triangle) specified in the `.obj` file.
 
 One plausible scaffolding is as follows:
 
