@@ -2906,6 +2906,8 @@ OBJ Loader is a single-header-only `.obj` file loader for C++ projects. It is wr
 
   By far, I think, for each mesh loaded, `Vertices` is a `std::vector` that contains all the vertices to draw the mesh such that every three consecutive vertices in `Vertices` form a `f`ace (triangle) specified in the `.obj` file.
 
+  ❓ This right now can contain duplicated vertices. Are there any ways to obtain a set of unique vertices and a corresponding set of indices for drawing the mesh?
+
 One plausible scaffolding is as follows:
 
 ```cpp
