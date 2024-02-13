@@ -2898,7 +2898,7 @@ Using trigonometric function, our project implemented an old style TV scan lines
 
 - [Repository](https://github.com/Bly7/OBJ-Loader)
 
-OBJ Loader is a single-header-only `.obj` file loader for C++ projects. It is written purely in C++ and it only uses `std`. That makes it extremely easy to use:
+OBJ Loader is a single-header-only `.obj` file loader for C++ projects. It is written purely in C++ and it only uses `std`. That makes it extremely easy to include:
 
 > All you need to to is copy over the `OBJ_Loader.h` header file, include it in your solution, and you are good to go.
 
