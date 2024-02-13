@@ -2896,6 +2896,8 @@ Using trigonometric function, our project implemented an old style TV scan lines
 
 [repo](https://github.com/Bly7/OBJ-Loader)
 
+- A brief explanation of `.obj` file can be found [here](https://www.opengl-tutorial.org/beginners-tutorials/tutorial-7-model-loading/).
+
 ## Lighting Models
 
 ### Toon/Cel Shading
