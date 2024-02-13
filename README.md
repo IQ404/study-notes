@@ -2886,6 +2886,8 @@ Using trigonometric function, our project implemented an old style TV scan lines
 
 - `refract`
 
+  Note that the `eta` value you provide to `refract` should be the index of refraction of the medium from which the incident ray comes, divided by the index of refraction of the medium into which the ray is refracted.
+
 ### Swizzling
 
 ```cpp
