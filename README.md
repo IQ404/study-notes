@@ -11,7 +11,7 @@ The contents in those notes are written by myself but they are <ins>by no means<
 
 ### Mathematical Methods
 
-// TODO
+- Probability // TODO
 
 ### Programming Language
 
