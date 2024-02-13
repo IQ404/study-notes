@@ -2918,6 +2918,8 @@ One plausible scaffolding is as follows:
 
 ## Lighting Models
 
+### Cube Map
+
 ### Toon/Cel Shading
 
 ## Vertex Shader Revisit
