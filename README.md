@@ -2922,6 +2922,10 @@ One plausible scaffolding is as follows:
 
 - A brief explanation of `.obj` file can be found [here](https://www.opengl-tutorial.org/beginners-tutorials/tutorial-7-model-loading/).
 
+## Depth Buffer
+
+We need depth buffer when we start to draw 3D models.
+
 ## Lighting Models
 
 ### Cube Map
