@@ -2917,7 +2917,50 @@ OBJ Loader is a single-header-only `.obj` file loader for C++ projects. It is wr
 One plausible scaffolding is as follows:
 
 ```cpp
+// ...
+#include <OBJ_Loader.h>
 
+// ...
+
+objl::Loader Robert_Smith_Loader;
+Robert_Smith_Loader.LoadFile("res/meshes/suzanne.obj");
+assert(Robert_Smith_Loader.LoadedMeshes.size() == 1);
+objl::Mesh loaded_mesh = Robert_Smith_Loader.LoadedMeshes[0];
+m_count = loaded_mesh.Vertices.size();
+float* arr = new float[m_count * (3 + 2 + 3) * sizeof(float)];
+const auto& v = loaded_mesh.Vertices;
+for (unsigned int i = 0; i < m_count; i++)
+{
+    // position:
+    arr[i * (3 + 2 + 3) + 0] = v[i].Position.X;
+    arr[i * (3 + 2 + 3) + 1] = v[i].Position.Y;
+    arr[i * (3 + 2 + 3) + 2] = v[i].Position.Z;
+    // texture coordinates:
+    arr[i * (3 + 2 + 3) + 3] = v[i].TextureCoordinate.X;
+    arr[i * (3 + 2 + 3) + 4] = v[i].TextureCoordinate.Y;
+    // normal:
+    arr[i * (3 + 2 + 3) + 5] = v[i].Normal.X;
+    arr[i * (3 + 2 + 3) + 6] = v[i].Normal.Y;
+    arr[i * (3 + 2 + 3) + 7] = v[i].Normal.Z;
+}
+
+m_vao = std::make_unique<VAO>();
+
+m_vbo = std::make_unique<VBO>(arr, m_count * (3 + 2 + 3) * sizeof(float));
+
+VBOLayout vbo_layout;
+// position:
+vbo_layout.AddAttribute<float>(3);
+// texture coordinates:
+vbo_layout.AddAttribute<float>(2);
+// normal:
+vbo_layout.AddAttribute<float>(3);
+
+m_vao->LinkVertexBuffer(*m_vbo, vbo_layout);
+
+// ...
+
+delete[] arr;
 ```
 
 - A brief explanation of `.obj` file can be found [here](https://www.opengl-tutorial.org/beginners-tutorials/tutorial-7-model-loading/).
