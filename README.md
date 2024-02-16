@@ -2965,13 +2965,17 @@ delete[] arr;
 
 - A brief explanation of `.obj` file can be found [here](https://www.opengl-tutorial.org/beginners-tutorials/tutorial-7-model-loading/).
 
-## Depth Buffer
+## A Quick Setup of the Default Depth Buffer attached to the Default Framebuffer
 
 We need depth buffer when we start to draw 3D models.
 
 ## Lighting Models
 
-### Cube Map
+### Ambient Lighting
+
+### Hemisphere Lighting
+
+### A Quick Setup of a Skybox using Cube Map
 
 ### Toon/Cel Shading
 
