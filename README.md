@@ -2979,7 +2979,7 @@ We need depth buffer when we start to draw 3D models.
 
 ### sRGB Color Space vs. Linear Color Space
 
-Color spaces are really important topics, I DEFINITELY need to conduct further studies on colors.
+❗ Color spaces are really important topics, I DEFINITELY need to conduct further studies on colors.
 
 For now, in my understanding:
 
