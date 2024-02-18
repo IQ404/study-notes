@@ -2989,6 +2989,12 @@ For now, in my understanding:
 
 - Similarly, if we define, say, `vec3 light = vec3(0.5);` and use it in lighting calculation, `light` is then the linear intensity (in linear color space) of the represented light. The perceptual color of the light is actually brighter then mid-grey.
 
+This may be a very rudimentary idea, but sometimes I think of color values in this way:
+
+- For light, I think of each component of a `vec3(x,y,z)` where $x,y,z \in [0,1]$ in linear color space as the intensity ("rate" of photons) of the corresponding channel. $1$ here means the maximum intensity the display can emit for the corresponding channel. Its counterpart in sRGB color space is the perceptual color of the light.
+
+- For material albedo, I think of each component of a `vec3(x,y,z)` where $x,y,z \in [0,1]$ in linear color space as the proportion of the intensity ("rate" of photons) of the corresponding channel being reflected. Its counterpart in sRGB color space is the perceptual color of the material when it is illuminated by `[1,1,1]` light.
+
 ### A Quick Setup of a Skybox using Cube Map
 
 ### Toon/Cel Shading
