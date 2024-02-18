@@ -2993,11 +2993,15 @@ This may be a very rudimentary idea, but sometimes I think of color values in th
 
 - For light, I think of each component of a `vec3(x,y,z)` where $x,y,z \in [0,1]$ in linear color space as the intensity ("rate" of photons) of the corresponding channel. $1$ here means the maximum intensity the display can emit for the corresponding channel. Its counterpart in sRGB color space is the perceptual color of the light.
 
-- For material albedo, I think of each component of a `vec3(x,y,z)` where $x,y,z \in [0,1]$ in linear color space as the proportion of the intensity ("rate" of photons) of the corresponding channel being reflected. Its counterpart in sRGB color space is the perceptual color of the material when it is illuminated by `[1,1,1]` light.
+- For material albedo, I think of each component of a `vec3(x,y,z)` where $x,y,z \in [0,1]$ in linear color space as the proportion of the intensity ("rate" of photons) of the corresponding channel being reflected. Its counterpart in sRGB color space is the perceptual color of the material when it is illuminated by a light of color `[1,1,1]`.
 
 ### A simplified Phong shading
 
 ### A Quick Setup of a Skybox using Cube Map
+
+### Environment Mapping
+
+### Fresnel Effect
 
 ### Toon/Cel Shading
 
