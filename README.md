@@ -2977,7 +2977,7 @@ We need depth buffer when we start to draw 3D models.
 
 ### Lambertian Lighting
 
-### Color Spaces
+### sRGB Color Space vs. Linear Color Space
 
 ### A Quick Setup of a Skybox using Cube Map
 
