@@ -2975,6 +2975,10 @@ We need depth buffer when we start to draw 3D models.
 
 ### Hemisphere Lighting
 
+### Lambertian Lighting
+
+### Color Spaces
+
 ### A Quick Setup of a Skybox using Cube Map
 
 ### Toon/Cel Shading
