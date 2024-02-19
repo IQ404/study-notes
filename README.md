@@ -2985,7 +2985,7 @@ For now, in my understanding:
 
 - There is a differentiation between rgb color (to display) and what I currently call "linear intensity" (for lighting calculation).
 
-- If we define, say, `vec3 object_color = vec3(0.5);` where we are thinking of an exact mid-grey object (i.e. the values are defined in sRGB color space), and we want to use it (as albedo?) in lighting calculation, we need to first transform it into the linear color space, then conduct lighting calculation, then transform the result back to sRGB color space, then output for display.
+- If we define, say, `vec3 object_color = vec3(0.5);` where we are thinking of an object with color corresponding to $(0.5, 0.5, 0.5)$ in RGB (i.e. the values are defined in sRGB color space), and we want to use it (as albedo) in lighting calculation, we need to first transform it into the linear color space, then conduct lighting calculation, then transform the result back to sRGB color space, then output for display.
 
 - Similarly, if we define, say, `vec3 light = vec3(0.5);` and use it in lighting calculation, `light` is then the linear intensity (in linear color space) of the represented light. The perceptual color of the light is actually brighter then mid-grey.
 
