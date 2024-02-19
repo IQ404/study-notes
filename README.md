@@ -2995,6 +2995,8 @@ Currently I think of color values in this way:
 
 - For material albedo, I think of each component of a `vec3(x,y,z)` where $x,y,z \in [0,1]$ in linear color space as the proportion of the intensity ("rate" of photons) of the corresponding channel being reflected. Its counterpart in sRGB color space is the perceptual color of the material when it is illuminated by a light of color `[1,1,1]`.
 
+As opposite to linear color space, sRGB space is nonlinear in a sense that increase in smaller rgb values corresponds to smaller increase in the physical light intensity, and the same amount of increase in larger rgb values corresponds to larger increase in the physical light intensity (think of the graph of linear values varying with sRGB values). I think sRGB is designed like this is because human eyes are sensitive to brightness changes of darker lights, and relatively insensitive to brightness changes of brighter lights. With this design decision in mind, currently I think it is fine, in loose cases, to think of the changes of <ins>human-perceived</ins> brightness are distributed uniformly in sRGB space. That means, `vec3(0.5)` is roughly half of the (human-perceived) brightness of `vec3(1.0)`. But note that this is unlikely to be precisely true.
+
 ### A simplified Phong shading
 
 ### A Quick Setup of a Skybox using Cube Map
