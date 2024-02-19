@@ -2987,9 +2987,9 @@ For now, in my understanding:
 
 - If we define, say, `vec3 object_color = vec3(0.5);` where we are thinking of an object with color corresponding to $(0.5, 0.5, 0.5)$ in RGB (i.e. the values are defined in sRGB color space), and we want to use it (as albedo) in lighting calculation, we need to first transform it into the linear color space, then conduct lighting calculation, then transform the result back to sRGB color space, then output for display.
 
-- Similarly, if we define, say, `vec3 light = vec3(0.5);` and use it in lighting calculation, `light` is then the linear intensity (in linear color space) of the represented light. The perceptual color of the light is actually brighter then mid-grey.
+- Similarly, if we define, say, `vec3 light = vec3(0.5);` and use it in lighting calculation, `light` is then the linear intensity (in linear color space) of the represented light. The perceptual color (in RGB) of the light is corresponding to transforming $(0.5, 0.5, 0.5)$ into sRGB space, and is actually brighter than $(0.5, 0.5, 0.5)$ in RGB.
 
-This may be a very rudimentary idea, but sometimes I think of color values in this way:
+Currently I think of color values in this way:
 
 - For light, I think of each component of a `vec3(x,y,z)` where $x,y,z \in [0,1]$ in linear color space as the intensity ("rate" of photons) of the corresponding channel. $1$ here means the maximum intensity the display can emit for the corresponding channel. Its counterpart in sRGB color space is the perceptual color of the light.
 
