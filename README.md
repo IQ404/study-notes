@@ -86,6 +86,8 @@ char* arr = (char*)alloca(length * sizeof(char));
 
 ❓ How is dynamical allocation on the stack affecting the performance compared to static allocation?
 
+❓ Is there heap overflow? Why stack overflow occurs much more often than heap overflow?
+
 ## `mutable` data members
 
 In a class, a member function marked as `const` is allowed to modify `mutable` data members.
