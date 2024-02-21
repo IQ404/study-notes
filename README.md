@@ -11,7 +11,7 @@ The contents in those notes are written by myself but they are <ins>by no means<
 
 ### Mathematical Methods
 
-- Probability // TODO
+- [Mathematics for Graphics and Game]()
 
 ### Programming Language
 
@@ -41,7 +41,5 @@ The contents in those notes are written by myself but they are <ins>by no means<
 - Volume Rendering  // TODO
 - [Radiometry](https://github.com/IQ404/study-notes/blob/unclassified/radiometry.md)  // CORRECTION NEEDED
 - Covariance Matrix  // TODO
-- Quaternion  // TODO
 - Homogeneous Coordinates  // TODO
 - Jacobian Matrix  // TODO
-- Signed Distance Function  // TODO
