@@ -3011,6 +3011,12 @@ As opposite to linear color space, sRGB space is nonlinear in a sense that incre
 
 ## Vertex Shader Revisit
 
+### Model Offsetting
+
+### Model Scaling
+
+### Model Rotating
+
 ## Signed Distance Function (SDF) for Simple Shapes
 
 ## Noise // TODO
