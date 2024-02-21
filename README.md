@@ -2999,6 +2999,8 @@ As opposite to linear color space, sRGB space is nonlinear in a sense that incre
 
 ### A simplified Phong shading
 
+❓ Rigorously explain why the angle between the normal and the half vector can be used to represent the angle between the reflection vector and the view direction.
+
 ### A Quick Setup of a Skybox using Cube Map
 
 ### Environment Mapping
