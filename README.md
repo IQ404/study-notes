@@ -2997,7 +2997,7 @@ Currently I think of color values in this way:
 
 As opposite to linear color space, sRGB space is nonlinear in a sense that increase in smaller rgb values corresponds to smaller increase in the physical light intensity, and the same amount of increase in larger rgb values corresponds to larger increase in the physical light intensity (think of the graph of linear values varying with sRGB values). I think sRGB is designed like this is because human eyes are sensitive to brightness changes of darker lights, and relatively insensitive to brightness changes of brighter lights. With this design decision in mind, currently I think it is fine, in loose cases, to think of the changes of <ins>human-perceived</ins> brightness are distributed uniformly in sRGB space. That means, `vec3(0.5)` is roughly half of the (human-perceived) brightness of `vec3(1.0)`. But note that this is unlikely to be precisely true.
 
-### A simplified Phong shading
+### A simplified Phong/Blinn-Phong shading
 
 ❓ Rigorously explain why the angle between the normal and the half vector can be used to represent the angle between the reflection vector and the view direction.
 
