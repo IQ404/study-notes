@@ -3011,6 +3011,8 @@ As opposite to linear color space, sRGB space is nonlinear in a sense that incre
 
 ## Vertex Shader Revisit
 
+If you are manipulating vertices in vertex shader, make sure to correct all vertex attributes that can be affected!
+
 ### Model Offsetting
 
 ### Model Scaling
