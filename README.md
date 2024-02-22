@@ -2599,6 +2599,8 @@ The keywords `break`, `continue` (for loops) and `return` (for functions) are al
 
 I believe `if` and `if-else` statements in GLSL also work the same as in C++.
 
+Ternary operator in C++ is supported in GLSL.
+
 ❓ Does GLSL `switch` statement must be switching on integer types (like in C++)? (yes, and the cases must be integer constant, as in C++)
 
 ❓ Can we have multiple `return` statements in a GLSL function? (yes)
