@@ -3021,6 +3021,10 @@ If you are manipulating vertices in vertex shader, make sure to correct all vert
 
 ### Model Rotating
 
+### Model Animation using Easing Functions
+
+- [resources](https://easings.net/)
+
 ## Signed Distance Function (SDF) for Simple Shapes
 
 ## Noise // TODO
