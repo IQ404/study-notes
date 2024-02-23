@@ -3027,7 +3027,7 @@ If you are manipulating vertices in vertex shader, make sure to correct all vert
 
 ## Signed Distance Function (SDF)
 
-Conceptually, given a $n$-dimensional space and let there exist an object in this space, SDF of this object takes in any point $P$ in this space and outputs the signed radius of the $n$-dimensional circle, centered at $P$, that has a single intersection with the object, where the sign of the radius is negative iff $P$ is inside the object, and is positive iff $P$ is outside the object.
+In my current understanding, conceptually, given a $n$-dimensional space and let there exist an object in this space, SDF of this object takes in any point $P$ in this space and outputs the signed radius of the $n$-dimensional circle, centered at $P$, that is tangent to the object, where the sign of the radius is negative iff $P$ is inside the object, and is positive iff $P$ is outside the object.
 
 - [resources](https://iquilezles.org/)
 
