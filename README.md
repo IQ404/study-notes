@@ -3027,6 +3027,8 @@ If you are manipulating vertices in vertex shader, make sure to correct all vert
 
 ## Signed Distance Function (SDF) for Simple Shapes
 
+- [resources](https://iquilezles.org/)
+
 ## Noise // TODO
 
 ## Post-processing // TODO
