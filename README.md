@@ -3031,7 +3031,7 @@ If you are manipulating vertices in vertex shader, make sure to correct all vert
 
 ### Transformations for SDFs
 
-## Noise // TODO
+## Noise
 
 ## Post-processing // TODO
 
