@@ -3039,6 +3039,12 @@ To translate or rotate SDF, the point is to think of that we first move all the 
 
 ### Boolean Operations on SDFs
 
+#### Union
+
+test
+
+#### Intersection of SDFs
+
 ## Noise
 
 ## Post-processing // TODO
