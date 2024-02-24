@@ -3027,7 +3027,7 @@ If you are manipulating vertices in vertex shader, make sure to correct all vert
 
 ## Signed Distance Function (SDF)
 
-In my current understanding, conceptually, given a $n$-dimensional space and let there exist an object in this space, SDF of this object takes in any point $P$ in this space and outputs the signed radius of the $n$-dimensional circle, centered at $P$, that is tangent to the object, where the sign of the radius is negative iff $P$ is inside the object, and is positive iff $P$ is outside the object.
+In my current understanding, conceptually, given a $n$-dimensional space and let there exist an object in this space, SDF of this object takes in any point $P$ in this space and outputs the signed radius of the $n$-dimensional circle, centered at $P$, that is tangent to the object, where the sign of the radius is negative iff $P$ is inside the object, and is positive iff $P$ is outside the object. In other words, an SDF for a shape at a given point in space provides the shortest distance to the surface of that shape, with the sign indicating whether the point is inside (negative) or outside (positive) the shape.
 
 - [resources](https://iquilezles.org/)
 
@@ -3041,7 +3041,7 @@ To translate or rotate SDF, the point is to think of that we first move all the 
 
 ### Intersection of SDFs
 
-### Subtraction of SDFs
+### Subtraction of SDFs (distance-insensitive)
 
 ## Noise
 
