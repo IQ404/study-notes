@@ -3037,13 +3037,11 @@ To translate or rotate SDF, the point is to think of that we first move all the 
 
 ### Antialiasing using `smoothstep`
 
-### Boolean Operations on SDFs
+### Union on SDFs
 
-#### Union
+### Intersection of SDFs
 
-test
-
-#### Intersection of SDFs
+### Subtraction of SDFs
 
 ## Noise
 
