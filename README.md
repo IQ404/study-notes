@@ -3035,6 +3035,10 @@ In my current understanding, conceptually, given a $n$-dimensional space and let
 
 To translate or rotate SDF, the point is to think of that we first move all the points in the space in the reverse manner, then the signed distance function is still drawing at the (imaginery) origin. Since the frame of reference for the screen space is with respect to those "all the points" we previously moved in the reverse manner, it looks, to the screen space, like the object drawn by the SDF is moved in the unreversed manner.
 
+### Antialiasing using `smoothstep`
+
+
+
 ## Noise
 
 ## Post-processing // TODO
