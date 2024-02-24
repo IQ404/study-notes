@@ -3037,7 +3037,22 @@ To translate or rotate SDF, the point is to think of that we first move all the 
 
 ### Antialiasing using `smoothstep`
 
-### Union on SDFs
+### Boolean Operations on SDFs
+
+```cpp
+// Union:
+float sdf_merge = min(sdf1, sdf2);
+
+// Intersection:
+float sdf_inter = max(sdf1, sdf2);
+
+// Subtraction:
+float sdf_sub = max(-sdf1, sdf2);  // subtract sdf1 from sdf2
+```
+
+With the idea that "we only need to determine the sign" in mind, draw some Venn diagrams can verify the above algorithms.
+
+However, in my current understanding, all these 3 operations may NOT correctly represent the resulting distance: they only indicate whether the point is inside or outside the resulting object. (❓ further studies are needed!)
 
 ### Intersection of SDFs
 
