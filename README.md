@@ -12,6 +12,7 @@ The contents in those notes are written by myself but they are <ins>by no means<
 ### Mathematical Methods
 
 - [Mathematics for Graphics and Game](https://github.com/IQ404/study-notes/blob/math-for-graphics-and-game/README.md)
+- [Calculus for Machine Learning](https://github.com/IQ404/study-notes/blob/calculus-for-ml/README.md)
 
 ### Programming Language
 
