@@ -34,8 +34,8 @@ The contents in those notes are written by myself but they are <ins>by no means<
 
 ### Learning
 
-- [Machine Learning](https://github.com/IQ404/study-notes/blob/machine-learning/README.md)
-- [Neural Networks](https://github.com/IQ404/study-notes/blob/neural-networks/README.md)
+- [Machine Learning](https://github.com/IQ404/study-notes/blob/machine-learning/README.md) // TODO
+- [Neural Networks](https://github.com/IQ404/study-notes/blob/neural-networks/README.md) // TODO
 
 ### Miscellaneous
 
