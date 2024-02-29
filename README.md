@@ -1,4 +1,4 @@
-# Mathematics for Graphics and Games
+# Mathematics for Graphics
 
 ## Contents
 
