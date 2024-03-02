@@ -11,7 +11,7 @@ The contents in those notes are written by myself but they are <ins>by no means<
 
 ### Mathematical Methods
 
-- [Mathematics for Graphics](https://github.com/IQ404/study-notes/blob/math-for-graphics/README.md)
+- [Mathematics for Graphics and Games](https://github.com/IQ404/study-notes/blob/math-for-graphics-and-games/README.md)
 - [Calculus for Machine Learning](https://github.com/IQ404/study-notes/blob/calculus-for-ml/README.md)
 - [Probability and Statistics for Machine Learning](https://github.com/IQ404/study-notes/blob/prob-stat-for-ml/README.md)
 - [Linear Algebra for Machine Learning](https://github.com/IQ404/study-notes/blob/la-for-ml/README.md)
@@ -23,7 +23,7 @@ The contents in those notes are written by myself but they are <ins>by no means<
 
 ### Design Pattern
 
-- [game programming pattern](https://github.com/IQ404/study-notes/tree/game-programming-pattern) // TODO
+- [Game Programming Pattern](https://github.com/IQ404/study-notes/tree/game-programming-pattern) // TODO
 
 ### Graphics API
 
@@ -32,7 +32,7 @@ The contents in those notes are written by myself but they are <ins>by no means<
 
 ### GPGPU
 
-- [CUDA](https://github.com/IQ404/study-notes/blob/cuda/README.md)
+- [CUDA](https://github.com/IQ404/study-notes/blob/cuda/README.md) // TODO
 
 ### Learning
 
