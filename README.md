@@ -43,6 +43,5 @@ The contents in those notes are written by myself but they are <ins>by no means<
 
 - Volume Rendering  // TODO
 - [Radiometry](https://github.com/IQ404/study-notes/blob/unclassified/radiometry.md)  // CORRECTION NEEDED
-- Covariance Matrix  // TODO
 - Homogeneous Coordinates  // TODO
 - Jacobian Matrix  // TODO
