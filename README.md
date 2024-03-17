@@ -1,33 +1,34 @@
 # Mathematics for Graphics and Games
 
-## Contents
+- Basic Linear Algebra
 
-I chose not to mannually write a "contents" since the "Outline" button on the top right corner of a github markdown page has already rendered a beautiful navigator.
+  - [矩阵求导本质](https://zhuanlan.zhihu.com/p/263777564)
+  - [矩阵求导基础](https://zhuanlan.zhihu.com/p/273729929)
+  - [矩阵求导进阶](https://zhuanlan.zhihu.com/p/288541909)
+  - [张量](https://zhuanlan.zhihu.com/p/614883192)
 
-## Basic Linear Algebra
+- Computational Geometry
 
-## Computational Geometry
+- Rotational Transformations
 
-## Rotational Transformations
+- PCA and SVD
 
-## PCA and SVD
+- Interpolation, Fitting and Sampling
 
-## Interpolation, Fitting and Sampling
+- Fourier Transformation
 
-## Fourier Transformation
+- Probability Theory
 
-## Probability Theory
+- Basic Field Theory
 
-## Basic Field Theory
+- Classical Differential Geometry
 
-## Classical Differential Geometry
+- Differential Equations
 
-## Differential Equations
+- Linear Systems
 
-## Linear Systems
+- Optimization
 
-## Optimization
+- Machine Learning
 
-## Machine Learning
-
-## Topology
+- Topology
