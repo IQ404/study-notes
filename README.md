@@ -1,3 +1,3 @@
-# Python
+# Native Python
 
 # NumPy
