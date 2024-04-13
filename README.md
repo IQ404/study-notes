@@ -89,8 +89,8 @@ def f(x):
 
 print("Function value at x = 3:", f(3.0))
 print("Derivative value at x = 3:",grad(f)(3.0))
-print("Function value at x = -3:", f(3.0))
-print("Derivative value at x = -3:",grad(f)(3.0))
+print("Function value at x = -3:", f(-3.0))
+print("Derivative value at x = -3:",grad(f)(-3.0))
 # NOTE that we cannot feed in the gradient function with integer
 
 # We also cannot directly feed in the gradient function with array:
