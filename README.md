@@ -44,13 +44,13 @@ expr.evalf(subs={x:-1, y:2})
 
 from sympy.utilities.lambdify import lambdify
 
-f_symb_np = lambdify(x, f_symb, 'numpy')
+expr_np = lambdify(x, expr, 'numpy')
 
 import numpy as np
 x_array = np.array([1, 2, 3])
 
 print("x: \n", x_array)
-print("f(x) = x**2: \n", f_symb_np(x_array))
+print("f(x) = x**2: \n", expr_np(x_array))
 
 # Symbolic Differentiation:
 dfdx_composed = diff(exp(-2*x) + 3*sin(3*x), x)
