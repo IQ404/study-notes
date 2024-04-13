@@ -57,3 +57,49 @@ dfdx_composed = diff(exp(-2*x) + 3*sin(3*x), x)
 ```
 
 # JAX
+
+```python
+import numpy as np
+narr = np.array([1, 2, 3])
+
+from jax import grad, vmap
+import jax.numpy as jnp  # Package jax.numpy is a wrapped NumPy, which pretty much replaces NumPy when JAX is used
+
+arr = jnp.array([1., 2., 3.])
+print("Type of JAX NumPy array:", type(arr))
+
+# or it can be created by converting existing NumPy array:
+arr = jnp.array(narr.astype('float32'))
+
+# JAX arrays are immutable:
+
+try:
+    arr[2] = 4.0
+except TypeError as err:
+    print(err)
+
+arr2 = arr.at[2].set(4.0)
+print(arr)
+print(arr2)
+
+# For automatic differentiation (autodiff):
+
+def f(x):
+    return jnp.abs(x)
+
+print("Function value at x = 3:", f(3.0))
+print("Derivative value at x = 3:",grad(f)(3.0))
+print("Function value at x = -3:", f(3.0))
+print("Derivative value at x = -3:",grad(f)(3.0))
+# NOTE that we cannot feed in the gradient function with integer
+
+# We also cannot directly feed in the gradient function with array:
+try:
+    grad(f)(arr)
+except TypeError as err:
+    print(err)
+# Instead we can do:
+dfdx_jax_vmap = vmap(grad(f))(arr)
+print(dfdx_jax_vmap)
+```
+- ❓ Automatic differentiation (autodiff) method breaks down the function into common functions (sin, cos, log, power functions, etc.), and constructs the computational graph consisting of the basic functions. Then the chain rule is used to compute the derivative at any node of the graph. It is the most commonly used approach in machine learning applications and neural networks, as the computational graph for the function and its derivatives can be built during the construction of the neural network, saving in future computations.
