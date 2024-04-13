@@ -14,6 +14,8 @@ dfdx_numerical = np.gradient(f(x_array_2), x_array_2)
 
 - The `np.vectorize` function in NumPy is used to transform a Python function that accepts and returns scalars into a "vectorized" function. This vectorized function can then operate element-wise on arrays, making it possible to apply the function to each element of an array without explicitly writing a loop. This is particularly useful for integrating non-NumPy functions into NumPy operations.
 
+- [Broadcasting](https://numpy.org/doc/stable/user/basics.broadcasting.html#:~:text=The%20term%20broadcasting%20describes%20how,that%20they%20have%20compatible%20shapes.)
+
 # SymPy
 
 ```python
