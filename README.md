@@ -2,11 +2,19 @@
 
 # NumPy
 
+```python
+import numpy as np
 
+def f(x):
+    return x**2
+
+x_array = np.linspace(-5, 5, 100)
+dfdx_numerical = np.gradient(f(x_array_2), x_array_2)
+```
 
 # SymPy
 
-```python 
+```python
 # This format of module import allows to use the sympy functions without sympy. prefix.
 from sympy import *
 
@@ -35,11 +43,13 @@ from sympy.utilities.lambdify import lambdify
 f_symb_np = lambdify(x, f_symb, 'numpy')
 
 import numpy as np
-
 x_array = np.array([1, 2, 3])
 
 print("x: \n", x_array)
 print("f(x) = x**2: \n", f_symb_np(x_array))
+
+# Symbolic Differentiation:
+dfdx_composed = diff(exp(-2*x) + 3*sin(3*x), x)
 ```
 
 # JAX
