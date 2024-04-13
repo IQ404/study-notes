@@ -2,6 +2,16 @@
 
 # NumPy
 
+
+
+# SymPy
+
 ```python 
-your_code = do_some_stuff
+# This format of module import allows to use the sympy functions without sympy. prefix.
+from sympy import *
+
+# This is actually sympy.sqrt function, but sympy. prefix is omitted.
+sqrt(18)
 ```
+
+# JAX
