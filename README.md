@@ -62,7 +62,6 @@ dfdx_composed = diff(exp(-2*x) + 3*sin(3*x), x)
 import numpy as np
 narr = np.array([1, 2, 3])
 
-from jax import grad, vmap
 import jax.numpy as jnp  # Package jax.numpy is a wrapped NumPy, which pretty much replaces NumPy when JAX is used
 
 arr = jnp.array([1., 2., 3.])
@@ -83,6 +82,8 @@ print(arr)
 print(arr2)
 
 # For automatic differentiation (autodiff):
+
+from jax import grad, vmap
 
 def f(x):
     return jnp.abs(x)
