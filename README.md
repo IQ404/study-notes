@@ -1,3 +1,7 @@
+# Metaknowledge
+
+- A simple place to get familiar with Python is [here](https://www.learnpython.org/).
+
 # Native Python
 
 # NumPy
