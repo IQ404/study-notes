@@ -10,6 +10,9 @@
   - When the Python interpreter sees `import <module_name>`, it will look for the `<module_name>.py` file in the directory holding the module that is executed as the main program.
   - PYTHONPATH is an environment variable that you can set to add additional directories. If not found, Python interpreter will look for `<module_name>.py` in those additional directories.
   - If not found, Python interpreter will look for `<module_name>.py` in the directories where the standard library modules are installed.
+  - If not found, Python interpreter will look for `<module_name>.py` in site-specific directories (directories that Python uses to store third-party modules and packages).
+  - If not found, Python interpreter will look for `<module_name>.py` in `.pth` files. A `.pth` file can be placed in any of the standard site directories (like site-packages). Each line in a .pth file specifies the path to a directory that Python should add to `sys.path`.
+  - If not found, Python interpreter will look for `<module_name>.py` in any other directories in `sys.path`.
 
 # NumPy
 
