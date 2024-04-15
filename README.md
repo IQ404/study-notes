@@ -6,13 +6,18 @@
 
 - Any Python file with a .py extension is called a module.
 - The name of the module is the same as the file name (without the .py extension).
-- You can use the import statement `import <module_name>` in one module to import another module.
+- We can use the import statement `import <module_name>` in one module to import another module.
   - When the Python interpreter sees `import <module_name>`, it will look for the `<module_name>.py` file in the directory holding the module that is executed as the main program.
   - PYTHONPATH is an environment variable that you can set to add additional directories. If not found, Python interpreter will look for `<module_name>.py` in those additional directories.
   - If not found, Python interpreter will look for `<module_name>.py` in the directories where the standard library modules are installed.
   - If not found, Python interpreter will look for `<module_name>.py` in site-specific directories (directories that Python uses to store third-party modules and packages).
   - If not found, Python interpreter will look for `<module_name>.py` in `.pth` files. A `.pth` file can be placed in any of the standard site directories (like site-packages). Each line in a .pth file specifies the path to a directory that Python should add to `sys.path`.
   - If not found, Python interpreter will look for `<module_name>.py` in any other directories in `sys.path`.
+- After successfully importing the other module into our module using the import statement `import <module_name>`, we can use the syntax `<module_name>.<item>` in our module to access items from the other module.
+- After successfully importing a module for the first time in an execution of the program, the map from the name of this module to this module will be stored in `sys.modules` (a dictionary per execution of the program).
+  - During an execution of the program, if the Python interpreter encounters an import statement for a module that have already been loaded (i.e. in `sys.modules`), Python will use the already-loaded module instead of re-importing or re-executing it. This prevents modules from being loaded into memory multiple times and ensures that all imports of a module across the entire program refer to the same instance (singleton).
+- After successfully importing a module, a .pyc file for that module is created. When this module needs to be imported in future execution of the program, if this module has not been modified, the execution of this module will be done directly using this .pyc file.
+- During the loading process of a (any) module, Python initializes the module's namespace. This namespace includes various built-in identifiers, among which `__name__` is particularly notable. The `__name__` variable is automatically set by Python to `"__main__"` if the module is being run directly (i.e., as the script invoked from the command line or an entry point in an application); or to the name of the module (as it would appear in an import statement) if the module is being imported; or to (the full dot-separated path to) a package if that package is being imported.
 
 # NumPy
 
