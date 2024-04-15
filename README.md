@@ -7,7 +7,7 @@
 - Any Python file with a .py extension is called a module.
 - The name of the module is the same as the file name (without the .py extension).
 - You can use the import statement `import <module_name>` in one module to import another module.
-  - When the Python interpreter sees `import <module_name>`, it will look for the `<module_name>.py` file in the directory holding the module that acts as the main program.
+  - When the Python interpreter sees `import <module_name>`, it will look for the `<module_name>.py` file in the directory holding the module that is executed as the main program.
   - PYTHONPATH is an environment variable that you can set to add additional directories. If not found, Python interpreter will look for `<module_name>.py` in those additional directories.
   - If not found, 
 
