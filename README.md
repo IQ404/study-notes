@@ -124,3 +124,7 @@ dfdx_jax_vmap = vmap(grad(f))(arr)
 print(dfdx_jax_vmap)
 ```
 - ❓ Automatic differentiation (autodiff) method breaks down the function into common functions (sin, cos, log, power functions, etc.), and constructs the computational graph consisting of the basic functions. Then the chain rule is used to compute the derivative at any node of the graph. It is the most commonly used approach in machine learning applications and neural networks, as the computational graph for the function and its derivatives can be built during the construction of the neural network, saving in future computations.
+
+# On Differentiation
+
+Generally, when the number of points to calculate derivative/gradient is large, and the form of the function being differentiated is complex, the computational efficiency of differentiation goes as *Numerical* $<$ *Symbolic* $<$ *AutoDiff*.
