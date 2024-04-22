@@ -129,4 +129,4 @@ print(dfdx_jax_vmap)
 
 # On Differentiation
 
-Generally, when the number of points to calculate derivative/gradient is large, and the form of the function being differentiated is complex, the computational efficiency of differentiation goes as *Numerical* $<$ *Symbolic* $<$ *AutoDiff*.
+Generally, when the number of points to calculate derivative is large, and the form of the function being differentiated is complex, the computational efficiency of differentiation goes as *Numerical* $<$ *Symbolic* $<$ *AutoDiff*.
