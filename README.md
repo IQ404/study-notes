@@ -15,7 +15,7 @@ The contents in those notes are written by myself but they are <ins>by no means<
 
 - [Mathematics for Graphics and Games](https://github.com/IQ404/study-notes/blob/math-for-graphics-and-games/README.md)
 - ~~[Calculus for Machine Learning](https://github.com/IQ404/study-notes/blob/calculus-for-ml/README.md)~~
-- [Calculus for Machine Learning](https://www.overleaf.com/read/gbjqmsgpvtdn#f4e899)
+- [Calculus for Machine Learning](https://www.overleaf.com/read/dgkkwntmhgjc#8663d5)
 - [Probability and Statistics for Machine Learning](https://github.com/IQ404/study-notes/blob/prob-stat-for-ml/README.md)
 - [Linear Algebra for Machine Learning](https://github.com/IQ404/study-notes/blob/la-for-ml/README.md)
 
