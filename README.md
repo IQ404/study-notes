@@ -21,7 +21,7 @@ The contents in those notes are written by myself but they are <ins>by no means<
 ### Programming Language
 
 - [C++](https://github.com/IQ404/study-notes/blob/cpp/README.md)
-- [Python](https://github.com/IQ404/study-notes/blob/python/README.md)
+- [Python](https://www.overleaf.com/read/wzrwprxvmmjx#352fff)
 - [Taichi Lang](https://github.com/IQ404/study-notes/blob/taichi-lang/README.md)
 
 ### Tools
