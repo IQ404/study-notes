@@ -50,8 +50,28 @@
 
 - Some Common Linux Distributions:
 
-  - Debian
+  - Debian (A core Linux distro, meaning it is not built on top of other distro)
+  
   - Ubantu (built on top of Debian)
  
-    test
-  - test
+    3 offical editions:
+
+    Ubantu Desktop (for PC)
+
+    Ubantu Server
+
+    Ubantu Core (for Internet of Things)
+    
+  - Red Hat Linux (another core Linux distro)
+
+    It is shipped as RHEL (Red Hat Enterrise Linux) and is focus on enterprise customers.
+
+  - Fedora
+ 
+  - SLE (SUSE Linux Enterprise)
+ 
+    Available in 2 editions: SLES (for Server), SLED (for Desktop).
+ 
+  - Arch Linux
+ 
+    Allows users to customize every part of the system.
