@@ -76,5 +76,15 @@
  
     Allows users to customize every part of the system.
 
-# Linux Architecture Overview
+# Five Layers of Linux Architecture
+
+## UI Layer (User Interface)
+
+## Application Layer
+
+## OS Layer (Operating System)
+
+## Kernel Layer
+
+## Hardware Layer
 
