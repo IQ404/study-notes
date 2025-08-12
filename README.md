@@ -38,7 +38,7 @@
 
 - All Linux distros use Linux kernel.
 
-- Shell: a window for entering and receiving output from commands.
+- <ins>Shell</ins>: a window for entering and receiving output from commands.
 
 - Each Linux distro is prepackaged with a unique set of shell commands, applications, GUI etc.
 
@@ -80,13 +80,15 @@
 
 ### UI Layer (User Interface)
 
-Allows users to interact with applications using devices like keyboard.
+The interfaces that allow users to interact with applications using devices like keyboard.
 
 Deskotp version of Linux may contain a GUI layer, which is similar to the interface of Windows.
 
 ### Application Layer
 
-Applications are just softwares, including:
+Applications are just softwares, softwares are just programs.
+
+Applications include:
 
 - System tools (e.g., compilers)
 - Programming languagues
@@ -95,7 +97,7 @@ Applications are just softwares, including:
 
 ### OS Layer (Operating System)
 
-OS keeps the essential background services running, so the whole machine stays stable. For examples:
+OS controls programs and keeps them running, so the whole machine stays stable. For examples:
 
 It boots and watches key daemons (networking, logging, ssh, cron, etc.). If one crashes, it can auto-restart it (i.e., It Detects errors and implements measures to prevent complete system failures.)
 
@@ -126,3 +128,6 @@ The physical/electronic devices of the machine (e.g., CPU, RAM, storage, screen,
 
 # Linux Filesystem
 
+A tree-like structure collecting file on the machine.
+
+The top level of the filesystem is the root directory: `/`
