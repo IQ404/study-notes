@@ -90,14 +90,14 @@ Applications are just softwares, softwares are just programs.
 
 Applications include:
 
-- System tools (e.g., compilers)
-- Programming languagues
+- System tools (e.g., `top`, a program that shows live information about running processes and system resources (CPU, memory, load).)
+- Programming languagues implementations
 - Shells (special applications which themselves are often part of the OS)
 - User apps (e.g., browers, text editors, games)
 
 ### OS Layer (Operating System)
 
-OS controls programs and keeps them running, so the whole machine stays stable. For examples:
+OS controls programs (applications) and keeps them running, so the whole machine stays stable. For examples:
 
 It boots and watches key daemons (networking, logging, ssh, cron, etc.). If one crashes, it can auto-restart it (i.e., It Detects errors and implements measures to prevent complete system failures.)
 
