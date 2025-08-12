@@ -122,3 +122,7 @@ The kernel starts as soon as the machine boots, and remains in RAM as long as th
 
 ### Hardware Layer
 
+The physical/electronic devices of the machine (e.g., CPU, RAM, storage, screen, usb devices).
+
+# Linux Filesystem
+
