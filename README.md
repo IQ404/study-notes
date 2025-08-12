@@ -80,11 +80,45 @@
 
 ### UI Layer (User Interface)
 
+Allows users to interact with applications using devices like keyboard.
+
+Deskotp version of Linux may contain a GUI layer, which is similar to the interface of Windows.
+
 ### Application Layer
+
+Applications are just softwares, including:
+
+- System tools (e.g., compilers)
+- Programming languagues
+- Shells (special applications which themselves are often part of the OS)
+- User apps (e.g., browers, text editors, games)
 
 ### OS Layer (Operating System)
 
+OS keeps the essential background services running, so the whole machine stays stable. For examples:
+
+It boots and watches key daemons (networking, logging, ssh, cron, etc.). If one crashes, it can auto-restart it (i.e., It Detects errors and implements measures to prevent complete system failures.)
+
+It assigns software to users (i.e., controlling who can use which programs).
+
+It performs file management tasks.
+
 ### Kernel Layer
+
+In a Linux system, OS is built on top of a kernel.
+
+A Linux kernel is the lowest-level software.
+
+It has the complete control of the OS.
+
+The kernel starts as soon as the machine boots, and remains in RAM as long as the OS is running.
+
+4 key jobs of a kernel:
+
+- Memory Management
+- Process Management (It decides which processes run and when, so no single task starves everything else. i.e. scheduling)
+- Being the "device driver manager"
+- Assuring the security of the OS.
 
 ### Hardware Layer
 
