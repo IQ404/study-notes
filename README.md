@@ -78,13 +78,13 @@
 
 # Five Layers of Linux Architecture
 
-## UI Layer (User Interface)
+### UI Layer (User Interface)
 
-## Application Layer
+### Application Layer
 
-## OS Layer (Operating System)
+### OS Layer (Operating System)
 
-## Kernel Layer
+### Kernel Layer
 
-## Hardware Layer
+### Hardware Layer
 
