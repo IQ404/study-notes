@@ -33,3 +33,21 @@
 - GNU is a free/open-source Unix-like OS (a re-implementation of Unix).
 
   Linux OS is the unification of GNU and the Linux kernel.
+
+# Different Linux Distributions (i.e., Distros)
+
+- All Linux distros use Linux kernel.
+
+- Shell: a window for entering and receiving output from commands.
+
+- Each Linux distro is prepackaged with a unique set of shell commands, applications, GUI etc.
+
+  Each Linux distro provides differing level of support.
+
+  E.g. Community-backed project vs. Commerical-enterprise-maintained.
+
+  It can be a LTS version (Long-term Support) or a rolling release.
+
+- Some Common Linux Distributions:
+
+  - 
