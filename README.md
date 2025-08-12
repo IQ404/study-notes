@@ -75,3 +75,6 @@
   - Arch Linux
  
     Allows users to customize every part of the system.
+
+# Linux Architecture Overview
+
