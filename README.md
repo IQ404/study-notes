@@ -50,4 +50,8 @@
 
 - Some Common Linux Distributions:
 
-  - 
+  - Debian
+  - Ubantu (built on top of Debian)
+ 
+    test
+  - test
