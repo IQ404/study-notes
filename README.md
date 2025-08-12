@@ -14,6 +14,10 @@
 
 - When using the word Linux, people often refer to some specific distribution of Linux OS, a free, open-source family of Unix-like OS.
 
+- Servers serving the modern webs run Linux.
+
+- Ubuntu is a modern Linux OS.
+
 - Linux is scure.
 
   Linux supports multiple users accessing the OS simultaneously.
