@@ -24,7 +24,7 @@
 
 - Linus created a free, open-source version of the unix kernel called the Linux kernel.
 
-  A kernel here is a component of OS that communicate with the hardware through device drivers. Kernel acts as an API and provide higher-level abstractions for the device drivers. Programs and other components don’t poke hardware directly, they call into the kernel.
+  A kernel here is a component of OS that communicate with the hardware through device drivers. Kernel acts as an API for other components via system calls. Kernel provides higher-level abstractions for the device drivers. Programs and other components don’t poke hardware directly, they call into the kernel.
 
 - GNU is a free/open-source Unix-like OS (a re-implementation of Unix).
 
