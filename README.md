@@ -8,4 +8,24 @@
 
   E.g. MacOS
 
-- 
+- BSD (Berkeley Software Distribution): An add-on to Unix providing additional software capabilities.
+
+  MacOS was derived from BSD.
+
+- When using the word Linux, people often refer to some specific distribution of Linux OS, a free, open-source family of Unix-like OS.
+
+- Linux is scure.
+
+  Linux supports multiple users accessing the OS simultaneously.
+
+  Linux supports multitasking.
+
+  Linux is portable (can be run on many different hardwares).
+
+- Linus created a free, open-source version of the unix kernel called the Linux kernel.
+
+  A kernel here is a component of OS that communicate with the hardware through device drivers. Kernel acts as an API and provide higher-level abstractions for the device drivers. Programs and other components don’t poke hardware directly, they call into the kernel.
+
+- GNU is a free/open-source Unix-like OS (a re-implementation of Unix).
+
+  Linux OS is the unification of GNU and the Linux kernel.
