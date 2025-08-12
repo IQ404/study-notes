@@ -128,6 +128,30 @@ The physical/electronic devices of the machine (e.g., CPU, RAM, storage, screen,
 
 # Linux Filesystem
 
-A tree-like structure collecting file on the machine.
+A tree-like structure collecting directories and files on the machine.
+
+The filesystem assigns the access rights to the directories and files on the machine.
 
 The top level of the filesystem is the root directory: `/`
+
+## Some Essential Directories:
+
+### `/bin`
+
+A directory, exists directly below the root directory, that contains user binary files (the executables for running programs and core commands).
+
+### `/usr`
+
+A directory that contains user programs.
+
+### `/home`
+
+A directory for storing user's files.
+
+### `/boot`
+
+A directory that contains instructions for system startup.
+
+### `/media`
+
+A directory that contains files related to temporary media (e.g., CD, USB drive).
