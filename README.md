@@ -1,4 +1,4 @@
-# Test
+# Basic Terminologies
 
 - <ins>Script</ins> is a list of commands, interpreted by a scripting language, used to automate processes.
 
