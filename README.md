@@ -158,3 +158,15 @@ A directory that contains files related to temporary media (e.g., CD, USB drive)
 
 # Linux Shell & Terminal
 
+The Linux <ins>shell</ins> is an OS-level application that acts as an interpreter for the Linux commands.
+
+- The Linux commands can:
+  - Move and copy files.
+  - Write to and read from files.
+  - Extract/filter/search for data.
+ 
+- With the same base functionality, shells have different versions, including:
+  - bash
+  - zsh
+
+The Linux <ins>terminal</ins> is the UI to enter Linux commands, interact with the shell, and receive output of the commands.
