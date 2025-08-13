@@ -156,5 +156,5 @@ A directory that contains instructions for system startup.
 
 A directory that contains files related to temporary media (e.g., CD, USB drive).
 
-# Linux Terminal
+# Linux Shell & Terminal
 
