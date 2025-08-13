@@ -170,3 +170,9 @@ The Linux <ins>shell</ins> is an OS-level application that acts as an interprete
   - zsh
 
 The Linux <ins>terminal</ins> is the UI to enter Linux commands, interact with the shell, and receive output of the commands.
+
+```
+/home/me/ $ python myprogram.py
+Hello, World!
+```
+
