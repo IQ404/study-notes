@@ -171,6 +171,8 @@ The Linux <ins>shell</ins> is an OS-level application that acts as an interprete
 
 The Linux <ins>terminal</ins> is the UI to enter Linux commands, interact with the shell, and receive output of the commands.
 
+Example:
+
 ```
 /home/me/ $ python myprogram.py
 Hello, World!
