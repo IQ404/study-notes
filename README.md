@@ -138,7 +138,7 @@ The top level of the filesystem is the root directory: `/`
 
 ### `/bin`
 
-A directory, exists directly below the root directory, that contains user binary files (the executables acting as the tools for running programs and core commands).
+A directory, exists directly below the root directory, that contains user binary files (the executables acting as the tools for running programs and core commands like `ls`, `cat`, `grep`).
 
 ### `/usr`
 
