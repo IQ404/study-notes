@@ -142,7 +142,7 @@ A directory, exists directly below the root directory, that contains user binary
 
 ### `/usr`
 
-A directory that contains user programs.
+A directory that contains user programs (e.g., the Python application).
 
 ### `/home`
 
