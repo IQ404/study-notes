@@ -173,7 +173,7 @@ The Linux <ins>terminal</ins> is the UI to enter Linux commands, interact with t
 
 Example:
 
-```shell
+```bash
 /home/me/ $ python myprogram.py
 Hello, World!
 ```
