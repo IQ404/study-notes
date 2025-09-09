@@ -187,4 +187,4 @@ Hello, World!
   ```
 
   (You can check this yourself via `echo $PATH`)
-- 
+- Linux searches these directories in order from left to right, looking for an <ins>executable</ins> file named `python`.
