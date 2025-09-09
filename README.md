@@ -180,3 +180,11 @@ Hello, World!
 
 - `/home/me/` is the (current) working directory.
 - `$` indicates we're in a bash shell.
+- When we type a command like `python` without specifying its full path, Linux searches for it in a predefined list of directories. This list is stored in the PATH environment variable. PATH contains multiple directories separated by `:`, typically looking something like:
+
+  ```
+  /usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+  ```
+
+  (You can check this yourself via `echo $PATH`)
+- 
