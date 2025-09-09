@@ -178,3 +178,4 @@ Example:
 Hello, World!
 ```
 
+`$` indicates we're in a bash shell.
