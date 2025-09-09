@@ -187,4 +187,11 @@ Hello, World!
   ```
 
   (You can check this yourself via `echo $PATH`)
-- Linux searches these directories in order from left to right, looking for an <ins>executable</ins> file named `python`.
+
+  Linux searches these directories in order from left to right, looking for an <ins>executable</ins> file named `python`.
+
+  First match wins - as soon as Linux finds an executable named `python` in one of these directories, it runs it.
+
+- `myprogram.py` is an argument passed to the program/application (here is Python).
+
+  Since `myprogram.py` is a relative path, Python then looks for `myprogram.py` file in the current working directory (`/home/me/`).
