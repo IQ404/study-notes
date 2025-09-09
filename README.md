@@ -178,4 +178,5 @@ Example:
 Hello, World!
 ```
 
-`$` indicates we're in a bash shell.
+- `/home/me/` is the (current) working directory.
+- `$` indicates we're in a bash shell.
